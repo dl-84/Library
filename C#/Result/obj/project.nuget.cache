@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "EHElZfLtotI=",
+  "success": true,
+  "projectFilePath": "/Users/daniel/Dev/Library/C#/Result/Result.csproj",
+  "expectedPackageFiles": [
+    "/Users/daniel/.nuget/packages/stylecop.analyzers/1.1.118/stylecop.analyzers.1.1.118.nupkg.sha512"
+  ],
+  "logs": []
+}
