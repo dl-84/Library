@@ -1,0 +1,32 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <LangVersion>latest</LangVersion>
+    <AssemblyName>Disag</AssemblyName>
+    <RootNamespace>Themes.Disag</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Avalonia" Version="12.0.3" />
+    <PackageReference Include="Avalonia.Controls.DataGrid" Version="12.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <AvaloniaResource Include="Assets/**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="README.md" />
+    <None Include="Preview/Theme.html" />
+    <None Include="..\Settings.XamlStyler" />
+  </ItemGroup>
+
+  <Target Name="FormatCode" AfterTargets="Build" Condition="'$(Configuration)' == 'Debug'">
+    <Exec Command="dotnet csharpier format ." WorkingDirectory="$(MSBuildProjectDirectory)\.." />
+    <Exec
+      Command="dotnet xstyler --recursive --directory $(MSBuildProjectDirectory)"
+      WorkingDirectory="$(MSBuildProjectDirectory)\.."
+    />
+  </Target>
+</Project>

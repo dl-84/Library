@@ -1,0 +1,2796 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DISAG Theme · Styleguide</title>
+<style>
+
+/* ================================================================
+   Design Tokens
+   ================================================================ */
+:root {
+  --primary:           #012e3b;
+  --primary-darker:    #102330;
+  --near-black:        #161922;
+  --accent-cyan:       #019dc6;
+  --accent-cyan-dark:  #007897;
+  --accent-green:      #8bba30;
+  --accent-green-dark: #8bb820;
+  --text-primary:      #333333;
+  --text-secondary:    #626262;
+  --text-muted:        #bbbbbb;
+  --text-disabled:     #A6A6A6;
+  --text-on-dark:      #f9f9f9;
+  --text-white:        #ffffff;
+  --bg-white:          #ffffff;
+  --bg-light:          #f5f5f5;
+  --bg-subtle:         #f8f8f8;
+  --bg-tinted:         #e9f5fc;
+  --bg-muted:          #eef2f5;
+  --border-light:      #EBEBEB;
+  --border-medium:     #cccccc;
+  --success:           #3baf29;
+  --warning:           #e5b80d;
+  --error:             #962317;
+  --radius-sm:         5px;
+  --radius-md:         10px;
+  --radius-lg:         20px;
+  --font-body:         Arial, "Segoe UI", "Helvetica Neue", sans-serif;
+  --font-heading:      Montserrat, "Segoe UI", Arial, sans-serif;
+  --font-mono:         "Cascadia Code", "Consolas", "Fira Mono", monospace;
+}
+
+/* ================================================================
+   Reset
+   ================================================================ */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--text-primary);
+  background: var(--bg-light);
+}
+
+/* ================================================================
+   Page Navigation
+   ================================================================ */
+.page-nav {
+  position: sticky; top: 0; z-index: 100;
+  background: var(--primary);
+  padding: 0 40px;
+  display: flex; align-items: center; gap: 2px;
+  height: 54px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.35);
+}
+.page-nav .brand {
+  font-family: var(--font-heading);
+  font-size: 17px; font-weight: 700; letter-spacing: 1.5px;
+  color: var(--text-white);
+  margin-right: 28px;
+}
+.page-nav .brand em { color: var(--accent-cyan); font-style: normal; }
+.page-nav a {
+  font-family: var(--font-body);
+  font-size: 13px; font-weight: 500;
+  color: rgba(255,255,255,0.65);
+  text-decoration: none;
+  padding: 5px 11px;
+  border-radius: var(--radius-sm);
+  transition: background .15s, color .15s;
+}
+.page-nav a:hover { background: rgba(255,255,255,0.1); color: var(--text-white); }
+
+/* ================================================================
+   Page Layout
+   ================================================================ */
+.container { max-width: 1140px; margin: 0 auto; padding: 56px 28px 0; }
+
+/* Section header */
+.sg-section { margin-bottom: 72px; }
+
+.sg-chapter-eyebrow {
+  font-family: var(--font-heading);
+  font-size: 11px; font-weight: 700;
+  text-transform: uppercase; letter-spacing: 2.5px;
+  color: var(--accent-cyan);
+  margin-bottom: 4px;
+}
+.sg-chapter-title {
+  font-family: var(--font-heading);
+  font-size: 28px; font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 6px;
+}
+.sg-chapter-desc {
+  font-family: var(--font-body);
+  font-size: 14px;
+  color: var(--text-secondary);
+  margin-bottom: 28px;
+  padding-bottom: 20px;
+  border-bottom: 2px solid var(--border-light);
+  max-width: 700px;
+  line-height: 1.7;
+}
+
+/* ================================================================
+   Control Block — the core pattern
+   ================================================================ */
+.ctrl-block {
+  background: var(--bg-white);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  margin-bottom: 16px;
+}
+
+/* Header row: name + token pill */
+.ctrl-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 18px 24px 14px;
+  border-bottom: 1px solid var(--border-light);
+  background: var(--bg-subtle);
+}
+.ctrl-header-left { display: flex; flex-direction: column; gap: 3px; }
+
+.ctrl-name {
+  font-family: var(--font-heading);
+  font-size: 14px; font-weight: 700;
+  color: var(--primary);
+  line-height: 1.2;
+}
+.ctrl-desc {
+  font-family: var(--font-body);
+  font-size: 12px;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  max-width: 560px;
+}
+
+/* Avalonia resource key pill */
+.ctrl-token {
+  display: inline-flex; align-items: center; gap: 5px;
+  background: rgba(1,46,59,0.07);
+  border: 1px solid rgba(1,46,59,0.14);
+  border-radius: 100px;
+  padding: 3px 10px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--primary);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.ctrl-token::before {
+  content: '{}';
+  font-size: 10px;
+  color: var(--accent-cyan);
+  font-weight: 700;
+}
+
+/* Multiple token pills */
+.ctrl-tokens { display: flex; flex-wrap: wrap; gap: 6px; flex-shrink: 0; align-items: flex-start; }
+
+/* The control stage */
+.ctrl-stage {
+  padding: 28px 24px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  align-items: center;
+}
+.ctrl-stage.col   { flex-direction: column; align-items: flex-start; }
+.ctrl-stage.dark  { background: var(--primary); }
+.ctrl-stage.tint  { background: var(--bg-tinted); }
+.ctrl-stage.light { background: var(--bg-light); }
+
+/* State labels inside stage */
+.state-label {
+  font-family: var(--font-body);
+  font-size: 11px; font-weight: 600;
+  text-transform: uppercase; letter-spacing: 1px;
+  color: var(--text-muted);
+  margin-right: 4px;
+}
+.state-group {
+  display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
+}
+.state-group + .state-group { margin-top: 12px; }
+
+/* ================================================================
+   Buttons
+   ================================================================ */
+.btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 11px 22px;
+  border-radius: var(--radius-sm);
+  font-family: var(--font-body);
+  font-size: 14px; font-weight: 600;
+  cursor: pointer;
+  border: 2px solid transparent;
+  text-decoration: none;
+  transition: background .15s, border-color .15s, color .15s, transform .1s, opacity .15s;
+  line-height: 1; white-space: nowrap;
+}
+.btn:active { transform: translateY(1px); }
+
+.btn-primary         { background: var(--primary);           color: var(--text-white);     border-color: var(--primary); }
+.btn-primary:hover   { background: var(--primary-darker);    border-color: var(--primary-darker); }
+.btn-accent          { background: var(--accent-cyan);        color: var(--text-white);     border-color: var(--accent-cyan); }
+.btn-accent:hover    { background: var(--accent-cyan-dark);  border-color: var(--accent-cyan-dark); }
+.btn-green           { background: var(--accent-green);      color: var(--text-white);     border-color: var(--accent-green); }
+.btn-green:hover     { background: var(--accent-green-dark); border-color: var(--accent-green-dark); }
+.btn-outline         { background: transparent;              color: var(--primary);        border-color: var(--primary); }
+.btn-outline:hover   { background: var(--primary);           color: var(--text-white); }
+.btn-outline-accent  { background: transparent;              color: var(--accent-cyan);    border-color: var(--accent-cyan); }
+.btn-outline-accent:hover { background: var(--accent-cyan); color: var(--text-white); }
+.btn-ghost           { background: transparent;              color: var(--text-secondary); border-color: transparent; }
+.btn-ghost:hover     { background: var(--bg-light);          color: var(--text-primary); }
+.btn-danger          { background: var(--error);             color: var(--text-white);     border-color: var(--error); }
+.btn-danger:hover    { background: #7c1c12; }
+
+.btn-sm  { padding: 7px 14px; font-size: 12px; }
+.btn-lg  { padding: 15px 32px; font-size: 16px; }
+.btn:disabled { opacity: .4; cursor: not-allowed; pointer-events: none; }
+
+/* ================================================================
+   Form elements
+   ================================================================ */
+.form-group  { display: flex; flex-direction: column; gap: 6px; width: 100%; }
+.form-label  {
+  font-family: var(--font-body);
+  font-size: 13px; font-weight: 600;
+  color: var(--text-primary);
+}
+.form-hint         { font-size: 12px; color: var(--text-muted); }
+.form-hint-error   { font-size: 12px; color: var(--error); }
+.form-hint-success { font-size: 12px; color: var(--success); }
+
+.input {
+  width: 100%;
+  padding: 10px 14px;
+  border: 1.5px solid var(--border-medium);
+  border-radius: var(--radius-sm);
+  font-family: var(--font-body);
+  font-size: 14px;
+  color: var(--text-secondary);
+  background: var(--bg-white);
+  transition: border-color .15s, box-shadow .15s;
+  outline: none;
+}
+.input::placeholder        { color: var(--text-muted); }
+.input:focus               { border-color: var(--accent-cyan); box-shadow: 0 0 0 3px rgba(1,157,198,.15); }
+.input.input-error         { border-color: var(--error); }
+.input.input-error:focus   { box-shadow: 0 0 0 3px rgba(150,35,23,.12); }
+.input.input-success       { border-color: var(--success); }
+.input:disabled            { opacity: .45; cursor: not-allowed; background: var(--bg-light); }
+select.input               { cursor: pointer; }
+textarea.input             { min-height: 88px; resize: vertical; }
+
+/* Checkbox / Radio */
+.check-row {
+  display: flex; align-items: center; gap: 10px;
+  cursor: pointer;
+  font-family: var(--font-body);
+  font-size: 14px;
+  color: var(--text-primary);
+}
+.check-row input[type=checkbox],
+.check-row input[type=radio] {
+  width: 17px; height: 17px;
+  accent-color: var(--accent-cyan);
+  cursor: pointer;
+  flex-shrink: 0;
+}
+.check-row.disabled        { color: var(--text-disabled); cursor: not-allowed; }
+.check-row span.sub        { font-size: 12px; color: var(--text-muted); display: block; }
+
+/* Toggle */
+.toggle-row { display: inline-flex; align-items: center; gap: 10px; cursor: pointer; }
+.toggle-row input { display: none; }
+.toggle-track {
+  width: 42px; height: 23px;
+  background: var(--border-medium);
+  border-radius: 12px;
+  position: relative;
+  transition: background .2s;
+  flex-shrink: 0;
+}
+.toggle-track::after {
+  content: '';
+  position: absolute; top: 3px; left: 3px;
+  width: 17px; height: 17px;
+  border-radius: 50%;
+  background: var(--text-white);
+  transition: transform .2s;
+  box-shadow: 0 1px 3px rgba(0,0,0,.2);
+}
+.toggle-row input:checked + .toggle-track { background: var(--accent-cyan); }
+.toggle-row input:checked + .toggle-track::after { transform: translateX(19px); }
+.toggle-text {
+  font-family: var(--font-body);
+  font-size: 14px;
+  color: var(--text-primary);
+}
+.toggle-text .sub { font-size: 12px; color: var(--text-muted); display: block; }
+
+/* Slider */
+.slider-wrap { width: 100%; display: flex; flex-direction: column; gap: 6px; }
+.slider-vals { display: flex; justify-content: space-between; font-size: 12px; color: var(--text-muted); font-family: var(--font-mono); }
+input[type=range] {
+  -webkit-appearance: none;
+  width: 100%; height: 6px;
+  border-radius: 3px;
+  background: linear-gradient(to right, var(--accent-cyan) 65%, var(--border-medium) 65%);
+  outline: none; cursor: pointer;
+}
+input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 20px; height: 20px;
+  border-radius: 50%;
+  background: var(--primary);
+  border: 2px solid var(--text-white);
+  box-shadow: 0 1px 4px rgba(0,0,0,.25);
+}
+
+/* ================================================================
+   Color Swatches
+   ================================================================ */
+.swatch-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 12px; }
+.swatch-item { display: flex; flex-direction: column; gap: 6px; }
+.swatch-chip {
+  height: 64px;
+  border-radius: var(--radius-md);
+  display: flex; align-items: flex-end;
+  padding: 7px 9px;
+  border: 1px solid rgba(0,0,0,.08);
+  font-family: var(--font-body);
+  font-size: 10px; font-weight: 700;
+  letter-spacing: .3px;
+}
+.swatch-name {
+  font-family: var(--font-body);
+  font-size: 12px; font-weight: 600;
+  color: var(--text-primary);
+}
+.swatch-key {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--accent-cyan-dark);
+  background: rgba(1,120,151,.08);
+  border-radius: 3px;
+  padding: 1px 5px;
+}
+.swatch-hex { font-family: var(--font-mono); font-size: 10px; color: var(--text-muted); }
+
+/* ================================================================
+   Navigation / Sidebar
+   ================================================================ */
+.app-frame {
+  display: flex;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid var(--border-light);
+  box-shadow: 0 4px 24px rgba(0,0,0,.08);
+  min-height: 420px;
+}
+.sidebar { width: 220px; background: var(--primary); padding: 20px 0; flex-shrink: 0; }
+.sidebar-logo {
+  font-family: var(--font-heading);
+  font-size: 16px; font-weight: 700; letter-spacing: 1px;
+  color: var(--text-white);
+  padding: 0 20px 18px;
+  border-bottom: 1px solid rgba(255,255,255,.1);
+  margin-bottom: 10px;
+}
+.sidebar-logo em { color: var(--accent-cyan); font-style: normal; }
+.nav-group-label {
+  font-family: var(--font-body);
+  font-size: 10px; font-weight: 700;
+  text-transform: uppercase; letter-spacing: 1.5px;
+  color: rgba(255,255,255,.3);
+  padding: 14px 20px 4px;
+}
+.nav-item {
+  display: flex; align-items: center; gap: 10px;
+  padding: 10px 20px;
+  font-family: var(--font-body);
+  font-size: 14px;
+  color: rgba(255,255,255,.65);
+  cursor: pointer;
+  border-left: 3px solid transparent;
+  transition: background .15s, color .15s;
+}
+.nav-item:hover  { background: rgba(255,255,255,.07); color: rgba(255,255,255,.9); }
+.nav-item.active { background: rgba(1,157,198,.18); color: var(--text-white); border-left-color: var(--accent-cyan); }
+.nav-icon        { width: 18px; text-align: center; font-size: 14px; }
+.main-area { flex: 1; background: var(--bg-light); padding: 28px; }
+.main-topbar {
+  display: flex; justify-content: space-between; align-items: center;
+  margin-bottom: 22px;
+}
+.main-topbar h2 {
+  font-family: var(--font-heading);
+  font-size: 20px; font-weight: 700;
+  color: var(--primary);
+}
+
+/* ================================================================
+   Stat Cards
+   ================================================================ */
+.stat-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+.stat-card {
+  background: var(--bg-white);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  padding: 18px;
+}
+.stat-icon-wrap {
+  width: 38px; height: 38px;
+  border-radius: var(--radius-md);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 18px; margin-bottom: 10px;
+}
+.si-cyan    { background: rgba(1,157,198,.12); }
+.si-primary { background: rgba(1,46,59,.1); }
+.si-green   { background: rgba(139,186,48,.12); }
+.si-warn    { background: rgba(229,184,13,.12); }
+.stat-val {
+  font-family: var(--font-heading);
+  font-size: 26px; font-weight: 700;
+  color: var(--primary);
+}
+.stat-lbl   { font-size: 12px; color: var(--text-secondary); margin-top: 2px; }
+.stat-delta { font-size: 11px; font-weight: 600; color: var(--success); margin-top: 4px; }
+.stat-delta.down { color: var(--error); }
+
+/* ================================================================
+   Table
+   ================================================================ */
+.tbl-wrap {
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+table { width: 100%; border-collapse: collapse; background: var(--bg-white); }
+thead th {
+  background: var(--primary);
+  color: var(--text-white);
+  font-family: var(--font-heading);
+  font-size: 12px; font-weight: 600;
+  letter-spacing: .5px; text-align: left;
+  padding: 12px 16px;
+}
+tbody tr { border-bottom: 1px solid var(--border-light); }
+tbody tr:last-child { border-bottom: none; }
+tbody tr:hover td { background: var(--bg-tinted); }
+tbody td {
+  padding: 11px 16px;
+  font-family: var(--font-body);
+  font-size: 13px;
+  color: var(--text-secondary);
+}
+tbody td strong { color: var(--text-primary); font-weight: 600; }
+tbody td .highlight { color: var(--primary); font-weight: 700; }
+
+/* ================================================================
+   Badges
+   ================================================================ */
+.badge {
+  display: inline-flex; align-items: center;
+  padding: 3px 10px;
+  border-radius: 100px;
+  font-family: var(--font-body);
+  font-size: 11px; font-weight: 700;
+  letter-spacing: .3px;
+}
+.badge-primary { background: rgba(1,46,59,.1);    color: var(--primary); }
+.badge-cyan    { background: rgba(1,157,198,.12);  color: var(--accent-cyan-dark); }
+.badge-green   { background: rgba(139,186,48,.15); color: var(--accent-green-dark); }
+.badge-success { background: rgba(59,175,41,.12);  color: #2a8e1d; }
+.badge-warning { background: rgba(229,184,13,.15); color: #8a6200; }
+.badge-error   { background: rgba(150,35,23,.1);   color: var(--error); }
+.badge-muted   { background: var(--bg-muted);       color: var(--text-secondary); }
+
+/* ================================================================
+   Alert
+   ================================================================ */
+.alert {
+  padding: 14px 18px;
+  border-radius: var(--radius-md);
+  display: flex; align-items: flex-start; gap: 12px;
+  border-left: 4px solid;
+}
+.alert-icon { font-size: 17px; flex-shrink: 0; margin-top: 1px; }
+.alert-body { font-family: var(--font-body); font-size: 14px; line-height: 1.5; }
+.alert-body strong { display: block; font-size: 14px; font-weight: 700; margin-bottom: 2px; }
+.alert-info    { background: var(--bg-tinted); border-color: var(--accent-cyan); color: var(--accent-cyan-dark); }
+.alert-success { background: #eaf8ef;           border-color: var(--success);    color: #1e6b12; }
+.alert-warning { background: #fef8ea;           border-color: var(--warning);    color: #7a5000; }
+.alert-error   { background: #fae9e8;           border-color: var(--error);      color: var(--error); }
+
+/* ================================================================
+   Progress
+   ================================================================ */
+.progress-row { display: flex; flex-direction: column; gap: 5px; width: 100%; }
+.progress-header {
+  display: flex; justify-content: space-between;
+  font-family: var(--font-body);
+  font-size: 13px;
+}
+.progress-header .p-name  { color: var(--text-primary); font-weight: 600; }
+.progress-header .p-pct   { color: var(--text-muted); font-family: var(--font-mono); font-size: 12px; }
+.progress-track {
+  height: 8px;
+  background: var(--bg-muted);
+  border-radius: 4px; overflow: hidden;
+}
+.progress-fill { height: 100%; border-radius: 4px; transition: width .4s; }
+.pf-primary { background: var(--primary); }
+.pf-cyan    { background: var(--accent-cyan); }
+.pf-green   { background: var(--accent-green); }
+.pf-success { background: var(--success); }
+.pf-warning { background: var(--warning); }
+.pf-error   { background: var(--error); }
+
+/* ================================================================
+   Typography rows
+   ================================================================ */
+.type-entry {
+  padding: 16px 0;
+  border-bottom: 1px solid var(--border-light);
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 20px;
+  align-items: start;
+}
+.type-entry:last-child { border-bottom: none; }
+.type-meta { display: flex; flex-direction: column; gap: 4px; padding-top: 4px; }
+.type-meta .t-role {
+  font-family: var(--font-body);
+  font-size: 12px; font-weight: 700;
+  color: var(--primary);
+  text-transform: uppercase; letter-spacing: .8px;
+}
+.type-meta .t-spec {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+.type-meta .t-token {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--accent-cyan-dark);
+  background: rgba(1,120,151,.07);
+  border-radius: 3px;
+  padding: 1px 6px;
+  display: inline-block;
+  margin-top: 2px;
+}
+
+/* ================================================================
+   Cards
+   ================================================================ */
+.content-card {
+  background: var(--bg-white);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  padding: 22px;
+  box-shadow: 0 2px 8px rgba(0,0,0,.04);
+}
+.content-card h3 {
+  font-family: var(--font-heading);
+  font-size: 17px; font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 8px;
+}
+.content-card p {
+  font-family: var(--font-body);
+  font-size: 14px;
+  color: var(--text-secondary);
+  line-height: 1.65;
+}
+.content-card-dark {
+  background: var(--primary);
+  border-radius: var(--radius-lg);
+  padding: 22px;
+}
+.content-card-dark h3 {
+  font-family: var(--font-heading);
+  font-size: 17px; font-weight: 700;
+  color: var(--text-white);
+  margin-bottom: 8px;
+}
+.content-card-dark p {
+  font-family: var(--font-body);
+  font-size: 14px;
+  color: rgba(255,255,255,.7);
+  line-height: 1.65;
+}
+.content-card-cyan {
+  background: var(--accent-cyan);
+  border-radius: var(--radius-lg);
+  padding: 22px;
+}
+.content-card-cyan h3 {
+  font-family: var(--font-heading);
+  font-size: 17px; font-weight: 700;
+  color: var(--text-white);
+  margin-bottom: 8px;
+}
+.content-card-cyan p {
+  font-family: var(--font-body);
+  font-size: 14px;
+  color: rgba(255,255,255,.85);
+  line-height: 1.65;
+}
+
+/* ================================================================
+   Tooltip
+   ================================================================ */
+.tooltip-wrap { position: relative; display: inline-block; }
+.tooltip-wrap .tooltip {
+  position: absolute; bottom: calc(100% + 8px); left: 50%;
+  transform: translateX(-50%);
+  background: var(--near-black);
+  color: var(--text-white);
+  font-family: var(--font-body);
+  font-size: 12px;
+  padding: 6px 12px;
+  border-radius: var(--radius-sm);
+  white-space: nowrap;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity .15s;
+  box-shadow: 0 2px 8px rgba(0,0,0,.3);
+}
+.tooltip-wrap .tooltip::after {
+  content: '';
+  position: absolute; top: 100%; left: 50%; transform: translateX(-50%);
+  border: 5px solid transparent;
+  border-top-color: var(--near-black);
+}
+.tooltip-wrap:hover .tooltip { opacity: 1; }
+
+/* ================================================================
+   Divider
+   ================================================================ */
+.divider { height: 1px; background: var(--border-light); margin: 20px 0; }
+.divider-label {
+  display: flex; align-items: center; gap: 12px; margin: 20px 0;
+}
+.divider-label span {
+  font-family: var(--font-body);
+  font-size: 12px; font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase; letter-spacing: 1px;
+  white-space: nowrap;
+}
+.divider-label::before, .divider-label::after {
+  content: ''; flex: 1; height: 1px; background: var(--border-light);
+}
+
+/* ================================================================
+   Chip / Tag
+   ================================================================ */
+.chip {
+  display: inline-flex; align-items: center; gap: 5px;
+  padding: 5px 12px;
+  border-radius: 100px;
+  font-family: var(--font-body);
+  font-size: 13px; font-weight: 500;
+  border: 1.5px solid;
+  cursor: default;
+}
+.chip-primary  { border-color: var(--primary);      color: var(--primary);        background: transparent; }
+.chip-cyan     { border-color: var(--accent-cyan);   color: var(--accent-cyan);    background: transparent; }
+.chip-green    { border-color: var(--accent-green);  color: var(--accent-green);   background: transparent; }
+.chip-filled-primary { border-color: var(--primary); color: var(--text-white);     background: var(--primary); }
+.chip-filled-cyan    { border-color: var(--accent-cyan); color: var(--text-white); background: var(--accent-cyan); }
+.chip × { font-size: 14px; }
+
+/* ================================================================
+   Footer
+   ================================================================ */
+.page-footer {
+  background: var(--primary);
+  color: var(--text-on-dark);
+  padding: 48px 40px 28px;
+  margin-top: 80px;
+}
+.footer-inner { max-width: 1140px; margin: 0 auto; }
+.footer-grid {
+  display: grid; grid-template-columns: 2.2fr 1fr 1fr 1fr;
+  gap: 48px; margin-bottom: 40px;
+}
+.footer-brand-name {
+  font-family: var(--font-heading);
+  font-size: 22px; font-weight: 700; letter-spacing: 1px;
+  color: var(--text-white);
+  margin-bottom: 10px;
+}
+.footer-brand-name em { color: var(--accent-cyan); font-style: normal; }
+.footer-brand-desc {
+  font-family: var(--font-body);
+  font-size: 14px;
+  color: rgba(255,255,255,.55);
+  line-height: 1.75;
+}
+.footer-col-title {
+  font-family: var(--font-heading);
+  font-size: 11px; font-weight: 700;
+  text-transform: uppercase; letter-spacing: 1.5px;
+  color: var(--accent-cyan);
+  margin-bottom: 16px;
+}
+.footer-col a {
+  display: block;
+  font-family: var(--font-body);
+  font-size: 14px;
+  color: rgba(255,255,255,.65);
+  text-decoration: none;
+  margin-bottom: 9px;
+  transition: color .15s;
+}
+.footer-col a:hover { color: var(--text-white); }
+.footer-bottom {
+  padding-top: 22px;
+  border-top: 1px solid rgba(255,255,255,.1);
+  display: flex; justify-content: space-between; align-items: center;
+}
+.footer-copy {
+  font-family: var(--font-body);
+  font-size: 12px;
+  color: rgba(255,255,255,.35);
+}
+.footer-file {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: rgba(1,157,198,.7);
+  background: rgba(1,157,198,.08);
+  padding: 3px 10px;
+  border-radius: var(--radius-sm);
+}
+
+/* Grid helpers */
+.g2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.g3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; }
+
+/* ================================================================
+   Guide / Anleitung
+   ================================================================ */
+
+/* Step number circles */
+.guide-steps { display: flex; flex-direction: column; gap: 0; }
+.guide-step {
+  display: grid;
+  grid-template-columns: 48px 1fr;
+  gap: 0 20px;
+  position: relative;
+}
+.guide-step:not(:last-child)::before {
+  content: '';
+  position: absolute;
+  left: 23px; top: 48px; bottom: -8px;
+  width: 2px;
+  background: var(--border-light);
+}
+.step-num {
+  width: 48px; height: 48px; flex-shrink: 0;
+  border-radius: 50%;
+  background: var(--primary);
+  color: var(--text-white);
+  font-family: var(--font-heading);
+  font-size: 18px; font-weight: 700;
+  display: flex; align-items: center; justify-content: center;
+  position: relative; z-index: 1;
+  box-shadow: 0 2px 8px rgba(1,46,59,.25);
+}
+.step-body { padding-bottom: 32px; padding-top: 10px; }
+.step-title {
+  font-family: var(--font-heading);
+  font-size: 17px; font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 6px;
+}
+.step-desc {
+  font-size: 14px; color: var(--text-secondary);
+  line-height: 1.7; margin-bottom: 16px;
+  max-width: 680px;
+}
+
+/* Code blocks */
+.code-block {
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  border: 1px solid var(--border-light);
+  margin-bottom: 16px;
+}
+.code-file {
+  background: var(--primary);
+  padding: 8px 16px;
+  display: flex; align-items: center; gap: 8px;
+}
+.code-file span {
+  font-family: var(--font-mono);
+  font-size: 12px; font-weight: 600;
+  color: rgba(255,255,255,.8);
+}
+.code-file .dot { width: 8px; height: 8px; border-radius: 50%; }
+.code-file .dot-r { background: #ff5f56; }
+.code-file .dot-y { background: #ffbd2e; }
+.code-file .dot-g { background: #27c93f; }
+pre.code {
+  background: var(--near-black);
+  color: #d4d4d4;
+  padding: 20px 24px;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  line-height: 1.75;
+  overflow-x: auto;
+  margin: 0;
+  tab-size: 2;
+}
+/* Syntax highlight classes */
+pre.code .xml-tag   { color: #569cd6; }
+pre.code .xml-attr  { color: #9cdcfe; }
+pre.code .xml-val   { color: #ce9178; }
+pre.code .xml-cmt   { color: #6a9955; font-style: italic; }
+pre.code .xml-text  { color: #d4d4d4; }
+pre.code .hl        { color: var(--accent-cyan); font-weight: 600; }
+pre.code .hl-green  { color: #b5cea8; }
+
+/* Inline code */
+code {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  background: rgba(1,46,59,.07);
+  color: var(--primary);
+  border: 1px solid rgba(1,46,59,.12);
+  border-radius: 4px;
+  padding: 1px 6px;
+}
+
+/* Info-Box */
+.info-box {
+  display: flex; gap: 12px; align-items: flex-start;
+  background: var(--bg-tinted);
+  border: 1px solid rgba(1,157,198,.25);
+  border-left: 4px solid var(--accent-cyan);
+  border-radius: var(--radius-md);
+  padding: 14px 18px;
+  margin-bottom: 16px;
+}
+.info-box-icon { font-size: 18px; flex-shrink: 0; margin-top: 1px; }
+.info-box-body { font-size: 14px; color: var(--accent-cyan-dark); line-height: 1.6; }
+.info-box-body strong { display: block; font-weight: 700; margin-bottom: 2px; }
+
+/* Auto-table */
+.auto-table {
+  width: 100%; border-collapse: collapse;
+  background: var(--bg-white);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  border: 1px solid var(--border-light);
+}
+.auto-table thead th {
+  background: var(--primary);
+  color: var(--text-white);
+  font-family: var(--font-heading);
+  font-size: 12px; font-weight: 600;
+  letter-spacing: .5px; text-align: left;
+  padding: 11px 16px;
+}
+.auto-table tbody tr { border-bottom: 1px solid var(--border-light); }
+.auto-table tbody tr:last-child { border-bottom: none; }
+.auto-table tbody tr:hover td { background: var(--bg-tinted); }
+.auto-table tbody td { padding: 10px 16px; font-size: 13px; color: var(--text-secondary); vertical-align: top; }
+.auto-table td:first-child { color: var(--text-primary); font-weight: 600; }
+.auto-table td code { font-size: 11px; }
+.check-yes { color: var(--success); font-weight: 700; font-size: 15px; }
+.check-no  { color: var(--text-muted); font-size: 15px; }
+
+/* Class reference rows */
+.class-ref { display: flex; flex-direction: column; gap: 12px; }
+.class-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  background: var(--bg-white);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+.class-row-info {
+  padding: 16px 20px;
+  border-right: 1px solid var(--border-light);
+  display: flex; flex-direction: column; gap: 6px;
+}
+.class-row-name {
+  font-family: var(--font-mono);
+  font-size: 13px; font-weight: 700;
+  color: var(--primary);
+}
+.class-row-name em {
+  font-family: var(--font-mono);
+  font-style: normal;
+  color: var(--accent-cyan);
+}
+.class-row-desc {
+  font-size: 13px; color: var(--text-secondary); line-height: 1.55;
+}
+.class-row-stage {
+  padding: 16px 20px;
+  display: flex; align-items: center; flex-wrap: wrap; gap: 10px;
+  background: var(--bg-subtle);
+}
+.class-row-stage.dark-bg { background: var(--primary); }
+
+/* File tree */
+.file-tree {
+  background: var(--near-black);
+  border-radius: var(--radius-md);
+  padding: 20px 24px;
+  font-family: var(--font-mono);
+  font-size: 13px;
+  line-height: 1.9;
+  color: #d4d4d4;
+}
+.file-tree .dir  { color: #9cdcfe; font-weight: 600; }
+.file-tree .new  { color: #b5cea8; }
+.file-tree .note { color: #6a9955; font-style: italic; font-size: 11px; margin-left: 8px; }
+
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+     Navigation
+     ============================================================ -->
+<nav class="page-nav">
+  <div class="brand">DIS<em>AG</em></div>
+  <a href="#anleitung" style="background:rgba(1,157,198,.2);color:#fff;">Anleitung</a>
+  <a href="#farben">Farben</a>
+  <a href="#buttons">Buttons</a>
+  <a href="#inputs">Eingaben</a>
+  <a href="#auswahl">Auswahl</a>
+  <a href="#navigation">Navigation</a>
+  <a href="#karten">Karten</a>
+  <a href="#tabelle">Tabelle</a>
+  <a href="#badges">Badges</a>
+  <a href="#alerts">Alerts</a>
+  <a href="#progress">Fortschritt</a>
+  <a href="#typo">Typografie</a>
+</nav>
+
+<div class="container">
+
+<!-- ============================================================
+     ANLEITUNG
+     ============================================================ -->
+<section class="sg-section" id="anleitung">
+  <div class="sg-chapter-eyebrow">Integration</div>
+  <div class="sg-chapter-title">Theme einbinden &amp; verwenden</div>
+  <div class="sg-chapter-desc">
+    Das DISAG-Theme ist eine eigenständige Klassenbibliothek. Nach dem Hinzufügen der Projektreferenz genügt eine einzige Zeile in <code>App.axaml</code> — alle Standard-Controls sind sofort gestylt, ohne eine einzige Zeile in deinen Views zu ändern.
+  </div>
+
+  <!-- ── Step 1: Dateien ── -->
+  <div class="guide-steps">
+  <div class="guide-step">
+    <div class="step-num">1</div>
+    <div class="step-body">
+      <div class="step-title">Projektreferenz hinzufügen</div>
+      <div class="step-desc">
+        Das Disag-Theme als Projektreferenz in die <code>.csproj</code> deiner App eintragen.
+      </div>
+      <div class="file-tree">
+        <div><span class="dir">📁 MeinApp/</span></div>
+        <div>&nbsp;&nbsp;├── App.axaml</div>
+        <div>&nbsp;&nbsp;├── App.axaml.cs</div>
+        <div>&nbsp;&nbsp;├── MainWindow.axaml</div>
+        <div>&nbsp;&nbsp;└── MeinApp.csproj</div>
+        <div><span class="dir">📁 Themes/Disag/</span><span class="note">← Theme-Projekt</span></div>
+        <div>&nbsp;&nbsp;└── <span class="new">Disag.csproj</span></div>
+      </div>
+      <div class="code-block" style="margin-top:16px;">
+        <div class="code-file">
+          <div class="dot dot-r"></div><div class="dot dot-y"></div><div class="dot dot-g"></div>
+          <span>MeinApp.csproj</span>
+        </div>
+        <pre class="code"><span class="xml-tag">&lt;ItemGroup&gt;</span>
+  <span class="xml-tag">&lt;ProjectReference</span> <span class="xml-attr">Include</span>=<span class="xml-val hl">"..\Themes\Disag\Disag.csproj"</span> <span class="xml-tag">/&gt;</span>
+<span class="xml-tag">&lt;/ItemGroup&gt;</span></pre>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Step 2: App.axaml ── -->
+  <div class="guide-step">
+    <div class="step-num">2</div>
+    <div class="step-body">
+      <div class="step-title">In App.axaml einbinden</div>
+      <div class="step-desc">
+        Den <code>themes</code>-Namespace deklarieren und <code>&lt;themes:Disag /&gt;</code> in <code>Application.Styles</code> eintragen — <strong>nach</strong> <code>FluentTheme</code>, damit die DISAG-Styles die Fluent-Defaults überschreiben.
+      </div>
+
+      <div class="code-block">
+        <div class="code-file">
+          <div class="dot dot-r"></div><div class="dot dot-y"></div><div class="dot dot-g"></div>
+          <span>App.axaml</span>
+        </div>
+        <pre class="code"><span class="xml-tag">&lt;Application</span> <span class="xml-attr">xmlns</span>=<span class="xml-val">"https://github.com/avaloniaui"</span>
+             <span class="xml-attr">xmlns:x</span>=<span class="xml-val">"http://schemas.microsoft.com/winfx/2006/xaml"</span>
+             <span class="xml-attr">xmlns:themes</span>=<span class="xml-val hl">"clr-namespace:Themes.Disag;assembly=Disag"</span>
+             <span class="xml-attr">x:Class</span>=<span class="xml-val">"MeinApp.App"</span><span class="xml-tag">&gt;</span>
+
+  <span class="xml-tag">&lt;Application.Styles&gt;</span>
+    <span class="xml-tag">&lt;FluentTheme</span> <span class="xml-tag">/&gt;</span>
+    <span class="xml-tag">&lt;themes:Disag</span> <span class="xml-tag">/&gt;</span>
+  <span class="xml-tag">&lt;/Application.Styles&gt;</span>
+
+<span class="xml-tag">&lt;/Application&gt;</span></pre>
+      </div>
+
+      <div class="info-box">
+        <span class="info-box-icon">⚠️</span>
+        <div class="info-box-body">
+          <strong>Reihenfolge ist wichtig</strong>
+          <code>&lt;themes:Disag /&gt;</code> muss <em>nach</em> <code>FluentTheme</code> stehen. Avalonia wendet Styles in der definierten Reihenfolge an — spätere Einträge gewinnen bei Konflikten.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Step 3: Was automatisch passiert ── -->
+  <div class="guide-step">
+    <div class="step-num">3</div>
+    <div class="step-body">
+      <div class="step-title">Was jetzt automatisch passiert</div>
+      <div class="step-desc">
+        Diese Controls werden ohne jede weitere Änderung an deinen Views im DISAG-Theme dargestellt. Alle Zustände (Hover, Pressed, Disabled, Fokus) sind eingeschlossen.
+      </div>
+      <table class="auto-table">
+        <thead>
+          <tr>
+            <th>Control</th>
+            <th>Normal</th>
+            <th>Hover</th>
+            <th>Fokus</th>
+            <th>Disabled</th>
+            <th>Was sich ändert</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>Button</code></td>
+            <td><span class="check-yes">✓</span></td><td><span class="check-yes">✓</span></td><td><span class="check-no">—</span></td><td><span class="check-yes">✓</span></td>
+            <td>Primary-Hintergrund, Hover dunkler, Opacity 40% wenn disabled</td>
+          </tr>
+          <tr>
+            <td><code>TextBox</code></td>
+            <td><span class="check-yes">✓</span></td><td><span class="check-yes">✓</span></td><td><span class="check-yes">✓</span></td><td><span class="check-yes">✓</span></td>
+            <td>Cyan-Rahmen bei Fokus, Placeholder-Farbe, Hintergrund grau wenn disabled</td>
+          </tr>
+          <tr>
+            <td><code>ComboBox</code></td>
+            <td><span class="check-yes">✓</span></td><td><span class="check-yes">✓</span></td><td><span class="check-yes">✓</span></td><td><span class="check-yes">✓</span></td>
+            <td>Wie TextBox + Dropdown-Items mit Hover/Auswahl-Farben</td>
+          </tr>
+          <tr>
+            <td><code>CheckBox</code></td>
+            <td><span class="check-yes">✓</span></td><td><span class="check-yes">✓</span></td><td><span class="check-no">—</span></td><td><span class="check-yes">✓</span></td>
+            <td>Cyan-Haken im aktivierten Zustand</td>
+          </tr>
+          <tr>
+            <td><code>RadioButton</code></td>
+            <td><span class="check-yes">✓</span></td><td><span class="check-yes">✓</span></td><td><span class="check-no">—</span></td><td><span class="check-yes">✓</span></td>
+            <td>Cyan-Füllung wenn ausgewählt</td>
+          </tr>
+          <tr>
+            <td><code>ToggleSwitch</code></td>
+            <td><span class="check-yes">✓</span></td><td><span class="check-no">—</span></td><td><span class="check-no">—</span></td><td><span class="check-yes">✓</span></td>
+            <td>Grauer Track → Cyan wenn aktiviert, weißer Knob</td>
+          </tr>
+          <tr>
+            <td><code>Slider</code></td>
+            <td><span class="check-yes">✓</span></td><td><span class="check-no">—</span></td><td><span class="check-no">—</span></td><td><span class="check-yes">✓</span></td>
+            <td>Cyan-gefüllter Track links, grauer Track rechts, Primary-Thumb</td>
+          </tr>
+          <tr>
+            <td><code>ProgressBar</code></td>
+            <td><span class="check-yes">✓</span></td><td><span class="check-no">—</span></td><td><span class="check-no">—</span></td><td><span class="check-no">—</span></td>
+            <td>Cyan-Balken, abgerundete Ecken</td>
+          </tr>
+          <tr>
+            <td><code>ListBox / ListBoxItem</code></td>
+            <td><span class="check-yes">✓</span></td><td><span class="check-yes">✓</span></td><td><span class="check-no">—</span></td><td><span class="check-no">—</span></td>
+            <td>Tint-Hover, Primary-Auswahl mit weißem Text</td>
+          </tr>
+          <tr>
+            <td><code>DataGrid</code></td>
+            <td><span class="check-yes">✓</span></td><td><span class="check-yes">✓</span></td><td><span class="check-no">—</span></td><td><span class="check-no">—</span></td>
+            <td>Primary-Header, alternierende Zeilen, Tint-Hover</td>
+          </tr>
+          <tr>
+            <td><code>TabControl / TabItem</code></td>
+            <td><span class="check-yes">✓</span></td><td><span class="check-yes">✓</span></td><td><span class="check-no">—</span></td><td><span class="check-no">—</span></td>
+            <td>Aktiver Tab Primary + Unterstrich-Indikator</td>
+          </tr>
+          <tr>
+            <td><code>Menu / ContextMenu</code></td>
+            <td><span class="check-yes">✓</span></td><td><span class="check-yes">✓</span></td><td><span class="check-no">—</span></td><td><span class="check-yes">✓</span></td>
+            <td>Hover-Eintrag in Primary</td>
+          </tr>
+          <tr>
+            <td><code>ScrollBar</code></td>
+            <td><span class="check-yes">✓</span></td><td><span class="check-yes">✓</span></td><td><span class="check-no">—</span></td><td><span class="check-no">—</span></td>
+            <td>Gedämpfter Thumb, Cyan bei Hover</td>
+          </tr>
+          <tr>
+            <td><code>ToolTip</code></td>
+            <td><span class="check-yes">✓</span></td><td><span class="check-no">—</span></td><td><span class="check-no">—</span></td><td><span class="check-no">—</span></td>
+            <td>Dunkler Hintergrund, weißer Text</td>
+          </tr>
+          <tr>
+            <td><code>TextBlock</code></td>
+            <td><span class="check-yes">✓</span></td><td><span class="check-no">—</span></td><td><span class="check-no">—</span></td><td><span class="check-no">—</span></td>
+            <td>Schriftart, Größe, TextPrimaryBrush als Standard</td>
+          </tr>
+          <tr>
+            <td><code>Window</code></td>
+            <td><span class="check-yes">✓</span></td><td><span class="check-no">—</span></td><td><span class="check-no">—</span></td><td><span class="check-no">—</span></td>
+            <td>Weißer Hintergrund, Standardschrift</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- ── Step 4: Classes-Referenz ── -->
+  <div class="guide-step">
+    <div class="step-num">4</div>
+    <div class="step-body">
+      <div class="step-title">Klassen-Referenz: opt-in Varianten</div>
+      <div class="step-desc">
+        Für Controls die mehrere Varianten brauchen, werden Style-Klassen via <code>Classes="..."</code> gesetzt.
+        Klassen sind additiv — du kannst mehrere kombinieren, z. B. <code>Classes="accent sm"</code>.
+      </div>
+
+      <!-- ─ Button-Varianten ─ -->
+      <div style="margin-bottom:28px;">
+        <div style="font-family:var(--font-heading);font-size:15px;font-weight:700;color:var(--primary);margin-bottom:14px;padding-bottom:8px;border-bottom:2px solid var(--border-light);">
+          Button — Varianten
+        </div>
+        <div class="class-ref">
+
+          <div class="class-row">
+            <div class="class-row-info">
+              <div class="class-row-name">&lt;Button&gt; <em>(kein Classes)</em></div>
+              <div class="class-row-desc">Standard — Primärfarbe. Für die wichtigste Aktion eines Screens.</div>
+              <code style="font-size:11px;margin-top:4px;">&lt;Button&gt;Speichern&lt;/Button&gt;</code>
+            </div>
+            <div class="class-row-stage">
+              <button class="btn btn-primary">Speichern</button>
+              <button class="btn btn-primary" style="background:var(--primary-darker);">Hover →</button>
+              <button class="btn btn-primary" disabled>Disabled</button>
+            </div>
+          </div>
+
+          <div class="class-row">
+            <div class="class-row-info">
+              <div class="class-row-name">&lt;Button <em>Classes="accent"</em>&gt;</div>
+              <div class="class-row-desc">Cyan-Akzent. Für sekundäre CTAs, neue Einträge, ergänzende Hauptaktionen.</div>
+              <code style="font-size:11px;margin-top:4px;">&lt;Button Classes="accent"&gt;+ Neu&lt;/Button&gt;</code>
+            </div>
+            <div class="class-row-stage">
+              <button class="btn btn-accent">+ Neues Training</button>
+              <button class="btn btn-accent" style="background:var(--accent-cyan-dark);">Hover →</button>
+            </div>
+          </div>
+
+          <div class="class-row">
+            <div class="class-row-info">
+              <div class="class-row-name">&lt;Button <em>Classes="green"</em>&gt;</div>
+              <div class="class-row-desc">Grün-Akzent. Für positive/bestätigende Aktionen wie „Verbinden", „Aktivieren".</div>
+              <code style="font-size:11px;margin-top:4px;">&lt;Button Classes="green"&gt;Verbinden&lt;/Button&gt;</code>
+            </div>
+            <div class="class-row-stage">
+              <button class="btn btn-green">Verbinden</button>
+              <button class="btn btn-green" style="background:var(--accent-green-dark);">Hover →</button>
+            </div>
+          </div>
+
+          <div class="class-row">
+            <div class="class-row-info">
+              <div class="class-row-name">&lt;Button <em>Classes="outline"</em>&gt;</div>
+              <div class="class-row-desc">Outline Primary. Transparenter Hintergrund, Primary-Rahmen. Für tertiäre Aktionen neben einem gefüllten Button.</div>
+              <code style="font-size:11px;margin-top:4px;">&lt;Button Classes="outline"&gt;Details&lt;/Button&gt;</code>
+            </div>
+            <div class="class-row-stage">
+              <button class="btn btn-outline">Details</button>
+              <button class="btn btn-outline" style="background:var(--primary);color:#fff;">Hover →</button>
+            </div>
+          </div>
+
+          <div class="class-row">
+            <div class="class-row-info">
+              <div class="class-row-name">&lt;Button <em>Classes="outline-accent"</em>&gt;</div>
+              <div class="class-row-desc">Outline Cyan. Für tertiäre Aktionen im Kontext von Akzent-Elementen.</div>
+              <code style="font-size:11px;margin-top:4px;">&lt;Button Classes="outline-accent"&gt;Export&lt;/Button&gt;</code>
+            </div>
+            <div class="class-row-stage">
+              <button class="btn btn-outline-accent">Export</button>
+              <button class="btn btn-outline-accent" style="background:var(--accent-cyan);color:#fff;">Hover →</button>
+            </div>
+          </div>
+
+          <div class="class-row">
+            <div class="class-row-info">
+              <div class="class-row-name">&lt;Button <em>Classes="ghost"</em>&gt;</div>
+              <div class="class-row-desc">Kein Hintergrund, kein Rand. Für Abbrechen, Schließen, Nebenaktionen in Toolbars.</div>
+              <code style="font-size:11px;margin-top:4px;">&lt;Button Classes="ghost"&gt;Abbrechen&lt;/Button&gt;</code>
+            </div>
+            <div class="class-row-stage">
+              <button class="btn btn-ghost">Abbrechen</button>
+              <button class="btn btn-ghost" style="background:var(--bg-light);color:var(--text-primary);">Hover →</button>
+            </div>
+          </div>
+
+          <div class="class-row">
+            <div class="class-row-info">
+              <div class="class-row-name">&lt;Button <em>Classes="danger"</em>&gt;</div>
+              <div class="class-row-desc">Destruktive Aktionen: Löschen, Verbindung trennen, Zurücksetzen. Sparsam einsetzen.</div>
+              <code style="font-size:11px;margin-top:4px;">&lt;Button Classes="danger"&gt;Löschen&lt;/Button&gt;</code>
+            </div>
+            <div class="class-row-stage">
+              <button class="btn btn-danger">Training löschen</button>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Button-Kombination Beispiel -->
+        <div class="code-block" style="margin-top:14px;">
+          <div class="code-file">
+            <div class="dot dot-r"></div><div class="dot dot-y"></div><div class="dot dot-g"></div>
+            <span>Typische Verwendung — Dialog-Footer</span>
+          </div>
+          <pre class="code"><span class="xml-cmt">&lt;!-- Primär rechts, Ghost links — Standard-Dialogmuster --&gt;</span>
+<span class="xml-tag">&lt;StackPanel</span> <span class="xml-attr">Orientation</span>=<span class="xml-val">"Horizontal"</span> <span class="xml-attr">HorizontalAlignment</span>=<span class="xml-val">"Right"</span> <span class="xml-attr">Spacing</span>=<span class="xml-val">"8"</span><span class="xml-tag">&gt;</span>
+    <span class="xml-tag">&lt;Button</span> <span class="xml-attr">Classes</span>=<span class="xml-val">"ghost"</span><span class="xml-tag">&gt;</span>Abbrechen<span class="xml-tag">&lt;/Button&gt;</span>
+    <span class="xml-tag">&lt;Button&gt;</span>Speichern<span class="xml-tag">&lt;/Button&gt;</span>
+<span class="xml-tag">&lt;/StackPanel&gt;</span>
+
+<span class="xml-cmt">&lt;!-- Danger-Button mit Bestätigungsdialog --&gt;</span>
+<span class="xml-tag">&lt;Button</span> <span class="xml-attr">Classes</span>=<span class="xml-val">"danger"</span>
+        <span class="xml-attr">Command</span>=<span class="xml-val">"{Binding DeleteCommand}"</span><span class="xml-tag">&gt;</span>
+    Training unwiderruflich löschen
+<span class="xml-tag">&lt;/Button&gt;</span></pre>
+        </div>
+      </div>
+
+      <!-- ─ TextBlock-Klassen ─ -->
+      <div style="margin-bottom:28px;">
+        <div style="font-family:var(--font-heading);font-size:15px;font-weight:700;color:var(--primary);margin-bottom:14px;padding-bottom:8px;border-bottom:2px solid var(--border-light);">
+          TextBlock — Textstile
+        </div>
+        <div class="class-ref">
+
+          <div class="class-row">
+            <div class="class-row-info">
+              <div class="class-row-name">&lt;TextBlock <em>Classes="h1"</em>&gt;</div>
+              <div class="class-row-desc">42 px · Bold · NearBlack. Seitentitel, Hero-Überschriften.</div>
+              <code style="font-size:11px;margin-top:4px;">&lt;TextBlock Classes="h1"&gt;Ergebnisse&lt;/TextBlock&gt;</code>
+            </div>
+            <div class="class-row-stage" style="background:var(--bg-white);">
+              <span style="font-family:var(--font-heading);font-size:36px;font-weight:700;color:var(--near-black);line-height:1.1;">Ergebnisse</span>
+            </div>
+          </div>
+
+          <div class="class-row">
+            <div class="class-row-info">
+              <div class="class-row-name">&lt;TextBlock <em>Classes="h2"</em>&gt;</div>
+              <div class="class-row-desc">36 px · Bold · Primary. Abschnittsüberschriften.</div>
+              <code style="font-size:11px;margin-top:4px;">&lt;TextBlock Classes="h2"&gt;Trainingsübersicht&lt;/TextBlock&gt;</code>
+            </div>
+            <div class="class-row-stage" style="background:var(--bg-white);">
+              <span style="font-family:var(--font-heading);font-size:28px;font-weight:700;color:var(--primary);">Trainingsübersicht</span>
+            </div>
+          </div>
+
+          <div class="class-row">
+            <div class="class-row-info">
+              <div class="class-row-name">&lt;TextBlock <em>Classes="h3"</em>&gt;</div>
+              <div class="class-row-desc">22 px · SemiBold · Primary. Karten-Titel, Panel-Überschriften.</div>
+              <code style="font-size:11px;margin-top:4px;">&lt;TextBlock Classes="h3"&gt;Gerätestatus&lt;/TextBlock&gt;</code>
+            </div>
+            <div class="class-row-stage" style="background:var(--bg-white);">
+              <span style="font-family:var(--font-heading);font-size:20px;font-weight:600;color:var(--primary);">Gerätestatus</span>
+            </div>
+          </div>
+
+          <div class="class-row">
+            <div class="class-row-info">
+              <div class="class-row-name">&lt;TextBlock <em>Classes="h4"</em>&gt;</div>
+              <div class="class-row-desc">20 px · SemiBold · Primary. Gruppen-Überschriften, Formular-Sektionen.</div>
+              <code style="font-size:11px;margin-top:4px;">&lt;TextBlock Classes="h4"&gt;Verbindung&lt;/TextBlock&gt;</code>
+            </div>
+            <div class="class-row-stage" style="background:var(--bg-white);">
+              <span style="font-family:var(--font-heading);font-size:17px;font-weight:600;color:var(--primary);">Verbindung</span>
+            </div>
+          </div>
+
+          <div class="class-row">
+            <div class="class-row-info">
+              <div class="class-row-name">&lt;TextBlock <em>Classes="secondary"</em>&gt;</div>
+              <div class="class-row-desc">14 px · Regular · TextSecondary. Beschreibungen, Metadaten, Hinweise.</div>
+              <code style="font-size:11px;margin-top:4px;">&lt;TextBlock Classes="secondary"&gt;Weitere Details…&lt;/TextBlock&gt;</code>
+            </div>
+            <div class="class-row-stage" style="background:var(--bg-white);">
+              <span style="font-size:14px;color:var(--text-secondary);">Beschreibungstext für Einstellungen und Felder</span>
+            </div>
+          </div>
+
+          <div class="class-row">
+            <div class="class-row-info">
+              <div class="class-row-name">&lt;TextBlock <em>Classes="muted"</em>&gt;</div>
+              <div class="class-row-desc">12 px · Regular · TextMuted. Hinweistexte, Timestamps, Labels unter Feldern.</div>
+              <code style="font-size:11px;margin-top:4px;">&lt;TextBlock Classes="muted"&gt;Zuletzt: 14.05.2026&lt;/TextBlock&gt;</code>
+            </div>
+            <div class="class-row-stage" style="background:var(--bg-white);">
+              <span style="font-size:12px;color:var(--text-muted);">Zuletzt aktualisiert: 14. Mai 2026 · v3.2.1</span>
+            </div>
+          </div>
+
+          <div class="class-row">
+            <div class="class-row-info">
+              <div class="class-row-name">&lt;TextBlock <em>Classes="caption"</em>&gt;</div>
+              <div class="class-row-desc">11 px · Regular · TextMuted. Tabellen-Fußzeilen, Zusatz-Infos, sehr kleine Anmerkungen.</div>
+              <code style="font-size:11px;margin-top:4px;">&lt;TextBlock Classes="caption"&gt;*Pflichtfeld&lt;/TextBlock&gt;</code>
+            </div>
+            <div class="class-row-stage" style="background:var(--bg-white);">
+              <span style="font-size:11px;color:var(--text-muted);">* Alle Angaben ohne Gewähr · © 2026 DISAG GmbH</span>
+            </div>
+          </div>
+
+          <div class="class-row">
+            <div class="class-row-info">
+              <div class="class-row-name">&lt;TextBlock <em>Classes="label"</em>&gt;</div>
+              <div class="class-row-desc">11 px · Bold · Cyan · LetterSpacing 2. Abschnitts-Eyebrow, Kategorie-Beschriftungen.</div>
+              <code style="font-size:11px;margin-top:4px;">&lt;TextBlock Classes="label"&gt;GERÄTESTATUS&lt;/TextBlock&gt;</code>
+            </div>
+            <div class="class-row-stage" style="background:var(--bg-white);">
+              <span style="font-family:var(--font-heading);font-size:11px;font-weight:700;letter-spacing:2px;color:var(--accent-cyan);">GERÄTESTATUS</span>
+            </div>
+          </div>
+
+          <div class="class-row">
+            <div class="class-row-info">
+              <div class="class-row-name">&lt;TextBlock <em>Classes="on-dark"</em>&gt;</div>
+              <div class="class-row-desc">TextOnDark (#f9f9f9). Für Text auf dem Primary-Hintergrund (Sidebar, Footer, dunkle Karten).</div>
+              <code style="font-size:11px;margin-top:4px;">&lt;TextBlock Classes="on-dark"&gt;Gerätename&lt;/TextBlock&gt;</code>
+            </div>
+            <div class="class-row-stage dark-bg">
+              <span style="font-size:14px;color:var(--text-on-dark);">OpticScore 400 · SN-2024-00842</span>
+            </div>
+          </div>
+
+          <div class="class-row">
+            <div class="class-row-info">
+              <div class="class-row-name">&lt;TextBlock <em>Classes="hint-error"</em>&gt;</div>
+              <div class="class-row-desc">12 px · ErrorBrush. Unter Formularfeldern im Fehlerzustand.</div>
+              <code style="font-size:11px;margin-top:4px;">&lt;TextBlock Classes="hint-error"&gt;Pflichtfeld&lt;/TextBlock&gt;</code>
+            </div>
+            <div class="class-row-stage" style="background:var(--bg-white);">
+              <span style="font-size:12px;color:var(--error);">⚠ Dieses Feld ist erforderlich.</span>
+            </div>
+          </div>
+
+          <div class="class-row">
+            <div class="class-row-info">
+              <div class="class-row-name">&lt;TextBlock <em>Classes="hint-success"</em>&gt;</div>
+              <div class="class-row-desc">12 px · SuccessBrush. Unter Formularfeldern nach erfolgreicher Validierung.</div>
+              <code style="font-size:11px;margin-top:4px;">&lt;TextBlock Classes="hint-success"&gt;✓ Gültig&lt;/TextBlock&gt;</code>
+            </div>
+            <div class="class-row-stage" style="background:var(--bg-white);">
+              <span style="font-size:12px;color:var(--success);">✓ Eingabe erfolgreich validiert.</span>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="code-block" style="margin-top:14px;">
+          <div class="code-file">
+            <div class="dot dot-r"></div><div class="dot dot-y"></div><div class="dot dot-g"></div>
+            <span>Typische Verwendung — Formularfeld mit Beschriftung</span>
+          </div>
+          <pre class="code"><span class="xml-tag">&lt;StackPanel</span> <span class="xml-attr">Spacing</span>=<span class="xml-val">"4"</span><span class="xml-tag">&gt;</span>
+    <span class="xml-tag">&lt;TextBlock</span> <span class="xml-attr">Classes</span>=<span class="xml-val">"label"</span><span class="xml-tag">&gt;</span>DISZIPLIN<span class="xml-tag">&lt;/TextBlock&gt;</span>
+    <span class="xml-tag">&lt;TextBlock</span> <span class="xml-attr">Classes</span>=<span class="xml-val">"h3"</span><span class="xml-tag">&gt;</span>Luftpistole 10 m<span class="xml-tag">&lt;/TextBlock&gt;</span>
+    <span class="xml-tag">&lt;TextBlock</span> <span class="xml-attr">Classes</span>=<span class="xml-val">"secondary"</span><span class="xml-tag">&gt;</span>Offizielle Olympiadisziplin, 60 Schuss Einzel.<span class="xml-tag">&lt;/TextBlock&gt;</span>
+    <span class="xml-tag">&lt;TextBlock</span> <span class="xml-attr">Classes</span>=<span class="xml-val">"muted"</span><span class="xml-tag">&gt;</span>Zuletzt trainiert: 12. Mai 2026<span class="xml-tag">&lt;/TextBlock&gt;</span>
+<span class="xml-tag">&lt;/StackPanel&gt;</span></pre>
+        </div>
+      </div>
+
+      <!-- ─ TextBox-Zustände ─ -->
+      <div style="margin-bottom:28px;">
+        <div style="font-family:var(--font-heading);font-size:15px;font-weight:700;color:var(--primary);margin-bottom:14px;padding-bottom:8px;border-bottom:2px solid var(--border-light);">
+          TextBox — Validierungszustände
+        </div>
+        <div class="class-ref">
+
+          <div class="class-row">
+            <div class="class-row-info">
+              <div class="class-row-name">&lt;TextBox <em>Classes="error"</em>&gt;</div>
+              <div class="class-row-desc">Roter Rahmen. Setzen wenn die Validierung fehlschlägt. Kombinieren mit <code>TextBlock Classes="hint-error"</code>.</div>
+              <code style="font-size:11px;margin-top:4px;">&lt;TextBox Classes="error" /&gt;</code>
+            </div>
+            <div class="class-row-stage" style="flex-direction:column;align-items:stretch;gap:4px;min-width:200px;">
+              <input class="input input-error" type="text" value="abc" style="max-width:240px;">
+              <span class="form-hint-error" style="font-size:12px;">⚠ Nur Zahlen erlaubt.</span>
+            </div>
+          </div>
+
+          <div class="class-row">
+            <div class="class-row-info">
+              <div class="class-row-name">&lt;TextBox <em>Classes="success"</em>&gt;</div>
+              <div class="class-row-desc">Grüner Rahmen. Setzen wenn die Validierung erfolgreich war. Kombinieren mit <code>TextBlock Classes="hint-success"</code>.</div>
+              <code style="font-size:11px;margin-top:4px;">&lt;TextBox Classes="success" /&gt;</code>
+            </div>
+            <div class="class-row-stage" style="flex-direction:column;align-items:stretch;gap:4px;">
+              <input class="input input-success" type="text" value="Max Mustermann" style="max-width:240px;">
+              <span class="form-hint-success" style="font-size:12px;">✓ Name gefunden.</span>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="code-block" style="margin-top:14px;">
+          <div class="code-file">
+            <div class="dot dot-r"></div><div class="dot dot-y"></div><div class="dot dot-g"></div>
+            <span>Validierung im ViewModel binden</span>
+          </div>
+          <pre class="code"><span class="xml-cmt">&lt;!-- Klasse per Binding dynamisch setzen --&gt;</span>
+<span class="xml-tag">&lt;TextBox</span> <span class="xml-attr">Text</span>=<span class="xml-val">"{Binding RingCount}"</span>
+         <span class="xml-attr">Classes.error</span>=<span class="xml-val">"{Binding HasRingCountError}"</span>
+         <span class="xml-attr">Classes.success</span>=<span class="xml-val">"{Binding IsRingCountValid}"</span><span class="xml-tag">/&gt;</span>
+<span class="xml-tag">&lt;TextBlock</span> <span class="xml-attr">Classes</span>=<span class="xml-val">"hint-error"</span>
+           <span class="xml-attr">Text</span>=<span class="xml-val">"{Binding RingCountError}"</span>
+           <span class="xml-attr">IsVisible</span>=<span class="xml-val">"{Binding HasRingCountError}"</span><span class="xml-tag">/&gt;</span></pre>
+        </div>
+      </div>
+
+      <!-- ─ ProgressBar-Varianten ─ -->
+      <div style="margin-bottom:28px;">
+        <div style="font-family:var(--font-heading);font-size:15px;font-weight:700;color:var(--primary);margin-bottom:14px;padding-bottom:8px;border-bottom:2px solid var(--border-light);">
+          ProgressBar — Farbvarianten
+        </div>
+        <div class="class-ref">
+
+          <div class="class-row">
+            <div class="class-row-info">
+              <div class="class-row-name">&lt;ProgressBar&gt; <em>(Standard = Cyan)</em></div>
+              <div class="class-row-desc">AccentBrush. Allgemeiner Fortschritt, Ladebalken.</div>
+              <code style="font-size:11px;margin-top:4px;">&lt;ProgressBar Value="65" Maximum="100" /&gt;</code>
+            </div>
+            <div class="class-row-stage" style="flex-direction:column;align-items:stretch;">
+              <div class="progress-track" style="margin:0;"><div class="progress-fill pf-cyan" style="width:65%;"></div></div>
+            </div>
+          </div>
+
+          <div class="class-row">
+            <div class="class-row-info">
+              <div class="class-row-name">&lt;ProgressBar <em>Classes="primary"</em>&gt;</div>
+              <div class="class-row-desc">PrimaryBrush. Für übergeordnete Ziele, Gesamtfortschritt.</div>
+              <code style="font-size:11px;margin-top:4px;">&lt;ProgressBar Classes="primary" Value="85" /&gt;</code>
+            </div>
+            <div class="class-row-stage" style="flex-direction:column;align-items:stretch;">
+              <div class="progress-track" style="margin:0;"><div class="progress-fill pf-primary" style="width:85%;"></div></div>
+            </div>
+          </div>
+
+          <div class="class-row">
+            <div class="class-row-info">
+              <div class="class-row-name">&lt;ProgressBar <em>Classes="success"</em>&gt;</div>
+              <div class="class-row-desc">SuccessBrush. Wenn ein Ziel erreicht oder übertroffen wurde.</div>
+              <code style="font-size:11px;margin-top:4px;">&lt;ProgressBar Classes="success" Value="100" /&gt;</code>
+            </div>
+            <div class="class-row-stage" style="flex-direction:column;align-items:stretch;">
+              <div class="progress-track" style="margin:0;"><div class="progress-fill pf-success" style="width:100%;"></div></div>
+            </div>
+          </div>
+
+          <div class="class-row">
+            <div class="class-row-info">
+              <div class="class-row-name">&lt;ProgressBar <em>Classes="warning"</em>&gt;</div>
+              <div class="class-row-desc">WarningBrush. Wenn ein Wert in einem kritischen Bereich liegt.</div>
+              <code style="font-size:11px;margin-top:4px;">&lt;ProgressBar Classes="warning" Value="28" /&gt;</code>
+            </div>
+            <div class="class-row-stage" style="flex-direction:column;align-items:stretch;">
+              <div class="progress-track" style="margin:0;"><div class="progress-fill pf-warning" style="width:28%;"></div></div>
+            </div>
+          </div>
+
+          <div class="class-row">
+            <div class="class-row-info">
+              <div class="class-row-name">&lt;ProgressBar <em>Classes="error"</em>&gt;</div>
+              <div class="class-row-desc">ErrorBrush. Für kritische Zustände wie fast vollen Speicher.</div>
+              <code style="font-size:11px;margin-top:4px;">&lt;ProgressBar Classes="error" Value="94" /&gt;</code>
+            </div>
+            <div class="class-row-stage" style="flex-direction:column;align-items:stretch;">
+              <div class="progress-track" style="margin:0;"><div class="progress-fill pf-error" style="width:94%;"></div></div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- ─ Border-Karten ─ -->
+      <div style="margin-bottom:28px;">
+        <div style="font-family:var(--font-heading);font-size:15px;font-weight:700;color:var(--primary);margin-bottom:14px;padding-bottom:8px;border-bottom:2px solid var(--border-light);">
+          Border — Karten-Hilfsklassen
+        </div>
+        <div class="class-ref">
+
+          <div class="class-row">
+            <div class="class-row-info">
+              <div class="class-row-name">&lt;Border <em>Classes="card"</em>&gt;</div>
+              <div class="class-row-desc">Weiße Karte: SurfaceBrush, Rand BorderLightBrush, Radius 20 px, Padding 24 px. Standard-Inhaltskarte.</div>
+              <code style="font-size:11px;margin-top:4px;">&lt;Border Classes="card"&gt; … &lt;/Border&gt;</code>
+            </div>
+            <div class="class-row-stage tint">
+              <div class="content-card" style="min-width:180px;max-width:220px;">
+                <h3 style="font-size:14px;margin-bottom:4px;">Karte</h3>
+                <p style="font-size:12px;">Weißer Hintergrund, leichter Schatten.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="class-row">
+            <div class="class-row-info">
+              <div class="class-row-name">&lt;Border <em>Classes="card-dark"</em>&gt;</div>
+              <div class="class-row-desc">Dunkle Karte: SurfaceDarkBrush (Primary), Radius 20 px. Für Hervorhebungen und Hero-Panels.</div>
+              <code style="font-size:11px;margin-top:4px;">&lt;Border Classes="card-dark"&gt; … &lt;/Border&gt;</code>
+            </div>
+            <div class="class-row-stage tint">
+              <div class="content-card-dark" style="min-width:180px;max-width:220px;">
+                <h3 style="font-size:14px;margin-bottom:4px;">Dunkle Karte</h3>
+                <p style="font-size:12px;">Primärfarbe als Hintergrund.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="class-row">
+            <div class="class-row-info">
+              <div class="class-row-name">&lt;Border <em>Classes="card-accent"</em>&gt;</div>
+              <div class="class-row-desc">Cyan-Karte: AccentBrush, Radius 20 px. Für Call-to-Action-Bereiche.</div>
+              <code style="font-size:11px;margin-top:4px;">&lt;Border Classes="card-accent"&gt; … &lt;/Border&gt;</code>
+            </div>
+            <div class="class-row-stage tint">
+              <div class="content-card-cyan" style="min-width:180px;max-width:220px;">
+                <h3 style="font-size:14px;margin-bottom:4px;">Akzent-Karte</h3>
+                <p style="font-size:12px;">Cyan als Hintergrund.</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- ─ Ressourcen direkt nutzen ─ -->
+      <div>
+        <div style="font-family:var(--font-heading);font-size:15px;font-weight:700;color:var(--primary);margin-bottom:14px;padding-bottom:8px;border-bottom:2px solid var(--border-light);">
+          Farb-Ressourcen direkt verwenden
+        </div>
+        <div class="step-desc" style="margin-bottom:14px;">
+          Alle Brushes aus <code>Resources.axaml</code> können überall per <code>{DynamicResource …}</code> verwendet werden — in Properties, Triggers oder eigenen ControlTemplates.
+        </div>
+        <div class="code-block">
+          <div class="code-file">
+            <div class="dot dot-r"></div><div class="dot dot-y"></div><div class="dot dot-g"></div>
+            <span>Direkter Ressourcen-Zugriff in XAML</span>
+          </div>
+          <pre class="code"><span class="xml-cmt">&lt;!-- Hintergrund einer eigenen Komponente --&gt;</span>
+<span class="xml-tag">&lt;Border</span> <span class="xml-attr">Background</span>=<span class="xml-val">"{DynamicResource AppBackgroundTintBrush}"</span>
+        <span class="xml-attr">BorderBrush</span>=<span class="xml-val">"{DynamicResource BorderLightBrush}"</span>
+        <span class="xml-attr">CornerRadius</span>=<span class="xml-val">"{DynamicResource CornerRadiusMedium}"</span><span class="xml-tag">/&gt;</span>
+
+<span class="xml-cmt">&lt;!-- Benutzerdefinierten Text-Stil inline --&gt;</span>
+<span class="xml-tag">&lt;TextBlock</span> <span class="xml-attr">Foreground</span>=<span class="xml-val">"{DynamicResource AccentBrush}"</span>
+           <span class="xml-attr">FontFamily</span>=<span class="xml-val">"{DynamicResource FontHeading}"</span>
+           <span class="xml-attr">FontSize</span>=<span class="xml-val">"{DynamicResource FontSizeMedium}"</span>
+           <span class="xml-attr">FontWeight</span>=<span class="xml-val">"Bold"</span>
+           <span class="xml-attr">Text</span>=<span class="xml-val">"9,4 Ringe"</span><span class="xml-tag">/&gt;</span>
+
+<span class="xml-cmt">&lt;!-- Status-Farbe per Binding (ViewModel gibt Key-String zurück) --&gt;</span>
+<span class="xml-tag">&lt;Ellipse</span> <span class="xml-attr">Width</span>=<span class="xml-val">"10"</span> <span class="xml-attr">Height</span>=<span class="xml-val">"10"</span>
+         <span class="xml-attr">Fill</span>=<span class="xml-val">"{DynamicResource SuccessBrush}"</span><span class="xml-tag">/&gt;</span></pre>
+        </div>
+
+        <div class="info-box">
+          <span class="info-box-icon">💡</span>
+          <div class="info-box-body">
+            <strong>DynamicResource vs. StaticResource</strong>
+            Verwende immer <code>{DynamicResource}</code> — das stellt sicher, dass Controls korrekt aktualisiert werden und die Ressource auch dann aufgelöst wird, wenn das Steuerelement vor dem ResourceDictionary geladen wird. <code>{StaticResource}</code> ist nur dann besser wenn Performance kritisch ist und die Ressource garantiert vor dem Control verfügbar ist.
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /step-body -->
+  </div><!-- /guide-step -->
+  </div><!-- /guide-steps -->
+
+</section>
+
+<!-- ============================================================
+     FARBEN
+     ============================================================ -->
+<section class="sg-section" id="farben">
+  <div class="sg-chapter-eyebrow">Design Tokens</div>
+  <div class="sg-chapter-title">Farbpalette</div>
+  <div class="sg-chapter-desc">
+    Alle Farben des DISAG-Themes. Jede Farbe ist als <code style="font-family:var(--font-mono);font-size:13px;color:var(--accent-cyan-dark);">Color</code>- und <code style="font-family:var(--font-mono);font-size:13px;color:var(--accent-cyan-dark);">SolidColorBrush</code>-Resource in <em style="font-style:normal;font-weight:600;">Resources.axaml</em> definiert.
+  </div>
+
+  <!-- Brand -->
+  <div class="ctrl-block">
+    <div class="ctrl-header">
+      <div class="ctrl-header-left">
+        <div class="ctrl-name">Brand-Farben</div>
+        <div class="ctrl-desc">Primäre Markenfarben. Der dunkle Teal ist die Hauptfarbe der DISAG-Identität und wird für Header, Buttons und alle primären Aktionselemente verwendet.</div>
+      </div>
+    </div>
+    <div class="ctrl-stage" style="flex-wrap:wrap; gap:12px; padding:24px;">
+      <div class="swatch-item">
+        <div class="swatch-chip" style="background:var(--primary);color:#fff;">Primary Dark</div>
+        <div class="swatch-name">Primary</div>
+        <div class="swatch-key">PrimaryBrush</div>
+        <div class="swatch-hex">#012e3b</div>
+      </div>
+      <div class="swatch-item">
+        <div class="swatch-chip" style="background:var(--primary-darker);color:#fff;">Darker</div>
+        <div class="swatch-name">Primary Hover</div>
+        <div class="swatch-key">PrimaryHoverBrush</div>
+        <div class="swatch-hex">#102330</div>
+      </div>
+      <div class="swatch-item">
+        <div class="swatch-chip" style="background:var(--near-black);color:#fff;">Near Black</div>
+        <div class="swatch-name">Near Black</div>
+        <div class="swatch-key">TextNearBlackBrush</div>
+        <div class="swatch-hex">#161922</div>
+      </div>
+      <div class="swatch-item">
+        <div class="swatch-chip" style="background:var(--accent-cyan);color:#fff;">Accent Cyan</div>
+        <div class="swatch-name">Akzent Cyan</div>
+        <div class="swatch-key">AccentBrush</div>
+        <div class="swatch-hex">#019dc6</div>
+      </div>
+      <div class="swatch-item">
+        <div class="swatch-chip" style="background:var(--accent-cyan-dark);color:#fff;">Cyan Dark</div>
+        <div class="swatch-name">Akzent Cyan Hover</div>
+        <div class="swatch-key">AccentHoverBrush</div>
+        <div class="swatch-hex">#007897</div>
+      </div>
+      <div class="swatch-item">
+        <div class="swatch-chip" style="background:var(--accent-green);color:#fff;">Green</div>
+        <div class="swatch-name">Akzent Grün</div>
+        <div class="swatch-key">AccentGreenBrush</div>
+        <div class="swatch-hex">#8bba30</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Status -->
+  <div class="ctrl-block" style="margin-top:16px;">
+    <div class="ctrl-header">
+      <div class="ctrl-header-left">
+        <div class="ctrl-name">Status-Farben</div>
+        <div class="ctrl-desc">Semantische Farben für Rückmeldungen. Werden für Alerts, Badges und Zustandsanzeigen verwendet.</div>
+      </div>
+    </div>
+    <div class="ctrl-stage" style="gap:12px;">
+      <div class="swatch-item">
+        <div class="swatch-chip" style="background:var(--success);color:#fff;">Success</div>
+        <div class="swatch-name">Erfolg</div>
+        <div class="swatch-key">SuccessBrush</div>
+        <div class="swatch-hex">#3baf29</div>
+      </div>
+      <div class="swatch-item">
+        <div class="swatch-chip" style="background:var(--warning);color:#333;">Warning</div>
+        <div class="swatch-name">Warnung</div>
+        <div class="swatch-key">WarningBrush</div>
+        <div class="swatch-hex">#e5b80d</div>
+      </div>
+      <div class="swatch-item">
+        <div class="swatch-chip" style="background:var(--error);color:#fff;">Error</div>
+        <div class="swatch-name">Fehler</div>
+        <div class="swatch-key">ErrorBrush</div>
+        <div class="swatch-hex">#962317</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Backgrounds & Text -->
+  <div class="ctrl-block" style="margin-top:16px;">
+    <div class="ctrl-header">
+      <div class="ctrl-header-left">
+        <div class="ctrl-name">Hintergrund- & Textfarben</div>
+        <div class="ctrl-desc">Abgestufte Flächen- und Textfarben für Oberflächen, Panels, Fließtext und Hinweistexte.</div>
+      </div>
+    </div>
+    <div class="ctrl-stage col" style="gap:10px;">
+      <div style="display:flex;gap:12px;flex-wrap:wrap;">
+        <div class="swatch-item">
+          <div class="swatch-chip" style="background:var(--bg-white);border:1px solid var(--border-light);">White</div>
+          <div class="swatch-name">Hintergrund</div>
+          <div class="swatch-key">AppBackgroundBrush</div>
+          <div class="swatch-hex">#ffffff</div>
+        </div>
+        <div class="swatch-item">
+          <div class="swatch-chip" style="background:var(--bg-light);border:1px solid var(--border-light);">Light</div>
+          <div class="swatch-name">Hintergrund Alt</div>
+          <div class="swatch-key">AppBackgroundAltBrush</div>
+          <div class="swatch-hex">#f5f5f5</div>
+        </div>
+        <div class="swatch-item">
+          <div class="swatch-chip" style="background:var(--bg-tinted);border:1px solid var(--border-light);">Tinted</div>
+          <div class="swatch-name">Hintergrund Tint</div>
+          <div class="swatch-key">AppBackgroundTintBrush</div>
+          <div class="swatch-hex">#e9f5fc</div>
+        </div>
+      </div>
+      <div style="background:var(--bg-subtle);border-radius:var(--radius-md);padding:20px;width:100%;display:flex;flex-direction:column;gap:8px;border:1px solid var(--border-light);">
+        <div style="font-family:var(--font-body);font-size:15px;font-weight:600;color:var(--text-primary);">
+          TextPrimaryBrush · #333333 · Primärer Fließtext und Beschriftungen
+        </div>
+        <div style="font-family:var(--font-body);font-size:14px;color:var(--text-secondary);">
+          TextSecondaryBrush · #626262 · Sekundärer Text, Eingabewerte, Metadaten
+        </div>
+        <div style="font-family:var(--font-body);font-size:13px;color:var(--text-muted);">
+          TextMutedBrush · #bbbbbb · Hinweise, Timestamps, Platzhalter
+        </div>
+        <div style="font-family:var(--font-body);font-size:13px;color:var(--text-disabled);">
+          TextDisabledBrush · #A6A6A6 · Deaktivierte Steuerelemente
+        </div>
+        <div style="background:var(--primary);border-radius:var(--radius-sm);padding:10px 14px;display:inline-flex;gap:24px;">
+          <span style="font-family:var(--font-body);font-size:13px;color:var(--text-on-dark);">TextOnDarkBrush · #f9f9f9 · Text auf dunklem Hintergrund</span>
+          <span style="font-family:var(--font-body);font-size:13px;color:var(--text-white);">TextWhiteBrush · #ffffff</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     BUTTONS
+     ============================================================ -->
+<section class="sg-section" id="buttons">
+  <div class="sg-chapter-eyebrow">Steuerelemente</div>
+  <div class="sg-chapter-title">Buttons</div>
+  <div class="sg-chapter-desc">Schaltflächen lösen Aktionen aus. Die Hierarchie: Primär für Hauptaktionen, Akzent für sekundäre CTAs, Outline für tertiäre, Ghost für Nebenaktionen.</div>
+
+  <!-- Filled buttons -->
+  <div class="ctrl-block">
+    <div class="ctrl-header">
+      <div class="ctrl-header-left">
+        <div class="ctrl-name">Gefüllte Buttons</div>
+        <div class="ctrl-desc">Höchste visuelle Gewichtung. Primär für die wichtigste Aktion je Kontext, Akzent für ergänzende Hauptaktionen, Grün für positive/bestätigende Aktionen.</div>
+      </div>
+      <div class="ctrl-tokens">
+        <span class="ctrl-token">PrimaryBrush</span>
+        <span class="ctrl-token">AccentBrush</span>
+        <span class="ctrl-token">AccentGreenBrush</span>
+        <span class="ctrl-token">PrimaryForegroundBrush</span>
+      </div>
+    </div>
+    <div class="ctrl-stage col">
+      <div class="state-group">
+        <span class="state-label">Normal</span>
+        <button class="btn btn-primary">Primär</button>
+        <button class="btn btn-accent">Akzent Cyan</button>
+        <button class="btn btn-green">Akzent Grün</button>
+        <button class="btn btn-danger">Gefahr</button>
+      </div>
+      <div class="state-group">
+        <span class="state-label">Hover →</span>
+        <button class="btn btn-primary" style="background:var(--primary-darker);border-color:var(--primary-darker);">Primär Hover</button>
+        <button class="btn btn-accent"  style="background:var(--accent-cyan-dark);border-color:var(--accent-cyan-dark);">Cyan Hover</button>
+        <button class="btn btn-green"   style="background:var(--accent-green-dark);border-color:var(--accent-green-dark);">Grün Hover</button>
+      </div>
+      <div class="state-group">
+        <span class="state-label">Disabled</span>
+        <button class="btn btn-primary" disabled>Primär</button>
+        <button class="btn btn-accent"  disabled>Akzent</button>
+        <button class="btn btn-green"   disabled>Grün</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Outline buttons -->
+  <div class="ctrl-block" style="margin-top:16px;">
+    <div class="ctrl-header">
+      <div class="ctrl-header-left">
+        <div class="ctrl-name">Outline-Buttons</div>
+        <div class="ctrl-desc">Mittlere Gewichtung. Transparenter Hintergrund mit farbiger Umrandung. Füllen sich beim Hover mit der Rahmenfarbe.</div>
+      </div>
+      <div class="ctrl-tokens">
+        <span class="ctrl-token">BorderBrandBrush</span>
+        <span class="ctrl-token">InputFocusBorderBrush</span>
+      </div>
+    </div>
+    <div class="ctrl-stage col">
+      <div class="state-group">
+        <span class="state-label">Normal</span>
+        <button class="btn btn-outline">Outline Primary</button>
+        <button class="btn btn-outline-accent">Outline Cyan</button>
+      </div>
+      <div class="state-group">
+        <span class="state-label">Hover →</span>
+        <button class="btn btn-outline" style="background:var(--primary);color:#fff;">Outline Hover</button>
+        <button class="btn btn-outline-accent" style="background:var(--accent-cyan);color:#fff;">Cyan Hover</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Ghost button -->
+  <div class="ctrl-block" style="margin-top:16px;">
+    <div class="ctrl-header">
+      <div class="ctrl-header-left">
+        <div class="ctrl-name">Ghost-Button</div>
+        <div class="ctrl-desc">Niedrigste Gewichtung. Kein Rahmen, kein Hintergrund. Für Nebenaktionen wie „Abbrechen", Schließen-Buttons oder Links in Toolbars.</div>
+      </div>
+      <div class="ctrl-tokens">
+        <span class="ctrl-token">TextSecondaryBrush</span>
+        <span class="ctrl-token">AppBackgroundAltBrush</span>
+      </div>
+    </div>
+    <div class="ctrl-stage">
+      <span class="state-label">Normal</span>
+      <button class="btn btn-ghost">Abbrechen</button>
+      <button class="btn btn-ghost">Schließen</button>
+      <span class="state-label" style="margin-left:16px;">Hover →</span>
+      <button class="btn btn-ghost" style="background:var(--bg-light);color:var(--text-primary);">Hover</button>
+    </div>
+  </div>
+
+  <!-- Sizes -->
+  <div class="ctrl-block" style="margin-top:16px;">
+    <div class="ctrl-header">
+      <div class="ctrl-header-left">
+        <div class="ctrl-name">Größen</div>
+        <div class="ctrl-desc">Klein (sm) für Tabellenzellen und dichte Layouts, Normal für Standard-UI, Groß (lg) für Hero-Bereiche und Onboarding-Flows.</div>
+      </div>
+      <div class="ctrl-tokens">
+        <span class="ctrl-token">FontSizeSmall · 13px</span>
+        <span class="ctrl-token">FontSizeBody · 16px</span>
+      </div>
+    </div>
+    <div class="ctrl-stage" style="align-items:center;">
+      <button class="btn btn-primary btn-sm">Klein (sm)</button>
+      <button class="btn btn-primary">Normal</button>
+      <button class="btn btn-primary btn-lg">Groß (lg)</button>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     TEXTEINGABEN
+     ============================================================ -->
+<section class="sg-section" id="inputs">
+  <div class="sg-chapter-eyebrow">Steuerelemente</div>
+  <div class="sg-chapter-title">Texteingaben</div>
+  <div class="sg-chapter-desc">Eingabefelder nehmen Text, Zahlen oder strukturierte Werte vom Nutzer entgegen. Jeder Zustand hat eine eigene farbliche Kennzeichnung.</div>
+
+  <div class="g2">
+    <!-- Textfeld normal -->
+    <div class="ctrl-block">
+      <div class="ctrl-header">
+        <div class="ctrl-header-left">
+          <div class="ctrl-name">Textfeld — Normal &amp; Fokus</div>
+          <div class="ctrl-desc">Standardzustand mit mittelgrauem Rahmen. Im Fokus wechselt der Rahmen auf Cyan mit blauem Leuchten.</div>
+        </div>
+        <div class="ctrl-tokens">
+          <span class="ctrl-token">InputBorderBrush</span>
+          <span class="ctrl-token">InputFocusBorderBrush</span>
+        </div>
+      </div>
+      <div class="ctrl-stage col">
+        <div class="form-group">
+          <label class="form-label">Gerätenummer</label>
+          <input class="input" type="text" placeholder="z. B. OS-400-2024">
+          <span class="form-hint">Eindeutige Geräte-ID aus dem Lieferschein.</span>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Fokus-Zustand</label>
+          <input class="input" type="text" value="Fokussiert" style="border-color:var(--accent-cyan);box-shadow:0 0 0 3px rgba(1,157,198,.15);">
+        </div>
+      </div>
+    </div>
+
+    <!-- Fehler & Erfolg -->
+    <div class="ctrl-block">
+      <div class="ctrl-header">
+        <div class="ctrl-header-left">
+          <div class="ctrl-name">Validierungs-Zustände</div>
+          <div class="ctrl-desc">Fehler (rot) und Erfolg (grün) werden durch Rahmenfarbe und Hinweistext signalisiert. Der Hinweistext nimmt die jeweilige Statusfarbe an.</div>
+        </div>
+        <div class="ctrl-tokens">
+          <span class="ctrl-token">ErrorBrush</span>
+          <span class="ctrl-token">SuccessBrush</span>
+        </div>
+      </div>
+      <div class="ctrl-stage col">
+        <div class="form-group">
+          <label class="form-label">Ringzahl</label>
+          <input class="input input-error" type="text" value="abc">
+          <span class="form-hint-error">&#9888; Nur Zahlen von 0 – 10 erlaubt.</span>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Schützenname</label>
+          <input class="input input-success" type="text" value="Max Mustermann">
+          <span class="form-hint-success">&#10003; Name erfolgreich geprüft.</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Select -->
+    <div class="ctrl-block">
+      <div class="ctrl-header">
+        <div class="ctrl-header-left">
+          <div class="ctrl-name">Auswahlliste (Select / ComboBox)</div>
+          <div class="ctrl-desc">Dropdown für vorgegebene Werte. Gleiche Formatierung wie das Textfeld, mit Pfeil-Indikator des Browsers.</div>
+        </div>
+        <div class="ctrl-tokens">
+          <span class="ctrl-token">InputBackgroundBrush</span>
+          <span class="ctrl-token">InputForegroundBrush</span>
+        </div>
+      </div>
+      <div class="ctrl-stage col">
+        <div class="form-group">
+          <label class="form-label">Disziplin</label>
+          <select class="input">
+            <option>Luftpistole 10 m</option>
+            <option>Luftgewehr 10 m</option>
+            <option>KK-Gewehr 50 m</option>
+            <option>Pistole 25 m</option>
+          </select>
+          <span class="form-hint">Wählen Sie die Schießdisziplin für dieses Training.</span>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Gerät (deaktiviert)</label>
+          <select class="input" disabled>
+            <option>OpticScore 400</option>
+          </select>
+          <span class="form-hint">Gerät ist bereits zugewiesen und kann nicht geändert werden.</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Textarea -->
+    <div class="ctrl-block">
+      <div class="ctrl-header">
+        <div class="ctrl-header-left">
+          <div class="ctrl-name">Mehrzeiliges Textfeld (TextArea)</div>
+          <div class="ctrl-desc">Für längere Freitexte wie Kommentare oder Notizen. Vertikal skalierbar. Gleiche Farbtokens wie das einzeilige Textfeld.</div>
+        </div>
+        <div class="ctrl-tokens">
+          <span class="ctrl-token">InputBackgroundBrush</span>
+          <span class="ctrl-token">InputBorderBrush</span>
+        </div>
+      </div>
+      <div class="ctrl-stage col">
+        <div class="form-group">
+          <label class="form-label">Trainingsnotiz</label>
+          <textarea class="input" placeholder="Beobachtungen zum heutigen Training…"></textarea>
+          <span class="form-hint">Max. 500 Zeichen. Wird im Trainingsprotokoll gespeichert.</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Deaktiviert -->
+    <div class="ctrl-block">
+      <div class="ctrl-header">
+        <div class="ctrl-header-left">
+          <div class="ctrl-name">Deaktiviertes Textfeld</div>
+          <div class="ctrl-desc">Gesperrte Felder zeigen einen bestehenden Wert, der vom Nutzer nicht verändert werden kann. Opacity 45 % auf dem Steuerelement.</div>
+        </div>
+        <div class="ctrl-tokens">
+          <span class="ctrl-token">TextDisabledBrush</span>
+        </div>
+      </div>
+      <div class="ctrl-stage col">
+        <div class="form-group">
+          <label class="form-label" style="color:var(--text-disabled);">Seriennummer (schreibgeschützt)</label>
+          <input class="input" type="text" value="SN-2024-00842" disabled>
+          <span class="form-hint">Dieser Wert wird automatisch vom Gerät übertragen.</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Slider -->
+    <div class="ctrl-block">
+      <div class="ctrl-header">
+        <div class="ctrl-header-left">
+          <div class="ctrl-name">Schieberegler (Slider)</div>
+          <div class="ctrl-desc">Für numerische Bereiche. Der ausgefüllte Teil des Gleises ist in Akzent-Cyan, der Daumen in der Primärfarbe mit weißem Rand.</div>
+        </div>
+        <div class="ctrl-tokens">
+          <span class="ctrl-token">AccentBrush</span>
+          <span class="ctrl-token">PrimaryBrush</span>
+        </div>
+      </div>
+      <div class="ctrl-stage col" style="gap:20px;">
+        <div class="form-group" style="width:100%;">
+          <label class="form-label">Empfindlichkeit des Messrahmens</label>
+          <div class="slider-wrap">
+            <input type="range" value="65">
+            <div class="slider-vals"><span>0</span><span>65</span><span>100</span></div>
+          </div>
+          <span class="form-hint">Höhere Werte erhöhen die Reaktionsgeschwindigkeit, können aber Fehlauslösungen verursachen.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     AUSWAHL-CONTROLS
+     ============================================================ -->
+<section class="sg-section" id="auswahl">
+  <div class="sg-chapter-eyebrow">Steuerelemente</div>
+  <div class="sg-chapter-title">Auswahl-Steuerelemente</div>
+  <div class="sg-chapter-desc">Checkbox, Radio-Button und Toggle-Switch für binäre oder Mehrfach-Auswahlentscheidungen. Alle aktiven Zustände verwenden die Akzent-Cyan-Farbe.</div>
+
+  <div class="g3">
+    <!-- Checkbox -->
+    <div class="ctrl-block">
+      <div class="ctrl-header">
+        <div class="ctrl-header-left">
+          <div class="ctrl-name">Checkbox</div>
+          <div class="ctrl-desc">Mehrfachauswahl aus einer Liste. Aktivierter Haken in Akzent-Cyan. Deaktiviert zeigt abgeschwächte Farben.</div>
+        </div>
+        <div class="ctrl-tokens">
+          <span class="ctrl-token">AccentBrush</span>
+        </div>
+      </div>
+      <div class="ctrl-stage col" style="gap:14px;">
+        <label class="check-row">
+          <input type="checkbox" checked>
+          <div>
+            <span style="font-weight:600;">Aktiv (ausgewählt)</span>
+            <span class="sub">Dieser Eintrag ist aktiviert</span>
+          </div>
+        </label>
+        <label class="check-row">
+          <input type="checkbox">
+          <div>
+            <span>Inaktiv (nicht ausgewählt)</span>
+            <span class="sub">Klicken zum Aktivieren</span>
+          </div>
+        </label>
+        <label class="check-row disabled">
+          <input type="checkbox" disabled>
+          <div>
+            <span>Gesperrt</span>
+            <span class="sub" style="color:var(--text-disabled);">Nicht änderbar</span>
+          </div>
+        </label>
+      </div>
+    </div>
+
+    <!-- Radio -->
+    <div class="ctrl-block">
+      <div class="ctrl-header">
+        <div class="ctrl-header-left">
+          <div class="ctrl-name">Radio-Button</div>
+          <div class="ctrl-desc">Einzelauswahl aus einer Gruppe. Immer nur eine Option kann aktiv sein.</div>
+        </div>
+        <div class="ctrl-tokens">
+          <span class="ctrl-token">AccentBrush</span>
+        </div>
+      </div>
+      <div class="ctrl-stage col" style="gap:14px;">
+        <label class="check-row">
+          <input type="radio" name="disziplin" checked>
+          <div>
+            <span style="font-weight:600;">Luftpistole 10 m</span>
+            <span class="sub">Standarddisziplin</span>
+          </div>
+        </label>
+        <label class="check-row">
+          <input type="radio" name="disziplin">
+          <div>
+            <span>Luftgewehr 10 m</span>
+            <span class="sub">Mit Auflage</span>
+          </div>
+        </label>
+        <label class="check-row">
+          <input type="radio" name="disziplin">
+          <div>
+            <span>KK-Gewehr 50 m</span>
+            <span class="sub">Freihand</span>
+          </div>
+        </label>
+        <label class="check-row disabled">
+          <input type="radio" name="disziplin" disabled>
+          <div>
+            <span>Pistole 25 m</span>
+            <span class="sub" style="color:var(--text-disabled);">Lizenz erforderlich</span>
+          </div>
+        </label>
+      </div>
+    </div>
+
+    <!-- Toggle -->
+    <div class="ctrl-block">
+      <div class="ctrl-header">
+        <div class="ctrl-header-left">
+          <div class="ctrl-name">Toggle-Switch</div>
+          <div class="ctrl-desc">Ein/Aus-Schalter für Einstellungen und Features. Aktivierter Zustand in Akzent-Cyan, deaktiviert in mittelgrau.</div>
+        </div>
+        <div class="ctrl-tokens">
+          <span class="ctrl-token">AccentBrush</span>
+          <span class="ctrl-token">BorderMediumBrush</span>
+        </div>
+      </div>
+      <div class="ctrl-stage col" style="gap:18px;">
+        <label class="toggle-row">
+          <input type="checkbox" checked>
+          <div class="toggle-track"></div>
+          <div class="toggle-text">
+            Kabelgebundene Verbindung
+            <span class="sub">Gerät via USB verbunden</span>
+          </div>
+        </label>
+        <label class="toggle-row">
+          <input type="checkbox">
+          <div class="toggle-track"></div>
+          <div class="toggle-text">
+            WLAN-Modus
+            <span class="sub">Derzeit deaktiviert</span>
+          </div>
+        </label>
+        <label class="toggle-row" style="opacity:.45;pointer-events:none;">
+          <input type="checkbox" disabled>
+          <div class="toggle-track"></div>
+          <div class="toggle-text">
+            Bluetooth
+            <span class="sub" style="color:var(--text-disabled);">Nicht verfügbar</span>
+          </div>
+        </label>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     NAVIGATION
+     ============================================================ -->
+<section class="sg-section" id="navigation">
+  <div class="sg-chapter-eyebrow">Layout</div>
+  <div class="sg-chapter-title">App-Navigation &amp; Dashboard</div>
+  <div class="sg-chapter-desc">Sidebar-Navigation im DISAG-Primärton. Aktive Einträge erhalten einen Cyan-Seitenbalken und hellen Hintergrund. Überschriften, Werte und Deltawerte sind alle durch eigene Textfarben voneinander unterschieden.</div>
+
+  <div class="ctrl-block">
+    <div class="ctrl-header">
+      <div class="ctrl-header-left">
+        <div class="ctrl-name">Sidebar + Dashboard-Inhalt</div>
+        <div class="ctrl-desc">Linke Sidebar in PrimaryBrush, aktiver Eintrag mit AccentBrush-Rand. Hauptbereich in AppBackgroundAltBrush. Stat-Karten in SurfaceBrush mit je eigenem Icon-Hintergrund.</div>
+      </div>
+      <div class="ctrl-tokens">
+        <span class="ctrl-token">NavigationBackgroundBrush</span>
+        <span class="ctrl-token">NavigationActiveBrush</span>
+        <span class="ctrl-token">SurfaceBrush</span>
+      </div>
+    </div>
+    <div class="ctrl-stage" style="padding:0;">
+      <div class="app-frame" style="width:100%;">
+        <nav class="sidebar">
+          <div class="sidebar-logo">DIS<em>AG</em></div>
+          <div class="nav-group-label">Hauptmenü</div>
+          <div class="nav-item active"><span class="nav-icon">⊞</span> Dashboard</div>
+          <div class="nav-item"><span class="nav-icon">◎</span> Ergebnisse</div>
+          <div class="nav-item"><span class="nav-icon">⚙</span> Geräte</div>
+          <div class="nav-item"><span class="nav-icon">👤</span> Schützen</div>
+          <div class="nav-group-label">Verwaltung</div>
+          <div class="nav-item"><span class="nav-icon">📋</span> Berichte</div>
+          <div class="nav-item"><span class="nav-icon">🔧</span> Einstellungen</div>
+        </nav>
+        <main class="main-area">
+          <div class="main-topbar">
+            <h2>Dashboard</h2>
+            <button class="btn btn-accent btn-sm">+ Neues Training</button>
+          </div>
+          <div class="stat-grid" style="margin-bottom:18px;">
+            <div class="stat-card">
+              <div class="stat-icon-wrap si-cyan">🎯</div>
+              <div class="stat-val">9,4</div>
+              <div class="stat-lbl">Ø Ringzahl heute</div>
+              <div class="stat-delta">↑ +0,2 zum Vortag</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-icon-wrap si-primary">📊</div>
+              <div class="stat-val">342</div>
+              <div class="stat-lbl">Schuss gesamt</div>
+              <div class="stat-delta">↑ +24 seit gestern</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-icon-wrap si-green">✓</div>
+              <div class="stat-val">12</div>
+              <div class="stat-lbl">Trainings diesen Monat</div>
+              <div class="stat-delta down">↓ -1 zum Vormonat</div>
+            </div>
+            <div class="stat-card">
+              <div class="stat-icon-wrap si-warn">⏱</div>
+              <div class="stat-val">4,2 h</div>
+              <div class="stat-lbl">Trainingszeit</div>
+              <div class="stat-delta">↑ +0,5 h</div>
+            </div>
+          </div>
+          <div class="progress-row">
+            <div class="progress-header">
+              <span class="p-name">Tagesziel</span>
+              <span class="p-pct">72 %</span>
+            </div>
+            <div class="progress-track"><div class="progress-fill pf-cyan" style="width:72%;"></div></div>
+          </div>
+          <div style="font-size:12px;color:var(--text-muted);margin-top:4px;font-family:var(--font-body);">
+            Noch 28 Schuss bis zum Tagesziel von 125 Schuss.
+          </div>
+        </main>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     KARTEN
+     ============================================================ -->
+<section class="sg-section" id="karten">
+  <div class="sg-chapter-eyebrow">Layoutelemente</div>
+  <div class="sg-chapter-title">Karten (Cards)</div>
+  <div class="sg-chapter-desc">Karten gruppieren zusammengehörige Inhalte. Drei Varianten für unterschiedliche Kontexte — hell für Standard-Inhalte, dunkel für Hervorhebungen, Cyan für Call-to-Action-Bereiche.</div>
+
+  <div class="ctrl-block">
+    <div class="ctrl-header">
+      <div class="ctrl-header-left">
+        <div class="ctrl-name">Standard-Karte (Surface)</div>
+        <div class="ctrl-desc">Weißer Hintergrund, leichter Schatten und Rand. Überschrift in PrimaryBrush, Fließtext in TextSecondaryBrush.</div>
+      </div>
+      <div class="ctrl-tokens">
+        <span class="ctrl-token">SurfaceBrush</span>
+        <span class="ctrl-token">TextPrimaryBrush</span>
+        <span class="ctrl-token">TextSecondaryBrush</span>
+      </div>
+    </div>
+    <div class="ctrl-stage tint">
+      <div class="content-card" style="max-width:340px;">
+        <h3>OpticScore 400</h3>
+        <p>Elektronisches Trefferanzeigesystem für Pistole und Gewehr. Echtzeit-Auswertung mit 0,1-Ring-Genauigkeit.</p>
+        <div style="margin-top:14px;display:flex;gap:8px;align-items:center;">
+          <button class="btn btn-primary btn-sm">Details</button>
+          <span class="badge badge-success">Verbunden</span>
+        </div>
+      </div>
+      <div class="content-card" style="max-width:340px;">
+        <h3>ShotsApp Analyse</h3>
+        <p>Schussauswertung direkt auf dem Mobilgerät. Synchronisation mit dem DISAG-Backend über WLAN.</p>
+        <div style="margin-top:14px;display:flex;gap:8px;align-items:center;">
+          <button class="btn btn-outline btn-sm">Öffnen</button>
+          <span class="badge badge-warning">Synchronisiert</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="g2" style="margin-top:16px;">
+    <div class="ctrl-block">
+      <div class="ctrl-header">
+        <div class="ctrl-header-left">
+          <div class="ctrl-name">Dunkle Karte</div>
+          <div class="ctrl-desc">Primärfarbe als Hintergrund. Überschrift in TextWhiteBrush, Text in 70 % weiß. Für Hero-Panels und Info-Hervorhebungen.</div>
+        </div>
+        <div class="ctrl-tokens">
+          <span class="ctrl-token">SurfaceDarkBrush</span>
+          <span class="ctrl-token">TextWhiteBrush</span>
+        </div>
+      </div>
+      <div class="ctrl-stage">
+        <div class="content-card-dark" style="width:100%;">
+          <h3>DISAG@home</h3>
+          <p>Trainieren Sie zuhause mit professioneller Trefferauswertung. Kompatibel mit allen OpticScore-Messrahmen.</p>
+          <div style="margin-top:16px;">
+            <button class="btn btn-accent btn-sm">Mehr erfahren</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ctrl-block">
+      <div class="ctrl-header">
+        <div class="ctrl-header-left">
+          <div class="ctrl-name">Akzent-Karte</div>
+          <div class="ctrl-desc">Cyan-Akzentfarbe als Hintergrund. Überschrift und Text in weiß. Für primäre Call-to-Action-Bereiche.</div>
+        </div>
+        <div class="ctrl-tokens">
+          <span class="ctrl-token">AccentBrush</span>
+          <span class="ctrl-token">AccentForegroundBrush</span>
+        </div>
+      </div>
+      <div class="ctrl-stage">
+        <div class="content-card-cyan" style="width:100%;">
+          <h3>Firmware-Update</h3>
+          <p>Version 3.2.1 ist verfügbar. Neue Funktionen für die Trefferanalyse und verbesserte Latenz.</p>
+          <div style="margin-top:16px;">
+            <button class="btn btn-sm" style="background:#fff;color:var(--accent-cyan);border:none;font-weight:700;">Jetzt aktualisieren</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     TABELLE
+     ============================================================ -->
+<section class="sg-section" id="tabelle">
+  <div class="sg-chapter-eyebrow">Daten</div>
+  <div class="sg-chapter-title">Tabelle (DataGrid)</div>
+  <div class="sg-chapter-desc">Tabellenheader in PrimaryBrush mit weißem Text. Zeilen wechseln bei Hover auf AppBackgroundTintBrush. Wichtige Werte in TextPrimaryBrush, sekundäre Inhalte in TextSecondaryBrush.</div>
+
+  <div class="ctrl-block">
+    <div class="ctrl-header">
+      <div class="ctrl-header-left">
+        <div class="ctrl-name">Ergebnisliste</div>
+        <div class="ctrl-desc">Sortierbare Datentabelle. Hover-Zustand hebt die aktive Zeile mit dem Tint-Hintergrund hervor. Status wird durch farbige Badges ausgedrückt.</div>
+      </div>
+      <div class="ctrl-tokens">
+        <span class="ctrl-token">PrimaryBrush</span>
+        <span class="ctrl-token">AppBackgroundTintBrush</span>
+        <span class="ctrl-token">TextSecondaryBrush</span>
+      </div>
+    </div>
+    <div class="ctrl-stage" style="padding:0;display:block;">
+      <div class="tbl-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Schütze</th>
+              <th>Disziplin</th>
+              <th>Ringzahl</th>
+              <th>Ø Ring</th>
+              <th>Status</th>
+              <th>Gerät</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Max Mustermann</strong></td>
+              <td>Luftpistole 10 m</td>
+              <td><span class="highlight">564</span></td>
+              <td><span style="color:var(--accent-cyan);font-weight:600;">9,4</span></td>
+              <td><span class="badge badge-success">Aktiv</span></td>
+              <td>OpticScore 400</td>
+            </tr>
+            <tr>
+              <td><strong>Anna Schmidt</strong></td>
+              <td>Luftgewehr 10 m</td>
+              <td><span class="highlight">621</span></td>
+              <td><span style="color:var(--accent-green);font-weight:600;">9,7</span></td>
+              <td><span class="badge badge-success">Aktiv</span></td>
+              <td>OpticScore 600</td>
+            </tr>
+            <tr>
+              <td><strong>Klaus Weber</strong></td>
+              <td>KK-Gewehr 50 m</td>
+              <td><span style="color:var(--text-muted);">—</span></td>
+              <td><span style="color:var(--text-muted);">—</span></td>
+              <td><span class="badge badge-warning">Pausiert</span></td>
+              <td>OpticScore 400</td>
+            </tr>
+            <tr>
+              <td><strong>Lisa Braun</strong></td>
+              <td>Pistole 25 m</td>
+              <td><span class="highlight">547</span></td>
+              <td><span style="color:var(--text-secondary);font-weight:600;">9,1</span></td>
+              <td><span class="badge badge-muted">Offline</span></td>
+              <td>DISAG@home</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     BADGES & CHIPS
+     ============================================================ -->
+<section class="sg-section" id="badges">
+  <div class="sg-chapter-eyebrow">Kennzeichnungen</div>
+  <div class="sg-chapter-title">Badges &amp; Chips</div>
+  <div class="sg-chapter-desc">Kompakte Kennzeichnungen für Status, Kategorien und Filter. Badges sind reine Anzeige, Chips sind interaktiv.</div>
+
+  <div class="g2">
+    <div class="ctrl-block">
+      <div class="ctrl-header">
+        <div class="ctrl-header-left">
+          <div class="ctrl-name">Status-Badges</div>
+          <div class="ctrl-desc">Kennzeichnen Zustände in Listen und Tabellen. Jede Variante verwendet eine halbdurchsichtige Hintergrundtönung und die zugehörige Statusfarbe als Textfarbe.</div>
+        </div>
+        <div class="ctrl-tokens">
+          <span class="ctrl-token">SuccessBrush</span>
+          <span class="ctrl-token">WarningBrush</span>
+          <span class="ctrl-token">ErrorBrush</span>
+        </div>
+      </div>
+      <div class="ctrl-stage col" style="gap:14px;">
+        <div style="display:flex;align-items:center;gap:12px;">
+          <span class="badge badge-success">Aktiv</span>
+          <span style="font-size:13px;color:var(--text-secondary);">Gerät verbunden, Datenübertragung läuft</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:12px;">
+          <span class="badge badge-warning">Pausiert</span>
+          <span style="font-size:13px;color:var(--text-secondary);">Verbindung unterbrochen, wartet auf Wiederherstellung</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:12px;">
+          <span class="badge badge-error">Fehler</span>
+          <span style="font-size:13px;color:var(--text-secondary);">Gerät nicht erreichbar, manuelle Prüfung notwendig</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:12px;">
+          <span class="badge badge-muted">Offline</span>
+          <span style="font-size:13px;color:var(--text-secondary);">Gerät ist abgemeldet, kein Training aktiv</span>
+        </div>
+        <div style="display:flex;align-items:center;gap:12px;">
+          <span class="badge badge-primary">DISAG</span>
+          <span class="badge badge-cyan">Akzent</span>
+          <span class="badge badge-green">Grün</span>
+          <span style="font-size:13px;color:var(--text-muted);">Kategorie-Kennzeichnungen</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="ctrl-block">
+      <div class="ctrl-header">
+        <div class="ctrl-header-left">
+          <div class="ctrl-name">Interaktive Chips</div>
+          <div class="ctrl-desc">Filter- und Auswahl-Chips. Outline-Variante für inaktive Filter, gefüllte Variante für aktive Filter.</div>
+        </div>
+        <div class="ctrl-tokens">
+          <span class="ctrl-token">PrimaryBrush</span>
+          <span class="ctrl-token">AccentBrush</span>
+        </div>
+      </div>
+      <div class="ctrl-stage col" style="gap:14px;">
+        <div>
+          <div style="font-size:12px;color:var(--text-muted);margin-bottom:8px;text-transform:uppercase;letter-spacing:1px;font-weight:600;">Outline (inaktiv)</div>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;">
+            <span class="chip chip-primary">Alle Disziplinen</span>
+            <span class="chip chip-cyan">Luftwaffe</span>
+            <span class="chip chip-green">KK-Waffe</span>
+          </div>
+        </div>
+        <div>
+          <div style="font-size:12px;color:var(--text-muted);margin-bottom:8px;text-transform:uppercase;letter-spacing:1px;font-weight:600;">Gefüllt (aktiv)</div>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;">
+            <span class="chip chip-filled-primary">Luftpistole ×</span>
+            <span class="chip chip-filled-cyan">10 m ×</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     ALERTS
+     ============================================================ -->
+<section class="sg-section" id="alerts">
+  <div class="sg-chapter-eyebrow">Rückmeldungen</div>
+  <div class="sg-chapter-title">Alerts &amp; Benachrichtigungen</div>
+  <div class="sg-chapter-desc">Kontextuelle Hinweise für den Nutzer. Immer mit Icon, Titel und Beschreibungstext. Linker farbiger Balken signalisiert die Kategorie.</div>
+
+  <div class="ctrl-block">
+    <div class="ctrl-header">
+      <div class="ctrl-header-left">
+        <div class="ctrl-name">Alert-Varianten</div>
+        <div class="ctrl-desc">Information verwendet Tint-Hintergrund und Cyan-Rand. Erfolg, Warnung und Fehler haben eigene Hintergrundtönung und Schriftfarbe passend zur Statusfarbe.</div>
+      </div>
+      <div class="ctrl-tokens">
+        <span class="ctrl-token">AccentBrush</span>
+        <span class="ctrl-token">SuccessBrush</span>
+        <span class="ctrl-token">WarningBrush</span>
+        <span class="ctrl-token">ErrorBrush</span>
+      </div>
+    </div>
+    <div class="ctrl-stage col" style="gap:12px;">
+      <div class="alert alert-info">
+        <span class="alert-icon">ℹ</span>
+        <div class="alert-body">
+          <strong>Information</strong>
+          Neue Firmware v3.2.1 für den OpticScore 400 ist verfügbar. Laden Sie das Update im Bereich Geräte herunter.
+        </div>
+      </div>
+      <div class="alert alert-success">
+        <span class="alert-icon">✓</span>
+        <div class="alert-body">
+          <strong>Training gespeichert</strong>
+          342 Schuss wurden erfolgreich ausgewertet und im Trainingsprotokoll gespeichert.
+        </div>
+      </div>
+      <div class="alert alert-warning">
+        <span class="alert-icon">⚠</span>
+        <div class="alert-body">
+          <strong>Verbindung instabil</strong>
+          Die USB-Verbindung zum Messrahmen ist unterbrochen. Bitte Kabel und Anschluss prüfen.
+        </div>
+      </div>
+      <div class="alert alert-error">
+        <span class="alert-icon">✕</span>
+        <div class="alert-body">
+          <strong>Gerät nicht gefunden</strong>
+          OpticScore 400 (SN-2024-00842) antwortet nicht. Bitte Gerät neu starten und erneut verbinden.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Tooltip -->
+  <div class="ctrl-block" style="margin-top:16px;">
+    <div class="ctrl-header">
+      <div class="ctrl-header-left">
+        <div class="ctrl-name">Tooltip</div>
+        <div class="ctrl-desc">Schwebt über dem Element beim Hover. Hintergrund in NearBlackBrush, Text in TextWhiteBrush. Mit Pfeilspitze nach unten.</div>
+      </div>
+      <div class="ctrl-tokens">
+        <span class="ctrl-token">TextNearBlackBrush</span>
+        <span class="ctrl-token">TextWhiteBrush</span>
+      </div>
+    </div>
+    <div class="ctrl-stage" style="padding:48px 24px 28px;">
+      <div class="tooltip-wrap">
+        <button class="btn btn-outline btn-sm">Hover für Tooltip</button>
+        <div class="tooltip">Ringzahl wird auf 0,1 gerundet angezeigt</div>
+      </div>
+      <div class="tooltip-wrap">
+        <button class="btn btn-accent btn-sm">Gerätestatus prüfen</button>
+        <div class="tooltip">Verbindungstest dauert ca. 3 Sekunden</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     PROGRESS
+     ============================================================ -->
+<section class="sg-section" id="progress">
+  <div class="sg-chapter-eyebrow">Feedback</div>
+  <div class="sg-chapter-title">Fortschrittsbalken</div>
+  <div class="sg-chapter-desc">Zeigen Fortschritt eines laufenden Prozesses oder den Erfüllungsgrad eines Ziels. Der Name links ist TextPrimaryBrush, der Prozentwert rechts TextMutedBrush in Mono-Font.</div>
+
+  <div class="ctrl-block">
+    <div class="ctrl-header">
+      <div class="ctrl-header-left">
+        <div class="ctrl-name">Alle Farbvarianten</div>
+        <div class="ctrl-desc">Jede Balkenfarbe transportiert eine semantische Aussage: Cyan für allgemeine Fortschritte, Primary für übergeordnete Ziele, Grün für positive Trends, Warnung/Fehler für kritische Werte.</div>
+      </div>
+      <div class="ctrl-tokens">
+        <span class="ctrl-token">AccentBrush</span>
+        <span class="ctrl-token">PrimaryBrush</span>
+        <span class="ctrl-token">AccentGreenBrush</span>
+      </div>
+    </div>
+    <div class="ctrl-stage col" style="gap:16px; width:100%;">
+      <div class="progress-row">
+        <div class="progress-header">
+          <span class="p-name">Tagesziel Schussanzahl</span>
+          <span class="p-pct">85 %</span>
+        </div>
+        <div class="progress-track"><div class="progress-fill pf-primary" style="width:85%;"></div></div>
+        <span style="font-size:12px;color:var(--text-muted);">PrimaryBrush · 106 von 125 Schuss erreicht</span>
+      </div>
+      <div class="progress-row">
+        <div class="progress-header">
+          <span class="p-name">Trainingszeit heute</span>
+          <span class="p-pct">62 %</span>
+        </div>
+        <div class="progress-track"><div class="progress-fill pf-cyan" style="width:62%;"></div></div>
+        <span style="font-size:12px;color:var(--text-muted);">AccentBrush · 4,2 von 6,8 Stunden Wochenziel</span>
+      </div>
+      <div class="progress-row">
+        <div class="progress-header">
+          <span class="p-name">Persönliche Bestleistung</span>
+          <span class="p-pct">92 %</span>
+        </div>
+        <div class="progress-track"><div class="progress-fill pf-green" style="width:92%;"></div></div>
+        <span style="font-size:12px;color:var(--text-muted);">AccentGreenBrush · 564 von 613 Ringen (PB)</span>
+      </div>
+      <div class="progress-row">
+        <div class="progress-header">
+          <span class="p-name">Fehlerquote Anschlag</span>
+          <span class="p-pct">28 %</span>
+        </div>
+        <div class="progress-track"><div class="progress-fill pf-warning" style="width:28%;"></div></div>
+        <span style="font-size:12px;color:var(--text-muted);">WarningBrush · Abweichung außerhalb Toleranz</span>
+      </div>
+      <div class="progress-row">
+        <div class="progress-header">
+          <span class="p-name">Gerätespeicher belegt</span>
+          <span class="p-pct">94 %</span>
+        </div>
+        <div class="progress-track"><div class="progress-fill pf-error" style="width:94%;"></div></div>
+        <span style="font-size:12px;color:var(--text-muted);">ErrorBrush · Speicher fast voll, bitte leeren</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Divider -->
+  <div class="ctrl-block" style="margin-top:16px;">
+    <div class="ctrl-header">
+      <div class="ctrl-header-left">
+        <div class="ctrl-name">Trennlinien</div>
+        <div class="ctrl-desc">Horizontale Trenner strukturieren Inhaltsbereiche. Einfach oder mit Beschriftung. Farbe BorderLightBrush, Label in TextMutedBrush.</div>
+      </div>
+      <div class="ctrl-tokens">
+        <span class="ctrl-token">BorderLightBrush</span>
+        <span class="ctrl-token">TextMutedBrush</span>
+      </div>
+    </div>
+    <div class="ctrl-stage col" style="gap:20px; width:100%;">
+      <div style="width:100%;">
+        <p style="font-size:13px;color:var(--text-secondary);margin-bottom:10px;">Einfache Trennlinie</p>
+        <div class="divider"></div>
+        <p style="font-size:13px;color:var(--text-secondary);margin-top:10px;">Nächster Abschnitt</p>
+      </div>
+      <div style="width:100%;">
+        <p style="font-size:13px;color:var(--text-secondary);margin-bottom:10px;">Trennlinie mit Label</p>
+        <div class="divider-label"><span>oder</span></div>
+        <div style="display:flex;gap:10px;">
+          <button class="btn btn-primary" style="flex:1;">Mit Gerätecode anmelden</button>
+          <button class="btn btn-outline" style="flex:1;">Manuell eingeben</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     TYPOGRAFIE
+     ============================================================ -->
+<section class="sg-section" id="typo">
+  <div class="sg-chapter-eyebrow">Text</div>
+  <div class="sg-chapter-title">Typografie</div>
+  <div class="sg-chapter-desc">DISAG verwendet Montserrat für Überschriften (FontHeading) und Arial für Fließtext (FontBody). Alle Größen und Gewichte sind als Token in Resources.axaml definiert.</div>
+
+  <div class="ctrl-block">
+    <div class="ctrl-header">
+      <div class="ctrl-header-left">
+        <div class="ctrl-name">Texthierarchie</div>
+        <div class="ctrl-desc">Von H1 bis Hinweistext — jede Ebene hat eine eigene Kombination aus Font-Family, Größe, Gewicht und Farbe. Die Metaspalte zeigt die entsprechenden Avalonia-Tokens.</div>
+      </div>
+      <div class="ctrl-tokens">
+        <span class="ctrl-token">FontHeading</span>
+        <span class="ctrl-token">FontBody</span>
+        <span class="ctrl-token">FontSizeBody</span>
+      </div>
+    </div>
+    <div class="ctrl-stage" style="display:block;padding:0;">
+      <div style="padding:8px 24px;">
+
+        <div class="type-entry">
+          <div class="type-meta">
+            <span class="t-role">Heading H1</span>
+            <span class="t-spec">FontHeading · 42 px · Bold 700</span>
+            <span class="t-token">FontSizeXLarge</span>
+            <span class="t-token">TextNearBlackBrush</span>
+          </div>
+          <div style="font-family:var(--font-heading);font-size:42px;font-weight:700;color:var(--near-black);line-height:1.1;">Elektronische Schießanlage</div>
+        </div>
+
+        <div class="type-entry">
+          <div class="type-meta">
+            <span class="t-role">Heading H2</span>
+            <span class="t-spec">FontHeading · 36 px · Bold 700</span>
+            <span class="t-token">FontSizeLarge</span>
+            <span class="t-token">PrimaryBrush</span>
+          </div>
+          <div style="font-family:var(--font-heading);font-size:36px;font-weight:700;color:var(--primary);line-height:1.15;">Trainingsauswertung</div>
+        </div>
+
+        <div class="type-entry">
+          <div class="type-meta">
+            <span class="t-role">Heading H3</span>
+            <span class="t-spec">FontHeading · 26 px · SemiBold 600</span>
+            <span class="t-token">FontSizeMedium</span>
+            <span class="t-token">PrimaryBrush</span>
+          </div>
+          <div style="font-family:var(--font-heading);font-size:26px;font-weight:600;color:var(--primary);">OpticScore Konfiguration</div>
+        </div>
+
+        <div class="type-entry">
+          <div class="type-meta">
+            <span class="t-role">Heading H4</span>
+            <span class="t-spec">FontHeading · 20 px · SemiBold 600</span>
+            <span class="t-token">FontSizeMedium</span>
+            <span class="t-token">PrimaryBrush</span>
+          </div>
+          <div style="font-family:var(--font-heading);font-size:20px;font-weight:600;color:var(--primary);">Gerätestatus &amp; Verbindung</div>
+        </div>
+
+        <div class="type-entry">
+          <div class="type-meta">
+            <span class="t-role">Abschnitts-Label</span>
+            <span class="t-spec">FontHeading · 11 px · Bold 700<br>uppercase · 2.5px spacing</span>
+            <span class="t-token">AccentBrush</span>
+          </div>
+          <div style="font-family:var(--font-heading);font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:2.5px;color:var(--accent-cyan);">Trainingsübersicht</div>
+        </div>
+
+        <div class="type-entry">
+          <div class="type-meta">
+            <span class="t-role">Fließtext</span>
+            <span class="t-spec">FontBody · 16 px · Regular 400<br>LineHeight 1,5</span>
+            <span class="t-token">FontSizeBody</span>
+            <span class="t-token">TextPrimaryBrush</span>
+          </div>
+          <div style="font-family:var(--font-body);font-size:16px;font-weight:400;color:var(--text-primary);line-height:1.5;max-width:500px;">DISAG entwickelt und produziert elektronische Schießanlagen und Auswerteelektronik für den modernen Schießsport weltweit.</div>
+        </div>
+
+        <div class="type-entry">
+          <div class="type-meta">
+            <span class="t-role">Sekundärtext</span>
+            <span class="t-spec">FontBody · 14 px · Regular 400</span>
+            <span class="t-token">TextSecondaryBrush</span>
+          </div>
+          <div style="font-family:var(--font-body);font-size:14px;color:var(--text-secondary);line-height:1.6;max-width:500px;">Weitere Informationen zu Firmware-Updates, Kalibrierung und technischen Spezifikationen finden Sie im Handbuch.</div>
+        </div>
+
+        <div class="type-entry">
+          <div class="type-meta">
+            <span class="t-role">Hinweistext</span>
+            <span class="t-spec">FontBody · 12 px · Regular 400</span>
+            <span class="t-token">FontSizeSmall</span>
+            <span class="t-token">TextMutedBrush</span>
+          </div>
+          <div style="font-family:var(--font-body);font-size:12px;color:var(--text-muted);">Zuletzt aktualisiert: 14. Mai 2026 · Firmware v3.2.1</div>
+        </div>
+
+        <div class="type-entry">
+          <div class="type-meta">
+            <span class="t-role">Mono / Code</span>
+            <span class="t-spec">FontMono · 13 px · Regular 400</span>
+            <span class="t-token">TextPrimaryBrush</span>
+          </div>
+          <div style="font-family:var(--font-mono);font-size:13px;color:var(--text-primary);background:var(--bg-subtle);padding:10px 14px;border-radius:var(--radius-sm);border:1px solid var(--border-light);">SN-2024-00842 · IP: 192.168.1.104 · Port: 4040</div>
+        </div>
+
+        <div class="type-entry">
+          <div class="type-meta">
+            <span class="t-role">Link</span>
+            <span class="t-spec">FontBody · 14 px · Regular 400</span>
+            <span class="t-token">LinkBrush</span>
+            <span class="t-token">LinkHoverBrush</span>
+          </div>
+          <div style="font-family:var(--font-body);font-size:14px;line-height:2;">
+            <a href="#" style="color:var(--accent-green);text-decoration:none;font-weight:500;">Gerätedokumentation herunterladen</a>
+            <span style="color:var(--text-muted);margin:0 12px;">·</span>
+            <a href="#" style="color:var(--accent-cyan);text-decoration:none;font-weight:500;">Hover-Zustand (LinkHoverBrush)</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+</div><!-- /container -->
+
+</body>
+</html>
