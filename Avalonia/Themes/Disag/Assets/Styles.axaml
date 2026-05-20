@@ -510,16 +510,42 @@
     <Style Selector="DataGridColumnHeader">
         <Setter Property="Background" Value="{DynamicResource PrimaryBrush}" />
         <Setter Property="Foreground" Value="{DynamicResource TextWhiteBrush}" />
-        <Setter Property="FontFamily" Value="{DynamicResource FontHeading}" />
-        <Setter Property="FontWeight" Value="SemiBold" />
-        <Setter Property="FontSize" Value="12" />
+        <Setter Property="FontFamily" Value="{DynamicResource FontBody}" />
+        <Setter Property="FontWeight" Value="Normal" />
+        <Setter Property="FontSize" Value="13" />
         <Setter Property="Padding" Value="12,10" />
         <Setter Property="SeparatorBrush" Value="#33ffffff" />
+        <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+    </Style>
+
+    <Style Selector="DataGridColumnHeader /template/ ContentPresenter">
+        <Setter Property="TextElement.Foreground" Value="{DynamicResource TextWhiteBrush}" />
+    </Style>
+
+    <Style Selector="DataGridColumnHeader TextBlock">
+        <Setter Property="Foreground" Value="{DynamicResource TextWhiteBrush}" />
+        <Setter Property="FontFamily" Value="{DynamicResource FontBody}" />
+        <Setter Property="FontSize" Value="13" />
+        <Setter Property="FontWeight" Value="Normal" />
+        <Setter Property="LineHeight" Value="24" />
+    </Style>
+
+    <Style Selector="DataGridCell:current">
+        <Setter Property="BorderBrush" Value="Transparent" />
+        <Setter Property="BorderThickness" Value="0" />
     </Style>
 
     <Style Selector="DataGridColumnHeader:pointerover">
         <Setter Property="Background" Value="{DynamicResource PrimaryHoverBrush}" />
         <Setter Property="Cursor" Value="Hand" />
+    </Style>
+
+    <Style Selector="DataGridColumnHeader.center">
+        <Setter Property="HorizontalContentAlignment" Value="Center" />
+    </Style>
+
+    <Style Selector="DataGridCell.center">
+        <Setter Property="HorizontalContentAlignment" Value="Center" />
     </Style>
 
     <Style Selector="DataGridRow:pointerover /template/ Rectangle#BackgroundRectangle">
