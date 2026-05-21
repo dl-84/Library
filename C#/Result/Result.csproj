@@ -7,9 +7,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Include=".csharpierrc.json" />
-    <None Include=".config\dotnet-tools.json" />
-    <AdditionalFiles Include=".config\stylecop.json" />
+    <None Include="..\..\.csharpierrc.json" />
+    <None Include="..\..\.config\dotnet-tools.json" />
+    <AdditionalFiles Include="..\..\stylecop.json" />
   </ItemGroup>
 
   <ItemGroup>
