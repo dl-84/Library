@@ -11,10 +11,16 @@
 
   <ItemGroup>
     <PackageReference Include="Avalonia" Version="12.0.3" />
+    <PackageReference Include="Svg.Controls.Skia.Avalonia" Version="12.0.0.10" />
     <PackageReference Include="StyleCop.Analyzers" Version="1.1.118">
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <AvaloniaResource Include="Assets/**" />
+    <AvaloniaResource Include="Icons/**" />
   </ItemGroup>
 
   <ItemGroup>

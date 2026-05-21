@@ -1,0 +1,16 @@
+﻿<UserControl x:Class="Controls.TitleBar.Buttons.MacButton"
+             xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:CompileBindings="False"
+             Height="15"
+             Width="15">
+
+    <Panel Background="Transparent"
+           Cursor="Hand">
+        <Image x:Name="NormalState" />
+        <Image x:Name="HoverState"
+               IsVisible="False" />
+        <Image x:Name="PressState"
+               IsVisible="False" />
+    </Panel>
+</UserControl>
