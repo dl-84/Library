@@ -8,7 +8,6 @@
         <Setter Property="Foreground" Value="{DynamicResource TextPrimaryBrush}" />
     </Style>
 
-
     <Style Selector="TextBlock">
         <Setter Property="FontFamily" Value="{DynamicResource FontBody}" />
         <Setter Property="FontSize" Value="{DynamicResource FontSizeBody}" />
@@ -511,6 +510,19 @@
         <Setter Property="Foreground" Value="{DynamicResource TextOnDarkBrush}" />
         <Setter Property="LetterSpacing" Value="2" />
         <Setter Property="Opacity" Value="0.4" />
+    </Style>
+
+    <Style Selector="ListBox.nav ListBoxItem:pointerover /template/ ContentPresenter">
+        <Setter Property="Background" Value="Transparent" />
+    </Style>
+
+    <Style Selector="ListBox.nav ListBoxItem:selected /template/ ContentPresenter">
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="TextElement.Foreground" Value="{DynamicResource TextOnDarkBrush}" />
+    </Style>
+
+    <Style Selector="ListBox.nav ListBoxItem:selected:pointerover /template/ ContentPresenter">
+        <Setter Property="Background" Value="Transparent" />
     </Style>
 
 

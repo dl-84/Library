@@ -147,8 +147,7 @@
     <x:Double x:Key="FontSizeMedium">20</x:Double>
     <x:Double x:Key="FontSizeLarge">36</x:Double>
     <x:Double x:Key="FontSizeXLarge">42</x:Double>
-
-
+    
     <ControlTheme x:Key="NavListBoxItem"
                   TargetType="ListBoxItem">
         <Setter Property="Cursor" Value="Hand" />
@@ -173,15 +172,25 @@
             <Setter Property="Background" Value="#1AFFFFFF" />
             <Setter Property="Opacity" Value="0.9" />
         </Style>
+        <Style Selector="^:pointerover /template/ ContentPresenter">
+            <Setter Property="Background" Value="Transparent" />
+        </Style>
         <Style Selector="^:selected /template/ Border#Root">
             <Setter Property="Background" Value="#2E019DC6" />
             <Setter Property="BorderBrush" Value="{DynamicResource AccentBrush}" />
             <Setter Property="Opacity" Value="1" />
         </Style>
+        <Style Selector="^:selected /template/ ContentPresenter">
+            <Setter Property="Background" Value="Transparent" />
+            <Setter Property="TextElement.Foreground" Value="{DynamicResource TextOnDarkBrush}" />
+        </Style>
         <Style Selector="^:selected:pointerover /template/ Border#Root">
             <Setter Property="Background" Value="#2E019DC6" />
             <Setter Property="BorderBrush" Value="{DynamicResource AccentBrush}" />
             <Setter Property="Opacity" Value="1" />
+        </Style>
+        <Style Selector="^:selected:pointerover /template/ ContentPresenter">
+            <Setter Property="Background" Value="Transparent" />
         </Style>
         <Style Selector="^.nav-header">
             <Setter Property="Cursor" Value="Arrow" />
@@ -192,6 +201,4 @@
             </Setter>
         </Style>
     </ControlTheme>
-
-
 </ResourceDictionary>

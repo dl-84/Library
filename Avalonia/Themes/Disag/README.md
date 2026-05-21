@@ -22,7 +22,7 @@ Eine vollständige visuelle Vorschau aller Farben, Komponenten und Klassen ist u
 ```xml
 <Application xmlns="https://github.com/avaloniaui"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:themes="clr-namespace:Themes.Disag;assembly=Disag"
+             xmlns:themes="using:Themes.Disag"
              x:Class="YourApp.App"
              RequestedThemeVariant="Light">
 
