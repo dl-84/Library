@@ -504,6 +504,19 @@
         <Setter Property="Theme" Value="{StaticResource NavListBoxItem}" />
     </Style>
 
+    <Style Selector="ListBox.nav ListBoxItem TextBlock">
+        <Setter Property="Foreground" Value="{DynamicResource TextOnDarkBrush}" />
+    </Style>
+
+    <Style Selector="ListBox.nav ListBoxItem.nav-header TextBlock">
+        <Setter Property="FontFamily" Value="{DynamicResource FontHeading}" />
+        <Setter Property="FontSize" Value="13" />
+        <Setter Property="FontWeight" Value="Bold" />
+        <Setter Property="Foreground" Value="{DynamicResource TextOnDarkBrush}" />
+        <Setter Property="LetterSpacing" Value="2" />
+        <Setter Property="Opacity" Value="0.4" />
+    </Style>
+
 
     <Style Selector="DataGrid">
         <Setter Property="Background" Value="{DynamicResource SurfaceBrush}" />
