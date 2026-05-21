@@ -1,0 +1,25 @@
+<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <Style Selector="CalendarItem">
+        <Setter Property="Background" Value="{DynamicResource SurfaceBrush}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource BorderLightBrush}" />
+        <Setter Property="FontFamily" Value="{DynamicResource FontBody}" />
+    </Style>
+
+    <Style Selector="CalendarDayButton:selected">
+        <Setter Property="Background" Value="{DynamicResource AccentBrush}" />
+        <Setter Property="Foreground" Value="{DynamicResource TextWhiteBrush}" />
+    </Style>
+
+    <Style Selector="CalendarDayButton:today">
+        <Setter Property="Background" Value="{DynamicResource AppBackgroundTintBrush}" />
+        <Setter Property="Foreground" Value="{DynamicResource AccentBrush}" />
+        <Setter Property="FontWeight" Value="Bold" />
+    </Style>
+
+    <Style Selector="CalendarDayButton:pointerover">
+        <Setter Property="Background" Value="{DynamicResource AppBackgroundTintBrush}" />
+    </Style>
+
+</Styles>

@@ -1,0 +1,81 @@
+<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <Style Selector="TextBlock">
+        <Setter Property="FontFamily" Value="{DynamicResource FontBody}" />
+        <Setter Property="FontSize" Value="{DynamicResource FontSizeBody}" />
+        <Setter Property="Foreground" Value="{DynamicResource TextPrimaryBrush}" />
+        <Setter Property="TextWrapping" Value="Wrap" />
+        <Setter Property="LineHeight" Value="24" />
+    </Style>
+
+    <Style Selector="TextBlock.h1">
+        <Setter Property="FontFamily" Value="{DynamicResource FontHeading}" />
+        <Setter Property="FontSize" Value="{DynamicResource FontSizeXLarge}" />
+        <Setter Property="FontWeight" Value="Bold" />
+        <Setter Property="Foreground" Value="{DynamicResource TextNearBlackBrush}" />
+        <Setter Property="LineHeight" Value="52" />
+    </Style>
+
+    <Style Selector="TextBlock.h2">
+        <Setter Property="FontFamily" Value="{DynamicResource FontHeading}" />
+        <Setter Property="FontSize" Value="{DynamicResource FontSizeLarge}" />
+        <Setter Property="FontWeight" Value="Bold" />
+        <Setter Property="Foreground" Value="{DynamicResource PrimaryBrush}" />
+        <Setter Property="LineHeight" Value="44" />
+    </Style>
+
+    <Style Selector="TextBlock.h3">
+        <Setter Property="FontFamily" Value="{DynamicResource FontHeading}" />
+        <Setter Property="FontSize" Value="22" />
+        <Setter Property="FontWeight" Value="SemiBold" />
+        <Setter Property="Foreground" Value="{DynamicResource PrimaryBrush}" />
+    </Style>
+
+    <Style Selector="TextBlock.h4">
+        <Setter Property="FontFamily" Value="{DynamicResource FontHeading}" />
+        <Setter Property="FontSize" Value="{DynamicResource FontSizeMedium}" />
+        <Setter Property="FontWeight" Value="SemiBold" />
+        <Setter Property="Foreground" Value="{DynamicResource PrimaryBrush}" />
+    </Style>
+
+    <Style Selector="TextBlock.secondary">
+        <Setter Property="FontSize" Value="14" />
+        <Setter Property="Foreground" Value="{DynamicResource TextSecondaryBrush}" />
+        <Setter Property="LineHeight" Value="22" />
+    </Style>
+
+    <Style Selector="TextBlock.muted">
+        <Setter Property="FontSize" Value="12" />
+        <Setter Property="Foreground" Value="{DynamicResource TextMutedBrush}" />
+    </Style>
+
+    <Style Selector="TextBlock.caption">
+        <Setter Property="FontSize" Value="11" />
+        <Setter Property="Foreground" Value="{DynamicResource TextMutedBrush}" />
+        <Setter Property="LineHeight" Value="16" />
+    </Style>
+
+    <Style Selector="TextBlock.label">
+        <Setter Property="FontFamily" Value="{DynamicResource FontHeading}" />
+        <Setter Property="FontSize" Value="11" />
+        <Setter Property="FontWeight" Value="Bold" />
+        <Setter Property="Foreground" Value="{DynamicResource AccentBrush}" />
+        <Setter Property="LetterSpacing" Value="2" />
+    </Style>
+
+    <Style Selector="TextBlock.on-dark">
+        <Setter Property="Foreground" Value="{DynamicResource TextOnDarkBrush}" />
+    </Style>
+
+    <Style Selector="TextBlock.hint-error">
+        <Setter Property="FontSize" Value="12" />
+        <Setter Property="Foreground" Value="{DynamicResource ErrorBrush}" />
+    </Style>
+
+    <Style Selector="TextBlock.hint-success">
+        <Setter Property="FontSize" Value="12" />
+        <Setter Property="Foreground" Value="{DynamicResource SuccessBrush}" />
+    </Style>
+
+</Styles>

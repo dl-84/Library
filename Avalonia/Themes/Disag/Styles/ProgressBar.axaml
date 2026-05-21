@@ -1,0 +1,35 @@
+<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <Style Selector="ProgressBar">
+        <Setter Property="Background" Value="{DynamicResource AppBackgroundAltBrush}" />
+        <Setter Property="Foreground" Value="{DynamicResource AccentBrush}" />
+        <Setter Property="CornerRadius" Value="4" />
+        <Setter Property="MinHeight" Value="8" />
+    </Style>
+
+    <Style Selector="ProgressBar /template/ Border#PART_Indicator">
+        <Setter Property="CornerRadius" Value="4" />
+    </Style>
+
+    <Style Selector="ProgressBar.primary">
+        <Setter Property="Foreground" Value="{DynamicResource PrimaryBrush}" />
+    </Style>
+
+    <Style Selector="ProgressBar.green">
+        <Setter Property="Foreground" Value="{DynamicResource AccentGreenBrush}" />
+    </Style>
+
+    <Style Selector="ProgressBar.success">
+        <Setter Property="Foreground" Value="{DynamicResource SuccessBrush}" />
+    </Style>
+
+    <Style Selector="ProgressBar.warning">
+        <Setter Property="Foreground" Value="{DynamicResource WarningBrush}" />
+    </Style>
+
+    <Style Selector="ProgressBar.error">
+        <Setter Property="Foreground" Value="{DynamicResource ErrorBrush}" />
+    </Style>
+
+</Styles>

@@ -5,12 +5,36 @@
     <Styles.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <ResourceInclude Source="avares://Disag/Assets/Resources.axaml" />
-                <ResourceInclude Source="avares://Disag/Assets/NavListBoxItem.axaml" />
+                <ResourceInclude Source="avares://Disag/Resources/Brushes.axaml" />
+                <ResourceInclude Source="avares://Disag/Resources/Colors.axaml" />
+                <ResourceInclude Source="avares://Disag/Resources/Font.axaml" />
+                <ResourceInclude Source="avares://Disag/Resources/CornerRadius.axaml" />
+                <ResourceInclude Source="avares://Disag/Resources/NavigationItem.axaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Styles.Resources>
 
-    <StyleInclude Source="avares://Disag/Assets/Styles.axaml" />
+    <StyleInclude Source="avares://Disag/Styles/Border.axaml" />
+    <StyleInclude Source="avares://Disag/Styles/Button.axaml" />
+    <StyleInclude Source="avares://Disag/Styles/Calendar.axaml" />
+    <StyleInclude Source="avares://Disag/Styles/CheckBox.axaml" />
+    <StyleInclude Source="avares://Disag/Styles/ComboBox.axaml" />
+    <StyleInclude Source="avares://Disag/Styles/DataGrid.axaml" />
+    <StyleInclude Source="avares://Disag/Styles/Expander.axaml" />
+    <StyleInclude Source="avares://Disag/Styles/Label.axaml" />
+    <StyleInclude Source="avares://Disag/Styles/ListBox.axaml" />
+    <StyleInclude Source="avares://Disag/Styles/Menu.axaml" />
+    <StyleInclude Source="avares://Disag/Styles/NumericUpDown.axaml" />
+    <StyleInclude Source="avares://Disag/Styles/ProgressBar.axaml" />
+    <StyleInclude Source="avares://Disag/Styles/RadioButton.axaml" />
+    <StyleInclude Source="avares://Disag/Styles/ScrollBar.axaml" />
+    <StyleInclude Source="avares://Disag/Styles/Slider.axaml" />
+    <StyleInclude Source="avares://Disag/Styles/SplitView.axaml" />
+    <StyleInclude Source="avares://Disag/Styles/TabControl.axaml" />
+    <StyleInclude Source="avares://Disag/Styles/TextBlock.axaml" />
+    <StyleInclude Source="avares://Disag/Styles/TextBox.axaml" />
+    <StyleInclude Source="avares://Disag/Styles/ToggleSwitch.axaml" />
+    <StyleInclude Source="avares://Disag/Styles/ToolTip.axaml" />
+    <StyleInclude Source="avares://Disag/Styles/Window.axaml" />
 
 </Styles>

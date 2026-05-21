@@ -1,0 +1,31 @@
+<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <Style Selector="ToggleSwitch">
+        <Setter Property="FontFamily" Value="{DynamicResource FontBody}" />
+        <Setter Property="FontSize" Value="14" />
+        <Setter Property="Foreground" Value="{DynamicResource TextPrimaryBrush}" />
+        <Setter Property="Cursor" Value="Hand" />
+    </Style>
+
+    <Style Selector="ToggleSwitch /template/ Border#SwitchKnobBoundsOff">
+        <Setter Property="Background" Value="{DynamicResource BorderMediumBrush}" />
+    </Style>
+
+    <Style Selector="ToggleSwitch:checked /template/ Border#SwitchKnobBoundsOn">
+        <Setter Property="Background" Value="{DynamicResource AccentBrush}" />
+    </Style>
+
+    <Style Selector="ToggleSwitch /template/ Ellipse#SwitchKnobOff">
+        <Setter Property="Fill" Value="{DynamicResource TextWhiteBrush}" />
+    </Style>
+    <Style Selector="ToggleSwitch /template/ Ellipse#SwitchKnobOn">
+        <Setter Property="Fill" Value="{DynamicResource TextWhiteBrush}" />
+    </Style>
+
+    <Style Selector="ToggleSwitch:disabled">
+        <Setter Property="Opacity" Value="0.45" />
+        <Setter Property="Cursor" Value="Arrow" />
+    </Style>
+
+</Styles>
