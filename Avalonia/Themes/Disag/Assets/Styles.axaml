@@ -493,6 +493,17 @@
         <Setter Property="Background" Value="{DynamicResource PrimaryBrush}" />
     </Style>
 
+    <Style Selector="ListBox.nav">
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="BorderThickness" Value="0" />
+        <Setter Property="CornerRadius" Value="0" />
+        <Setter Property="Padding" Value="0" />
+    </Style>
+
+    <Style Selector="ListBox.nav ListBoxItem">
+        <Setter Property="Theme" Value="{StaticResource NavListBoxItem}" />
+    </Style>
+
 
     <Style Selector="DataGrid">
         <Setter Property="Background" Value="{DynamicResource SurfaceBrush}" />
