@@ -60,7 +60,7 @@
                                        Text="{Binding LicenseType}"
                                        TextDecorations="Underline"
                                        VerticalAlignment="Center"
-                                       IsVisible="{Binding LicenseUrl, Converter={x:Static StringConverters.IsNotNullOrEmpty}}" />
+                                       IsVisible="{Binding HasLicenseLink}" />
                             <Image Grid.Column="3"
                                    Cursor="Hand"
                                    Height="16"

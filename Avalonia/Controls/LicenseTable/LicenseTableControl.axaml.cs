@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using Avalonia;
@@ -32,6 +33,12 @@ public partial class LicenseTableControl : UserControl
     {
         InitializeComponent();
     }
+
+    /// <summary>
+    /// Raised when a row with license content (but no license URL) is clicked.
+    /// The event argument is the license content string.
+    /// </summary>
+    public event EventHandler<string>? LicenseContentRequested;
 
     /// <summary>
     /// Gets or sets the column header labels in order: Name, Version, License, Link.
@@ -72,9 +79,20 @@ public partial class LicenseTableControl : UserControl
 
     private void OnPointerLinkClicked(object? sender, PointerPressedEventArgs e)
     {
-        if (sender is Control { Tag: string url })
+        if (sender is not Control control)
+        {
+            return;
+        }
+
+        if (control.Tag is string url)
         {
             Process.Start(new ProcessStartInfo { FileName = url, UseShellExecute = true });
+            return;
+        }
+
+        if (control.DataContext is PackageModel { LicenseContent: string content })
+        {
+            LicenseContentRequested?.Invoke(this, content);
         }
     }
 }
