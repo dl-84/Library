@@ -8,28 +8,28 @@ namespace Controls.TitleBar.Buttons;
 
 internal partial class WinButton : UserControl
 {
-    public static readonly StyledProperty<ButtonType> TypeProperty = AvaloniaProperty.Register<WinButton, ButtonType>(
-        nameof(Type)
-    );
+    public static readonly StyledProperty<IBrush?> BackgroundColorProperty = AvaloniaProperty.Register<
+        WinButton,
+        IBrush?
+    >(nameof(BackgroundColor));
 
     public static readonly StyledProperty<IBrush?> PrimaryColorProperty = AvaloniaProperty.Register<WinButton, IBrush?>(
         nameof(PrimaryColor)
     );
 
-    public static readonly StyledProperty<IBrush?> BackgroundColorProperty = AvaloniaProperty.Register<
-        WinButton,
-        IBrush?
-    >(nameof(BackgroundColor));
+    public static readonly StyledProperty<ButtonType> TypeProperty = AvaloniaProperty.Register<WinButton, ButtonType>(
+        nameof(Type)
+    );
 
     public WinButton()
     {
         InitializeComponent();
     }
 
-    public ButtonType Type
+    public IBrush? BackgroundColor
     {
-        get => GetValue(TypeProperty);
-        set => SetValue(TypeProperty, value);
+        get => GetValue(BackgroundColorProperty);
+        set => SetValue(BackgroundColorProperty, value);
     }
 
     public IBrush? PrimaryColor
@@ -38,10 +38,24 @@ internal partial class WinButton : UserControl
         set => SetValue(PrimaryColorProperty, value);
     }
 
-    public IBrush? BackgroundColor
+    public ButtonType Type
     {
-        get => GetValue(BackgroundColorProperty);
-        set => SetValue(BackgroundColorProperty, value);
+        get => GetValue(TypeProperty);
+        set => SetValue(TypeProperty, value);
+    }
+
+    protected override void OnPointerEntered(PointerEventArgs e)
+    {
+        base.OnPointerEntered(e);
+        Background = Type == ButtonType.WinClose ? new SolidColorBrush(Color.FromRgb(0xC4, 0x2B, 0x1C)) : PrimaryColor;
+        UpdateImage(BackgroundColor);
+    }
+
+    protected override void OnPointerExited(PointerEventArgs e)
+    {
+        base.OnPointerExited(e);
+        Background = BackgroundColor;
+        UpdateImage(PrimaryColor);
     }
 
     protected override void OnPropertyChanged(AvaloniaPropertyChangedEventArgs change)
@@ -57,20 +71,6 @@ internal partial class WinButton : UserControl
             Background = BackgroundColor;
             UpdateImage(PrimaryColor);
         }
-    }
-
-    protected override void OnPointerEntered(PointerEventArgs e)
-    {
-        base.OnPointerEntered(e);
-        Background = Type == ButtonType.WinClose ? new SolidColorBrush(Color.FromRgb(0xC4, 0x2B, 0x1C)) : PrimaryColor;
-        UpdateImage(BackgroundColor);
-    }
-
-    protected override void OnPointerExited(PointerEventArgs e)
-    {
-        base.OnPointerExited(e);
-        Background = BackgroundColor;
-        UpdateImage(PrimaryColor);
     }
 
     private static string BuildCss(IBrush? brush)

@@ -1,9 +1,7 @@
 ﻿<UserControl x:Class="Controls.TitleBar.TitleBarControl"
              xmlns="https://github.com/avaloniaui"
              xmlns:icons="using:Controls.TitleBar.Buttons"
-             xmlns:local="using:Controls.TitleBar"
-             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             x:CompileBindings="False">
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
     <UserControl.Resources>
         <ResourceDictionary>
@@ -16,9 +14,9 @@
     <Grid ColumnDefinitions="220,*"
           Height="36">
 
-        <!--  Mac Buttons  -->
-        <Border Grid.Column="0"
-                Background="{Binding PrimaryColor, RelativeSource={RelativeSource AncestorType=local:TitleBarControl}}">
+        <Border x:Name="SidebarBorder"
+                Grid.Column="0">
+            <!--  Mac Buttons  -->
             <StackPanel x:Name="MacTrafficLights"
                         Margin="14,0,0,0"
                         Orientation="Horizontal"
@@ -38,14 +36,15 @@
             </StackPanel>
         </Border>
 
-        <!--  Drag Area + Windows Buttons  -->
-        <Border Grid.Column="1"
-                Background="{Binding BackgroundColor, RelativeSource={RelativeSource AncestorType=local:TitleBarControl}}">
+        <Border x:Name="ContentBorder"
+                Grid.Column="1">
+            <!--  Drag Area  -->
             <Grid ColumnDefinitions="*,Auto">
                 <Panel Grid.Column="0"
                        Background="Transparent"
                        Cursor="Hand"
                        PointerPressed="OnTitleBarDrag" />
+                <!--  Win Buttons  -->
                 <StackPanel x:Name="WindowControlButtons"
                             Grid.Column="1"
                             Orientation="Horizontal">

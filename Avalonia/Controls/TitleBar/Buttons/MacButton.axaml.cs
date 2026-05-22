@@ -7,23 +7,17 @@ namespace Controls.TitleBar.Buttons;
 
 internal partial class MacButton : UserControl
 {
-    public static readonly StyledProperty<ButtonType> TypeProperty = AvaloniaProperty.Register<MacButton, ButtonType>(
-        nameof(Type)
-    );
-
     public static readonly StyledProperty<bool> IsHoveredProperty = AvaloniaProperty.Register<MacButton, bool>(
         nameof(IsHovered)
+    );
+
+    public static readonly StyledProperty<ButtonType> TypeProperty = AvaloniaProperty.Register<MacButton, ButtonType>(
+        nameof(Type)
     );
 
     public MacButton()
     {
         InitializeComponent();
-    }
-
-    public ButtonType Type
-    {
-        get => GetValue(TypeProperty);
-        set => SetValue(TypeProperty, value);
     }
 
     public bool IsHovered
@@ -32,27 +26,16 @@ internal partial class MacButton : UserControl
         set => SetValue(IsHoveredProperty, value);
     }
 
+    public ButtonType Type
+    {
+        get => GetValue(TypeProperty);
+        set => SetValue(TypeProperty, value);
+    }
+
     protected override void OnAttachedToVisualTree(VisualTreeAttachmentEventArgs e)
     {
         base.OnAttachedToVisualTree(e);
         LoadSources(Type);
-    }
-
-    protected override void OnPropertyChanged(AvaloniaPropertyChangedEventArgs change)
-    {
-        base.OnPropertyChanged(change);
-
-        if (change.Property == TypeProperty)
-        {
-            LoadSources((ButtonType)change.NewValue!);
-        }
-        else if (change.Property == IsHoveredProperty)
-        {
-            bool hovered = (bool)change.NewValue!;
-            NormalState.IsVisible = !hovered;
-            HoverState.IsVisible = hovered;
-            PressState.IsVisible = false;
-        }
     }
 
     protected override void OnPointerPressed(PointerPressedEventArgs e)
@@ -69,6 +52,23 @@ internal partial class MacButton : UserControl
         NormalState.IsVisible = false;
         HoverState.IsVisible = true;
         PressState.IsVisible = false;
+    }
+
+    protected override void OnPropertyChanged(AvaloniaPropertyChangedEventArgs change)
+    {
+        base.OnPropertyChanged(change);
+
+        if (change.Property == TypeProperty)
+        {
+            LoadSources(change.GetNewValue<ButtonType>());
+        }
+        else if (change.Property == IsHoveredProperty)
+        {
+            bool hovered = change.GetNewValue<bool>();
+            NormalState.IsVisible = !hovered;
+            HoverState.IsVisible = hovered;
+            PressState.IsVisible = false;
+        }
     }
 
     private static SvgImage Load(string path)

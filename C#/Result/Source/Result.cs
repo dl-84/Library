@@ -10,9 +10,9 @@ namespace Result;
 /// <typeparam name="TError">The type of the error content inside <see cref="Error{TError}"/>.</typeparam>
 public readonly struct Result<TValue, TError>
 {
-    private readonly TValue? _value;
-
     private readonly Error<TError>? _error;
+
+    private readonly TValue? _value;
 
     private Result(TValue value)
     {
@@ -62,16 +62,6 @@ public readonly struct Result<TValue, TError>
         !IsError ? success(_value!) : failure(_error!.Value);
 
     /// <summary>
-    /// Transforms the success value using the provided function.
-    /// If the result is an error, the error is passed through unchanged without invoking the function.
-    /// </summary>
-    /// <typeparam name="TNewValue">The type of the transformed success value.</typeparam>
-    /// <param name="mapper">A function that transforms the success value into a new type.</param>
-    /// <returns>A new result containing the transformed value, or the original error.</returns>
-    public Result<TNewValue, TError> Map<TNewValue>(Func<TValue, TNewValue> mapper) =>
-        Match<Result<TNewValue, TError>>(value => mapper(value), error => error);
-
-    /// <summary>
     /// Chains a subsequent operation that itself returns a <see cref="Result{TNewValue,TError}"/>.
     /// If either this result or the subsequent operation is an error, the error is propagated immediately.
     /// Enables composing multiple failable steps without nested conditionals.
@@ -81,4 +71,14 @@ public readonly struct Result<TValue, TError>
     /// <returns>The result of the subsequent operation, or the original error.</returns>
     public Result<TNewValue, TError> AndThen<TNewValue>(Func<TValue, Result<TNewValue, TError>> mapper) =>
         Match<Result<TNewValue, TError>>(mapper, error => error);
+
+    /// <summary>
+    /// Transforms the success value using the provided function.
+    /// If the result is an error, the error is passed through unchanged without invoking the function.
+    /// </summary>
+    /// <typeparam name="TNewValue">The type of the transformed success value.</typeparam>
+    /// <param name="mapper">A function that transforms the success value into a new type.</param>
+    /// <returns>A new result containing the transformed value, or the original error.</returns>
+    public Result<TNewValue, TError> Map<TNewValue>(Func<TValue, TNewValue> mapper) =>
+        Match<Result<TNewValue, TError>>(value => mapper(value), error => error);
 }

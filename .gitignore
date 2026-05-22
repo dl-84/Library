@@ -4,6 +4,7 @@
 # Build output
 bin/
 obj/
+out/
 
 # IDE
 .idea/

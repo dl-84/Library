@@ -11,20 +11,20 @@ namespace Controls.TitleBar;
 public partial class TitleBarControl : UserControl
 {
     /// <summary>
-    /// Defines the <see cref="PrimaryColor"/> property.
-    /// </summary>
-    public static readonly StyledProperty<IBrush?> PrimaryColorProperty = AvaloniaProperty.Register<
-        TitleBarControl,
-        IBrush?
-    >(nameof(PrimaryColor));
-
-    /// <summary>
     /// Defines the <see cref="BackgroundColor"/> property.
     /// </summary>
     public static readonly StyledProperty<IBrush?> BackgroundColorProperty = AvaloniaProperty.Register<
         TitleBarControl,
         IBrush?
     >(nameof(BackgroundColor));
+
+    /// <summary>
+    /// Defines the <see cref="PrimaryColor"/> property.
+    /// </summary>
+    public static readonly StyledProperty<IBrush?> PrimaryColorProperty = AvaloniaProperty.Register<
+        TitleBarControl,
+        IBrush?
+    >(nameof(PrimaryColor));
 
     private Window? _parentWindow;
 
@@ -38,21 +38,21 @@ public partial class TitleBarControl : UserControl
     }
 
     /// <summary>
-    /// Gets or sets the primary color used for the sidebar section and button hover backgrounds.
-    /// </summary>
-    public IBrush? PrimaryColor
-    {
-        get => GetValue(PrimaryColorProperty);
-        set => SetValue(PrimaryColorProperty, value);
-    }
-
-    /// <summary>
     /// Gets or sets the background color used for the content section and button normal backgrounds.
     /// </summary>
     public IBrush? BackgroundColor
     {
         get => GetValue(BackgroundColorProperty);
         set => SetValue(BackgroundColorProperty, value);
+    }
+
+    /// <summary>
+    /// Gets or sets the primary color used for the sidebar section and button hover backgrounds.
+    /// </summary>
+    public IBrush? PrimaryColor
+    {
+        get => GetValue(PrimaryColorProperty);
+        set => SetValue(PrimaryColorProperty, value);
     }
 
     /// <inheritdoc />
@@ -74,23 +74,19 @@ public partial class TitleBarControl : UserControl
         _parentWindow = null;
     }
 
-    private void OnTitleBarDrag(object? sender, PointerPressedEventArgs e)
+    /// <inheritdoc />
+    protected override void OnPropertyChanged(AvaloniaPropertyChangedEventArgs change)
     {
-        _parentWindow?.BeginMoveDrag(e);
-    }
+        base.OnPropertyChanged(change);
 
-    private void OnMacButtonsPointerEntered(object? sender, PointerEventArgs e)
-    {
-        MacCloseIcon.IsHovered = true;
-        MacMinimizeIcon.IsHovered = true;
-        MacMaximizeIcon.IsHovered = true;
-    }
-
-    private void OnMacButtonsPointerExited(object? sender, PointerEventArgs e)
-    {
-        MacCloseIcon.IsHovered = false;
-        MacMinimizeIcon.IsHovered = false;
-        MacMaximizeIcon.IsHovered = false;
+        if (change.Property == PrimaryColorProperty)
+        {
+            SidebarBorder.Background = change.GetNewValue<IBrush?>();
+        }
+        else if (change.Property == BackgroundColorProperty)
+        {
+            ContentBorder.Background = change.GetNewValue<IBrush?>();
+        }
     }
 
     private void OnMacButtonPressed(object? sender, PointerPressedEventArgs e)
@@ -114,6 +110,25 @@ public partial class TitleBarControl : UserControl
                     : WindowState.Maximized;
                 break;
         }
+    }
+
+    private void OnMacButtonsPointerEntered(object? sender, PointerEventArgs e)
+    {
+        MacCloseIcon.IsHovered = true;
+        MacMinimizeIcon.IsHovered = true;
+        MacMaximizeIcon.IsHovered = true;
+    }
+
+    private void OnMacButtonsPointerExited(object? sender, PointerEventArgs e)
+    {
+        MacCloseIcon.IsHovered = false;
+        MacMinimizeIcon.IsHovered = false;
+        MacMaximizeIcon.IsHovered = false;
+    }
+
+    private void OnTitleBarDrag(object? sender, PointerPressedEventArgs e)
+    {
+        _parentWindow?.BeginMoveDrag(e);
     }
 
     private void OnWinButtonPressed(object? sender, PointerPressedEventArgs e)
