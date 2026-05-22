@@ -18,6 +18,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <AvaloniaResource Include="Assets\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <AdditionalFiles Include="..\..\..\stylecop.json" Visible="false" />
   </ItemGroup>
 

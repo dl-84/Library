@@ -1,7 +1,8 @@
-using System.Collections;
+using System.Collections.Generic;
+using System.Diagnostics;
 using Avalonia;
 using Avalonia.Controls;
-using Avalonia.Controls.Templates;
+using Avalonia.Input;
 
 namespace Controls.LicenseTable;
 
@@ -9,20 +10,12 @@ namespace Controls.LicenseTable;
 public partial class LicenseTableControl : UserControl
 {
     /// <summary>
-    /// Defines the <see cref="ItemsSource"/> property.
+    /// Defines the <see cref="Items"/> property.
     /// </summary>
-    public static readonly StyledProperty<IEnumerable?> ItemsSourceProperty = AvaloniaProperty.Register<
+    public static readonly StyledProperty<IEnumerable<PackageModel>?> ItemsProperty = AvaloniaProperty.Register<
         LicenseTableControl,
-        IEnumerable?
-    >(nameof(ItemsSource));
-
-    /// <summary>
-    /// Defines the <see cref="ItemTemplate"/> property.
-    /// </summary>
-    public static readonly StyledProperty<IDataTemplate?> ItemTemplateProperty = AvaloniaProperty.Register<
-        LicenseTableControl,
-        IDataTemplate?
-    >(nameof(ItemTemplate));
+        IEnumerable<PackageModel>?
+    >(nameof(Items));
 
     /// <summary>
     /// Defines the <see cref="LicenseColumnHeader"/> property.
@@ -65,21 +58,12 @@ public partial class LicenseTableControl : UserControl
     }
 
     /// <summary>
-    /// Gets or sets the items source for the table rows.
+    /// Gets or sets the items to display as table rows.
     /// </summary>
-    public IEnumerable? ItemsSource
+    public IEnumerable<PackageModel>? Items
     {
-        get => GetValue(ItemsSourceProperty);
-        set => SetValue(ItemsSourceProperty, value);
-    }
-
-    /// <summary>
-    /// Gets or sets the data template used to render each row.
-    /// </summary>
-    public IDataTemplate? ItemTemplate
-    {
-        get => GetValue(ItemTemplateProperty);
-        set => SetValue(ItemTemplateProperty, value);
+        get => GetValue(ItemsProperty);
+        set => SetValue(ItemsProperty, value);
     }
 
     /// <summary>
@@ -123,13 +107,9 @@ public partial class LicenseTableControl : UserControl
     {
         base.OnPropertyChanged(change);
 
-        if (change.Property == ItemsSourceProperty)
+        if (change.Property == ItemsProperty)
         {
-            RowsControl.ItemsSource = change.GetNewValue<IEnumerable?>();
-        }
-        else if (change.Property == ItemTemplateProperty)
-        {
-            RowsControl.ItemTemplate = change.GetNewValue<IDataTemplate?>();
+            RowsControl.ItemsSource = change.GetNewValue<IEnumerable<PackageModel>?>();
         }
         else if (change.Property == LicenseColumnHeaderProperty)
         {
@@ -146,6 +126,14 @@ public partial class LicenseTableControl : UserControl
         else if (change.Property == VersionColumnHeaderProperty)
         {
             VersionHeaderText.Text = change.GetNewValue<string?>();
+        }
+    }
+
+    private void OnPointerLinkClicked(object? sender, PointerPressedEventArgs e)
+    {
+        if (sender is Control { Tag: string url })
+        {
+            Process.Start(new ProcessStartInfo { FileName = url, UseShellExecute = true });
         }
     }
 }
