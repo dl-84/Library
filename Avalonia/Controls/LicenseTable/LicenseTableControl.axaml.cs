@@ -120,7 +120,6 @@ public partial class LicenseTableControl : UserControl
 
     /// <summary>
     /// Gets or sets the foreground color for secondary row text (copyright).
-    /// Falls back to <see cref="PrimaryTextColor"/> when not set.
     /// </summary>
     public IBrush? SecondaryTextColor
     {
@@ -156,11 +155,6 @@ public partial class LicenseTableControl : UserControl
         else if (change.Property == ItemsProperty)
         {
             RowsControl.ItemsSource = change.GetNewValue<IEnumerable<PackageModel>?>();
-        }
-        else if (change.Property == PrimaryTextColorProperty || change.Property == SecondaryTextColorProperty)
-        {
-            Resources["LicenseTablePrimaryBrush"] = PrimaryTextColor;
-            Resources["LicenseTableSecondaryBrush"] = SecondaryTextColor ?? PrimaryTextColor;
         }
     }
 

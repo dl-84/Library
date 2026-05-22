@@ -33,15 +33,15 @@
                               MinHeight="36">
                             <StackPanel Margin="0,6,0,6"
                                         VerticalAlignment="Center">
-                                <TextBlock Foreground="{DynamicResource LicenseTablePrimaryBrush}"
+                                <TextBlock Foreground="{Binding PrimaryTextColor, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=local:LicenseTableControl}}"
                                            Text="{Binding Name}" />
                                 <TextBlock Classes="muted"
-                                           Foreground="{DynamicResource LicenseTableSecondaryBrush}"
+                                           Foreground="{Binding SecondaryTextColor, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=local:LicenseTableControl}}"
                                            Text="{Binding Copyright}"
                                            TextWrapping="Wrap" />
                             </StackPanel>
                             <TextBlock Grid.Column="1"
-                                       Foreground="{DynamicResource LicenseTablePrimaryBrush}"
+                                       Foreground="{Binding PrimaryTextColor, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=local:LicenseTableControl}}"
                                        Text="{Binding Version}"
                                        TextAlignment="Center"
                                        VerticalAlignment="Center" />
