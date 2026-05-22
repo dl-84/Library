@@ -6,7 +6,7 @@
     <Border Classes="card"
             Padding="0">
         <StackPanel>
-            <Border Background="{DynamicResource AccentGreenBrush}"
+            <Border x:Name="HeaderBorder"
                     Padding="24,10">
                 <Grid ColumnDefinitions="*,80,120,48">
                     <TextBlock x:Name="NameHeaderText"
@@ -33,12 +33,15 @@
                               MinHeight="36">
                             <StackPanel Margin="0,6,0,6"
                                         VerticalAlignment="Center">
-                                <TextBlock Text="{Binding Name}" />
+                                <TextBlock Foreground="{DynamicResource LicenseTablePrimaryBrush}"
+                                           Text="{Binding Name}" />
                                 <TextBlock Classes="muted"
+                                           Foreground="{DynamicResource LicenseTableSecondaryBrush}"
                                            Text="{Binding Copyright}"
                                            TextWrapping="Wrap" />
                             </StackPanel>
                             <TextBlock Grid.Column="1"
+                                       Foreground="{DynamicResource LicenseTablePrimaryBrush}"
                                        Text="{Binding Version}"
                                        TextAlignment="Center"
                                        VerticalAlignment="Center" />
