@@ -10,26 +10,18 @@
                     Padding="24,10">
                 <Grid ColumnDefinitions="*,80,120,48">
                     <TextBlock x:Name="NameHeaderText"
-                               Classes="label"
-                               FontSize="16"
-                               Foreground="{DynamicResource AccentForegroundBrush}" />
+                               Classes="label table-column-header" />
                     <TextBlock x:Name="VersionHeaderText"
                                Grid.Column="1"
-                               Classes="label"
-                               FontSize="16"
-                               Foreground="{DynamicResource AccentForegroundBrush}"
+                               Classes="label table-column-header"
                                TextAlignment="Center" />
                     <TextBlock x:Name="LicenseHeaderText"
                                Grid.Column="2"
-                               Classes="label"
-                               FontSize="16"
-                               Foreground="{DynamicResource AccentForegroundBrush}"
+                               Classes="label table-column-header"
                                TextAlignment="Center" />
                     <TextBlock x:Name="LinkHeaderText"
                                Grid.Column="3"
-                               Classes="label"
-                               FontSize="16"
-                               Foreground="{DynamicResource AccentForegroundBrush}"
+                               Classes="label table-column-header"
                                TextAlignment="Center" />
                 </Grid>
             </Border>
@@ -44,21 +36,18 @@
                                 <TextBlock Text="{Binding Name}" />
                                 <TextBlock Classes="muted"
                                            Text="{Binding Copyright}"
-                                           TextWrapping="Wrap"
-                                           IsVisible="{Binding Copyright, Converter={x:Static StringConverters.IsNotNullOrEmpty}}" />
+                                           TextWrapping="Wrap" />
                             </StackPanel>
                             <TextBlock Grid.Column="1"
                                        Text="{Binding Version}"
                                        TextAlignment="Center"
                                        VerticalAlignment="Center" />
                             <TextBlock Grid.Column="2"
-                                       Cursor="Hand"
-                                       Foreground="{DynamicResource AccentBrush}"
+                                       Classes="table-link"
                                        HorizontalAlignment="Center"
                                        PointerPressed="OnPointerLinkClicked"
                                        Tag="{Binding LicenseUrl}"
                                        Text="{Binding LicenseType}"
-                                       TextDecorations="Underline"
                                        VerticalAlignment="Center"
                                        IsVisible="{Binding HasLicenseLink}" />
                             <Image Grid.Column="3"
@@ -70,7 +59,7 @@
                                    Tag="{Binding PackageUrl}"
                                    VerticalAlignment="Center"
                                    Width="16"
-                                   IsVisible="{Binding PackageUrl, Converter={x:Static StringConverters.IsNotNullOrEmpty}}" />
+                                   IsVisible="{Binding HasPackageUrl}" />
                         </Grid>
                     </DataTemplate>
                 </ItemsControl.ItemTemplate>

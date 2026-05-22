@@ -78,4 +78,15 @@
         <Setter Property="Foreground" Value="{DynamicResource SuccessBrush}" />
     </Style>
 
+    <Style Selector="TextBlock.table-column-header">
+        <Setter Property="FontSize" Value="16" />
+        <Setter Property="Foreground" Value="{DynamicResource AccentForegroundBrush}" />
+    </Style>
+
+    <Style Selector="TextBlock.table-link">
+        <Setter Property="Cursor" Value="Hand" />
+        <Setter Property="Foreground" Value="{DynamicResource AccentBrush}" />
+        <Setter Property="TextDecorations" Value="Underline" />
+    </Style>
+
 </Styles>
