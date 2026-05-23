@@ -3,6 +3,7 @@
 
     <FontFamily x:Key="FontBody">Arial,Segoe UI,Helvetica Neue,sans-serif</FontFamily>
     <FontFamily x:Key="FontHeading">Montserrat,Segoe UI,Arial,sans-serif</FontFamily>
+    <FontFamily x:Key="FontMono">Consolas,Courier New,monospace</FontFamily>
 
     <x:Double x:Key="FontSizeSmall">13</x:Double>
     <x:Double x:Key="FontSizeBody">16</x:Double>
