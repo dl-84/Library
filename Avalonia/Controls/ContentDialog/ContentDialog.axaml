@@ -1,0 +1,41 @@
+﻿<Window x:Class="Controls.ContentDialog.ContentDialog"
+        xmlns="https://github.com/avaloniaui"
+        xmlns:local="using:Controls.ContentDialog"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        x:DataType="local:ContentDialog"
+        Background="Transparent"
+        CanResize="False"
+        Height="650"
+        TransparencyLevelHint="Transparent"
+        Width="800"
+        WindowDecorations="None"
+        WindowStartupLocation="CenterOwner">
+
+    <Border ClipToBounds="True"
+            CornerRadius="10">
+        <Grid Background="{Binding BackgroundColor}"
+              RowDefinitions="Auto,*,Auto">
+
+            <Border Grid.Row="0"
+                    Background="{Binding PrimaryColor}"
+                    Padding="24,12">
+                <TextBlock FontSize="16"
+                           FontWeight="SemiBold"
+                           Foreground="{Binding TextColor}"
+                           Text="{Binding DialogTitle}" />
+            </Border>
+
+            <ContentControl Grid.Row="1"
+                            Content="{Binding DialogContent}" />
+
+            <Button Grid.Row="2"
+                    Background="{Binding PrimaryColor}"
+                    Click="OnCloseClicked"
+                    Content="{Binding CloseText}"
+                    Foreground="{Binding TextColor}"
+                    HorizontalAlignment="Center"
+                    Margin="0,16,0,24" />
+
+        </Grid>
+    </Border>
+</Window>
