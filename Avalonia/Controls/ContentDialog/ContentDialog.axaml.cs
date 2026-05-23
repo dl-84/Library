@@ -19,6 +19,14 @@ public partial class ContentDialog : Window
     >(nameof(BackgroundColor));
 
     /// <summary>
+    /// Defines the <see cref="CloseButtonColor"/> property.
+    /// </summary>
+    public static readonly StyledProperty<IBrush?> CloseButtonColorProperty = AvaloniaProperty.Register<
+        ContentDialog,
+        IBrush?
+    >(nameof(CloseButtonColor));
+
+    /// <summary>
     /// Defines the <see cref="CloseText"/> property.
     /// </summary>
     public static readonly StyledProperty<string?> CloseTextProperty = AvaloniaProperty.Register<
@@ -74,6 +82,15 @@ public partial class ContentDialog : Window
     {
         get => GetValue(BackgroundColorProperty);
         set => SetValue(BackgroundColorProperty, value);
+    }
+
+    /// <summary>
+    /// Gets or sets the background brush of the close button.
+    /// </summary>
+    public IBrush? CloseButtonColor
+    {
+        get => GetValue(CloseButtonColorProperty);
+        set => SetValue(CloseButtonColorProperty, value);
     }
 
     /// <summary>

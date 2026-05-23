@@ -27,7 +27,7 @@
 
     <Style Selector="TextBlock.h3">
         <Setter Property="FontFamily" Value="{DynamicResource FontHeading}" />
-        <Setter Property="FontSize" Value="22" />
+        <Setter Property="FontSize" Value="{DynamicResource FontSizeMediumLarge}" />
         <Setter Property="FontWeight" Value="SemiBold" />
         <Setter Property="Foreground" Value="{DynamicResource PrimaryBrush}" />
     </Style>

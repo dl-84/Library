@@ -1,4 +1,5 @@
-﻿<Window x:Class="Controls.ConfirmDialog.ConfirmDialog"
+﻿
+<Window x:Class="Controls.ConfirmDialog.ConfirmDialog"
         xmlns="https://github.com/avaloniaui"
         xmlns:local="using:Controls.ConfirmDialog"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -50,12 +51,10 @@
                         Content="{Binding AcceptText}"
                         Foreground="{Binding SecondaryBrush}" />
                 <Button x:Name="CancelButton"
-                        Background="Transparent"
-                        BorderBrush="{Binding PrimaryBrush}"
-                        BorderThickness="2"
+                        Background="{Binding CancelButtonColor}"
                         Click="OnCancelClicked"
                         Content="{Binding CancelText}"
-                        Foreground="{Binding PrimaryBrush}" />
+                        Foreground="{Binding SecondaryBrush}" />
             </StackPanel>
 
         </Grid>

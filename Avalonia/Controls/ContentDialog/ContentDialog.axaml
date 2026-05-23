@@ -29,7 +29,7 @@
                             Content="{Binding DialogContent}" />
 
             <Button Grid.Row="2"
-                    Background="{Binding PrimaryColor}"
+                    Background="{Binding CloseButtonColor}"
                     Click="OnCloseClicked"
                     Content="{Binding CloseText}"
                     Foreground="{Binding TextColor}"

@@ -29,6 +29,7 @@
     <StyleInclude Source="avares://Disag/Styles/RadioButton.axaml" />
     <StyleInclude Source="avares://Disag/Styles/ScrollBar.axaml" />
     <StyleInclude Source="avares://Disag/Styles/Slider.axaml" />
+    <StyleInclude Source="avares://Disag/Styles/StackPanel.axaml" />
     <StyleInclude Source="avares://Disag/Styles/SplitView.axaml" />
     <StyleInclude Source="avares://Disag/Styles/TabControl.axaml" />
     <StyleInclude Source="avares://Disag/Styles/TextBlock.axaml" />

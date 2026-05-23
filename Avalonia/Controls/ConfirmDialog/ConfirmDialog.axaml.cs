@@ -20,6 +20,14 @@ public partial class ConfirmDialog : Window
     >(nameof(AcceptText));
 
     /// <summary>
+    /// Defines the <see cref="CancelButtonColor"/> property.
+    /// </summary>
+    public static readonly StyledProperty<IBrush?> CancelButtonColorProperty = AvaloniaProperty.Register<
+        ConfirmDialog,
+        IBrush?
+    >(nameof(CancelButtonColor));
+
+    /// <summary>
     /// Defines the <see cref="CancelText"/> property.
     /// </summary>
     public static readonly StyledProperty<string?> CancelTextProperty = AvaloniaProperty.Register<
@@ -90,6 +98,15 @@ public partial class ConfirmDialog : Window
     {
         get => GetValue(AcceptTextProperty);
         set => SetValue(AcceptTextProperty, value);
+    }
+
+    /// <summary>
+    /// Gets or sets the brush used for the cancel button border and foreground.
+    /// </summary>
+    public IBrush? CancelButtonColor
+    {
+        get => GetValue(CancelButtonColorProperty);
+        set => SetValue(CancelButtonColorProperty, value);
     }
 
     /// <summary>
