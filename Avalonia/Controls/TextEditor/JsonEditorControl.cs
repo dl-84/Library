@@ -42,6 +42,7 @@ public class JsonEditorControl : UserControl
 
         _editor = new TextEditor
         {
+            Background = Avalonia.Media.Brushes.White,
             FontFamily = new Avalonia.Media.FontFamily("Consolas,Courier New,monospace"),
             FontSize = 15,
             ShowLineNumbers = true,

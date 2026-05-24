@@ -21,6 +21,12 @@
         <Setter Property="Padding" Value="24" />
     </Style>
 
+    <Style Selector="Border.card-success">
+        <Setter Property="Background" Value="{DynamicResource AccentGreenBrush}" />
+        <Setter Property="CornerRadius" Value="{DynamicResource CornerRadiusZero}" />
+        <Setter Property="Padding" Value="24" />
+    </Style>
+
     <Style Selector="Border.card-accent">
         <Setter Property="Background" Value="{DynamicResource AccentBrush}" />
         <Setter Property="CornerRadius" Value="{DynamicResource CornerRadiusLarge}" />
