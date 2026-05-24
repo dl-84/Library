@@ -86,8 +86,14 @@ public class JsonEditorControl : UserControl
         }
         else if (change.Property == TextProperty && !_updating)
         {
+            string newText = change.GetNewValue<string>();
+            if (newText == _editor.Document.Text)
+            {
+                return;
+            }
+
             _updating = true;
-            _editor.Document.Text = change.GetNewValue<string>();
+            _editor.Document.Text = newText;
             _editor.Document.UndoStack.MarkAsOriginalFile();
             SetValue(IsModifiedProperty, false);
             _updating = false;
