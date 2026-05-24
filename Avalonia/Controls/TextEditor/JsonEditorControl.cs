@@ -10,6 +10,12 @@ namespace Controls.JsonEditor;
 /// <inheritdoc />
 public class JsonEditorControl : UserControl
 {
+    /// <summary>StyledProperty for <see cref="IsModified"/>.</summary>
+    public static readonly StyledProperty<bool> IsModifiedProperty = AvaloniaProperty.Register<JsonEditorControl, bool>(
+        nameof(IsModified),
+        defaultValue: false
+    );
+
     /// <summary>StyledProperty for <see cref="IsReadOnly"/>.</summary>
     public static readonly StyledProperty<bool> IsReadOnlyProperty = AvaloniaProperty.Register<JsonEditorControl, bool>(
         nameof(IsReadOnly),
@@ -48,6 +54,13 @@ public class JsonEditorControl : UserControl
         Content = _editor;
     }
 
+    /// <summary>Gets a value indicating whether the content has been modified since last load.</summary>
+    public bool IsModified
+    {
+        get => GetValue(IsModifiedProperty);
+        private set => SetValue(IsModifiedProperty, value);
+    }
+
     /// <summary>Gets or sets a value indicating whether the editor is read-only.</summary>
     public bool IsReadOnly
     {
@@ -75,6 +88,8 @@ public class JsonEditorControl : UserControl
         {
             _updating = true;
             _editor.Document.Text = change.GetNewValue<string>();
+            _editor.Document.UndoStack.MarkAsOriginalFile();
+            SetValue(IsModifiedProperty, false);
             _updating = false;
         }
     }
@@ -85,6 +100,7 @@ public class JsonEditorControl : UserControl
         {
             _updating = true;
             SetValue(TextProperty, _editor.Document.Text);
+            SetValue(IsModifiedProperty, _editor.IsModified);
             _updating = false;
         }
     }
