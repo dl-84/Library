@@ -1,4 +1,4 @@
-<Window x:Class="Controls.InfoDialog.InfoDialog"
+﻿<Window x:Class="Controls.InfoDialog.InfoDialog"
         xmlns="https://github.com/avaloniaui"
         xmlns:local="using:Controls.InfoDialog"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -12,10 +12,14 @@
         WindowDecorations="None"
         WindowStartupLocation="CenterOwner">
 
-    <Window.Resources>
-        <local:IconTypeToGeometryConverter x:Key="IconTypeToGeometry" />
-        <local:IconTypeToBrushConverter x:Key="IconTypeToBrush" />
-    </Window.Resources>
+    <!--  Disable Hover Styles  -->
+    <Window.Styles>
+        <Style Selector="Button:pointerover /template/ ContentPresenter#PART_ContentPresenter">
+            <Setter Property="Background" Value="{Binding $parent[Button].Background}" />
+            <Setter Property="BorderBrush" Value="{Binding $parent[Button].BorderBrush}" />
+            <Setter Property="TextElement.Foreground" Value="{Binding $parent[Button].Foreground}" />
+        </Style>
+    </Window.Styles>
 
     <Border ClipToBounds="True"
             CornerRadius="10">
@@ -23,7 +27,7 @@
               RowDefinitions="Auto,*,Auto">
 
             <Border Grid.Row="0"
-                    Background="{DynamicResource PrimaryBrush}"
+                    Background="{DynamicResource SecondaryBrush}"
                     Padding="24,12">
                 <TextBlock FontSize="16"
                            FontWeight="SemiBold"
@@ -35,12 +39,10 @@
                         Margin="24,20,24,20"
                         Orientation="Horizontal"
                         Spacing="16">
-                <Path Data="{Binding IconType, Converter={StaticResource IconTypeToGeometry}}"
-                      Fill="{Binding IconType, Converter={StaticResource IconTypeToBrush}}"
-                      Height="24"
-                      Stretch="Uniform"
-                      VerticalAlignment="Top"
-                      Width="24" />
+                <Image x:Name="IconImage"
+                       Height="72"
+                       VerticalAlignment="Top"
+                       Width="72" />
                 <TextBlock Foreground="{DynamicResource TextPrimaryBrush}"
                            MaxWidth="360"
                            Text="{Binding Message}"
@@ -52,7 +54,7 @@
                     Background="{DynamicResource SecondaryBrush}"
                     Click="OnCloseClicked"
                     Content="{Binding CloseText}"
-                    Foreground="{DynamicResource PrimaryForegroundBrush}"
+                    Foreground="{DynamicResource SecondaryForegroundBrush}"
                     HorizontalAlignment="Center"
                     Margin="0,0,0,24" />
 
