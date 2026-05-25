@@ -1,0 +1,55 @@
+<Window x:Class="Controls.InfoDialog.InfoDialog"
+        xmlns="https://github.com/avaloniaui"
+        xmlns:local="using:Controls.InfoDialog"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        x:DataType="local:InfoDialog"
+        Background="Transparent"
+        CanResize="False"
+        MinWidth="400"
+        SizeToContent="Height"
+        TransparencyLevelHint="Transparent"
+        Width="480"
+        WindowDecorations="None"
+        WindowStartupLocation="CenterOwner">
+
+    <Border ClipToBounds="True"
+            CornerRadius="10">
+        <Grid Background="{Binding BackgroundColor}"
+              RowDefinitions="Auto,*,Auto">
+
+            <Border Grid.Row="0"
+                    Background="{Binding PrimaryColor}"
+                    Padding="24,12">
+                <TextBlock FontSize="16"
+                           FontWeight="SemiBold"
+                           Foreground="{Binding TextColor}"
+                           Text="{Binding DialogTitle}" />
+            </Border>
+
+            <StackPanel Grid.Row="1"
+                        Margin="24,20,24,20"
+                        Orientation="Horizontal"
+                        Spacing="16">
+                <Path Data="{Binding IconData}"
+                      Fill="{Binding IconBrush}"
+                      Height="24"
+                      Stretch="Uniform"
+                      VerticalAlignment="Top"
+                      Width="24" />
+                <TextBlock MaxWidth="360"
+                           Text="{Binding Message}"
+                           TextWrapping="Wrap"
+                           VerticalAlignment="Center" />
+            </StackPanel>
+
+            <Button Grid.Row="2"
+                    Background="{Binding CloseButtonColor}"
+                    Click="OnCloseClicked"
+                    Content="{Binding CloseText}"
+                    Foreground="{Binding TextColor}"
+                    HorizontalAlignment="Center"
+                    Margin="0,0,0,24" />
+
+        </Grid>
+    </Border>
+</Window>
