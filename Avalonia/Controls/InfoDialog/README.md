@@ -43,7 +43,7 @@ await new InfoDialog
 |---|---|---|
 | `CloseText` | `string?` | Beschriftung des Schließen-Buttons |
 | `DialogTitle` | `string?` | Titeltext im Header |
-| `IconType` | `IconType` | `Info` (grün) oder `Warning` (rot) |
+| `IconType` | `IconType` | `Info` (cyan), `Warning` (gelb) oder `Error` (rot) |
 | `Message` | `string?` | Nachrichtentext (bricht automatisch um) |
 
 ---
@@ -56,8 +56,8 @@ Das Control liest folgende Keys via `DynamicResource` aus dem Theme:
 |---|---|
 | `AppBackgroundAltBrush` | Dialog-Hintergrund |
 | `ErrorBrush` | Error-Icon Farbe |
-| `SecondaryBrush` | Header-Hintergrund, Schließen-Button Hintergrund |
-| `SecondaryForegroundBrush` | Header- und Button-Textfarbe |
+| `PrimaryBrush` | Header-Hintergrund, Schließen-Button Hintergrund |
+| `PrimaryForegroundBrush` | Header- und Button-Textfarbe |
 | `TertiaryBrush` | Info-Icon Farbe |
 | `TextPrimaryBrush` | Nachrichtentext |
 | `WarningBrush` | Warning-Icon Farbe |

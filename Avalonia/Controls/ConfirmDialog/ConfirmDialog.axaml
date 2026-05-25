@@ -27,11 +27,11 @@
               RowDefinitions="Auto,*,Auto">
 
             <Border Grid.Row="0"
-                    Background="{DynamicResource SecondaryBrush}"
+                    Background="{DynamicResource PrimaryBrush}"
                     Padding="24,12">
                 <TextBlock FontSize="16"
                            FontWeight="SemiBold"
-                           Foreground="{DynamicResource SecondaryForegroundBrush}"
+                           Foreground="{DynamicResource PrimaryForegroundBrush}"
                            Text="{Binding DialogTitle}" />
             </Border>
 
