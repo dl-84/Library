@@ -5,6 +5,7 @@ using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Input;
 using Avalonia.Media;
+using Controls.LicenseTable.Models;
 
 namespace Controls.LicenseTable;
 

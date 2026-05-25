@@ -12,17 +12,21 @@
         WindowDecorations="None"
         WindowStartupLocation="CenterOwner">
 
+    <Window.Resources>
+        <local:IconTypeToGeometryConverter x:Key="IconTypeToGeometry" />
+    </Window.Resources>
+
     <Border ClipToBounds="True"
             CornerRadius="10">
-        <Grid Background="{Binding BackgroundColor}"
+        <Grid Background="{Binding DialogBackground}"
               RowDefinitions="Auto,*,Auto">
 
             <Border Grid.Row="0"
-                    Background="{Binding PrimaryColor}"
+                    Background="{Binding HeaderBackground}"
                     Padding="24,12">
                 <TextBlock FontSize="16"
                            FontWeight="SemiBold"
-                           Foreground="{Binding TextColor}"
+                           Foreground="{Binding HeaderForeground}"
                            Text="{Binding DialogTitle}" />
             </Border>
 
@@ -30,23 +34,24 @@
                         Margin="24,20,24,20"
                         Orientation="Horizontal"
                         Spacing="16">
-                <Path Data="{Binding IconData}"
+                <Path Data="{Binding IconType, Converter={StaticResource IconTypeToGeometry}}"
                       Fill="{Binding IconBrush}"
                       Height="24"
                       Stretch="Uniform"
                       VerticalAlignment="Top"
                       Width="24" />
-                <TextBlock MaxWidth="360"
+                <TextBlock Foreground="{Binding DialogForeground}"
+                           MaxWidth="360"
                            Text="{Binding Message}"
                            TextWrapping="Wrap"
                            VerticalAlignment="Center" />
             </StackPanel>
 
             <Button Grid.Row="2"
-                    Background="{Binding CloseButtonColor}"
+                    Background="{Binding CloseButtonBackground}"
                     Click="OnCloseClicked"
                     Content="{Binding CloseText}"
-                    Foreground="{Binding TextColor}"
+                    Foreground="{Binding CloseButtonForeground}"
                     HorizontalAlignment="Center"
                     Margin="0,0,0,24" />
 

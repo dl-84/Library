@@ -6,57 +6,69 @@ using Avalonia.Media;
 namespace Controls.InfoDialog;
 
 /// <summary>
-/// A modal dialog for displaying Error, Warning, or Info messages with an icon.
+/// A modal dialog for displaying Info or Warning messages with an icon.
 /// </summary>
 public partial class InfoDialog : Window
 {
-    /// <summary>Defines the <see cref="BackgroundColor"/> property.</summary>
-    public static readonly StyledProperty<IBrush?> BackgroundColorProperty = AvaloniaProperty.Register<
+    /// <summary>Defines the <see cref="CloseButtonBackground"/> property.</summary>
+    public static readonly StyledProperty<IBrush?> CloseButtonBackgroundProperty = AvaloniaProperty.Register<
         InfoDialog,
         IBrush?
-    >(nameof(BackgroundColor));
+    >(nameof(CloseButtonBackground));
 
-    /// <summary>Defines the <see cref="CloseButtonColor"/> property.</summary>
-    public static readonly StyledProperty<IBrush?> CloseButtonColorProperty = AvaloniaProperty.Register<
+    /// <summary>Defines the <see cref="CloseButtonForeground"/> property.</summary>
+    public static readonly StyledProperty<IBrush?> CloseButtonForegroundProperty = AvaloniaProperty.Register<
         InfoDialog,
         IBrush?
-    >(nameof(CloseButtonColor));
+    >(nameof(CloseButtonForeground));
 
     /// <summary>Defines the <see cref="CloseText"/> property.</summary>
     public static readonly StyledProperty<string?> CloseTextProperty = AvaloniaProperty.Register<InfoDialog, string?>(
         nameof(CloseText)
     );
 
+    /// <summary>Defines the <see cref="DialogBackground"/> property.</summary>
+    public static readonly StyledProperty<IBrush?> DialogBackgroundProperty = AvaloniaProperty.Register<
+        InfoDialog,
+        IBrush?
+    >(nameof(DialogBackground));
+
+    /// <summary>Defines the <see cref="DialogForeground"/> property.</summary>
+    public static readonly StyledProperty<IBrush?> DialogForegroundProperty = AvaloniaProperty.Register<
+        InfoDialog,
+        IBrush?
+    >(nameof(DialogForeground));
+
     /// <summary>Defines the <see cref="DialogTitle"/> property.</summary>
     public static readonly StyledProperty<string?> DialogTitleProperty = AvaloniaProperty.Register<InfoDialog, string?>(
         nameof(DialogTitle)
     );
+
+    /// <summary>Defines the <see cref="HeaderBackground"/> property.</summary>
+    public static readonly StyledProperty<IBrush?> HeaderBackgroundProperty = AvaloniaProperty.Register<
+        InfoDialog,
+        IBrush?
+    >(nameof(HeaderBackground));
+
+    /// <summary>Defines the <see cref="HeaderForeground"/> property.</summary>
+    public static readonly StyledProperty<IBrush?> HeaderForegroundProperty = AvaloniaProperty.Register<
+        InfoDialog,
+        IBrush?
+    >(nameof(HeaderForeground));
 
     /// <summary>Defines the <see cref="IconBrush"/> property.</summary>
     public static readonly StyledProperty<IBrush?> IconBrushProperty = AvaloniaProperty.Register<InfoDialog, IBrush?>(
         nameof(IconBrush)
     );
 
-    /// <summary>Defines the <see cref="IconData"/> property.</summary>
-    public static readonly StyledProperty<Geometry?> IconDataProperty = AvaloniaProperty.Register<
-        InfoDialog,
-        Geometry?
-    >(nameof(IconData));
+    /// <summary>Defines the <see cref="IconType"/> property.</summary>
+    public static readonly StyledProperty<IconType> IconTypeProperty = AvaloniaProperty.Register<InfoDialog, IconType>(
+        nameof(IconType)
+    );
 
     /// <summary>Defines the <see cref="Message"/> property.</summary>
     public static readonly StyledProperty<string?> MessageProperty = AvaloniaProperty.Register<InfoDialog, string?>(
         nameof(Message)
-    );
-
-    /// <summary>Defines the <see cref="PrimaryColor"/> property.</summary>
-    public static readonly StyledProperty<IBrush?> PrimaryColorProperty = AvaloniaProperty.Register<
-        InfoDialog,
-        IBrush?
-    >(nameof(PrimaryColor));
-
-    /// <summary>Defines the <see cref="TextColor"/> property.</summary>
-    public static readonly StyledProperty<IBrush?> TextColorProperty = AvaloniaProperty.Register<InfoDialog, IBrush?>(
-        nameof(TextColor)
     );
 
     /// <summary>
@@ -68,18 +80,18 @@ public partial class InfoDialog : Window
         DataContext = this;
     }
 
-    /// <summary>Gets or sets the background brush of the content area.</summary>
-    public IBrush? BackgroundColor
+    /// <summary>Gets or sets the background brush of the close button.</summary>
+    public IBrush? CloseButtonBackground
     {
-        get => GetValue(BackgroundColorProperty);
-        set => SetValue(BackgroundColorProperty, value);
+        get => GetValue(CloseButtonBackgroundProperty);
+        set => SetValue(CloseButtonBackgroundProperty, value);
     }
 
-    /// <summary>Gets or sets the background brush of the close button.</summary>
-    public IBrush? CloseButtonColor
+    /// <summary>Gets or sets the foreground brush of the close button.</summary>
+    public IBrush? CloseButtonForeground
     {
-        get => GetValue(CloseButtonColorProperty);
-        set => SetValue(CloseButtonColorProperty, value);
+        get => GetValue(CloseButtonForegroundProperty);
+        set => SetValue(CloseButtonForegroundProperty, value);
     }
 
     /// <summary>Gets or sets the label of the close button.</summary>
@@ -89,11 +101,39 @@ public partial class InfoDialog : Window
         set => SetValue(CloseTextProperty, value);
     }
 
+    /// <summary>Gets or sets the background brush of the content area.</summary>
+    public IBrush? DialogBackground
+    {
+        get => GetValue(DialogBackgroundProperty);
+        set => SetValue(DialogBackgroundProperty, value);
+    }
+
+    /// <summary>Gets or sets the foreground brush of the content area.</summary>
+    public IBrush? DialogForeground
+    {
+        get => GetValue(DialogForegroundProperty);
+        set => SetValue(DialogForegroundProperty, value);
+    }
+
     /// <summary>Gets or sets the title shown in the header.</summary>
     public string? DialogTitle
     {
         get => GetValue(DialogTitleProperty);
         set => SetValue(DialogTitleProperty, value);
+    }
+
+    /// <summary>Gets or sets the background brush of the header.</summary>
+    public IBrush? HeaderBackground
+    {
+        get => GetValue(HeaderBackgroundProperty);
+        set => SetValue(HeaderBackgroundProperty, value);
+    }
+
+    /// <summary>Gets or sets the foreground brush of the header.</summary>
+    public IBrush? HeaderForeground
+    {
+        get => GetValue(HeaderForegroundProperty);
+        set => SetValue(HeaderForegroundProperty, value);
     }
 
     /// <summary>Gets or sets the brush used to fill the icon.</summary>
@@ -103,11 +143,11 @@ public partial class InfoDialog : Window
         set => SetValue(IconBrushProperty, value);
     }
 
-    /// <summary>Gets or sets the SVG path geometry for the icon.</summary>
-    public Geometry? IconData
+    /// <summary>Gets or sets the icon variant to display.</summary>
+    public IconType IconType
     {
-        get => GetValue(IconDataProperty);
-        set => SetValue(IconDataProperty, value);
+        get => GetValue(IconTypeProperty);
+        set => SetValue(IconTypeProperty, value);
     }
 
     /// <summary>Gets or sets the message text.</summary>
@@ -115,20 +155,6 @@ public partial class InfoDialog : Window
     {
         get => GetValue(MessageProperty);
         set => SetValue(MessageProperty, value);
-    }
-
-    /// <summary>Gets or sets the brush used for the header background.</summary>
-    public IBrush? PrimaryColor
-    {
-        get => GetValue(PrimaryColorProperty);
-        set => SetValue(PrimaryColorProperty, value);
-    }
-
-    /// <summary>Gets or sets the foreground brush used on primary colored areas.</summary>
-    public IBrush? TextColor
-    {
-        get => GetValue(TextColorProperty);
-        set => SetValue(TextColorProperty, value);
     }
 
     private void OnCloseClicked(object? sender, RoutedEventArgs e)

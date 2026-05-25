@@ -1,6 +1,7 @@
 ﻿<UserControl x:Class="Controls.LicenseTable.LicenseTableControl"
              xmlns="https://github.com/avaloniaui"
-             xmlns:local="using:Controls.LicenseTable"
+             xmlns:ctrl="using:Controls.LicenseTable"
+             xmlns:local="using:Controls.LicenseTable.Models"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
     <Border Classes="card"
@@ -33,15 +34,15 @@
                               MinHeight="36">
                             <StackPanel Margin="0,6,0,6"
                                         VerticalAlignment="Center">
-                                <TextBlock Foreground="{Binding PrimaryTextColor, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=local:LicenseTableControl}}"
+                                <TextBlock Foreground="{Binding $parent[ctrl:LicenseTableControl].PrimaryTextColor}"
                                            Text="{Binding Name}" />
                                 <TextBlock Classes="muted"
-                                           Foreground="{Binding SecondaryTextColor, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=local:LicenseTableControl}}"
+                                           Foreground="{Binding $parent[ctrl:LicenseTableControl].SecondaryTextColor}"
                                            Text="{Binding Copyright}"
                                            TextWrapping="Wrap" />
                             </StackPanel>
                             <TextBlock Grid.Column="1"
-                                       Foreground="{Binding PrimaryTextColor, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=local:LicenseTableControl}}"
+                                       Foreground="{Binding $parent[ctrl:LicenseTableControl].PrimaryTextColor}"
                                        Text="{Binding Version}"
                                        TextAlignment="Center"
                                        VerticalAlignment="Center" />

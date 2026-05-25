@@ -1,6 +1,6 @@
 using System.Text.Json.Serialization;
 
-namespace Controls.LicenseTable;
+namespace Controls.LicenseTable.Models;
 
 /// <summary>
 /// Represents a software package entry in the license table.
