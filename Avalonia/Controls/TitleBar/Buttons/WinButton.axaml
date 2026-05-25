@@ -1,12 +1,8 @@
-﻿<UserControl x:Class="Controls.TitleBar.Buttons.WinButton"
+<UserControl x:Class="Controls.TitleBar.Buttons.WinButton"
              xmlns="https://github.com/avaloniaui"
-             xmlns:titlebar="using:Controls.TitleBar"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             x:CompileBindings="False"
-             BackgroundColor="{Binding BackgroundColor, RelativeSource={RelativeSource AncestorType=titlebar:TitleBarControl}}"
              Cursor="Arrow"
              Height="36"
-             PrimaryColor="{Binding PrimaryColor, RelativeSource={RelativeSource AncestorType=titlebar:TitleBarControl}}"
              Width="50">
 
     <Image x:Name="ButtonImage"

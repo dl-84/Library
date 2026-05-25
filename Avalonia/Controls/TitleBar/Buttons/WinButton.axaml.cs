@@ -8,15 +8,6 @@ namespace Controls.TitleBar.Buttons;
 
 internal partial class WinButton : UserControl
 {
-    public static readonly StyledProperty<IBrush?> BackgroundColorProperty = AvaloniaProperty.Register<
-        WinButton,
-        IBrush?
-    >(nameof(BackgroundColor));
-
-    public static readonly StyledProperty<IBrush?> PrimaryColorProperty = AvaloniaProperty.Register<WinButton, IBrush?>(
-        nameof(PrimaryColor)
-    );
-
     public static readonly StyledProperty<ButtonType> TypeProperty = AvaloniaProperty.Register<WinButton, ButtonType>(
         nameof(Type)
     );
@@ -24,18 +15,6 @@ internal partial class WinButton : UserControl
     public WinButton()
     {
         InitializeComponent();
-    }
-
-    public IBrush? BackgroundColor
-    {
-        get => GetValue(BackgroundColorProperty);
-        set => SetValue(BackgroundColorProperty, value);
-    }
-
-    public IBrush? PrimaryColor
-    {
-        get => GetValue(PrimaryColorProperty);
-        set => SetValue(PrimaryColorProperty, value);
     }
 
     public ButtonType Type
@@ -47,29 +26,28 @@ internal partial class WinButton : UserControl
     protected override void OnPointerEntered(PointerEventArgs e)
     {
         base.OnPointerEntered(e);
-        Background = Type == ButtonType.WinClose ? new SolidColorBrush(Color.FromRgb(0xC4, 0x2B, 0x1C)) : PrimaryColor;
-        UpdateImage(BackgroundColor);
+        Background =
+            Type == ButtonType.WinClose
+                ? new SolidColorBrush(Color.FromRgb(0xC4, 0x2B, 0x1C))
+                : GetThemeBrush("PrimaryBrush");
+        UpdateImage(GetThemeBrush("AppBackgroundAltBrush"));
     }
 
     protected override void OnPointerExited(PointerEventArgs e)
     {
         base.OnPointerExited(e);
-        Background = BackgroundColor;
-        UpdateImage(PrimaryColor);
+        Background = GetThemeBrush("AppBackgroundAltBrush");
+        UpdateImage(GetThemeBrush("PrimaryBrush"));
     }
 
     protected override void OnPropertyChanged(AvaloniaPropertyChangedEventArgs change)
     {
         base.OnPropertyChanged(change);
 
-        if (
-            change.Property == TypeProperty
-            || change.Property == PrimaryColorProperty
-            || change.Property == BackgroundColorProperty
-        )
+        if (change.Property == TypeProperty)
         {
-            Background = BackgroundColor;
-            UpdateImage(PrimaryColor);
+            Background = GetThemeBrush("AppBackgroundAltBrush");
+            UpdateImage(GetThemeBrush("PrimaryBrush"));
         }
     }
 
@@ -82,6 +60,17 @@ internal partial class WinButton : UserControl
         }
 
         return string.Empty;
+    }
+
+    private static IBrush? GetThemeBrush(string key)
+    {
+        if (Application.Current is null)
+        {
+            return null;
+        }
+
+        Application.Current.TryGetResource(key, Application.Current.ActualThemeVariant, out object? resource);
+        return resource as IBrush;
     }
 
     private void UpdateImage(IBrush? iconBrush)
