@@ -13,10 +13,10 @@
   --primary:           #012e3b;
   --primary-darker:    #102330;
   --near-black:        #161922;
-  --accent-cyan:       #019dc6;
-  --accent-cyan-dark:  #007897;
-  --accent-green:      #8bba30;
-  --accent-green-dark: #8bb820;
+  --tertiary:       #019dc6;
+  --tertiary-dark:  #007897;
+  --secondary:      #8bba30;
+  --secondary-dark: #8bb820;
   --text-primary:      #333333;
   --text-secondary:    #626262;
   --text-muted:        #bbbbbb;
@@ -71,7 +71,7 @@ body {
   color: var(--text-white);
   margin-right: 28px;
 }
-.page-nav .brand em { color: var(--accent-cyan); font-style: normal; }
+.page-nav .brand em { color: var(--tertiary); font-style: normal; }
 .page-nav a {
   font-family: var(--font-body);
   font-size: 13px; font-weight: 500;
@@ -95,7 +95,7 @@ body {
   font-family: var(--font-heading);
   font-size: 11px; font-weight: 700;
   text-transform: uppercase; letter-spacing: 2.5px;
-  color: var(--accent-cyan);
+  color: var(--tertiary);
   margin-bottom: 4px;
 }
 .sg-chapter-title {
@@ -168,7 +168,7 @@ body {
 .ctrl-token::before {
   content: '{}';
   font-size: 10px;
-  color: var(--accent-cyan);
+  color: var(--tertiary);
   font-weight: 700;
 }
 
@@ -220,14 +220,14 @@ body {
 
 .btn-primary         { background: var(--primary);           color: var(--text-white);     border-color: var(--primary); }
 .btn-primary:hover   { background: var(--primary-darker);    border-color: var(--primary-darker); }
-.btn-accent          { background: var(--accent-cyan);        color: var(--text-white);     border-color: var(--accent-cyan); }
-.btn-accent:hover    { background: var(--accent-cyan-dark);  border-color: var(--accent-cyan-dark); }
-.btn-green           { background: var(--accent-green);      color: var(--text-white);     border-color: var(--accent-green); }
-.btn-green:hover     { background: var(--accent-green-dark); border-color: var(--accent-green-dark); }
+.btn-accent          { background: var(--tertiary);        color: var(--text-white);     border-color: var(--tertiary); }
+.btn-accent:hover    { background: var(--tertiary-dark);  border-color: var(--tertiary-dark); }
+.btn-green           { background: var(--secondary);      color: var(--text-white);     border-color: var(--secondary); }
+.btn-green:hover     { background: var(--secondary-dark); border-color: var(--secondary-dark); }
 .btn-outline         { background: transparent;              color: var(--primary);        border-color: var(--primary); }
 .btn-outline:hover   { background: var(--primary);           color: var(--text-white); }
-.btn-outline-accent  { background: transparent;              color: var(--accent-cyan);    border-color: var(--accent-cyan); }
-.btn-outline-accent:hover { background: var(--accent-cyan); color: var(--text-white); }
+.btn-outline-accent  { background: transparent;              color: var(--tertiary);    border-color: var(--tertiary); }
+.btn-outline-accent:hover { background: var(--tertiary); color: var(--text-white); }
 .btn-ghost           { background: transparent;              color: var(--text-secondary); border-color: transparent; }
 .btn-ghost:hover     { background: var(--bg-light);          color: var(--text-primary); }
 .btn-danger          { background: var(--error);             color: var(--text-white);     border-color: var(--error); }
@@ -263,7 +263,7 @@ body {
   outline: none;
 }
 .input::placeholder        { color: var(--text-muted); }
-.input:focus               { border-color: var(--accent-cyan); box-shadow: 0 0 0 3px rgba(1,157,198,.15); }
+.input:focus               { border-color: var(--tertiary); box-shadow: 0 0 0 3px rgba(1,157,198,.15); }
 .input.input-error         { border-color: var(--error); }
 .input.input-error:focus   { box-shadow: 0 0 0 3px rgba(150,35,23,.12); }
 .input.input-success       { border-color: var(--success); }
@@ -282,7 +282,7 @@ textarea.input             { min-height: 88px; resize: vertical; }
 .check-row input[type=checkbox],
 .check-row input[type=radio] {
   width: 17px; height: 17px;
-  accent-color: var(--accent-cyan);
+  accent-color: var(--tertiary);
   cursor: pointer;
   flex-shrink: 0;
 }
@@ -309,7 +309,7 @@ textarea.input             { min-height: 88px; resize: vertical; }
   transition: transform .2s;
   box-shadow: 0 1px 3px rgba(0,0,0,.2);
 }
-.toggle-row input:checked + .toggle-track { background: var(--accent-cyan); }
+.toggle-row input:checked + .toggle-track { background: var(--tertiary); }
 .toggle-row input:checked + .toggle-track::after { transform: translateX(19px); }
 .toggle-text {
   font-family: var(--font-body);
@@ -325,7 +325,7 @@ input[type=range] {
   -webkit-appearance: none;
   width: 100%; height: 6px;
   border-radius: 3px;
-  background: linear-gradient(to right, var(--accent-cyan) 65%, var(--border-medium) 65%);
+  background: linear-gradient(to right, var(--tertiary) 65%, var(--border-medium) 65%);
   outline: none; cursor: pointer;
 }
 input[type=range]::-webkit-slider-thumb {
@@ -360,7 +360,7 @@ input[type=range]::-webkit-slider-thumb {
 .swatch-key {
   font-family: var(--font-mono);
   font-size: 10px;
-  color: var(--accent-cyan-dark);
+  color: var(--tertiary-dark);
   background: rgba(1,120,151,.08);
   border-radius: 3px;
   padding: 1px 5px;
@@ -387,7 +387,7 @@ input[type=range]::-webkit-slider-thumb {
   border-bottom: 1px solid rgba(255,255,255,.1);
   margin-bottom: 10px;
 }
-.sidebar-logo em { color: var(--accent-cyan); font-style: normal; }
+.sidebar-logo em { color: var(--tertiary); font-style: normal; }
 .nav-group-label {
   font-family: var(--font-body);
   font-size: 10px; font-weight: 700;
@@ -406,7 +406,7 @@ input[type=range]::-webkit-slider-thumb {
   transition: background .15s, color .15s;
 }
 .nav-item:hover  { background: rgba(255,255,255,.07); color: rgba(255,255,255,.9); }
-.nav-item.active { background: rgba(1,157,198,.18); color: var(--text-white); border-left-color: var(--accent-cyan); }
+.nav-item.active { background: rgba(1,157,198,.18); color: var(--text-white); border-left-color: var(--tertiary); }
 .nav-icon        { width: 18px; text-align: center; font-size: 14px; }
 .main-area { flex: 1; background: var(--bg-light); padding: 28px; }
 .main-topbar {
@@ -489,8 +489,8 @@ tbody td .highlight { color: var(--primary); font-weight: 700; }
   letter-spacing: .3px;
 }
 .badge-primary { background: rgba(1,46,59,.1);    color: var(--primary); }
-.badge-cyan    { background: rgba(1,157,198,.12);  color: var(--accent-cyan-dark); }
-.badge-green   { background: rgba(139,186,48,.15); color: var(--accent-green-dark); }
+.badge-cyan    { background: rgba(1,157,198,.12);  color: var(--tertiary-dark); }
+.badge-green   { background: rgba(139,186,48,.15); color: var(--secondary-dark); }
 .badge-success { background: rgba(59,175,41,.12);  color: #2a8e1d; }
 .badge-warning { background: rgba(229,184,13,.15); color: #8a6200; }
 .badge-error   { background: rgba(150,35,23,.1);   color: var(--error); }
@@ -508,7 +508,7 @@ tbody td .highlight { color: var(--primary); font-weight: 700; }
 .alert-icon { font-size: 17px; flex-shrink: 0; margin-top: 1px; }
 .alert-body { font-family: var(--font-body); font-size: 14px; line-height: 1.5; }
 .alert-body strong { display: block; font-size: 14px; font-weight: 700; margin-bottom: 2px; }
-.alert-info    { background: var(--bg-tinted); border-color: var(--accent-cyan); color: var(--accent-cyan-dark); }
+.alert-info    { background: var(--bg-tinted); border-color: var(--tertiary); color: var(--tertiary-dark); }
 .alert-success { background: #eaf8ef;           border-color: var(--success);    color: #1e6b12; }
 .alert-warning { background: #fef8ea;           border-color: var(--warning);    color: #7a5000; }
 .alert-error   { background: #fae9e8;           border-color: var(--error);      color: var(--error); }
@@ -531,8 +531,8 @@ tbody td .highlight { color: var(--primary); font-weight: 700; }
 }
 .progress-fill { height: 100%; border-radius: 4px; transition: width .4s; }
 .pf-primary { background: var(--primary); }
-.pf-cyan    { background: var(--accent-cyan); }
-.pf-green   { background: var(--accent-green); }
+.pf-cyan    { background: var(--tertiary); }
+.pf-green   { background: var(--secondary); }
 .pf-success { background: var(--success); }
 .pf-warning { background: var(--warning); }
 .pf-error   { background: var(--error); }
@@ -565,7 +565,7 @@ tbody td .highlight { color: var(--primary); font-weight: 700; }
 .type-meta .t-token {
   font-family: var(--font-mono);
   font-size: 10px;
-  color: var(--accent-cyan-dark);
+  color: var(--tertiary-dark);
   background: rgba(1,120,151,.07);
   border-radius: 3px;
   padding: 1px 6px;
@@ -613,7 +613,7 @@ tbody td .highlight { color: var(--primary); font-weight: 700; }
   line-height: 1.65;
 }
 .content-card-cyan {
-  background: var(--accent-cyan);
+  background: var(--tertiary);
   border-radius: var(--radius-lg);
   padding: 22px;
 }
@@ -688,10 +688,10 @@ tbody td .highlight { color: var(--primary); font-weight: 700; }
   cursor: default;
 }
 .chip-primary  { border-color: var(--primary);      color: var(--primary);        background: transparent; }
-.chip-cyan     { border-color: var(--accent-cyan);   color: var(--accent-cyan);    background: transparent; }
-.chip-green    { border-color: var(--accent-green);  color: var(--accent-green);   background: transparent; }
+.chip-cyan     { border-color: var(--tertiary);   color: var(--tertiary);    background: transparent; }
+.chip-green    { border-color: var(--secondary);  color: var(--secondary);   background: transparent; }
 .chip-filled-primary { border-color: var(--primary); color: var(--text-white);     background: var(--primary); }
-.chip-filled-cyan    { border-color: var(--accent-cyan); color: var(--text-white); background: var(--accent-cyan); }
+.chip-filled-cyan    { border-color: var(--tertiary); color: var(--text-white); background: var(--tertiary); }
 .chip × { font-size: 14px; }
 
 /* ================================================================
@@ -714,7 +714,7 @@ tbody td .highlight { color: var(--primary); font-weight: 700; }
   color: var(--text-white);
   margin-bottom: 10px;
 }
-.footer-brand-name em { color: var(--accent-cyan); font-style: normal; }
+.footer-brand-name em { color: var(--tertiary); font-style: normal; }
 .footer-brand-desc {
   font-family: var(--font-body);
   font-size: 14px;
@@ -725,7 +725,7 @@ tbody td .highlight { color: var(--primary); font-weight: 700; }
   font-family: var(--font-heading);
   font-size: 11px; font-weight: 700;
   text-transform: uppercase; letter-spacing: 1.5px;
-  color: var(--accent-cyan);
+  color: var(--tertiary);
   margin-bottom: 16px;
 }
 .footer-col a {
@@ -842,7 +842,7 @@ pre.code .xml-attr  { color: #9cdcfe; }
 pre.code .xml-val   { color: #ce9178; }
 pre.code .xml-cmt   { color: #6a9955; font-style: italic; }
 pre.code .xml-text  { color: #d4d4d4; }
-pre.code .hl        { color: var(--accent-cyan); font-weight: 600; }
+pre.code .hl        { color: var(--tertiary); font-weight: 600; }
 pre.code .hl-green  { color: #b5cea8; }
 
 /* Inline code */
@@ -861,13 +861,13 @@ code {
   display: flex; gap: 12px; align-items: flex-start;
   background: var(--bg-tinted);
   border: 1px solid rgba(1,157,198,.25);
-  border-left: 4px solid var(--accent-cyan);
+  border-left: 4px solid var(--tertiary);
   border-radius: var(--radius-md);
   padding: 14px 18px;
   margin-bottom: 16px;
 }
 .info-box-icon { font-size: 18px; flex-shrink: 0; margin-top: 1px; }
-.info-box-body { font-size: 14px; color: var(--accent-cyan-dark); line-height: 1.6; }
+.info-box-body { font-size: 14px; color: var(--tertiary-dark); line-height: 1.6; }
 .info-box-body strong { display: block; font-weight: 700; margin-bottom: 2px; }
 
 /* Auto-table */
@@ -919,7 +919,7 @@ code {
 .class-row-name em {
   font-family: var(--font-mono);
   font-style: normal;
-  color: var(--accent-cyan);
+  color: var(--tertiary);
 }
 .class-row-desc {
   font-size: 13px; color: var(--text-secondary); line-height: 1.55;
@@ -1190,7 +1190,7 @@ code {
             </div>
             <div class="class-row-stage">
               <button class="btn btn-accent">+ Neues Training</button>
-              <button class="btn btn-accent" style="background:var(--accent-cyan-dark);">Hover →</button>
+              <button class="btn btn-accent" style="background:var(--tertiary-dark);">Hover →</button>
             </div>
           </div>
 
@@ -1202,7 +1202,7 @@ code {
             </div>
             <div class="class-row-stage">
               <button class="btn btn-green">Verbinden</button>
-              <button class="btn btn-green" style="background:var(--accent-green-dark);">Hover →</button>
+              <button class="btn btn-green" style="background:var(--secondary-dark);">Hover →</button>
             </div>
           </div>
 
@@ -1226,7 +1226,7 @@ code {
             </div>
             <div class="class-row-stage">
               <button class="btn btn-outline-accent">Export</button>
-              <button class="btn btn-outline-accent" style="background:var(--accent-cyan);color:#fff;">Hover →</button>
+              <button class="btn btn-outline-accent" style="background:var(--tertiary);color:#fff;">Hover →</button>
             </div>
           </div>
 
@@ -1366,7 +1366,7 @@ code {
               <code style="font-size:11px;margin-top:4px;">&lt;TextBlock Classes="label"&gt;GERÄTESTATUS&lt;/TextBlock&gt;</code>
             </div>
             <div class="class-row-stage" style="background:var(--bg-white);">
-              <span style="font-family:var(--font-heading);font-size:11px;font-weight:700;letter-spacing:2px;color:var(--accent-cyan);">GERÄTESTATUS</span>
+              <span style="font-family:var(--font-heading);font-size:11px;font-weight:700;letter-spacing:2px;color:var(--tertiary);">GERÄTESTATUS</span>
             </div>
           </div>
 
@@ -1477,7 +1477,7 @@ code {
           <div class="class-row">
             <div class="class-row-info">
               <div class="class-row-name">&lt;ProgressBar&gt; <em>(Standard = Cyan)</em></div>
-              <div class="class-row-desc">AccentBrush. Allgemeiner Fortschritt, Ladebalken.</div>
+              <div class="class-row-desc">TertiaryBrush. Allgemeiner Fortschritt, Ladebalken.</div>
               <code style="font-size:11px;margin-top:4px;">&lt;ProgressBar Value="65" Maximum="100" /&gt;</code>
             </div>
             <div class="class-row-stage" style="flex-direction:column;align-items:stretch;">
@@ -1556,7 +1556,7 @@ code {
           <div class="class-row">
             <div class="class-row-info">
               <div class="class-row-name">&lt;Border <em>Classes="card-dark"</em>&gt;</div>
-              <div class="class-row-desc">Dunkle Karte: SurfaceDarkBrush (Primary), Radius 20 px. Für Hervorhebungen und Hero-Panels.</div>
+              <div class="class-row-desc">Dunkle Karte: PrimaryBrush, Radius 20 px. Für Hervorhebungen und Hero-Panels.</div>
               <code style="font-size:11px;margin-top:4px;">&lt;Border Classes="card-dark"&gt; … &lt;/Border&gt;</code>
             </div>
             <div class="class-row-stage tint">
@@ -1570,7 +1570,7 @@ code {
           <div class="class-row">
             <div class="class-row-info">
               <div class="class-row-name">&lt;Border <em>Classes="card-accent"</em>&gt;</div>
-              <div class="class-row-desc">Cyan-Karte: AccentBrush, Radius 20 px. Für Call-to-Action-Bereiche.</div>
+              <div class="class-row-desc">Cyan-Karte: TertiaryBrush, Radius 20 px. Für Call-to-Action-Bereiche.</div>
               <code style="font-size:11px;margin-top:4px;">&lt;Border Classes="card-accent"&gt; … &lt;/Border&gt;</code>
             </div>
             <div class="class-row-stage tint">
@@ -1603,7 +1603,7 @@ code {
         <span class="xml-attr">CornerRadius</span>=<span class="xml-val">"{DynamicResource CornerRadiusMedium}"</span><span class="xml-tag">/&gt;</span>
 
 <span class="xml-cmt">&lt;!-- Benutzerdefinierten Text-Stil inline --&gt;</span>
-<span class="xml-tag">&lt;TextBlock</span> <span class="xml-attr">Foreground</span>=<span class="xml-val">"{DynamicResource AccentBrush}"</span>
+<span class="xml-tag">&lt;TextBlock</span> <span class="xml-attr">Foreground</span>=<span class="xml-val">"{DynamicResource TertiaryBrush}"</span>
            <span class="xml-attr">FontFamily</span>=<span class="xml-val">"{DynamicResource FontHeading}"</span>
            <span class="xml-attr">FontSize</span>=<span class="xml-val">"{DynamicResource FontSizeMedium}"</span>
            <span class="xml-attr">FontWeight</span>=<span class="xml-val">"Bold"</span>
@@ -1636,7 +1636,7 @@ code {
   <div class="sg-chapter-eyebrow">Design Tokens</div>
   <div class="sg-chapter-title">Farbpalette</div>
   <div class="sg-chapter-desc">
-    Alle Farben des DISAG-Themes. Jede Farbe ist als <code style="font-family:var(--font-mono);font-size:13px;color:var(--accent-cyan-dark);">Color</code>- und <code style="font-family:var(--font-mono);font-size:13px;color:var(--accent-cyan-dark);">SolidColorBrush</code>-Resource in <em style="font-style:normal;font-weight:600;">Resources.axaml</em> definiert.
+    Alle Farben des DISAG-Themes. Jede Farbe ist als <code style="font-family:var(--font-mono);font-size:13px;color:var(--tertiary-dark);">Color</code>- und <code style="font-family:var(--font-mono);font-size:13px;color:var(--tertiary-dark);">SolidColorBrush</code>-Resource in <em style="font-style:normal;font-weight:600;">Resources.axaml</em> definiert.
   </div>
 
   <!-- Brand -->
@@ -1667,21 +1667,21 @@ code {
         <div class="swatch-hex">#161922</div>
       </div>
       <div class="swatch-item">
-        <div class="swatch-chip" style="background:var(--accent-cyan);color:#fff;">Accent Cyan</div>
-        <div class="swatch-name">Akzent Cyan</div>
-        <div class="swatch-key">AccentBrush</div>
+        <div class="swatch-chip" style="background:var(--tertiary);color:#fff;">Tertiary</div>
+        <div class="swatch-name">Tertiär</div>
+        <div class="swatch-key">TertiaryBrush</div>
         <div class="swatch-hex">#019dc6</div>
       </div>
       <div class="swatch-item">
-        <div class="swatch-chip" style="background:var(--accent-cyan-dark);color:#fff;">Cyan Dark</div>
-        <div class="swatch-name">Akzent Cyan Hover</div>
-        <div class="swatch-key">AccentHoverBrush</div>
+        <div class="swatch-chip" style="background:var(--tertiary-dark);color:#fff;">Tertiary Dark</div>
+        <div class="swatch-name">Tertiär Hover</div>
+        <div class="swatch-key">TertiaryHoverBrush</div>
         <div class="swatch-hex">#007897</div>
       </div>
       <div class="swatch-item">
-        <div class="swatch-chip" style="background:var(--accent-green);color:#fff;">Green</div>
-        <div class="swatch-name">Akzent Grün</div>
-        <div class="swatch-key">AccentGreenBrush</div>
+        <div class="swatch-chip" style="background:var(--secondary);color:#fff;">Secondary</div>
+        <div class="swatch-name">Sekundär</div>
+        <div class="swatch-key">SecondaryBrush</div>
         <div class="swatch-hex">#8bba30</div>
       </div>
     </div>
@@ -1785,8 +1785,8 @@ code {
       </div>
       <div class="ctrl-tokens">
         <span class="ctrl-token">PrimaryBrush</span>
-        <span class="ctrl-token">AccentBrush</span>
-        <span class="ctrl-token">AccentGreenBrush</span>
+        <span class="ctrl-token">TertiaryBrush</span>
+        <span class="ctrl-token">SecondaryBrush</span>
         <span class="ctrl-token">PrimaryForegroundBrush</span>
       </div>
     </div>
@@ -1794,15 +1794,15 @@ code {
       <div class="state-group">
         <span class="state-label">Normal</span>
         <button class="btn btn-primary">Primär</button>
-        <button class="btn btn-accent">Akzent Cyan</button>
-        <button class="btn btn-green">Akzent Grün</button>
+        <button class="btn btn-accent">Tertiär</button>
+        <button class="btn btn-green">Sekundär</button>
         <button class="btn btn-danger">Gefahr</button>
       </div>
       <div class="state-group">
         <span class="state-label">Hover →</span>
         <button class="btn btn-primary" style="background:var(--primary-darker);border-color:var(--primary-darker);">Primär Hover</button>
-        <button class="btn btn-accent"  style="background:var(--accent-cyan-dark);border-color:var(--accent-cyan-dark);">Cyan Hover</button>
-        <button class="btn btn-green"   style="background:var(--accent-green-dark);border-color:var(--accent-green-dark);">Grün Hover</button>
+        <button class="btn btn-accent"  style="background:var(--tertiary-dark);border-color:var(--tertiary-dark);">Cyan Hover</button>
+        <button class="btn btn-green"   style="background:var(--secondary-dark);border-color:var(--secondary-dark);">Grün Hover</button>
       </div>
       <div class="state-group">
         <span class="state-label">Disabled</span>
@@ -1834,7 +1834,7 @@ code {
       <div class="state-group">
         <span class="state-label">Hover →</span>
         <button class="btn btn-outline" style="background:var(--primary);color:#fff;">Outline Hover</button>
-        <button class="btn btn-outline-accent" style="background:var(--accent-cyan);color:#fff;">Cyan Hover</button>
+        <button class="btn btn-outline-accent" style="background:var(--tertiary);color:#fff;">Cyan Hover</button>
       </div>
     </div>
   </div>
@@ -1909,7 +1909,7 @@ code {
         </div>
         <div class="form-group">
           <label class="form-label">Fokus-Zustand</label>
-          <input class="input" type="text" value="Fokussiert" style="border-color:var(--accent-cyan);box-shadow:0 0 0 3px rgba(1,157,198,.15);">
+          <input class="input" type="text" value="Fokussiert" style="border-color:var(--tertiary);box-shadow:0 0 0 3px rgba(1,157,198,.15);">
         </div>
       </div>
     </div>
@@ -2022,7 +2022,7 @@ code {
           <div class="ctrl-desc">Für numerische Bereiche. Der ausgefüllte Teil des Gleises ist in Akzent-Cyan, der Daumen in der Primärfarbe mit weißem Rand.</div>
         </div>
         <div class="ctrl-tokens">
-          <span class="ctrl-token">AccentBrush</span>
+          <span class="ctrl-token">TertiaryBrush</span>
           <span class="ctrl-token">PrimaryBrush</span>
         </div>
       </div>
@@ -2057,7 +2057,7 @@ code {
           <div class="ctrl-desc">Mehrfachauswahl aus einer Liste. Aktivierter Haken in Akzent-Cyan. Deaktiviert zeigt abgeschwächte Farben.</div>
         </div>
         <div class="ctrl-tokens">
-          <span class="ctrl-token">AccentBrush</span>
+          <span class="ctrl-token">TertiaryBrush</span>
         </div>
       </div>
       <div class="ctrl-stage col" style="gap:14px;">
@@ -2093,7 +2093,7 @@ code {
           <div class="ctrl-desc">Einzelauswahl aus einer Gruppe. Immer nur eine Option kann aktiv sein.</div>
         </div>
         <div class="ctrl-tokens">
-          <span class="ctrl-token">AccentBrush</span>
+          <span class="ctrl-token">TertiaryBrush</span>
         </div>
       </div>
       <div class="ctrl-stage col" style="gap:14px;">
@@ -2136,7 +2136,7 @@ code {
           <div class="ctrl-desc">Ein/Aus-Schalter für Einstellungen und Features. Aktivierter Zustand in Akzent-Cyan, deaktiviert in mittelgrau.</div>
         </div>
         <div class="ctrl-tokens">
-          <span class="ctrl-token">AccentBrush</span>
+          <span class="ctrl-token">TertiaryBrush</span>
           <span class="ctrl-token">BorderMediumBrush</span>
         </div>
       </div>
@@ -2182,7 +2182,7 @@ code {
     <div class="ctrl-header">
       <div class="ctrl-header-left">
         <div class="ctrl-name">Sidebar + Dashboard-Inhalt</div>
-        <div class="ctrl-desc">Linke Sidebar in PrimaryBrush, aktiver Eintrag mit AccentBrush-Rand. Hauptbereich in AppBackgroundAltBrush. Stat-Karten in SurfaceBrush mit je eigenem Icon-Hintergrund.</div>
+        <div class="ctrl-desc">Linke Sidebar in PrimaryBrush, aktiver Eintrag mit TertiaryBrush-Rand. Hauptbereich in AppBackgroundAltBrush. Stat-Karten in SurfaceBrush mit je eigenem Icon-Hintergrund.</div>
       </div>
       <div class="ctrl-tokens">
         <span class="ctrl-token">NavigationBackgroundBrush</span>
@@ -2298,7 +2298,7 @@ code {
           <div class="ctrl-desc">Primärfarbe als Hintergrund. Überschrift in TextWhiteBrush, Text in 70 % weiß. Für Hero-Panels und Info-Hervorhebungen.</div>
         </div>
         <div class="ctrl-tokens">
-          <span class="ctrl-token">SurfaceDarkBrush</span>
+          <span class="ctrl-token">PrimaryBrush</span>
           <span class="ctrl-token">TextWhiteBrush</span>
         </div>
       </div>
@@ -2320,8 +2320,8 @@ code {
           <div class="ctrl-desc">Cyan-Akzentfarbe als Hintergrund. Überschrift und Text in weiß. Für primäre Call-to-Action-Bereiche.</div>
         </div>
         <div class="ctrl-tokens">
-          <span class="ctrl-token">AccentBrush</span>
-          <span class="ctrl-token">AccentForegroundBrush</span>
+          <span class="ctrl-token">TertiaryBrush</span>
+          <span class="ctrl-token">SecondaryForegroundBrush</span>
         </div>
       </div>
       <div class="ctrl-stage">
@@ -2329,7 +2329,7 @@ code {
           <h3>Firmware-Update</h3>
           <p>Version 3.2.1 ist verfügbar. Neue Funktionen für die Trefferanalyse und verbesserte Latenz.</p>
           <div style="margin-top:16px;">
-            <button class="btn btn-sm" style="background:#fff;color:var(--accent-cyan);border:none;font-weight:700;">Jetzt aktualisieren</button>
+            <button class="btn btn-sm" style="background:#fff;color:var(--tertiary);border:none;font-weight:700;">Jetzt aktualisieren</button>
           </div>
         </div>
       </div>
@@ -2375,7 +2375,7 @@ code {
               <td><strong>Max Mustermann</strong></td>
               <td>Luftpistole 10 m</td>
               <td><span class="highlight">564</span></td>
-              <td><span style="color:var(--accent-cyan);font-weight:600;">9,4</span></td>
+              <td><span style="color:var(--tertiary);font-weight:600;">9,4</span></td>
               <td><span class="badge badge-success">Aktiv</span></td>
               <td>OpticScore 400</td>
             </tr>
@@ -2383,7 +2383,7 @@ code {
               <td><strong>Anna Schmidt</strong></td>
               <td>Luftgewehr 10 m</td>
               <td><span class="highlight">621</span></td>
-              <td><span style="color:var(--accent-green);font-weight:600;">9,7</span></td>
+              <td><span style="color:var(--secondary);font-weight:600;">9,7</span></td>
               <td><span class="badge badge-success">Aktiv</span></td>
               <td>OpticScore 600</td>
             </tr>
@@ -2465,7 +2465,7 @@ code {
         </div>
         <div class="ctrl-tokens">
           <span class="ctrl-token">PrimaryBrush</span>
-          <span class="ctrl-token">AccentBrush</span>
+          <span class="ctrl-token">TertiaryBrush</span>
         </div>
       </div>
       <div class="ctrl-stage col" style="gap:14px;">
@@ -2504,7 +2504,7 @@ code {
         <div class="ctrl-desc">Information verwendet Tint-Hintergrund und Cyan-Rand. Erfolg, Warnung und Fehler haben eigene Hintergrundtönung und Schriftfarbe passend zur Statusfarbe.</div>
       </div>
       <div class="ctrl-tokens">
-        <span class="ctrl-token">AccentBrush</span>
+        <span class="ctrl-token">TertiaryBrush</span>
         <span class="ctrl-token">SuccessBrush</span>
         <span class="ctrl-token">WarningBrush</span>
         <span class="ctrl-token">ErrorBrush</span>
@@ -2582,9 +2582,9 @@ code {
         <div class="ctrl-desc">Jede Balkenfarbe transportiert eine semantische Aussage: Cyan für allgemeine Fortschritte, Primary für übergeordnete Ziele, Grün für positive Trends, Warnung/Fehler für kritische Werte.</div>
       </div>
       <div class="ctrl-tokens">
-        <span class="ctrl-token">AccentBrush</span>
+        <span class="ctrl-token">TertiaryBrush</span>
         <span class="ctrl-token">PrimaryBrush</span>
-        <span class="ctrl-token">AccentGreenBrush</span>
+        <span class="ctrl-token">SecondaryBrush</span>
       </div>
     </div>
     <div class="ctrl-stage col" style="gap:16px; width:100%;">
@@ -2602,7 +2602,7 @@ code {
           <span class="p-pct">62 %</span>
         </div>
         <div class="progress-track"><div class="progress-fill pf-cyan" style="width:62%;"></div></div>
-        <span style="font-size:12px;color:var(--text-muted);">AccentBrush · 4,2 von 6,8 Stunden Wochenziel</span>
+        <span style="font-size:12px;color:var(--text-muted);">TertiaryBrush · 4,2 von 6,8 Stunden Wochenziel</span>
       </div>
       <div class="progress-row">
         <div class="progress-header">
@@ -2610,7 +2610,7 @@ code {
           <span class="p-pct">92 %</span>
         </div>
         <div class="progress-track"><div class="progress-fill pf-green" style="width:92%;"></div></div>
-        <span style="font-size:12px;color:var(--text-muted);">AccentGreenBrush · 564 von 613 Ringen (PB)</span>
+        <span style="font-size:12px;color:var(--text-muted);">SecondaryBrush · 564 von 613 Ringen (PB)</span>
       </div>
       <div class="progress-row">
         <div class="progress-header">
@@ -2728,9 +2728,9 @@ code {
           <div class="type-meta">
             <span class="t-role">Abschnitts-Label</span>
             <span class="t-spec">FontHeading · 11 px · Bold 700<br>uppercase · 2.5px spacing</span>
-            <span class="t-token">AccentBrush</span>
+            <span class="t-token">TertiaryBrush</span>
           </div>
-          <div style="font-family:var(--font-heading);font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:2.5px;color:var(--accent-cyan);">Trainingsübersicht</div>
+          <div style="font-family:var(--font-heading);font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:2.5px;color:var(--tertiary);">Trainingsübersicht</div>
         </div>
 
         <div class="type-entry">
@@ -2779,9 +2779,9 @@ code {
             <span class="t-token">LinkHoverBrush</span>
           </div>
           <div style="font-family:var(--font-body);font-size:14px;line-height:2;">
-            <a href="#" style="color:var(--accent-green);text-decoration:none;font-weight:500;">Gerätedokumentation herunterladen</a>
+            <a href="#" style="color:var(--secondary);text-decoration:none;font-weight:500;">Gerätedokumentation herunterladen</a>
             <span style="color:var(--text-muted);margin:0 12px;">·</span>
-            <a href="#" style="color:var(--accent-cyan);text-decoration:none;font-weight:500;">Hover-Zustand (LinkHoverBrush)</a>
+            <a href="#" style="color:var(--tertiary);text-decoration:none;font-weight:500;">Hover-Zustand (LinkHoverBrush)</a>
           </div>
         </div>
 
