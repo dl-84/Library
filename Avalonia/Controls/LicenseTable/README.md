@@ -82,7 +82,7 @@ Das Control liest folgende Keys via `DynamicResource` aus dem Theme:
 
 | Key | Verwendung |
 |---|---|
-| `AccentForegroundBrush` | Header-Textfarbe |
-| `AccentGreenBrush` | Header-Hintergrund |
+| `SecondaryBrush` | Header-Hintergrund |
+| `SecondaryForegroundBrush` | Header-Textfarbe |
 | `TextMutedBrush` | Copyright-Text (sekundär) |
 | `TextPrimaryBrush` | Name, Version (primär) |

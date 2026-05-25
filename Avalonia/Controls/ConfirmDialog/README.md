@@ -69,7 +69,7 @@ Das Control liest folgende Keys via `DynamicResource` aus dem Theme:
 
 | Key | Verwendung |
 |---|---|
-| `AccentGreenBrush` | Abbrechen-Button Hintergrund |
+| `SecondaryBrush` | Abbrechen-Button Hintergrund |
 | `AppBackgroundAltBrush` | Dialog-Hintergrund |
 | `ErrorBrush` | Bestätigen-Button Hintergrund |
 | `PrimaryBrush` | Header-Hintergrund |
