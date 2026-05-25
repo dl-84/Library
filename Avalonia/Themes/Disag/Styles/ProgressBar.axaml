@@ -3,7 +3,7 @@
 
     <Style Selector="ProgressBar">
         <Setter Property="Background" Value="{DynamicResource AppBackgroundAltBrush}" />
-        <Setter Property="Foreground" Value="{DynamicResource AccentBrush}" />
+        <Setter Property="Foreground" Value="{DynamicResource TertiaryBrush}" />
         <Setter Property="CornerRadius" Value="4" />
         <Setter Property="MinHeight" Value="8" />
     </Style>
@@ -17,7 +17,7 @@
     </Style>
 
     <Style Selector="ProgressBar.green">
-        <Setter Property="Foreground" Value="{DynamicResource AccentGreenBrush}" />
+        <Setter Property="Foreground" Value="{DynamicResource SecondaryBrush}" />
     </Style>
 
     <Style Selector="ProgressBar.success">

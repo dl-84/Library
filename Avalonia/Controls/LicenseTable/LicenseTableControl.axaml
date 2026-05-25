@@ -7,26 +7,26 @@
             Padding="0">
         <StackPanel>
             <Border x:Name="HeaderBorder"
-                    Background="{DynamicResource AccentGreenBrush}"
+                    Background="{DynamicResource SecondaryBrush}"
                     Padding="24,10">
                 <Grid ColumnDefinitions="*,80,120,48">
                     <TextBlock x:Name="NameHeaderText"
                                Classes="label table-column-header"
-                               Foreground="{DynamicResource AccentForegroundBrush}" />
+                               Foreground="{DynamicResource SecondaryForegroundBrush}" />
                     <TextBlock x:Name="VersionHeaderText"
                                Grid.Column="1"
                                Classes="label table-column-header"
-                               Foreground="{DynamicResource AccentForegroundBrush}"
+                               Foreground="{DynamicResource SecondaryForegroundBrush}"
                                TextAlignment="Center" />
                     <TextBlock x:Name="LicenseHeaderText"
                                Grid.Column="2"
                                Classes="label table-column-header"
-                               Foreground="{DynamicResource AccentForegroundBrush}"
+                               Foreground="{DynamicResource SecondaryForegroundBrush}"
                                TextAlignment="Center" />
                     <TextBlock x:Name="LinkHeaderText"
                                Grid.Column="3"
                                Classes="label table-column-header"
-                               Foreground="{DynamicResource AccentForegroundBrush}"
+                               Foreground="{DynamicResource SecondaryForegroundBrush}"
                                TextAlignment="Center" />
                 </Grid>
             </Border>

@@ -61,7 +61,7 @@
     </Style>
 
     <Style Selector="DataGridRow:selected /template/ Rectangle#BackgroundRectangle">
-        <Setter Property="Fill" Value="{DynamicResource AccentBrush}" />
+        <Setter Property="Fill" Value="{DynamicResource TertiaryBrush}" />
         <Setter Property="Opacity" Value="0.12" />
     </Style>
 

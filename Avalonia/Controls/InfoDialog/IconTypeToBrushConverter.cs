@@ -10,7 +10,7 @@ internal class IconTypeToBrushConverter : IValueConverter
 {
     public object? Convert(object? value, Type targetType, object? parameter, CultureInfo culture)
     {
-        string key = value is IconType.Warning ? "ErrorBrush" : "AccentGreenBrush";
+        string key = value is IconType.Warning ? "ErrorBrush" : "SecondaryBrush";
         return GetBrush(key);
     }
 

@@ -14,12 +14,12 @@
     </Style>
 
     <Style Selector="RadioButton:pointerover /template/ Ellipse#OuterEllipse">
-        <Setter Property="Stroke" Value="{DynamicResource AccentBrush}" />
+        <Setter Property="Stroke" Value="{DynamicResource TertiaryBrush}" />
     </Style>
 
     <Style Selector="RadioButton:checked /template/ Ellipse#OuterEllipse">
-        <Setter Property="Stroke" Value="{DynamicResource AccentBrush}" />
-        <Setter Property="Fill" Value="{DynamicResource AccentBrush}" />
+        <Setter Property="Stroke" Value="{DynamicResource TertiaryBrush}" />
+        <Setter Property="Fill" Value="{DynamicResource TertiaryBrush}" />
     </Style>
 
     <Style Selector="RadioButton:checked /template/ Ellipse#CheckGlyph">

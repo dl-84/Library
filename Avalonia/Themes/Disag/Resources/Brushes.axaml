@@ -1,4 +1,4 @@
-﻿<ResourceDictionary xmlns="https://github.com/avaloniaui"
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
     <SolidColorBrush x:Key="AppBackgroundBrush"
@@ -12,27 +12,27 @@
                      Color="{DynamicResource BackgroundWhiteColor}" />
     <SolidColorBrush x:Key="SurfaceSubtleBrush"
                      Color="{DynamicResource BackgroundSubtleColor}" />
-    <SolidColorBrush x:Key="SurfaceDarkBrush"
-                     Color="{DynamicResource PrimaryDarkColor}" />
 
     <SolidColorBrush x:Key="PrimaryBrush"
                      Color="{DynamicResource PrimaryDarkColor}" />
-    <SolidColorBrush x:Key="PrimaryHoverBrush"
-                     Color="{DynamicResource PrimaryDarkerColor}" />
     <SolidColorBrush x:Key="PrimaryForegroundBrush"
                      Color="{DynamicResource TextWhiteColor}" />
+    <SolidColorBrush x:Key="PrimaryHoverBrush"
+                     Color="{DynamicResource PrimaryDarkerColor}" />
 
-    <SolidColorBrush x:Key="AccentBrush"
-                     Color="{DynamicResource AccentCyanColor}" />
-    <SolidColorBrush x:Key="AccentHoverBrush"
-                     Color="{DynamicResource AccentCyanDarkColor}" />
-    <SolidColorBrush x:Key="AccentForegroundBrush"
+    <SolidColorBrush x:Key="SecondaryBrush"
+                     Color="{DynamicResource SecondaryColor}" />
+    <SolidColorBrush x:Key="SecondaryForegroundBrush"
                      Color="{DynamicResource TextWhiteColor}" />
+    <SolidColorBrush x:Key="SecondaryHoverBrush"
+                     Color="{DynamicResource SecondaryDarkColor}" />
 
-    <SolidColorBrush x:Key="AccentGreenBrush"
-                     Color="{DynamicResource AccentGreenColor}" />
-    <SolidColorBrush x:Key="AccentGreenHoverBrush"
-                     Color="{DynamicResource AccentGreenDarkColor}" />
+    <SolidColorBrush x:Key="TertiaryBrush"
+                     Color="{DynamicResource TertiaryColor}" />
+    <SolidColorBrush x:Key="TertiaryForegroundBrush"
+                     Color="{DynamicResource TextWhiteColor}" />
+    <SolidColorBrush x:Key="TertiaryHoverBrush"
+                     Color="{DynamicResource TertiaryDarkColor}" />
 
     <SolidColorBrush x:Key="TextPrimaryBrush"
                      Color="{DynamicResource TextPrimaryColor}" />
@@ -50,16 +50,16 @@
                      Color="{DynamicResource NearBlackColor}" />
 
     <SolidColorBrush x:Key="LinkBrush"
-                     Color="{DynamicResource AccentGreenColor}" />
+                     Color="{DynamicResource SecondaryColor}" />
     <SolidColorBrush x:Key="LinkHoverBrush"
-                     Color="{DynamicResource AccentCyanColor}" />
+                     Color="{DynamicResource TertiaryColor}" />
 
     <SolidColorBrush x:Key="InputBackgroundBrush"
                      Color="{DynamicResource BackgroundWhiteColor}" />
     <SolidColorBrush x:Key="InputBorderBrush"
                      Color="{DynamicResource BorderMediumColor}" />
     <SolidColorBrush x:Key="InputFocusBorderBrush"
-                     Color="{DynamicResource AccentCyanColor}" />
+                     Color="{DynamicResource TertiaryColor}" />
     <SolidColorBrush x:Key="InputForegroundBrush"
                      Color="{DynamicResource TextSecondaryColor}" />
     <SolidColorBrush x:Key="InputPlaceholderBrush"
@@ -90,7 +90,7 @@
     <SolidColorBrush x:Key="FooterLinkBrush"
                      Color="{DynamicResource TextOnDarkColor}" />
     <SolidColorBrush x:Key="FooterLinkHoverBrush"
-                     Color="{DynamicResource AccentCyanDarkColor}" />
+                     Color="{DynamicResource TertiaryDarkColor}" />
 
     <SolidColorBrush x:Key="SuccessBrush"
                      Color="{DynamicResource SuccessColor}" />

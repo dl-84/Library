@@ -12,7 +12,7 @@
     </Style>
 
     <Style Selector="ScrollBar:pointerover /template/ Thumb">
-        <Setter Property="Background" Value="{DynamicResource AccentBrush}" />
+        <Setter Property="Background" Value="{DynamicResource TertiaryBrush}" />
         <Setter Property="Opacity" Value="0.9" />
     </Style>
 

@@ -8,13 +8,13 @@
     </Style>
 
     <Style Selector="CalendarDayButton:selected">
-        <Setter Property="Background" Value="{DynamicResource AccentBrush}" />
+        <Setter Property="Background" Value="{DynamicResource TertiaryBrush}" />
         <Setter Property="Foreground" Value="{DynamicResource TextWhiteBrush}" />
     </Style>
 
     <Style Selector="CalendarDayButton:today">
         <Setter Property="Background" Value="{DynamicResource AppBackgroundTintBrush}" />
-        <Setter Property="Foreground" Value="{DynamicResource AccentBrush}" />
+        <Setter Property="Foreground" Value="{DynamicResource TertiaryBrush}" />
         <Setter Property="FontWeight" Value="Bold" />
     </Style>
 

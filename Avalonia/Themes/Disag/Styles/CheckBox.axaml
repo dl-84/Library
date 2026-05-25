@@ -16,17 +16,17 @@
     </Style>
 
     <Style Selector="CheckBox:pointerover /template/ Border#NormalRectangle">
-        <Setter Property="BorderBrush" Value="{DynamicResource AccentBrush}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource TertiaryBrush}" />
     </Style>
 
     <Style Selector="CheckBox:checked /template/ Border#NormalRectangle">
-        <Setter Property="Background" Value="{DynamicResource AccentBrush}" />
-        <Setter Property="BorderBrush" Value="{DynamicResource AccentBrush}" />
+        <Setter Property="Background" Value="{DynamicResource TertiaryBrush}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource TertiaryBrush}" />
     </Style>
 
     <Style Selector="CheckBox:indeterminate /template/ Border#NormalRectangle">
-        <Setter Property="Background" Value="{DynamicResource AccentBrush}" />
-        <Setter Property="BorderBrush" Value="{DynamicResource AccentBrush}" />
+        <Setter Property="Background" Value="{DynamicResource TertiaryBrush}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource TertiaryBrush}" />
     </Style>
 
     <Style Selector="CheckBox:disabled">

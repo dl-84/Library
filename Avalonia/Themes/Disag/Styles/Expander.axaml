@@ -21,7 +21,7 @@
     </Style>
 
     <Style Selector="Expander /template/ ToggleButton#PART_toggle:pointerover">
-        <Setter Property="Foreground" Value="{DynamicResource AccentBrush}" />
+        <Setter Property="Foreground" Value="{DynamicResource TertiaryBrush}" />
     </Style>
 
 </Styles>

@@ -51,7 +51,7 @@
                         Content="{Binding AcceptText}"
                         Foreground="{DynamicResource PrimaryForegroundBrush}" />
                 <Button x:Name="CancelButton"
-                        Background="{DynamicResource AccentGreenBrush}"
+                        Background="{DynamicResource SecondaryBrush}"
                         Click="OnCancelClicked"
                         Content="{Binding CancelText}"
                         Foreground="{DynamicResource PrimaryForegroundBrush}" />

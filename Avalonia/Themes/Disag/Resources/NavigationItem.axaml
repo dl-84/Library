@@ -30,7 +30,7 @@
         </Style>
         <Style Selector="^:selected /template/ Border#Root">
             <Setter Property="Background" Value="#2E019DC6" />
-            <Setter Property="BorderBrush" Value="{DynamicResource AccentBrush}" />
+            <Setter Property="BorderBrush" Value="{DynamicResource TertiaryBrush}" />
             <Setter Property="Opacity" Value="1" />
         </Style>
         <Style Selector="^:selected /template/ ContentPresenter">
@@ -39,7 +39,7 @@
         </Style>
         <Style Selector="^:selected:pointerover /template/ Border#Root">
             <Setter Property="Background" Value="#2E019DC6" />
-            <Setter Property="BorderBrush" Value="{DynamicResource AccentBrush}" />
+            <Setter Property="BorderBrush" Value="{DynamicResource TertiaryBrush}" />
             <Setter Property="Opacity" Value="1" />
         </Style>
         <Style Selector="^:selected:pointerover /template/ ContentPresenter">

@@ -4,10 +4,10 @@
     <Color x:Key="PrimaryDarkColor">#FF012e3b</Color>
     <Color x:Key="PrimaryDarkerColor">#FF102330</Color>
     <Color x:Key="NearBlackColor">#FF161922</Color>
-    <Color x:Key="AccentCyanColor">#FF019dc6</Color>
-    <Color x:Key="AccentCyanDarkColor">#FF007897</Color>
-    <Color x:Key="AccentGreenColor">#FF8bba30</Color>
-    <Color x:Key="AccentGreenDarkColor">#FF8bb820</Color>
+    <Color x:Key="SecondaryColor">#FF8bba30</Color>
+    <Color x:Key="SecondaryDarkColor">#FF8bb820</Color>
+    <Color x:Key="TertiaryColor">#FF019dc6</Color>
+    <Color x:Key="TertiaryDarkColor">#FF007897</Color>
 
     <Color x:Key="TextPrimaryColor">#FF333333</Color>
     <Color x:Key="TextSecondaryColor">#FF626262</Color>
@@ -21,8 +21,6 @@
     <Color x:Key="BackgroundSubtleColor">#FFf8f8f8</Color>
     <Color x:Key="BackgroundTintedColor">#FFe9f5fc</Color>
     <Color x:Key="BackgroundMutedColor">#FFeef2f5</Color>
-    <Color x:Key="BackgroundDarkColor">#FF012e3b</Color>
-
     <Color x:Key="SuccessColor">#FF3baf29</Color>
     <Color x:Key="WarningColor">#FFe5b80d</Color>
     <Color x:Key="ErrorColor">#FF962317</Color>

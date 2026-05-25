@@ -49,7 +49,7 @@
             </StackPanel>
 
             <Button Grid.Row="2"
-                    Background="{DynamicResource AccentGreenBrush}"
+                    Background="{DynamicResource SecondaryBrush}"
                     Click="OnCloseClicked"
                     Content="{Binding CloseText}"
                     Foreground="{DynamicResource PrimaryForegroundBrush}"

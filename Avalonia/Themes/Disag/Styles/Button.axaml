@@ -33,25 +33,25 @@
     </Style>
 
     <Style Selector="Button.accent">
-        <Setter Property="Background" Value="{DynamicResource AccentBrush}" />
-        <Setter Property="BorderBrush" Value="{DynamicResource AccentBrush}" />
-        <Setter Property="Foreground" Value="{DynamicResource AccentForegroundBrush}" />
+        <Setter Property="Background" Value="{DynamicResource TertiaryBrush}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource TertiaryBrush}" />
+        <Setter Property="Foreground" Value="{DynamicResource TertiaryForegroundBrush}" />
     </Style>
     <Style Selector="Button.accent:pointerover /template/ ContentPresenter#PART_ContentPresenter">
-        <Setter Property="Background" Value="{DynamicResource AccentHoverBrush}" />
+        <Setter Property="Background" Value="{DynamicResource TertiaryHoverBrush}" />
     </Style>
     <Style Selector="Button.accent:pressed /template/ ContentPresenter#PART_ContentPresenter">
-        <Setter Property="Background" Value="{DynamicResource AccentHoverBrush}" />
+        <Setter Property="Background" Value="{DynamicResource TertiaryHoverBrush}" />
         <Setter Property="Opacity" Value="0.85" />
     </Style>
 
     <Style Selector="Button.green">
-        <Setter Property="Background" Value="{DynamicResource AccentGreenBrush}" />
-        <Setter Property="BorderBrush" Value="{DynamicResource AccentGreenBrush}" />
-        <Setter Property="Foreground" Value="{DynamicResource AccentForegroundBrush}" />
+        <Setter Property="Background" Value="{DynamicResource SecondaryBrush}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource SecondaryBrush}" />
+        <Setter Property="Foreground" Value="{DynamicResource SecondaryForegroundBrush}" />
     </Style>
     <Style Selector="Button.green:pointerover /template/ ContentPresenter#PART_ContentPresenter">
-        <Setter Property="Background" Value="{DynamicResource AccentGreenHoverBrush}" />
+        <Setter Property="Background" Value="{DynamicResource SecondaryHoverBrush}" />
     </Style>
 
     <Style Selector="Button.outline">
@@ -69,15 +69,15 @@
 
     <Style Selector="Button.outline-accent">
         <Setter Property="Background" Value="Transparent" />
-        <Setter Property="BorderBrush" Value="{DynamicResource AccentBrush}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource TertiaryBrush}" />
         <Setter Property="BorderThickness" Value="2" />
-        <Setter Property="Foreground" Value="{DynamicResource AccentBrush}" />
+        <Setter Property="Foreground" Value="{DynamicResource TertiaryBrush}" />
     </Style>
     <Style Selector="Button.outline-accent:pointerover /template/ ContentPresenter#PART_ContentPresenter">
-        <Setter Property="Background" Value="{DynamicResource AccentBrush}" />
+        <Setter Property="Background" Value="{DynamicResource TertiaryBrush}" />
     </Style>
     <Style Selector="Button.outline-accent:pointerover">
-        <Setter Property="Foreground" Value="{DynamicResource AccentForegroundBrush}" />
+        <Setter Property="Foreground" Value="{DynamicResource TertiaryForegroundBrush}" />
     </Style>
 
     <Style Selector="Button.ghost">

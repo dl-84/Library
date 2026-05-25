@@ -16,19 +16,19 @@
     </Style>
 
     <Style Selector="Border.card-dark">
-        <Setter Property="Background" Value="{DynamicResource SurfaceDarkBrush}" />
+        <Setter Property="Background" Value="{DynamicResource PrimaryBrush}" />
         <Setter Property="CornerRadius" Value="{DynamicResource CornerRadiusLarge}" />
         <Setter Property="Padding" Value="24" />
     </Style>
 
     <Style Selector="Border.card-success">
-        <Setter Property="Background" Value="{DynamicResource AccentGreenBrush}" />
+        <Setter Property="Background" Value="{DynamicResource SecondaryBrush}" />
         <Setter Property="CornerRadius" Value="{DynamicResource CornerRadiusZero}" />
         <Setter Property="Padding" Value="24" />
     </Style>
 
     <Style Selector="Border.card-accent">
-        <Setter Property="Background" Value="{DynamicResource AccentBrush}" />
+        <Setter Property="Background" Value="{DynamicResource TertiaryBrush}" />
         <Setter Property="CornerRadius" Value="{DynamicResource CornerRadiusLarge}" />
         <Setter Property="Padding" Value="24" />
     </Style>

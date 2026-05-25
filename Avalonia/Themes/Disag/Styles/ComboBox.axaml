@@ -15,7 +15,7 @@
     </Style>
 
     <Style Selector="ComboBox:pointerover /template/ Border#Background">
-        <Setter Property="BorderBrush" Value="{DynamicResource AccentBrush}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource TertiaryBrush}" />
     </Style>
 
     <Style Selector="ComboBox:focus /template/ Border#Background">
@@ -37,7 +37,7 @@
     </Style>
 
     <Style Selector="ComboBoxItem:pointerover /template/ ContentPresenter">
-        <Setter Property="Background" Value="{DynamicResource AccentGreenBrush}" />
+        <Setter Property="Background" Value="{DynamicResource SecondaryBrush}" />
     </Style>
 
     <Style Selector="ComboBoxItem:pointerover TextBlock">
@@ -53,7 +53,7 @@
     </Style>
 
     <Style Selector="ComboBoxItem:selected:pointerover /template/ ContentPresenter">
-        <Setter Property="Background" Value="{DynamicResource AccentGreenBrush}" />
+        <Setter Property="Background" Value="{DynamicResource SecondaryBrush}" />
     </Style>
 
 </Styles>
