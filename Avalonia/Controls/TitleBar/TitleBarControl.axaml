@@ -15,7 +15,8 @@
           Height="36">
 
         <Border x:Name="SidebarBorder"
-                Grid.Column="0">
+                Grid.Column="0"
+                Background="{DynamicResource PrimaryBrush}">
             <!--  Mac Buttons  -->
             <StackPanel x:Name="MacTrafficLights"
                         Margin="14,0,0,0"
@@ -37,7 +38,8 @@
         </Border>
 
         <Border x:Name="ContentBorder"
-                Grid.Column="1">
+                Grid.Column="1"
+                Background="{DynamicResource AppBackgroundAltBrush}">
             <!--  Drag Area  -->
             <Grid ColumnDefinitions="*,Auto">
                 <Panel Grid.Column="0"

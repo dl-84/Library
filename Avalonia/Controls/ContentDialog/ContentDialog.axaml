@@ -1,4 +1,4 @@
-﻿<Window x:Class="Controls.ContentDialog.ContentDialog"
+<Window x:Class="Controls.ContentDialog.ContentDialog"
         xmlns="https://github.com/avaloniaui"
         xmlns:local="using:Controls.ContentDialog"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -13,15 +13,15 @@
 
     <Border ClipToBounds="True"
             CornerRadius="10">
-        <Grid Background="{Binding BackgroundColor}"
+        <Grid Background="{DynamicResource AppBackgroundAltBrush}"
               RowDefinitions="Auto,*,Auto">
 
             <Border Grid.Row="0"
-                    Background="{Binding PrimaryColor}"
+                    Background="{DynamicResource PrimaryBrush}"
                     Padding="24,12">
                 <TextBlock FontSize="16"
                            FontWeight="SemiBold"
-                           Foreground="{Binding TextColor}"
+                           Foreground="{DynamicResource PrimaryForegroundBrush}"
                            Text="{Binding DialogTitle}" />
             </Border>
 
@@ -29,10 +29,10 @@
                             Content="{Binding DialogContent}" />
 
             <Button Grid.Row="2"
-                    Background="{Binding CloseButtonColor}"
+                    Background="{DynamicResource AccentGreenBrush}"
                     Click="OnCloseClicked"
                     Content="{Binding CloseText}"
-                    Foreground="{Binding TextColor}"
+                    Foreground="{DynamicResource PrimaryForegroundBrush}"
                     HorizontalAlignment="Center"
                     Margin="0,16,0,24" />
 

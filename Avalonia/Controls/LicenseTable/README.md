@@ -2,6 +2,8 @@
 
 Tabellarisches Control zur Anzeige von NuGet-Paketlizenzen. Zeigt Name, Version, Lizenztyp und Link. Klick auf eine Zeile ohne URL löst das Event `LicenseContentRequested` aus, um den Lizenztext anderweitig anzuzeigen.
 
+Farben kommen automatisch aus dem Theme via `DynamicResource` — keine Brush-Properties nötig.
+
 ---
 
 ## Einbinden
@@ -25,13 +27,9 @@ xmlns:lt="using:Controls.LicenseTable"
 ### 3. Control einsetzen
 
 ```xml
-<lt:LicenseTableControl HeaderBackgroundColor="{DynamicResource PrimaryBrush}"
-                        HeaderFontColor="{DynamicResource PrimaryForegroundBrush}"
-                        Headers="{Binding ColumnHeaders}"
+<lt:LicenseTableControl Headers="{Binding ColumnHeaders}"
                         Items="{Binding Packages}"
-                        LicenseContentRequested="OnLicenseContentRequested"
-                        PrimaryTextColor="{DynamicResource TextPrimaryBrush}"
-                        SecondaryTextColor="{DynamicResource TextSecondaryBrush}" />
+                        LicenseContentRequested="OnLicenseContentRequested" />
 ```
 
 ### 4. Event behandeln
@@ -49,12 +47,8 @@ private void OnLicenseContentRequested(object? sender, string content)
 
 | Property | Typ | Beschreibung |
 |---|---|---|
-| `HeaderBackgroundColor` | `IBrush?` | Hintergrundfarbe der Kopfzeile |
-| `HeaderFontColor` | `IBrush?` | Textfarbe der Kopfzeilen-Labels |
 | `Headers` | `IReadOnlyList<string>?` | Spaltenbezeichnungen: [Name, Version, Lizenz, Link] |
 | `Items` | `IEnumerable<PackageModel>?` | Anzuzeigende Pakete |
-| `PrimaryTextColor` | `IBrush?` | Textfarbe für Name und Version |
-| `SecondaryTextColor` | `IBrush?` | Textfarbe für Copyright-Angaben |
 
 ---
 
@@ -79,3 +73,16 @@ PackageModel
     string? LicenseContent
 }
 ```
+
+---
+
+## Theme-Ressourcen
+
+Das Control liest folgende Keys via `DynamicResource` aus dem Theme:
+
+| Key | Verwendung |
+|---|---|
+| `AccentForegroundBrush` | Header-Textfarbe |
+| `AccentGreenBrush` | Header-Hintergrund |
+| `TextMutedBrush` | Copyright-Text (sekundär) |
+| `TextPrimaryBrush` | Name, Version (primär) |

@@ -14,19 +14,20 @@
 
     <Window.Resources>
         <local:IconTypeToGeometryConverter x:Key="IconTypeToGeometry" />
+        <local:IconTypeToBrushConverter x:Key="IconTypeToBrush" />
     </Window.Resources>
 
     <Border ClipToBounds="True"
             CornerRadius="10">
-        <Grid Background="{Binding DialogBackground}"
+        <Grid Background="{DynamicResource AppBackgroundAltBrush}"
               RowDefinitions="Auto,*,Auto">
 
             <Border Grid.Row="0"
-                    Background="{Binding HeaderBackground}"
+                    Background="{DynamicResource PrimaryBrush}"
                     Padding="24,12">
                 <TextBlock FontSize="16"
                            FontWeight="SemiBold"
-                           Foreground="{Binding HeaderForeground}"
+                           Foreground="{DynamicResource PrimaryForegroundBrush}"
                            Text="{Binding DialogTitle}" />
             </Border>
 
@@ -35,12 +36,12 @@
                         Orientation="Horizontal"
                         Spacing="16">
                 <Path Data="{Binding IconType, Converter={StaticResource IconTypeToGeometry}}"
-                      Fill="{Binding IconBrush}"
+                      Fill="{Binding IconType, Converter={StaticResource IconTypeToBrush}}"
                       Height="24"
                       Stretch="Uniform"
                       VerticalAlignment="Top"
                       Width="24" />
-                <TextBlock Foreground="{Binding DialogForeground}"
+                <TextBlock Foreground="{DynamicResource TextPrimaryBrush}"
                            MaxWidth="360"
                            Text="{Binding Message}"
                            TextWrapping="Wrap"
@@ -48,10 +49,10 @@
             </StackPanel>
 
             <Button Grid.Row="2"
-                    Background="{Binding CloseButtonBackground}"
+                    Background="{DynamicResource AccentGreenBrush}"
                     Click="OnCloseClicked"
                     Content="{Binding CloseText}"
-                    Foreground="{Binding CloseButtonForeground}"
+                    Foreground="{DynamicResource PrimaryForegroundBrush}"
                     HorizontalAlignment="Center"
                     Margin="0,0,0,24" />
 

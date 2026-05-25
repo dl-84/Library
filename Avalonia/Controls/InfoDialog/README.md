@@ -1,6 +1,8 @@
 # InfoDialog — Avalonia Typ-Dialog
 
-Modaler Dialog für Error-, Warning- und Info-Meldungen. Zeigt links ein Icon (SVG-Pfad, Farbe konfigurierbar), rechts den Nachrichtentext. Höhe passt sich automatisch dem Inhalt an, Breite ist fest (480 px).
+Modaler Dialog für Info- und Warnmeldungen. Zeigt links ein Icon (Farbe und Form vom `IconType` abgeleitet), rechts den Nachrichtentext. Höhe passt sich automatisch dem Inhalt an, Breite ist fest (480 px).
+
+Farben kommen automatisch aus dem Theme via `DynamicResource` — keine Brush-Properties nötig.
 
 ---
 
@@ -26,19 +28,12 @@ using Controls.InfoDialog;
 ```csharp
 await new InfoDialog
 {
-    BackgroundColor = AppBrush.Background,
-    CloseButtonColor = AppBrush.Green,
     CloseText = "Schließen",
     DialogTitle = "Verbindungsfehler",
-    IconBrush = AppBrush.Error,
-    IconData = Geometry.Parse("M12 2 ..."),  // SVG-Pfaddaten
+    IconType = IconType.Warning,
     Message = "Die Verbindung konnte nicht hergestellt werden.",
-    PrimaryColor = AppBrush.Primary,
-    TextColor = AppBrush.PrimaryForeground,
 }.ShowDialog(window);
 ```
-
-`IconData` kann weggelassen werden — der Platz bleibt dann leer bis SVG-Daten hinterlegt werden.
 
 ---
 
@@ -46,22 +41,22 @@ await new InfoDialog
 
 | Property | Typ | Beschreibung |
 |---|---|---|
-| `BackgroundColor` | `IBrush?` | Hintergrundfarbe des Inhaltsbereichs |
-| `CloseButtonColor` | `IBrush?` | Hintergrundfarbe des Schließen-Buttons |
 | `CloseText` | `string?` | Beschriftung des Schließen-Buttons |
 | `DialogTitle` | `string?` | Titeltext im Header |
-| `IconBrush` | `IBrush?` | Füllfarbe des Icons (z. B. `ErrorBrush`, `WarningBrush`, `AccentBrush`) |
-| `IconData` | `Geometry?` | SVG-Pfadgeometrie für das Icon |
+| `IconType` | `IconType` | `Info` (grün) oder `Warning` (rot) |
 | `Message` | `string?` | Nachrichtentext (bricht automatisch um) |
-| `PrimaryColor` | `IBrush?` | Hintergrundfarbe des Headers |
-| `TextColor` | `IBrush?` | Vordergrundfarbe auf primären Bereichen |
 
 ---
 
-## Icon-Empfehlungen je Typ
+## Theme-Ressourcen
 
-| Typ | `IconBrush` |
+Das Control liest folgende Keys via `DynamicResource` aus dem Theme:
+
+| Key | Verwendung |
 |---|---|
-| Error | `ErrorBrush` |
-| Warning | `WarningBrush` |
-| Info | `AccentBrush` |
+| `AccentGreenBrush` | Schließen-Button Hintergrund, Info-Icon Farbe |
+| `AppBackgroundAltBrush` | Dialog-Hintergrund |
+| `ErrorBrush` | Warning-Icon Farbe |
+| `PrimaryBrush` | Header-Hintergrund |
+| `PrimaryForegroundBrush` | Header- und Button-Textfarbe |
+| `TextPrimaryBrush` | Nachrichtentext |

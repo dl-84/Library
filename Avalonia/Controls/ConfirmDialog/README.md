@@ -2,6 +2,8 @@
 
 Modaler Dialog mit Titel, Nachricht und zwei Buttons (Bestätigen / Abbrechen). Gibt `true` zurück wenn bestätigt, `false` bei Abbruch.
 
+Farben kommen automatisch aus dem Theme via `DynamicResource` — keine Brush-Properties nötig.
+
 ---
 
 ## Einbinden
@@ -24,20 +26,13 @@ using Controls.ConfirmDialog;
 ### 3. Dialog öffnen
 
 ```csharp
-ConfirmDialog dialog = new ConfirmDialog
+bool? result = await new ConfirmDialog
 {
     AcceptText = "Löschen",
-    CancelButtonColor = AppBrush.Green,
     CancelText = "Abbrechen",
-    DialogBackground = AppBrush.Background,
     DialogTitle = "Datei löschen",
-    ErrorBrush = AppBrush.Error,
     Message = "Diese Aktion kann nicht rückgängig gemacht werden.",
-    PrimaryBrush = AppBrush.Primary,
-    SecondaryBrush = AppBrush.PrimaryForeground,
-};
-
-bool? result = await dialog.ShowDialog<bool?>(window);
+}.ShowDialog<bool?>(window);
 
 if (result is true)
 {
@@ -52,14 +47,9 @@ if (result is true)
 | Property | Typ | Beschreibung |
 |---|---|---|
 | `AcceptText` | `string?` | Beschriftung des Bestätigen-Buttons |
-| `CancelButtonColor` | `IBrush?` | Rahmen- und Textfarbe des Abbrechen-Buttons |
 | `CancelText` | `string?` | Beschriftung des Abbrechen-Buttons |
-| `DialogBackground` | `IBrush?` | Hintergrundfarbe des Inhaltsbereichs |
 | `DialogTitle` | `string?` | Titeltext im Header |
-| `ErrorBrush` | `IBrush?` | Hintergrundfarbe des Bestätigen-Buttons |
 | `Message` | `string?` | Nachrichtentext im Inhaltsbereich |
-| `PrimaryBrush` | `IBrush?` | Hintergrundfarbe des Headers |
-| `SecondaryBrush` | `IBrush?` | Vordergrundfarbe auf primären und Error-Hintergründen |
 
 ---
 
@@ -70,3 +60,18 @@ if (result is true)
 | `true` | Bestätigen-Button geklickt |
 | `false` | Abbrechen-Button geklickt |
 | `null` | Dialog anderweitig geschlossen |
+
+---
+
+## Theme-Ressourcen
+
+Das Control liest folgende Keys via `DynamicResource` aus dem Theme:
+
+| Key | Verwendung |
+|---|---|
+| `AccentGreenBrush` | Abbrechen-Button Hintergrund |
+| `AppBackgroundAltBrush` | Dialog-Hintergrund |
+| `ErrorBrush` | Bestätigen-Button Hintergrund |
+| `PrimaryBrush` | Header-Hintergrund |
+| `PrimaryForegroundBrush` | Header- und Button-Textfarbe |
+| `TextPrimaryBrush` | Nachrichtentext |

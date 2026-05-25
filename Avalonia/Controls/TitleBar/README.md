@@ -2,6 +2,8 @@
 
 Plattformübergreifendes Custom-Titlebar-Control für Avalonia. Zeigt auf macOS native Traffic-Light-Buttons (SVG, Hover-States), auf Windows/Linux eigene Minimize/Maximize/Close-Icons.
 
+Farben kommen automatisch aus dem Theme via `DynamicResource` — keine Brush-Properties nötig.
+
 ---
 
 ## Einbinden
@@ -75,8 +77,7 @@ public MainWindow()
             CornerRadius="10">
         <DockPanel>
 
-            <tb:TitleBarControl BackgroundColor="{DynamicResource AppBackgroundAltBrush}"
-                                PrimaryColor="{DynamicResource PrimaryBrush}" />
+            <tb:TitleBarControl />
 
             <!-- restlicher Inhalt -->
 
@@ -87,12 +88,14 @@ public MainWindow()
 
 ---
 
-## Eigenschaften
+## Theme-Ressourcen
 
-| Property | Typ | Beschreibung |
-|---|---|---|
-| `PrimaryColor` | `IBrush?` | Hintergrund der Sidebar-Seite (links) und Hover-Hintergrund der Windows-Buttons |
-| `BackgroundColor` | `IBrush?` | Hintergrund der Content-Seite (rechts) und Normalzustand der Windows-Buttons |
+Das Control liest folgende Keys via `DynamicResource` aus dem Theme:
+
+| Key | Verwendung |
+|---|---|
+| `AppBackgroundAltBrush` | Hintergrund der Content-Seite (rechts) |
+| `PrimaryBrush` | Hintergrund der Sidebar-Seite (links) |
 
 ---
 
