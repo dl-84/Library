@@ -23,7 +23,7 @@
     <Color x:Key="BackgroundMutedColor">#FFeef2f5</Color>
     <Color x:Key="SuccessColor">#FF3baf29</Color>
     <Color x:Key="WarningColor">#FFe5b80d</Color>
-    <Color x:Key="ErrorColor">#FF962317</Color>
+    <Color x:Key="ErrorColor">#FFE53E3E</Color>
 
     <Color x:Key="BorderLightColor">#FFEBEBEB</Color>
     <Color x:Key="BorderMediumColor">#FFcccccc</Color>
