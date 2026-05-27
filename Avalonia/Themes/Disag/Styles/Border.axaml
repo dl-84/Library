@@ -6,31 +6,31 @@
         <Setter Property="BorderBrush" Value="{DynamicResource BorderLightBrush}" />
         <Setter Property="BorderThickness" Value="1" />
         <Setter Property="CornerRadius" Value="{DynamicResource CornerRadiusZero}" />
-        <Setter Property="Padding" Value="24" />
+        <Setter Property="Padding" Value="16" />
     </Style>
 
     <Style Selector="Border.card-error">
         <Setter Property="Background" Value="{DynamicResource ErrorBrush}" />
         <Setter Property="CornerRadius" Value="{DynamicResource CornerRadiusZero}" />
-        <Setter Property="Padding" Value="24" />
+        <Setter Property="Padding" Value="16" />
     </Style>
 
     <Style Selector="Border.card-dark">
         <Setter Property="Background" Value="{DynamicResource PrimaryBrush}" />
         <Setter Property="CornerRadius" Value="{DynamicResource CornerRadiusLarge}" />
-        <Setter Property="Padding" Value="24" />
+        <Setter Property="Padding" Value="16" />
     </Style>
 
     <Style Selector="Border.card-success">
         <Setter Property="Background" Value="{DynamicResource SecondaryBrush}" />
         <Setter Property="CornerRadius" Value="{DynamicResource CornerRadiusZero}" />
-        <Setter Property="Padding" Value="24" />
+        <Setter Property="Padding" Value="16" />
     </Style>
 
     <Style Selector="Border.card-accent">
         <Setter Property="Background" Value="{DynamicResource TertiaryBrush}" />
         <Setter Property="CornerRadius" Value="{DynamicResource CornerRadiusLarge}" />
-        <Setter Property="Padding" Value="24" />
+        <Setter Property="Padding" Value="16" />
     </Style>
 
 </Styles>
