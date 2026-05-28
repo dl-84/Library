@@ -102,4 +102,11 @@
     <SolidColorBrush x:Key="OverlayBrush"
                      Color="{DynamicResource OverlayColor}" />
 
+    <SolidColorBrush x:Key="ToolTipBackground"
+                     Color="{DynamicResource NearBlackColor}" />
+    <SolidColorBrush x:Key="ToolTipBorderBrush"
+                     Color="Transparent" />
+    <SolidColorBrush x:Key="ToolTipForeground"
+                     Color="{DynamicResource TextWhiteColor}" />
+
 </ResourceDictionary>
