@@ -1,4 +1,5 @@
 ﻿<UserControl x:Class="Controls.LicenseTable.LicenseTableControl"
+             x:Name="Root"
              xmlns="https://github.com/avaloniaui"
              xmlns:local="using:Controls.LicenseTable.Models"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
@@ -63,7 +64,7 @@
                                    Height="16"
                                    HorizontalAlignment="Center"
                                    PointerPressed="OnPointerLinkClicked"
-                                   Source="avares://LicenseTable/Assets/ExternalLink.png"
+                                   Source="{Binding #Root.ExternalLinkIcon}"
                                    Tag="{Binding PackageUrl}"
                                    VerticalAlignment="Center"
                                    Width="16"
