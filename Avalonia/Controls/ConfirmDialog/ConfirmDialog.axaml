@@ -12,26 +12,18 @@
         WindowDecorations="None"
         WindowStartupLocation="CenterOwner">
 
-    <!--  Disable Hover Styles  -->
-    <Window.Styles>
-        <Style Selector="Button:pointerover /template/ ContentPresenter#PART_ContentPresenter">
-            <Setter Property="Background" Value="{Binding $parent[Button].Background}" />
-            <Setter Property="BorderBrush" Value="{Binding $parent[Button].BorderBrush}" />
-            <Setter Property="TextElement.Foreground" Value="{Binding $parent[Button].Foreground}" />
-        </Style>
-    </Window.Styles>
-
     <Border ClipToBounds="True"
             CornerRadius="10">
         <Grid Background="{DynamicResource AppBackgroundAltBrush}"
               RowDefinitions="Auto,*,Auto">
 
             <Border Grid.Row="0"
-                    Background="{DynamicResource PrimaryBrush}"
-                    Padding="24,12">
+                    Background="{DynamicResource AppBackgroundAltBrush}"
+                    BorderBrush="{DynamicResource BorderMediumBrush}"
+                    BorderThickness="0,0,0,1"
+                    Padding="16,12">
                 <TextBlock FontSize="16"
-                           FontWeight="SemiBold"
-                           Foreground="{DynamicResource PrimaryForegroundBrush}"
+                           Foreground="{DynamicResource PrimaryBrush}"
                            Text="{Binding DialogTitle}" />
             </Border>
 
@@ -42,19 +34,16 @@
                        TextWrapping="Wrap" />
 
             <StackPanel Grid.Row="2"
-                        HorizontalAlignment="Center"
-                        Margin="0,0,0,24"
+                        HorizontalAlignment="Right"
+                        Margin="0,0,16,16"
                         Orientation="Horizontal"
                         Spacing="8">
-                <Button Background="{DynamicResource ErrorBrush}"
+                <Button Classes="danger small"
                         Click="OnAcceptClicked"
-                        Content="{Binding AcceptText}"
-                        Foreground="{DynamicResource PrimaryForegroundBrush}" />
-                <Button x:Name="CancelButton"
-                        Background="{DynamicResource SecondaryBrush}"
+                        Content="{Binding AcceptText}" />
+                <Button Classes="green small"
                         Click="OnCancelClicked"
-                        Content="{Binding CancelText}"
-                        Foreground="{DynamicResource PrimaryForegroundBrush}" />
+                        Content="{Binding CancelText}" />
             </StackPanel>
 
         </Grid>

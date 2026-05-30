@@ -20,7 +20,7 @@
                     Background="{DynamicResource AppBackgroundAltBrush}"
                     BorderBrush="{DynamicResource BorderMediumBrush}"
                     BorderThickness="0,0,0,1"
-                    Padding="24,12">
+                    Padding="16,12">
                 <TextBlock FontSize="16"
                            Foreground="{DynamicResource PrimaryBrush}"
                            Text="{Binding DialogTitle}" />
