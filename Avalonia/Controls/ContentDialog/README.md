@@ -62,6 +62,7 @@ Das Control liest folgende Keys via `DynamicResource` aus dem Theme:
 
 | Key | Verwendung |
 |---|---|
-| `AppBackgroundAltBrush` | Dialog-Hintergrund |
-| `PrimaryBrush` | Header-Hintergrund, Schließen-Button Hintergrund |
-| `PrimaryForegroundBrush` | Header- und Button-Textfarbe |
+| `AppBackgroundAltBrush` | Dialog-Hintergrund und Header-Hintergrund |
+| `AccentGreenBrush` | Schließen-Button Hintergrund (via `green`-Klasse) |
+| `BorderMediumBrush` | Trennlinie zwischen Header und Inhalt |
+| `PrimaryBrush` | Header-Titelfarbe |
