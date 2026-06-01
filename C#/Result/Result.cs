@@ -63,6 +63,23 @@ public readonly struct Result<TValue, TError>
         !IsError ? success(_value!) : failure(_error!.Value);
 
     /// <summary>
+    /// Evaluates the result by invoking one of two actions depending on the current state.
+    /// </summary>
+    /// <param name="success">Invoked with the success value when no error is present.</param>
+    /// <param name="failure">Invoked with the <see cref="Error{TError}"/> when an error is present.</param>
+    public void Match(Action<TValue> success, Action<Error<TError>> failure)
+    {
+        if (!IsError)
+        {
+            success(_value!);
+        }
+        else
+        {
+            failure(_error!.Value);
+        }
+    }
+
+    /// <summary>
     /// Chains a subsequent operation that itself returns a <see cref="Result{TNewValue,TError}"/>.
     /// If either this result or the subsequent operation is an error, the error is propagated immediately.
     /// Enables composing multiple failable steps without nested conditionals.
