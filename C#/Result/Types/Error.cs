@@ -1,4 +1,4 @@
-namespace Result.Struct;
+namespace Result.Types;
 
 /// <summary>
 /// Wraps an error value to make the failure case explicitly visible in the type system

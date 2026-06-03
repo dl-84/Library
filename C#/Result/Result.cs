@@ -1,5 +1,5 @@
 using System;
-using Result.Struct;
+using Result.Types;
 
 namespace Result;
 
