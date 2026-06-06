@@ -1,0 +1,42 @@
+<Window x:Class="Controls.WaitingDialog.WaitingDialog"
+        xmlns="https://github.com/avaloniaui"
+        xmlns:local="using:Controls.WaitingDialog"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        x:DataType="local:WaitingDialog"
+        Background="Transparent"
+        CanResize="False"
+        MinWidth="400"
+        SizeToContent="Height"
+        TransparencyLevelHint="Transparent"
+        Width="480"
+        WindowDecorations="None"
+        WindowStartupLocation="CenterOwner">
+
+    <Border ClipToBounds="True"
+            CornerRadius="10">
+        <Grid Background="{DynamicResource AppBackgroundAltBrush}"
+              RowDefinitions="Auto,*">
+
+            <Border Grid.Row="0"
+                    Background="{DynamicResource AppBackgroundAltBrush}"
+                    BorderBrush="{DynamicResource BorderMediumBrush}"
+                    BorderThickness="0,0,0,1"
+                    Padding="16,12">
+                <TextBlock FontSize="16"
+                           Foreground="{DynamicResource PrimaryBrush}"
+                           Text="{Binding DialogTitle}" />
+            </Border>
+
+            <StackPanel Grid.Row="1"
+                        Margin="24,20,24,24"
+                        Spacing="12">
+                <ProgressBar Foreground="{DynamicResource SuccessBrush}"
+                             IsIndeterminate="True" />
+                <TextBlock Foreground="{DynamicResource TextPrimaryBrush}"
+                           Text="{Binding Message}"
+                           TextWrapping="Wrap" />
+            </StackPanel>
+
+        </Grid>
+    </Border>
+</Window>
