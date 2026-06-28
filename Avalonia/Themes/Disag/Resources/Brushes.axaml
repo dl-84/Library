@@ -98,6 +98,8 @@
                      Color="{DynamicResource WarningColor}" />
     <SolidColorBrush x:Key="ErrorBrush"
                      Color="{DynamicResource ErrorColor}" />
+    <SolidColorBrush x:Key="ErrorHoverBrush"
+                     Color="{DynamicResource ErrorHoverColor}" />
 
     <SolidColorBrush x:Key="OverlayBrush"
                      Color="{DynamicResource OverlayColor}" />

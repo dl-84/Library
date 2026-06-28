@@ -45,6 +45,11 @@
         <Style Selector="^:selected:pointerover /template/ ContentPresenter">
             <Setter Property="Background" Value="Transparent" />
         </Style>
+        <Style Selector="^:focus-visible /template/ Border#Root">
+            <Setter Property="BorderBrush" Value="{DynamicResource TertiaryBrush}" />
+            <Setter Property="BorderThickness" Value="2" />
+            <Setter Property="Opacity" Value="1" />
+        </Style>
         <Style Selector="^.navigation-header">
             <Setter Property="Cursor" Value="Arrow" />
             <Setter Property="Template">

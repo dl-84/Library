@@ -7,9 +7,10 @@
             <ResourceDictionary.MergedDictionaries>
                 <ResourceInclude Source="avares://Disag/Resources/Brushes.axaml" />
                 <ResourceInclude Source="avares://Disag/Resources/Colors.axaml" />
-                <ResourceInclude Source="avares://Disag/Resources/Font.axaml" />
                 <ResourceInclude Source="avares://Disag/Resources/CornerRadius.axaml" />
+                <ResourceInclude Source="avares://Disag/Resources/Font.axaml" />
                 <ResourceInclude Source="avares://Disag/Resources/NavigationItem.axaml" />
+                <ResourceInclude Source="avares://Disag/Resources/Spacing.axaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Styles.Resources>

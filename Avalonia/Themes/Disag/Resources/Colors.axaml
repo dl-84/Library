@@ -24,6 +24,7 @@
     <Color x:Key="SuccessColor">#FF3baf29</Color>
     <Color x:Key="WarningColor">#FFe5b80d</Color>
     <Color x:Key="ErrorColor">#FFE53E3E</Color>
+    <Color x:Key="ErrorHoverColor">#FF7c1c12</Color>
 
     <Color x:Key="BorderLightColor">#FFEBEBEB</Color>
     <Color x:Key="BorderMediumColor">#FFcccccc</Color>

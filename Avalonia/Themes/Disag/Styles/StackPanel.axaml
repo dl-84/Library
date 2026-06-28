@@ -3,7 +3,7 @@
 
     <Style Selector="StackPanel.page-content">
         <Setter Property="Margin" Value="18,0,18,18" />
-        <Setter Property="Spacing" Value="16" />
+        <Setter Property="Spacing" Value="{DynamicResource SpacingMedium}" />
     </Style>
 
 </Styles>

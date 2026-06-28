@@ -1,0 +1,12 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <x:Double x:Key="SpacingXSmall">2</x:Double>
+    <x:Double x:Key="SpacingSmall">8</x:Double>
+    <x:Double x:Key="SpacingMedium">16</x:Double>
+
+    <Thickness x:Key="PaddingCard">16</Thickness>
+    <Thickness x:Key="PaddingPill">12,6</Thickness>
+    <Thickness x:Key="MarginTopMedium">0,16,0,0</Thickness>
+
+</ResourceDictionary>

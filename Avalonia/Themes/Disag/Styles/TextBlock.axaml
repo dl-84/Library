@@ -59,7 +59,7 @@
 
     <Style Selector="TextBlock.label">
         <Setter Property="FontFamily" Value="{DynamicResource FontHeading}" />
-        <Setter Property="FontSize" Value="11" />
+        <Setter Property="FontSize" Value="13" />
         <Setter Property="FontWeight" Value="Bold" />
         <Setter Property="Foreground" Value="{DynamicResource TertiaryBrush}" />
         <Setter Property="LetterSpacing" Value="2" />

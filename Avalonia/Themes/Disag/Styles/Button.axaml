@@ -116,7 +116,7 @@
         <Setter Property="Foreground" Value="{DynamicResource PrimaryForegroundBrush}" />
     </Style>
     <Style Selector="Button.danger:pointerover /template/ ContentPresenter#PART_ContentPresenter">
-        <Setter Property="Background" Value="#7c1c12" />
+        <Setter Property="Background" Value="{DynamicResource ErrorHoverBrush}" />
     </Style>
 
 </Styles>
