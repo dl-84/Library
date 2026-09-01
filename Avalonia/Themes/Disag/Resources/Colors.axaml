@@ -21,7 +21,7 @@
     <Color x:Key="BackgroundSubtleColor">#FFf8f8f8</Color>
     <Color x:Key="BackgroundTintedColor">#FFe9f5fc</Color>
     <Color x:Key="BackgroundMutedColor">#FFeef2f5</Color>
-    <Color x:Key="SuccessColor">#FF3baf29</Color>
+    <Color x:Key="SuccessColor">#FF4CAF50</Color>
     <Color x:Key="WarningColor">#FFe5b80d</Color>
     <Color x:Key="ErrorColor">#FFE53E3E</Color>
     <Color x:Key="ErrorHoverColor">#FF7c1c12</Color>
