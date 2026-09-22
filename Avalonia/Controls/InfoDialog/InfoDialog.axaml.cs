@@ -1,6 +1,6 @@
 using Avalonia;
 using Avalonia.Controls;
-using Avalonia.Interactivity;
+using Avalonia.Input;
 using Avalonia.Media;
 using Avalonia.Svg.Skia;
 using Controls.InfoDialog.Enum;
@@ -9,10 +9,6 @@ namespace Controls.InfoDialog;
 
 public partial class InfoDialog : Window
 {
-    public static readonly StyledProperty<string?> CloseTextProperty = AvaloniaProperty.Register<InfoDialog, string?>(
-        nameof(CloseText)
-    );
-
     public static readonly StyledProperty<string?> DialogTitleProperty = AvaloniaProperty.Register<InfoDialog, string?>(
         nameof(DialogTitle)
     );
@@ -30,12 +26,6 @@ public partial class InfoDialog : Window
         InitializeComponent();
         DataContext = this;
         UpdateIcon();
-    }
-
-    public string? CloseText
-    {
-        get => GetValue(CloseTextProperty);
-        set => SetValue(CloseTextProperty, value);
     }
 
     public string? DialogTitle
@@ -88,7 +78,7 @@ public partial class InfoDialog : Window
         return resource as IBrush;
     }
 
-    private void OnCloseClicked(object? sender, RoutedEventArgs e)
+    private void OnCloseClicked(object? sender, PointerPressedEventArgs e)
     {
         Close();
     }

@@ -12,27 +12,36 @@
         WindowDecorations="None"
         WindowStartupLocation="CenterOwner">
 
-    <Window.Styles>
-        <Style Selector="Button:pointerover /template/ ContentPresenter#PART_ContentPresenter">
-            <Setter Property="Background" Value="{Binding $parent[Button].Background}" />
-            <Setter Property="BorderBrush" Value="{Binding $parent[Button].BorderBrush}" />
-            <Setter Property="TextElement.Foreground" Value="{Binding $parent[Button].Foreground}" />
-        </Style>
-    </Window.Styles>
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceInclude Source="avares://InfoDialog/Resources/Icons.axaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
 
     <Border ClipToBounds="True"
             CornerRadius="10">
         <Grid Background="{DynamicResource AppBackgroundAltBrush}"
-              RowDefinitions="Auto,*,Auto">
+              RowDefinitions="Auto,*">
 
             <Border Grid.Row="0"
                     Background="{DynamicResource AppBackgroundAltBrush}"
                     BorderBrush="{DynamicResource BorderMediumBrush}"
                     BorderThickness="0,0,0,1"
                     Padding="16,12">
-                <TextBlock FontSize="16"
-                           Foreground="{DynamicResource PrimaryBrush}"
-                           Text="{Binding DialogTitle}" />
+                <Grid ColumnDefinitions="*,Auto">
+                    <TextBlock Grid.Column="0"
+                               Classes="h4"
+                               Text="{Binding DialogTitle}"
+                               VerticalAlignment="Center" />
+                    <PathIcon Grid.Column="1"
+                              Classes="icon-action"
+                              Data="{DynamicResource CloseIcon}"
+                              Height="14"
+                              PointerPressed="OnCloseClicked"
+                              Width="14" />
+                </Grid>
             </Border>
 
             <StackPanel Grid.Row="1"
@@ -40,22 +49,15 @@
                         Orientation="Horizontal"
                         Spacing="16">
                 <Image x:Name="IconImage"
-                       Height="72"
+                       Height="48"
                        VerticalAlignment="Top"
-                       Width="72" />
+                       Width="48" />
                 <TextBlock Foreground="{DynamicResource TextPrimaryBrush}"
                            MaxWidth="360"
                            Text="{Binding Message}"
                            TextWrapping="Wrap"
                            VerticalAlignment="Center" />
             </StackPanel>
-
-            <Button Grid.Row="2"
-                    Classes="green small"
-                    Click="OnCloseClicked"
-                    Content="{Binding CloseText}"
-                    HorizontalAlignment="Right"
-                    Margin="0,0,16,16" />
 
         </Grid>
     </Border>
