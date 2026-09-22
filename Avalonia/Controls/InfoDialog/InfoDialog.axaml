@@ -12,7 +12,6 @@
         WindowDecorations="None"
         WindowStartupLocation="CenterOwner">
 
-    <!--  Disable Hover Styles  -->
     <Window.Styles>
         <Style Selector="Button:pointerover /template/ ContentPresenter#PART_ContentPresenter">
             <Setter Property="Background" Value="{Binding $parent[Button].Background}" />

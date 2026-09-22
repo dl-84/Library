@@ -17,7 +17,6 @@
         <Border x:Name="SidebarBorder"
                 Grid.Column="0"
                 Background="{DynamicResource PrimaryBrush}">
-            <!--  Mac Buttons  -->
             <StackPanel x:Name="MacTrafficLights"
                         Margin="14,0,0,0"
                         Orientation="Horizontal"
@@ -40,13 +39,11 @@
         <Border x:Name="ContentBorder"
                 Grid.Column="1"
                 Background="{DynamicResource AppBackgroundAltBrush}">
-            <!--  Drag Area  -->
             <Grid ColumnDefinitions="*,Auto">
                 <Panel Grid.Column="0"
                        Background="Transparent"
                        Cursor="Hand"
                        PointerPressed="OnTitleBarDrag" />
-                <!--  Win Buttons  -->
                 <StackPanel x:Name="WindowControlButtons"
                             Grid.Column="1"
                             Orientation="Horizontal">

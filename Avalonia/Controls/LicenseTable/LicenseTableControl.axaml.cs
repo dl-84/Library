@@ -10,36 +10,25 @@ using Controls.LicenseTable.Models;
 
 namespace Controls.LicenseTable;
 
-/// <inheritdoc />
 public partial class LicenseTableControl : UserControl
 {
-    /// <summary>Defines the <see cref="Headers"/> property.</summary>
     public static readonly StyledProperty<IReadOnlyList<string>?> HeadersProperty = AvaloniaProperty.Register<
         LicenseTableControl,
         IReadOnlyList<string>?
     >(nameof(Headers));
 
-    /// <summary>Defines the <see cref="Items"/> property.</summary>
     public static readonly StyledProperty<IEnumerable<PackageModel>?> ItemsProperty = AvaloniaProperty.Register<
         LicenseTableControl,
         IEnumerable<PackageModel>?
     >(nameof(Items));
 
-    /// <summary>
-    /// Initializes a new instance of the <see cref="LicenseTableControl"/> class.
-    /// </summary>
     public LicenseTableControl()
     {
         InitializeComponent();
     }
 
-    /// <summary>
-    /// Raised when a row with license content (but no license URL) is clicked.
-    /// The event argument is the license content string.
-    /// </summary>
     public event EventHandler<string>? LicenseContentRequested;
 
-    /// <summary>Gets the external link icon.</summary>
     public IImage ExternalLinkIcon { get; } =
         new SvgImage
         {
@@ -47,21 +36,18 @@ public partial class LicenseTableControl : UserControl
             Css = "* { fill: #019dc6; }",
         };
 
-    /// <summary>Gets or sets the column header labels in order: Name, Version, License, Link.</summary>
     public IReadOnlyList<string>? Headers
     {
         get => GetValue(HeadersProperty);
         set => SetValue(HeadersProperty, value);
     }
 
-    /// <summary>Gets or sets the items to display as table rows.</summary>
     public IEnumerable<PackageModel>? Items
     {
         get => GetValue(ItemsProperty);
         set => SetValue(ItemsProperty, value);
     }
 
-    /// <inheritdoc />
     protected override void OnPropertyChanged(AvaloniaPropertyChangedEventArgs change)
     {
         base.OnPropertyChanged(change);

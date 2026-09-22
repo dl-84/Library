@@ -7,22 +7,18 @@ using TextMateSharp.Grammars;
 
 namespace Controls.JsonEditor;
 
-/// <inheritdoc />
 public class JsonEditorControl : UserControl
 {
-    /// <summary>StyledProperty for <see cref="IsModified"/>.</summary>
     public static readonly StyledProperty<bool> IsModifiedProperty = AvaloniaProperty.Register<JsonEditorControl, bool>(
         nameof(IsModified),
         defaultValue: false
     );
 
-    /// <summary>StyledProperty for <see cref="IsReadOnly"/>.</summary>
     public static readonly StyledProperty<bool> IsReadOnlyProperty = AvaloniaProperty.Register<JsonEditorControl, bool>(
         nameof(IsReadOnly),
         defaultValue: false
     );
 
-    /// <summary>StyledProperty for <see cref="Text"/>.</summary>
     public static readonly StyledProperty<string> TextProperty = AvaloniaProperty.Register<JsonEditorControl, string>(
         nameof(Text),
         defaultValue: string.Empty,
@@ -33,9 +29,6 @@ public class JsonEditorControl : UserControl
 
     private bool _updating;
 
-    /// <summary>
-    /// Initializes a new instance of the <see cref="JsonEditorControl"/> class.
-    /// </summary>
     public JsonEditorControl()
     {
         RegistryOptions registryOptions = new RegistryOptions(ThemeName.LightPlus);
@@ -55,28 +48,24 @@ public class JsonEditorControl : UserControl
         Content = _editor;
     }
 
-    /// <summary>Gets a value indicating whether the content has been modified since last load.</summary>
     public bool IsModified
     {
         get => GetValue(IsModifiedProperty);
         private set => SetValue(IsModifiedProperty, value);
     }
 
-    /// <summary>Gets or sets a value indicating whether the editor is read-only.</summary>
     public bool IsReadOnly
     {
         get => GetValue(IsReadOnlyProperty);
         set => SetValue(IsReadOnlyProperty, value);
     }
 
-    /// <summary>Gets or sets the JSON content displayed in the editor.</summary>
     public string Text
     {
         get => GetValue(TextProperty);
         set => SetValue(TextProperty, value);
     }
 
-    /// <inheritdoc />
     protected override void OnPropertyChanged(AvaloniaPropertyChangedEventArgs change)
     {
         base.OnPropertyChanged(change);

@@ -6,21 +6,16 @@ using Controls.TitleBar.Buttons;
 
 namespace Controls.TitleBar;
 
-/// <inheritdoc />
 public partial class TitleBarControl : UserControl
 {
     private Window? _parentWindow;
 
-    /// <summary>
-    /// Initializes a new instance of the <see cref="TitleBarControl"/> class.
-    /// </summary>
     public TitleBarControl()
     {
         InitializeComponent();
         DockPanel.SetDock(this, Dock.Top);
     }
 
-    /// <inheritdoc />
     protected override void OnAttachedToVisualTree(VisualTreeAttachmentEventArgs e)
     {
         base.OnAttachedToVisualTree(e);
@@ -32,7 +27,6 @@ public partial class TitleBarControl : UserControl
         WindowControlButtons.IsVisible = !isMac;
     }
 
-    /// <inheritdoc />
     protected override void OnDetachedFromVisualTree(VisualTreeAttachmentEventArgs e)
     {
         base.OnDetachedFromVisualTree(e);
