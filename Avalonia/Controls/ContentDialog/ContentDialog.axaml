@@ -30,8 +30,7 @@
                     Padding="16,12">
                 <Grid ColumnDefinitions="*,Auto">
                     <TextBlock Grid.Column="0"
-                               FontSize="16"
-                               Foreground="{DynamicResource PrimaryBrush}"
+                               Classes="h4"
                                Text="{Binding DialogTitle}"
                                VerticalAlignment="Center" />
                     <PathIcon Grid.Column="1"
