@@ -1,15 +1,22 @@
-<Window x:Class="Controls.ContentDialog.ContentDialog"
+﻿<Window x:Class="Controls.ContentDialog.ContentDialog"
         xmlns="https://github.com/avaloniaui"
+        xmlns:converters="using:Avalonia.Data.Converters"
         xmlns:local="using:Controls.ContentDialog"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         x:DataType="local:ContentDialog"
         Background="Transparent"
         CanResize="False"
-        Height="650"
         TransparencyLevelHint="Transparent"
-        Width="800"
         WindowDecorations="None"
         WindowStartupLocation="CenterOwner">
+
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceInclude Source="avares://ContentDialog/Resources/Icons.axaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
 
     <Border ClipToBounds="True"
             CornerRadius="10">
@@ -21,9 +28,19 @@
                     BorderBrush="{DynamicResource BorderMediumBrush}"
                     BorderThickness="0,0,0,1"
                     Padding="16,12">
-                <TextBlock FontSize="16"
-                           Foreground="{DynamicResource PrimaryBrush}"
-                           Text="{Binding DialogTitle}" />
+                <Grid ColumnDefinitions="*,Auto">
+                    <TextBlock Grid.Column="0"
+                               FontSize="16"
+                               Foreground="{DynamicResource PrimaryBrush}"
+                               Text="{Binding DialogTitle}"
+                               VerticalAlignment="Center" />
+                    <PathIcon Grid.Column="1"
+                              Classes="icon-action"
+                              Data="{DynamicResource CloseIcon}"
+                              Height="14"
+                              PointerPressed="OnCancelClicked"
+                              Width="14" />
+                </Grid>
             </Border>
 
             <ContentControl Grid.Row="1"
@@ -31,11 +48,13 @@
                             Margin="16,12" />
 
             <Button Grid.Row="2"
-                    Classes="green small"
-                    Click="OnCloseClicked"
-                    Content="{Binding CloseText}"
+                    Classes="small"
+                    Classes.danger="{Binding IsDanger}"
+                    Click="OnSubmitClicked"
+                    Content="{Binding SubmitText}"
                     HorizontalAlignment="Right"
-                    Margin="0,0,16,16" />
+                    Margin="0,0,16,16"
+                    IsVisible="{Binding SubmitText, Converter={x:Static converters:StringConverters.IsNotNullOrEmpty}}" />
 
         </Grid>
     </Border>

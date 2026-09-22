@@ -1,16 +1,13 @@
 using Avalonia;
 using Avalonia.Controls;
+using Avalonia.Input;
 using Avalonia.Interactivity;
 
 namespace Controls.ContentDialog;
 
+/// <inheritdoc/>
 public partial class ContentDialog : Window
 {
-    public static readonly StyledProperty<string?> CloseTextProperty = AvaloniaProperty.Register<
-        ContentDialog,
-        string?
-    >(nameof(CloseText));
-
     public static readonly StyledProperty<object?> DialogContentProperty = AvaloniaProperty.Register<
         ContentDialog,
         object?
@@ -21,16 +18,19 @@ public partial class ContentDialog : Window
         string?
     >(nameof(DialogTitle));
 
+    public static readonly StyledProperty<bool> IsDangerProperty = AvaloniaProperty.Register<ContentDialog, bool>(
+        nameof(IsDanger)
+    );
+
+    public static readonly StyledProperty<string?> SubmitTextProperty = AvaloniaProperty.Register<
+        ContentDialog,
+        string?
+    >(nameof(SubmitText));
+
     public ContentDialog()
     {
         InitializeComponent();
         DataContext = this;
-    }
-
-    public string? CloseText
-    {
-        get => GetValue(CloseTextProperty);
-        set => SetValue(CloseTextProperty, value);
     }
 
     public object? DialogContent
@@ -45,8 +45,25 @@ public partial class ContentDialog : Window
         set => SetValue(DialogTitleProperty, value);
     }
 
-    private void OnCloseClicked(object? sender, RoutedEventArgs e)
+    public bool IsDanger
     {
-        Close();
+        get => GetValue(IsDangerProperty);
+        set => SetValue(IsDangerProperty, value);
+    }
+
+    public string? SubmitText
+    {
+        get => GetValue(SubmitTextProperty);
+        set => SetValue(SubmitTextProperty, value);
+    }
+
+    private void OnCancelClicked(object? sender, PointerPressedEventArgs e)
+    {
+        Close(false);
+    }
+
+    private void OnSubmitClicked(object? sender, RoutedEventArgs e)
+    {
+        Close(true);
     }
 }

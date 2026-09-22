@@ -21,6 +21,10 @@
     <AdditionalFiles Include="..\..\..\stylecop.json" Visible="false" />
   </ItemGroup>
 
+  <ItemGroup>
+    <AvaloniaResource Include="Resources/**" />
+  </ItemGroup>
+
   <Target Name="FormatCode" BeforeTargets="Build" Condition="'$(Configuration)' == 'Debug'">
     <Exec Command="dotnet csharpier format ." WorkingDirectory="$(MSBuildProjectDirectory)" />
     <Exec
