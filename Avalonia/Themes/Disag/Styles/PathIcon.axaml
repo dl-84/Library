@@ -3,7 +3,7 @@
 
     <Style Selector="PathIcon.icon-action">
         <Setter Property="Cursor" Value="Hand" />
-        <Setter Property="Foreground" Value="{DynamicResource TextMutedBrush}" />
+        <Setter Property="Foreground" Value="{DynamicResource PrimaryBrush}" />
     </Style>
 
     <Style Selector="PathIcon.icon-action:pointerover">
@@ -12,6 +12,18 @@
 
     <Style Selector="PathIcon.icon-action:disabled">
         <Setter Property="Cursor" Value="Arrow" />
-        <Setter Property="Opacity" Value="0.4" />
+        <Setter Property="Foreground" Value="{DynamicResource TextDisabledBrush}" />
+    </Style>
+
+    <Style Selector="PathIcon.icon-action.icon-danger">
+        <Setter Property="Foreground" Value="{DynamicResource ErrorBrush}" />
+    </Style>
+
+    <Style Selector="PathIcon.icon-action.icon-danger:pointerover">
+        <Setter Property="Foreground" Value="{DynamicResource ErrorBrush}" />
+    </Style>
+
+    <Style Selector="PathIcon.icon-action.icon-danger:disabled">
+        <Setter Property="Foreground" Value="{DynamicResource TextDisabledBrush}" />
     </Style>
 </Styles>
