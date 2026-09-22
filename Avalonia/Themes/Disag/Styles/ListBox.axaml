@@ -68,4 +68,16 @@
         <Setter Property="Background" Value="Transparent" />
     </Style>
 
+    <Style Selector="ListBox.table-rows">
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="BorderThickness" Value="0" />
+        <Setter Property="CornerRadius" Value="0" />
+        <Setter Property="Padding" Value="0" />
+    </Style>
+
+    <Style Selector="ListBox.table-rows ListBoxItem">
+        <Setter Property="CornerRadius" Value="0" />
+        <Setter Property="Padding" Value="0" />
+    </Style>
+
 </Styles>

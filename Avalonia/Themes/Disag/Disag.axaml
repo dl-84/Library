@@ -26,6 +26,7 @@
     <StyleInclude Source="avares://Disag/Styles/ListBox.axaml" />
     <StyleInclude Source="avares://Disag/Styles/Menu.axaml" />
     <StyleInclude Source="avares://Disag/Styles/NumericUpDown.axaml" />
+    <StyleInclude Source="avares://Disag/Styles/PathIcon.axaml" />
     <StyleInclude Source="avares://Disag/Styles/ProgressBar.axaml" />
     <StyleInclude Source="avares://Disag/Styles/RadioButton.axaml" />
     <StyleInclude Source="avares://Disag/Styles/ScrollBar.axaml" />

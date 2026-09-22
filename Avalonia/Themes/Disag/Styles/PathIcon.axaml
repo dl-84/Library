@@ -1,0 +1,17 @@
+<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <Style Selector="PathIcon.icon-action">
+        <Setter Property="Cursor" Value="Hand" />
+        <Setter Property="Foreground" Value="{DynamicResource TextMutedBrush}" />
+    </Style>
+
+    <Style Selector="PathIcon.icon-action:pointerover">
+        <Setter Property="Foreground" Value="{DynamicResource SecondaryBrush}" />
+    </Style>
+
+    <Style Selector="PathIcon.icon-action:disabled">
+        <Setter Property="Cursor" Value="Arrow" />
+        <Setter Property="Opacity" Value="0.4" />
+    </Style>
+</Styles>
