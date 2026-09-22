@@ -77,7 +77,22 @@
 
     <Style Selector="ListBox.table-rows ListBoxItem">
         <Setter Property="CornerRadius" Value="0" />
+        <Setter Property="HorizontalAlignment" Value="Stretch" />
+        <Setter Property="HorizontalContentAlignment" Value="Stretch" />
         <Setter Property="Padding" Value="0" />
+        <Setter Property="Width" Value="{Binding $parent[ListBox].Bounds.Width}" />
+    </Style>
+
+    <Style Selector="ListBox.table-rows ListBoxItem:selected /template/ ContentPresenter">
+        <Setter Property="Background" Value="{DynamicResource TertiaryBrush}" />
+    </Style>
+
+    <Style Selector="ListBox.table-rows ListBoxItem:selected:focus /template/ ContentPresenter">
+        <Setter Property="Background" Value="{DynamicResource TertiaryBrush}" />
+    </Style>
+
+    <Style Selector="ListBox.table-rows ListBoxItem:selected TextBlock">
+        <Setter Property="Foreground" Value="{DynamicResource TextWhiteBrush}" />
     </Style>
 
 </Styles>
