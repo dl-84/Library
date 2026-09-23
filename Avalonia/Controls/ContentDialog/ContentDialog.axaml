@@ -44,7 +44,7 @@
 
             <ContentControl Grid.Row="1"
                             Content="{Binding DialogContent}"
-                            Margin="16,12" />
+                            Margin="16,24" />
 
             <Button Grid.Row="2"
                     Classes="small"
