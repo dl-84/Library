@@ -8,7 +8,7 @@
             Padding="0">
         <StackPanel>
             <Border x:Name="HeaderBorder"
-                    Background="{DynamicResource SecondaryBrush}"
+                    Background="{DynamicResource PrimaryBrush}"
                     Padding="24,10">
                 <Grid ColumnDefinitions="*,80,120,48">
                     <TextBlock x:Name="NameHeaderText"

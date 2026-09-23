@@ -84,11 +84,11 @@
     </Style>
 
     <Style Selector="ListBox.table-rows ListBoxItem:selected /template/ ContentPresenter">
-        <Setter Property="Background" Value="{DynamicResource TertiaryBrush}" />
+        <Setter Property="Background" Value="{DynamicResource SecondaryBrush}" />
     </Style>
 
     <Style Selector="ListBox.table-rows ListBoxItem:selected:focus /template/ ContentPresenter">
-        <Setter Property="Background" Value="{DynamicResource TertiaryBrush}" />
+        <Setter Property="Background" Value="{DynamicResource SecondaryBrush}" />
     </Style>
 
     <Style Selector="ListBox.table-rows ListBoxItem:selected TextBlock">
