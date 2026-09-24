@@ -1,6 +1,13 @@
 <Styles xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
+    <Styles.Resources>
+        <ResourceDictionary>
+            <TransformOperations x:Key="VerticalSmallScrollThumbScaleTransform">scaleX(1)</TransformOperations>
+            <TransformOperations x:Key="HorizontalSmallScrollThumbScaleTransform">scaleY(1)</TransformOperations>
+        </ResourceDictionary>
+    </Styles.Resources>
+
     <Style Selector="ScrollBar">
         <Setter Property="Background" Value="Transparent" />
     </Style>
@@ -8,7 +15,7 @@
     <Style Selector="ScrollBar /template/ Thumb">
         <Setter Property="Background" Value="{DynamicResource BorderMediumBrush}" />
         <Setter Property="CornerRadius" Value="4" />
-        <Setter Property="Opacity" Value="0.55" />
+        <Setter Property="Opacity" Value="0.85" />
     </Style>
 
     <Style Selector="ScrollBar:pointerover /template/ Thumb">
