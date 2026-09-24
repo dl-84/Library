@@ -1,6 +1,8 @@
+using System.Threading.Tasks;
 using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Input;
+using Avalonia.Input.Platform;
 using Avalonia.Interactivity;
 
 namespace Controls.ContentDialog;
@@ -8,6 +10,10 @@ namespace Controls.ContentDialog;
 /// <inheritdoc/>
 public partial class ContentDialog : Window
 {
+    public static readonly StyledProperty<string?> CopyTextProperty = AvaloniaProperty.Register<ContentDialog, string?>(
+        nameof(CopyText)
+    );
+
     public static readonly StyledProperty<object?> DialogContentProperty = AvaloniaProperty.Register<
         ContentDialog,
         object?
@@ -31,6 +37,12 @@ public partial class ContentDialog : Window
     {
         InitializeComponent();
         DataContext = this;
+    }
+
+    public string? CopyText
+    {
+        get => GetValue(CopyTextProperty);
+        set => SetValue(CopyTextProperty, value);
     }
 
     public object? DialogContent
@@ -62,8 +74,21 @@ public partial class ContentDialog : Window
         Close(false);
     }
 
+    private void OnCopyClicked(object? sender, PointerPressedEventArgs e)
+    {
+        _ = CopyToClipboardAsync();
+    }
+
     private void OnSubmitClicked(object? sender, RoutedEventArgs e)
     {
         Close(true);
+    }
+
+    private async Task CopyToClipboardAsync()
+    {
+        if (CopyText is not null && Clipboard is not null)
+        {
+            await Clipboard.SetTextAsync(CopyText);
+        }
     }
 }

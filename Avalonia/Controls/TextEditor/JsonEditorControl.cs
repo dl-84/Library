@@ -42,6 +42,8 @@ public class JsonEditorControl : UserControl
             WordWrap = false,
         };
 
+        _editor.Options.AllowScrollBelowDocument = false;
+
         _editor.InstallTextMate(registryOptions).SetGrammar(registryOptions.GetScopeByLanguageId("json"));
         _editor.Document.TextChanged += OnEditorTextChanged;
 

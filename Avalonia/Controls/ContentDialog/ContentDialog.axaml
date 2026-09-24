@@ -28,12 +28,20 @@
                     BorderBrush="{DynamicResource BorderMediumBrush}"
                     BorderThickness="0,0,0,1"
                     Padding="16,12">
-                <Grid ColumnDefinitions="*,Auto">
+                <Grid ColumnDefinitions="*,Auto,Auto"
+                      ColumnSpacing="{DynamicResource SpacingMedium}">
                     <TextBlock Grid.Column="0"
                                Classes="h4"
                                Text="{Binding DialogTitle}"
                                VerticalAlignment="Center" />
                     <PathIcon Grid.Column="1"
+                              Classes="icon-action"
+                              Data="{DynamicResource CopyIcon}"
+                              Height="14"
+                              PointerPressed="OnCopyClicked"
+                              Width="14"
+                              IsVisible="{Binding CopyText, Converter={x:Static converters:StringConverters.IsNotNullOrEmpty}}" />
+                    <PathIcon Grid.Column="2"
                               Classes="icon-action"
                               Data="{DynamicResource CloseIcon}"
                               Height="14"
