@@ -4,8 +4,6 @@ using System.Diagnostics;
 using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Input;
-using Avalonia.Media;
-using Avalonia.Svg.Skia;
 using Controls.LicenseTable.Models;
 
 namespace Controls.LicenseTable;
@@ -28,13 +26,6 @@ public partial class LicenseTableControl : UserControl
     }
 
     public event EventHandler<string>? LicenseContentRequested;
-
-    public IImage ExternalLinkIcon { get; } =
-        new SvgImage
-        {
-            Source = SvgSource.Load("avares://LicenseTable/Assets/ExternalLink.svg"),
-            Css = "* { fill: #019dc6; }",
-        };
 
     public IReadOnlyList<string>? Headers
     {

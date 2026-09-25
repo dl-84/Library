@@ -4,6 +4,14 @@
              xmlns:local="using:Controls.LicenseTable.Models"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceInclude Source="avares://LicenseTable/Resources/Icons.axaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+
     <Border Classes="card"
             Padding="0">
         <StackPanel>
@@ -59,16 +67,17 @@
                                        Text="{Binding LicenseType}"
                                        VerticalAlignment="Center"
                                        IsVisible="{Binding HasLicenseLink}" />
-                            <Image Grid.Column="3"
-                                   Cursor="Hand"
-                                   Height="16"
-                                   HorizontalAlignment="Center"
-                                   PointerPressed="OnPointerLinkClicked"
-                                   Source="{Binding #Root.ExternalLinkIcon}"
-                                   Tag="{Binding PackageUrl}"
-                                   VerticalAlignment="Center"
-                                   Width="16"
-                                   IsVisible="{Binding HasPackageUrl}" />
+                            <PathIcon Grid.Column="3"
+                                      Cursor="Hand"
+                                      Data="{DynamicResource ExternalLinkIcon}"
+                                      Foreground="{DynamicResource TertiaryBrush}"
+                                      Height="16"
+                                      HorizontalAlignment="Center"
+                                      PointerPressed="OnPointerLinkClicked"
+                                      Tag="{Binding PackageUrl}"
+                                      VerticalAlignment="Center"
+                                      Width="16"
+                                      IsVisible="{Binding HasPackageUrl}" />
                         </Grid>
                     </DataTemplate>
                 </ItemsControl.ItemTemplate>

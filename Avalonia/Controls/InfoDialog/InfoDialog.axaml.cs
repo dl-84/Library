@@ -2,7 +2,6 @@ using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Input;
 using Avalonia.Media;
-using Avalonia.Svg.Skia;
 using Controls.InfoDialog.Enum;
 
 namespace Controls.InfoDialog;
@@ -56,17 +55,6 @@ public partial class InfoDialog : Window
         }
     }
 
-    private static string BuildCss(IBrush? brush)
-    {
-        if (brush is SolidColorBrush solid)
-        {
-            Color color = solid.Color;
-            return $"* {{ fill: #{color.R:X2}{color.G:X2}{color.B:X2}; }}";
-        }
-
-        return string.Empty;
-    }
-
     private static IBrush? GetThemeBrush(string key)
     {
         if (Application.Current is null)
@@ -85,7 +73,7 @@ public partial class InfoDialog : Window
 
     private void UpdateIcon()
     {
-        string fileName = IconType == IconType.Info ? "info" : "triangle";
+        string iconKey = IconType == IconType.Info ? "InfoIcon" : "WarningIcon";
         string brushKey = IconType switch
         {
             IconType.Warning => "WarningBrush",
@@ -93,10 +81,7 @@ public partial class InfoDialog : Window
             _ => "TertiaryBrush",
         };
 
-        IconImage.Source = new SvgImage
-        {
-            Source = SvgSource.Load($"avares://InfoDialog/Assets/{fileName}.svg", null),
-            Css = BuildCss(GetThemeBrush(brushKey)),
-        };
+        IconImage.Data = this.TryFindResource(iconKey, out object? resource) ? resource as Geometry : null;
+        IconImage.Foreground = GetThemeBrush(brushKey);
     }
 }

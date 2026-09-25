@@ -48,10 +48,10 @@
                         Margin="24,20,24,20"
                         Orientation="Horizontal"
                         Spacing="16">
-                <Image x:Name="IconImage"
-                       Height="48"
-                       VerticalAlignment="Top"
-                       Width="48" />
+                <PathIcon x:Name="IconImage"
+                          Height="48"
+                          VerticalAlignment="Top"
+                          Width="48" />
                 <TextBlock Foreground="{DynamicResource TextPrimaryBrush}"
                            MaxWidth="360"
                            Text="{Binding Message}"
