@@ -6,6 +6,11 @@ namespace Controls.CounterCard;
 /// <inheritdoc/>
 public partial class CounterCardControl : UserControl
 {
+    public static readonly StyledProperty<string?> InfoTextProperty = AvaloniaProperty.Register<
+        CounterCardControl,
+        string?
+    >(nameof(InfoText));
+
     public static readonly StyledProperty<bool> IsDangerProperty = AvaloniaProperty.Register<CounterCardControl, bool>(
         nameof(IsDanger)
     );
@@ -22,7 +27,12 @@ public partial class CounterCardControl : UserControl
     public CounterCardControl()
     {
         InitializeComponent();
-        DataContext = this;
+    }
+
+    public string? InfoText
+    {
+        get => GetValue(InfoTextProperty);
+        set => SetValue(InfoTextProperty, value);
     }
 
     public bool IsDanger

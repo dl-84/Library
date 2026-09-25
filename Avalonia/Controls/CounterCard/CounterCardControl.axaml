@@ -1,4 +1,5 @@
-<UserControl x:Class="Controls.CounterCard.CounterCardControl"
+﻿<UserControl x:Class="Controls.CounterCard.CounterCardControl"
+             x:Name="Root"
              xmlns="https://github.com/avaloniaui"
              xmlns:local="using:Controls.CounterCard"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -25,13 +26,15 @@
                         Spacing="{DynamicResource SpacingSmall}">
                 <PathIcon Classes="icon-action"
                           Data="{DynamicResource InfoIcon}"
+                          Foreground="{DynamicResource TertiaryBrush}"
                           Height="18"
+                          ToolTip.Tip="{Binding #Root.InfoText}"
                           VerticalAlignment="Center"
                           Width="18" />
                 <TextBlock Classes="label"
-                           Classes.danger="{Binding IsDanger}"
+                           Classes.danger="{Binding #Root.IsDanger}"
                            FontWeight="Normal"
-                           Text="{Binding Label}"
+                           Text="{Binding #Root.Label}"
                            TextWrapping="NoWrap"
                            VerticalAlignment="Center" />
             </StackPanel>
@@ -41,7 +44,7 @@
                        FontWeight="Normal"
                        HorizontalAlignment="Right"
                        LineHeight="22"
-                       Text="{Binding Value}"
+                       Text="{Binding #Root.Value}"
                        VerticalAlignment="Center" />
         </Grid>
     </Border>
