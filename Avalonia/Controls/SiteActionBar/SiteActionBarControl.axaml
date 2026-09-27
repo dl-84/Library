@@ -1,0 +1,54 @@
+<UserControl x:Class="Controls.SiteActionBar.SiteActionBarControl"
+             x:Name="Root"
+             xmlns="https://github.com/avaloniaui"
+             xmlns:local="using:Controls.SiteActionBar"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:DataType="local:SiteActionBarControl">
+
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceInclude Source="avares://SiteActionBar/Resources/Icons.axaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+
+    <Grid ColumnDefinitions="*,Auto">
+        <TextBox Grid.Column="0"
+                 HorizontalAlignment="Left"
+                 PlaceholderText="{Binding #Root.SearchPlaceholder}"
+                 Text="{Binding #Root.SearchText, Mode=TwoWay}"
+                 Width="300">
+            <TextBox.InnerRightContent>
+                <PathIcon Classes="icon-action icon-danger"
+                          Data="{DynamicResource CloseIcon}"
+                          Height="12"
+                          Margin="0,0,10,0"
+                          PointerPressed="OnClearSearchIconPressed"
+                          Width="12"
+                          IsVisible="{Binding #Root.SearchText, Converter={x:Static local:SiteActionBarControl.IsNotEmptyConverter}}" />
+            </TextBox.InnerRightContent>
+        </TextBox>
+
+        <StackPanel Grid.Column="1"
+                    Margin="0,0,10,0"
+                    Orientation="Horizontal"
+                    Spacing="{DynamicResource SpacingMedium}"
+                    VerticalAlignment="Center">
+            <PathIcon Classes="icon-action"
+                      Data="{DynamicResource AddIcon}"
+                      PointerPressed="OnAddIconPressed"
+                      VerticalAlignment="Center" />
+            <PathIcon Classes="icon-action"
+                      Data="{DynamicResource EditIcon}"
+                      PointerPressed="OnEditIconPressed"
+                      VerticalAlignment="Center"
+                      IsEnabled="{Binding #Root.IsActionEnabled}" />
+            <PathIcon Classes="icon-action icon-danger"
+                      Data="{DynamicResource DeleteIcon}"
+                      PointerPressed="OnDeleteIconPressed"
+                      VerticalAlignment="Center"
+                      IsEnabled="{Binding #Root.IsActionEnabled}" />
+        </StackPanel>
+    </Grid>
+</UserControl>
