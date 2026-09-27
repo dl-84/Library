@@ -1,5 +1,6 @@
 ﻿<Window x:Class="Controls.InfoDialog.InfoDialog"
         xmlns="https://github.com/avaloniaui"
+        xmlns:converters="using:Avalonia.Data.Converters"
         xmlns:local="using:Controls.InfoDialog"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         x:DataType="local:InfoDialog"
@@ -30,12 +31,20 @@
                     BorderBrush="{DynamicResource BorderMediumBrush}"
                     BorderThickness="0,0,0,1"
                     Padding="16,12">
-                <Grid ColumnDefinitions="*,Auto">
+                <Grid ColumnDefinitions="*,Auto,Auto"
+                      ColumnSpacing="{DynamicResource SpacingMedium}">
                     <TextBlock Grid.Column="0"
                                Classes="h4"
                                Text="{Binding DialogTitle}"
                                VerticalAlignment="Center" />
                     <PathIcon Grid.Column="1"
+                              Classes="icon-action"
+                              Data="{DynamicResource CopyIcon}"
+                              Height="14"
+                              PointerPressed="OnCopyClicked"
+                              Width="14"
+                              IsVisible="{Binding Message, Converter={x:Static converters:StringConverters.IsNotNullOrEmpty}}" />
+                    <PathIcon Grid.Column="2"
                               Classes="icon-action"
                               Data="{DynamicResource CloseIcon}"
                               Height="14"
@@ -50,7 +59,7 @@
                         Spacing="16">
                 <PathIcon x:Name="IconImage"
                           Height="48"
-                          VerticalAlignment="Top"
+                          VerticalAlignment="Center"
                           Width="48" />
                 <TextBlock Foreground="{DynamicResource TextPrimaryBrush}"
                            MaxWidth="360"

@@ -1,6 +1,8 @@
+using System.Threading.Tasks;
 using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Input;
+using Avalonia.Input.Platform;
 using Avalonia.Media;
 using Controls.InfoDialog.Enum;
 
@@ -69,6 +71,19 @@ public partial class InfoDialog : Window
     private void OnCloseClicked(object? sender, PointerPressedEventArgs e)
     {
         Close();
+    }
+
+    private void OnCopyClicked(object? sender, PointerPressedEventArgs e)
+    {
+        _ = CopyToClipboardAsync();
+    }
+
+    private async Task CopyToClipboardAsync()
+    {
+        if (Message is not null && Clipboard is not null)
+        {
+            await Clipboard.SetTextAsync(Message);
+        }
     }
 
     private void UpdateIcon()
