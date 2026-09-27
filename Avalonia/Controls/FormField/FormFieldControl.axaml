@@ -1,0 +1,15 @@
+<UserControl x:Class="Controls.FormField.FormFieldControl"
+             x:Name="Root"
+             xmlns="https://github.com/avaloniaui"
+             xmlns:local="using:Controls.FormField"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:DataType="local:FormFieldControl">
+
+    <StackPanel Spacing="4">
+        <TextBlock Classes="label"
+                   Text="{Binding #Root.Label}" />
+        <TextBox x:Name="InputTextBox"
+                 Text="{Binding #Root.Text, Mode=TwoWay}"
+                 IsEnabled="{Binding #Root.IsInputEnabled}" />
+    </StackPanel>
+</UserControl>
