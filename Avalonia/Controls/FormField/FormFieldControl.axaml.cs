@@ -14,6 +14,15 @@ public partial class FormFieldControl : UserControl
         string?
     >(nameof(AllowedPattern));
 
+    public static readonly StyledProperty<string?> ErrorMessageProperty = AvaloniaProperty.Register<
+        FormFieldControl,
+        string?
+    >(nameof(ErrorMessage));
+
+    public static readonly StyledProperty<bool> IsErrorProperty = AvaloniaProperty.Register<FormFieldControl, bool>(
+        nameof(IsError)
+    );
+
     public static readonly StyledProperty<bool> IsInputEnabledProperty = AvaloniaProperty.Register<
         FormFieldControl,
         bool
@@ -21,6 +30,10 @@ public partial class FormFieldControl : UserControl
 
     public static readonly StyledProperty<string?> LabelProperty = AvaloniaProperty.Register<FormFieldControl, string?>(
         nameof(Label)
+    );
+
+    public static readonly StyledProperty<int> MaxLengthProperty = AvaloniaProperty.Register<FormFieldControl, int>(
+        nameof(MaxLength)
     );
 
     public static readonly StyledProperty<string?> TextProperty = AvaloniaProperty.Register<FormFieldControl, string?>(
@@ -39,6 +52,18 @@ public partial class FormFieldControl : UserControl
         set => SetValue(AllowedPatternProperty, value);
     }
 
+    public string? ErrorMessage
+    {
+        get => GetValue(ErrorMessageProperty);
+        set => SetValue(ErrorMessageProperty, value);
+    }
+
+    public bool IsError
+    {
+        get => GetValue(IsErrorProperty);
+        set => SetValue(IsErrorProperty, value);
+    }
+
     public bool IsInputEnabled
     {
         get => GetValue(IsInputEnabledProperty);
@@ -49,6 +74,12 @@ public partial class FormFieldControl : UserControl
     {
         get => GetValue(LabelProperty);
         set => SetValue(LabelProperty, value);
+    }
+
+    public int MaxLength
+    {
+        get => GetValue(MaxLengthProperty);
+        set => SetValue(MaxLengthProperty, value);
     }
 
     public string? Text

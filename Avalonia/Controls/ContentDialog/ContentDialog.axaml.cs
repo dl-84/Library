@@ -1,3 +1,4 @@
+using System;
 using System.Threading.Tasks;
 using Avalonia;
 using Avalonia.Controls;
@@ -69,6 +70,8 @@ public partial class ContentDialog : Window
         set => SetValue(SubmitTextProperty, value);
     }
 
+    public Func<bool>? SubmitValidator { get; set; }
+
     private void OnCancelClicked(object? sender, PointerPressedEventArgs e)
     {
         Close(false);
@@ -81,6 +84,11 @@ public partial class ContentDialog : Window
 
     private void OnSubmitClicked(object? sender, RoutedEventArgs e)
     {
+        if (SubmitValidator?.Invoke() == false)
+        {
+            return;
+        }
+
         Close(true);
     }
 

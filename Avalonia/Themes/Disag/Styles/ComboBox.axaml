@@ -27,6 +27,13 @@
         <Setter Property="Cursor" Value="Arrow" />
     </Style>
 
+    <Style Selector="ComboBox.error">
+        <Setter Property="BorderBrush" Value="{DynamicResource ErrorBrush}" />
+    </Style>
+    <Style Selector="ComboBox.error:focus /template/ Border#Background">
+        <Setter Property="BorderBrush" Value="{DynamicResource ErrorBrush}" />
+    </Style>
+
     <Style Selector="ComboBoxItem">
         <Setter Property="Foreground" Value="{DynamicResource TextPrimaryBrush}" />
         <Setter Property="Background" Value="Transparent" />

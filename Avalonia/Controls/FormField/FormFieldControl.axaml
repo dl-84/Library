@@ -1,4 +1,4 @@
-<UserControl x:Class="Controls.FormField.FormFieldControl"
+﻿<UserControl x:Class="Controls.FormField.FormFieldControl"
              x:Name="Root"
              xmlns="https://github.com/avaloniaui"
              xmlns:local="using:Controls.FormField"
@@ -9,7 +9,12 @@
         <TextBlock Classes="label"
                    Text="{Binding #Root.Label}" />
         <TextBox x:Name="InputTextBox"
+                 Classes.error="{Binding #Root.IsError}"
+                 MaxLength="{Binding #Root.MaxLength}"
                  Text="{Binding #Root.Text, Mode=TwoWay}"
                  IsEnabled="{Binding #Root.IsInputEnabled}" />
+        <TextBlock Classes="hint-error"
+                   Text="{Binding #Root.ErrorMessage}"
+                   IsVisible="{Binding #Root.IsError}" />
     </StackPanel>
 </UserControl>
