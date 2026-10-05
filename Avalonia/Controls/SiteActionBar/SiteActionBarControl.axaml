@@ -38,15 +38,27 @@
             <PathIcon Classes="icon-action"
                       Data="{DynamicResource AddIcon}"
                       PointerPressed="OnAddIconPressed"
+                      ToolTip.HorizontalOffset="0"
+                      ToolTip.Placement="TopEdgeAlignedRight"
+                      ToolTip.Tip="{Binding #Root.AddTooltip}"
+                      ToolTip.VerticalOffset="-2"
                       VerticalAlignment="Center" />
             <PathIcon Classes="icon-action"
                       Data="{DynamicResource EditIcon}"
                       PointerPressed="OnEditIconPressed"
+                      ToolTip.HorizontalOffset="0"
+                      ToolTip.Placement="TopEdgeAlignedRight"
+                      ToolTip.Tip="{Binding #Root.EditTooltip}"
+                      ToolTip.VerticalOffset="-2"
                       VerticalAlignment="Center"
                       IsEnabled="{Binding #Root.IsActionEnabled}" />
             <PathIcon Classes="icon-action icon-danger"
                       Data="{DynamicResource DeleteIcon}"
                       PointerPressed="OnDeleteIconPressed"
+                      ToolTip.HorizontalOffset="0"
+                      ToolTip.Placement="TopEdgeAlignedRight"
+                      ToolTip.Tip="{Binding #Root.DeleteTooltip}"
+                      ToolTip.VerticalOffset="-2"
                       VerticalAlignment="Center"
                       IsEnabled="{Binding #Root.IsActionEnabled}" />
         </StackPanel>

@@ -10,6 +10,21 @@ namespace Controls.SiteActionBar;
 /// <inheritdoc/>
 public partial class SiteActionBarControl : UserControl
 {
+    public static readonly StyledProperty<string?> AddTooltipProperty = AvaloniaProperty.Register<
+        SiteActionBarControl,
+        string?
+    >(nameof(AddTooltip));
+
+    public static readonly StyledProperty<string?> DeleteTooltipProperty = AvaloniaProperty.Register<
+        SiteActionBarControl,
+        string?
+    >(nameof(DeleteTooltip));
+
+    public static readonly StyledProperty<string?> EditTooltipProperty = AvaloniaProperty.Register<
+        SiteActionBarControl,
+        string?
+    >(nameof(EditTooltip));
+
     public static readonly StyledProperty<bool> IsActionEnabledProperty = AvaloniaProperty.Register<
         SiteActionBarControl,
         bool
@@ -39,6 +54,24 @@ public partial class SiteActionBarControl : UserControl
     public event EventHandler? DeleteRequested;
 
     public event EventHandler? EditRequested;
+
+    public string? AddTooltip
+    {
+        get => GetValue(AddTooltipProperty);
+        set => SetValue(AddTooltipProperty, value);
+    }
+
+    public string? DeleteTooltip
+    {
+        get => GetValue(DeleteTooltipProperty);
+        set => SetValue(DeleteTooltipProperty, value);
+    }
+
+    public string? EditTooltip
+    {
+        get => GetValue(EditTooltipProperty);
+        set => SetValue(EditTooltipProperty, value);
+    }
 
     public bool IsActionEnabled
     {
