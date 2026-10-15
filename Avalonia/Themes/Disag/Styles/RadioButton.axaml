@@ -18,8 +18,13 @@
     </Style>
 
     <Style Selector="RadioButton:checked /template/ Ellipse#CheckOuterEllipse">
-        <Setter Property="Stroke" Value="{DynamicResource PrimaryBrush}" />
-        <Setter Property="Fill" Value="{DynamicResource PrimaryBrush}" />
+        <Setter Property="Stroke" Value="{DynamicResource IconActionBrush}" />
+        <Setter Property="Fill" Value="{DynamicResource IconActionBrush}" />
+    </Style>
+
+    <Style Selector="RadioButton:checked:pointerover /template/ Ellipse#CheckOuterEllipse">
+        <Setter Property="Stroke" Value="{DynamicResource IconActionHoverBrush}" />
+        <Setter Property="Fill" Value="{DynamicResource IconActionHoverBrush}" />
     </Style>
 
     <Style Selector="RadioButton:checked /template/ Ellipse#CheckGlyph">

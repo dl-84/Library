@@ -4,7 +4,7 @@
     <Style Selector="TextBox">
         <Setter Property="Background" Value="{DynamicResource InputBackgroundBrush}" />
         <Setter Property="Foreground" Value="{DynamicResource InputForegroundBrush}" />
-        <Setter Property="BorderBrush" Value="{DynamicResource InputBorderBrush}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource InputFocusBorderBrush}" />
         <Setter Property="BorderThickness" Value="1.5" />
         <Setter Property="CornerRadius" Value="{DynamicResource CornerRadiusSmall}" />
         <Setter Property="Padding" Value="10,8" />
@@ -22,11 +22,11 @@
     </Style>
 
     <Style Selector="TextBox:pointerover /template/ Border#PART_BorderElement">
-        <Setter Property="BorderBrush" Value="{DynamicResource PrimaryBrush}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource InputHoverBorderBrush}" />
     </Style>
 
     <Style Selector="TextBox:focus-within /template/ Border#PART_BorderElement">
-        <Setter Property="BorderBrush" Value="{DynamicResource PrimaryBrush}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource InputHoverBorderBrush}" />
     </Style>
 
     <Style Selector="TextBox:disabled">

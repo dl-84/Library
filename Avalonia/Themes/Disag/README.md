@@ -52,6 +52,8 @@ Rohe `Color`-Werte aus `Colors.axaml`. Direkt verwendbar als `{DynamicResource ‚
 | `TertiaryColor` | `#2aa5b2` | DISAG Cyan (Terti√§rfarbe) |
 | `TertiaryDarkColor` | `#228893` | Hover-Variante von Tertiary |
 | `NavigationActiveColor` | `#1a404c` | Hintergrund des aktiven Navigations-Eintrags |
+| `IconActionColor` | `#8db92e` | Icon-Button (Ruhezustand) |
+| `IconActionHoverColor` | `#769c24` | Icon-Button (Hover) |
 
 ### Text
 
@@ -91,6 +93,7 @@ Rohe `Color`-Werte aus `Colors.axaml`. Direkt verwendbar als `{DynamicResource ‚
 | `BorderMediumColor` | `#cccccc` | Mittlerer Rahmen |
 | `BorderDarkColor` | `#012a38` | Dunkler Rahmen (= Primary) |
 | `BorderTableColor` | `#d5dae2` | Trennlinie unter Tabellen-Header |
+| `InputHoverBorderColor` | `#1b4f5f` | TextBox/ComboBox-Rahmen (Hover/Focus) |
 
 ### Sonstige
 
@@ -168,8 +171,9 @@ Fertige `SolidColorBrush`-Instanzen aus `Brushes.axaml`. F√ºr `DynamicResource`-
 | Key | Bedeutung |
 |---|---|
 | `InputBackgroundBrush` | Hintergrund von TextBox, ComboBox |
-| `InputBorderBrush` | Rahmen im Ruhezustand |
-| `InputFocusBorderBrush` | Rahmen bei Fokus (Tertiary/Cyan) |
+| `InputBorderBrush` | Rahmen im Ruhezustand (RadioButton, CheckBox, NumericUpDown) |
+| `InputFocusBorderBrush` | Rahmen von TextBox/ComboBox im Ruhezustand, NumericUpDown bei Fokus (Tertiary/Cyan) |
+| `InputHoverBorderBrush` | Rahmen von TextBox/ComboBox bei Hover/Fokus |
 | `InputForegroundBrush` | Text in Eingabefeldern |
 | `InputPlaceholderBrush` | Platzhaltertext |
 
@@ -191,6 +195,13 @@ Fertige `SolidColorBrush`-Instanzen aus `Brushes.axaml`. F√ºr `DynamicResource`-
 | `NavigationActiveBrush` | Aktiver Navigations-Eintrag |
 | `NavigationHoverBrush` | Hover-Zustand Navigation |
 | `NavigationActiveTextBrush` | Text im aktiven Eintrag |
+
+### Icons
+
+| Key | Bedeutung |
+|---|---|
+| `IconActionBrush` | Icon-Button (Ruhezustand) |
+| `IconActionHoverBrush` | Icon-Button (Hover) |
 
 ### Footer
 

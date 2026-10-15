@@ -20,13 +20,18 @@
     </Style>
 
     <Style Selector="CheckBox:checked /template/ Border#NormalRectangle">
-        <Setter Property="Background" Value="{DynamicResource PrimaryBrush}" />
-        <Setter Property="BorderBrush" Value="{DynamicResource PrimaryBrush}" />
+        <Setter Property="Background" Value="{DynamicResource IconActionBrush}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource IconActionBrush}" />
+    </Style>
+
+    <Style Selector="CheckBox:checked:pointerover /template/ Border#NormalRectangle">
+        <Setter Property="Background" Value="{DynamicResource IconActionHoverBrush}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource IconActionHoverBrush}" />
     </Style>
 
     <Style Selector="CheckBox:indeterminate /template/ Border#NormalRectangle">
-        <Setter Property="Background" Value="{DynamicResource PrimaryBrush}" />
-        <Setter Property="BorderBrush" Value="{DynamicResource PrimaryBrush}" />
+        <Setter Property="Background" Value="{DynamicResource IconActionBrush}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource IconActionBrush}" />
     </Style>
 
     <Style Selector="CheckBox:disabled">

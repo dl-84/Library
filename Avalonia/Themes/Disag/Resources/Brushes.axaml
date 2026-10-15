@@ -62,6 +62,8 @@
                      Color="{DynamicResource BorderMediumColor}" />
     <SolidColorBrush x:Key="InputFocusBorderBrush"
                      Color="{DynamicResource TertiaryColor}" />
+    <SolidColorBrush x:Key="InputHoverBorderBrush"
+                     Color="{DynamicResource InputHoverBorderColor}" />
     <SolidColorBrush x:Key="InputForegroundBrush"
                      Color="{DynamicResource TextSecondaryColor}" />
     <SolidColorBrush x:Key="InputPlaceholderBrush"
@@ -86,6 +88,11 @@
                      Color="{DynamicResource BackgroundTintedColor}" />
     <SolidColorBrush x:Key="NavigationActiveTextBrush"
                      Color="{DynamicResource TextWhiteColor}" />
+
+    <SolidColorBrush x:Key="IconActionBrush"
+                     Color="{DynamicResource IconActionColor}" />
+    <SolidColorBrush x:Key="IconActionHoverBrush"
+                     Color="{DynamicResource IconActionHoverColor}" />
 
     <SolidColorBrush x:Key="FooterBackgroundBrush"
                      Color="{DynamicResource PrimaryDarkColor}" />

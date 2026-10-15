@@ -9,6 +9,8 @@
     <Color x:Key="TertiaryColor">#FF2aa5b2</Color>
     <Color x:Key="TertiaryDarkColor">#FF228893</Color>
     <Color x:Key="NavigationActiveColor">#FF1a404c</Color>
+    <Color x:Key="IconActionColor">#FF8db92e</Color>
+    <Color x:Key="IconActionHoverColor">#FF769c24</Color>
 
     <Color x:Key="TextPrimaryColor">#FF333333</Color>
     <Color x:Key="TextSecondaryColor">#FF626262</Color>
@@ -32,6 +34,7 @@
     <Color x:Key="BorderMediumColor">#FFcccccc</Color>
     <Color x:Key="BorderDarkColor">#FF012a38</Color>
     <Color x:Key="BorderTableColor">#FFd5dae2</Color>
+    <Color x:Key="InputHoverBorderColor">#FF1b4f5f</Color>
 
     <Color x:Key="OverlayColor">#99000000</Color>
 </ResourceDictionary>
