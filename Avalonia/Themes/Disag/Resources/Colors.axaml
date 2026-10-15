@@ -1,13 +1,14 @@
 ﻿<ResourceDictionary xmlns="https://github.com/avaloniaui"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
-    <Color x:Key="PrimaryDarkColor">#FF012e3b</Color>
+    <Color x:Key="PrimaryDarkColor">#FF012a38</Color>
     <Color x:Key="PrimaryDarkerColor">#FF102330</Color>
     <Color x:Key="NearBlackColor">#FF161922</Color>
-    <Color x:Key="SecondaryColor">#FF8bba30</Color>
+    <Color x:Key="SecondaryColor">#FF8fbb32</Color>
     <Color x:Key="SecondaryDarkColor">#FF8bb820</Color>
-    <Color x:Key="TertiaryColor">#FF019dc6</Color>
-    <Color x:Key="TertiaryDarkColor">#FF007897</Color>
+    <Color x:Key="TertiaryColor">#FF2aa5b2</Color>
+    <Color x:Key="TertiaryDarkColor">#FF228893</Color>
+    <Color x:Key="NavigationActiveColor">#FF1a404c</Color>
 
     <Color x:Key="TextPrimaryColor">#FF333333</Color>
     <Color x:Key="TextSecondaryColor">#FF626262</Color>
@@ -17,7 +18,7 @@
     <Color x:Key="TextWhiteColor">#FFFFFFFF</Color>
 
     <Color x:Key="BackgroundWhiteColor">#FFFFFFFF</Color>
-    <Color x:Key="BackgroundLightColor">#FFf5f5f5</Color>
+    <Color x:Key="BackgroundLightColor">#FFe9ecf1</Color>
     <Color x:Key="BackgroundSubtleColor">#FFf8f8f8</Color>
     <Color x:Key="BackgroundTintedColor">#FFe9f5fc</Color>
     <Color x:Key="BackgroundMutedColor">#FFeef2f5</Color>
@@ -28,7 +29,7 @@
 
     <Color x:Key="BorderLightColor">#FFEBEBEB</Color>
     <Color x:Key="BorderMediumColor">#FFcccccc</Color>
-    <Color x:Key="BorderDarkColor">#FF012e3b</Color>
+    <Color x:Key="BorderDarkColor">#FF012a38</Color>
 
     <Color x:Key="OverlayColor">#99000000</Color>
 </ResourceDictionary>

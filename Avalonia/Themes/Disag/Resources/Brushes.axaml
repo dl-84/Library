@@ -77,7 +77,7 @@
     <SolidColorBrush x:Key="NavigationForegroundBrush"
                      Color="{DynamicResource TextPrimaryColor}" />
     <SolidColorBrush x:Key="NavigationActiveBrush"
-                     Color="{DynamicResource PrimaryDarkColor}" />
+                     Color="{DynamicResource NavigationActiveColor}" />
     <SolidColorBrush x:Key="NavigationHoverBrush"
                      Color="{DynamicResource BackgroundTintedColor}" />
     <SolidColorBrush x:Key="NavigationActiveTextBrush"

@@ -44,13 +44,14 @@ Rohe `Color`-Werte aus `Colors.axaml`. Direkt verwendbar als `{DynamicResource �
 
 | Key | Hex | Bedeutung |
 |---|---|---|
-| `PrimaryDarkColor` | `#012e3b` | DISAG Dunkelgrün-Blau (Primärfarbe) |
+| `PrimaryDarkColor` | `#012a38` | DISAG Dunkelgrün-Blau (Primärfarbe) |
 | `PrimaryDarkerColor` | `#102330` | Hover-Variante von Primary |
 | `NearBlackColor` | `#161922` | Nahezu Schwarz (Überschriften) |
-| `SecondaryColor` | `#8bba30` | DISAG Grün (Sekundärfarbe) |
+| `SecondaryColor` | `#8fbb32` | DISAG Grün (Sekundärfarbe) |
 | `SecondaryDarkColor` | `#8bb820` | Hover-Variante von Secondary |
-| `TertiaryColor` | `#019dc6` | DISAG Cyan (Tertiärfarbe) |
-| `TertiaryDarkColor` | `#007897` | Hover-Variante von Tertiary |
+| `TertiaryColor` | `#2aa5b2` | DISAG Cyan (Tertiärfarbe) |
+| `TertiaryDarkColor` | `#228893` | Hover-Variante von Tertiary |
+| `NavigationActiveColor` | `#1a404c` | Hintergrund des aktiven Navigations-Eintrags |
 
 ### Text
 
@@ -68,7 +69,7 @@ Rohe `Color`-Werte aus `Colors.axaml`. Direkt verwendbar als `{DynamicResource �
 | Key | Hex | Bedeutung |
 |---|---|---|
 | `BackgroundWhiteColor` | `#ffffff` | Reiner weißer Hintergrund |
-| `BackgroundLightColor` | `#f5f5f5` | Heller App-Hintergrund |
+| `BackgroundLightColor` | `#e9ecf1` | Heller App-Hintergrund |
 | `BackgroundSubtleColor` | `#f8f8f8` | Sehr subtiler Hintergrund |
 | `BackgroundTintedColor` | `#e9f5fc` | Blau getönter Hintergrund (Hover) |
 | `BackgroundMutedColor` | `#eef2f5` | Gedämpfter Hintergrund |
@@ -87,7 +88,7 @@ Rohe `Color`-Werte aus `Colors.axaml`. Direkt verwendbar als `{DynamicResource �
 |---|---|---|
 | `BorderLightColor` | `#ebebeb` | Heller Rahmen |
 | `BorderMediumColor` | `#cccccc` | Mittlerer Rahmen |
-| `BorderDarkColor` | `#012e3b` | Dunkler Rahmen (= Primary) |
+| `BorderDarkColor` | `#012a38` | Dunkler Rahmen (= Primary) |
 
 ### Sonstige
 

@@ -12,7 +12,8 @@
                         Background="{DynamicResource PrimaryBrush}"
                         BorderBrush="Transparent"
                         BorderThickness="3,0,0,0"
-                        Opacity="0.7"
+                        CornerRadius="{DynamicResource CornerRadiusSmall}"
+                        Opacity="0.85"
                         Padding="28,12,20,12">
                     <ContentPresenter Background="Transparent"
                                       Content="{TemplateBinding Content}"
@@ -29,17 +30,17 @@
             <Setter Property="Background" Value="Transparent" />
         </Style>
         <Style Selector="^:selected /template/ Border#Root">
-            <Setter Property="Background" Value="#2E019DC6" />
-            <Setter Property="BorderBrush" Value="{DynamicResource TertiaryBrush}" />
+            <Setter Property="Background" Value="{DynamicResource NavigationActiveBrush}" />
+            <Setter Property="BorderBrush" Value="{DynamicResource SecondaryBrush}" />
             <Setter Property="Opacity" Value="1" />
         </Style>
         <Style Selector="^:selected /template/ ContentPresenter">
             <Setter Property="Background" Value="Transparent" />
-            <Setter Property="TextElement.Foreground" Value="{DynamicResource TextOnDarkBrush}" />
+            <Setter Property="TextElement.Foreground" Value="{DynamicResource TextWhiteBrush}" />
         </Style>
         <Style Selector="^:selected:pointerover /template/ Border#Root">
-            <Setter Property="Background" Value="#2E019DC6" />
-            <Setter Property="BorderBrush" Value="{DynamicResource TertiaryBrush}" />
+            <Setter Property="Background" Value="{DynamicResource NavigationActiveBrush}" />
+            <Setter Property="BorderBrush" Value="{DynamicResource SecondaryBrush}" />
             <Setter Property="Opacity" Value="1" />
         </Style>
         <Style Selector="^:selected:pointerover /template/ ContentPresenter">
