@@ -63,6 +63,7 @@ Rohe `Color`-Werte aus `Colors.axaml`. Direkt verwendbar als `{DynamicResource �
 | `TextDisabledColor` | `#a6a6a6` | Deaktivierter Text |
 | `TextOnDarkColor` | `#f9f9f9` | Text auf dunklem Hintergrund |
 | `TextWhiteColor` | `#ffffff` | Reines Weiß |
+| `TableHeaderTextColor` | `#5e6e78` | Tabellen-Spaltenheader-Text |
 
 ### Hintergründe
 
@@ -89,6 +90,7 @@ Rohe `Color`-Werte aus `Colors.axaml`. Direkt verwendbar als `{DynamicResource �
 | `BorderLightColor` | `#ebebeb` | Heller Rahmen |
 | `BorderMediumColor` | `#cccccc` | Mittlerer Rahmen |
 | `BorderDarkColor` | `#012a38` | Dunkler Rahmen (= Primary) |
+| `BorderTableColor` | `#d5dae2` | Trennlinie unter Tabellen-Header |
 
 ### Sonstige
 
@@ -152,6 +154,7 @@ Fertige `SolidColorBrush`-Instanzen aus `Brushes.axaml`. Für `DynamicResource`-
 | `TextOnDarkBrush` | Text auf dunklem Hintergrund |
 | `TextWhiteBrush` | Reines Weiß |
 | `TextNearBlackBrush` | Nahezu Schwarz |
+| `TableHeaderTextBrush` | Tabellen-Spaltenheader-Text |
 
 ### Links
 
@@ -177,6 +180,7 @@ Fertige `SolidColorBrush`-Instanzen aus `Brushes.axaml`. Für `DynamicResource`-
 | `BorderLightBrush` | Heller Trennrahmen |
 | `BorderMediumBrush` | Mittlerer Rahmen |
 | `BorderBrandBrush` | Marken-Rahmen (Primary) |
+| `BorderTableBrush` | Trennlinie unter Tabellen-Header |
 
 ### Navigation
 
@@ -230,7 +234,7 @@ Fertige `SolidColorBrush`-Instanzen aus `Brushes.axaml`. Für `DynamicResource`-
 | `on-dark` | Text auf dunklem Hintergrund |
 | `hint-error` | Fehlerhinweis (12 px, Error) |
 | `hint-success` | Erfolgshinweis (12 px, Success) |
-| `table-column-header` | Tabellen-Spaltenheader (16 px, Secondary-Foreground) |
+| `table-header` | Tabellen-Spaltenheader (FontSizeSmall, Bold, Caps, TableHeader-Foreground) |
 | `table-link` | Klickbarer Link in Tabelle (Underline, Tertiary) |
 
 ### Button

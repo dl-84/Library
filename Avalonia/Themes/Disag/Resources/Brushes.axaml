@@ -48,6 +48,8 @@
                      Color="{DynamicResource TextWhiteColor}" />
     <SolidColorBrush x:Key="TextNearBlackBrush"
                      Color="{DynamicResource NearBlackColor}" />
+    <SolidColorBrush x:Key="TableHeaderTextBrush"
+                     Color="{DynamicResource TableHeaderTextColor}" />
 
     <SolidColorBrush x:Key="LinkBrush"
                      Color="{DynamicResource SecondaryColor}" />
@@ -71,6 +73,8 @@
                      Color="{DynamicResource BorderMediumColor}" />
     <SolidColorBrush x:Key="BorderBrandBrush"
                      Color="{DynamicResource PrimaryDarkColor}" />
+    <SolidColorBrush x:Key="BorderTableBrush"
+                     Color="{DynamicResource BorderTableColor}" />
 
     <SolidColorBrush x:Key="NavigationBackgroundBrush"
                      Color="{DynamicResource BackgroundWhiteColor}" />

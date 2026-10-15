@@ -46,10 +46,10 @@ public partial class LicenseTableControl : UserControl
         if (change.Property == HeadersProperty)
         {
             IReadOnlyList<string>? headers = change.GetNewValue<IReadOnlyList<string>?>();
-            NameHeaderText.Text = headers?.Count > 0 ? headers[0] : null;
-            VersionHeaderText.Text = headers?.Count > 1 ? headers[1] : null;
-            LicenseHeaderText.Text = headers?.Count > 2 ? headers[2] : null;
-            LinkHeaderText.Text = headers?.Count > 3 ? headers[3] : null;
+            NameHeaderText.Text = headers?.Count > 0 ? headers[0].ToUpperInvariant() : null;
+            VersionHeaderText.Text = headers?.Count > 1 ? headers[1].ToUpperInvariant() : null;
+            LicenseHeaderText.Text = headers?.Count > 2 ? headers[2].ToUpperInvariant() : null;
+            LinkHeaderText.Text = headers?.Count > 3 ? headers[3].ToUpperInvariant() : null;
         }
         else if (change.Property == ItemsProperty)
         {

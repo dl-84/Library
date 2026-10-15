@@ -16,6 +16,7 @@
     <Color x:Key="TextDisabledColor">#FFA6A6A6</Color>
     <Color x:Key="TextOnDarkColor">#FFf9f9f9</Color>
     <Color x:Key="TextWhiteColor">#FFFFFFFF</Color>
+    <Color x:Key="TableHeaderTextColor">#FF5e6e78</Color>
 
     <Color x:Key="BackgroundWhiteColor">#FFFFFFFF</Color>
     <Color x:Key="BackgroundLightColor">#FFe9ecf1</Color>
@@ -30,6 +31,7 @@
     <Color x:Key="BorderLightColor">#FFEBEBEB</Color>
     <Color x:Key="BorderMediumColor">#FFcccccc</Color>
     <Color x:Key="BorderDarkColor">#FF012a38</Color>
+    <Color x:Key="BorderTableColor">#FFd5dae2</Color>
 
     <Color x:Key="OverlayColor">#99000000</Color>
 </ResourceDictionary>

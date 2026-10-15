@@ -79,10 +79,11 @@
         <Setter Property="Foreground" Value="{DynamicResource SuccessBrush}" />
     </Style>
 
-    <Style Selector="TextBlock.table-column-header">
-        <Setter Property="FontSize" Value="16" />
-        <Setter Property="FontWeight" Value="SemiBold" />
-        <Setter Property="Foreground" Value="{DynamicResource SecondaryForegroundBrush}" />
+    <Style Selector="TextBlock.table-header">
+        <Setter Property="FontSize" Value="{DynamicResource FontSizeSmall}" />
+        <Setter Property="FontWeight" Value="Bold" />
+        <Setter Property="Foreground" Value="{DynamicResource TableHeaderTextBrush}" />
+        <Setter Property="LetterSpacing" Value="1" />
     </Style>
 
     <Style Selector="TextBlock.table-link">
