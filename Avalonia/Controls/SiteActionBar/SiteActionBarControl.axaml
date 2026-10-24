@@ -36,6 +36,15 @@
                     Spacing="{DynamicResource SpacingMedium}"
                     VerticalAlignment="Center">
             <PathIcon Classes="icon-action"
+                      Data="{DynamicResource RefreshIcon}"
+                      PointerPressed="OnRefreshIconPressed"
+                      ToolTip.HorizontalOffset="0"
+                      ToolTip.Placement="TopEdgeAlignedRight"
+                      ToolTip.Tip="{Binding #Root.RefreshTooltip}"
+                      ToolTip.VerticalOffset="-2"
+                      VerticalAlignment="Center"
+                      IsVisible="{Binding #Root.IsRefreshVisible}" />
+            <PathIcon Classes="icon-action"
                       Data="{DynamicResource AddIcon}"
                       PointerPressed="OnAddIconPressed"
                       ToolTip.HorizontalOffset="0"

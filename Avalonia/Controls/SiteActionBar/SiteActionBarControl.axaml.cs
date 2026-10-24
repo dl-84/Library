@@ -34,6 +34,16 @@ public partial class SiteActionBarControl : UserControl
         !string.IsNullOrEmpty(value)
     );
 
+    public static readonly StyledProperty<bool> IsRefreshVisibleProperty = AvaloniaProperty.Register<
+        SiteActionBarControl,
+        bool
+    >(nameof(IsRefreshVisible));
+
+    public static readonly StyledProperty<string?> RefreshTooltipProperty = AvaloniaProperty.Register<
+        SiteActionBarControl,
+        string?
+    >(nameof(RefreshTooltip));
+
     public static readonly StyledProperty<string?> SearchPlaceholderProperty = AvaloniaProperty.Register<
         SiteActionBarControl,
         string?
@@ -54,6 +64,8 @@ public partial class SiteActionBarControl : UserControl
     public event EventHandler? DeleteRequested;
 
     public event EventHandler? EditRequested;
+
+    public event EventHandler? RefreshRequested;
 
     public string? AddTooltip
     {
@@ -77,6 +89,18 @@ public partial class SiteActionBarControl : UserControl
     {
         get => GetValue(IsActionEnabledProperty);
         set => SetValue(IsActionEnabledProperty, value);
+    }
+
+    public bool IsRefreshVisible
+    {
+        get => GetValue(IsRefreshVisibleProperty);
+        set => SetValue(IsRefreshVisibleProperty, value);
+    }
+
+    public string? RefreshTooltip
+    {
+        get => GetValue(RefreshTooltipProperty);
+        set => SetValue(RefreshTooltipProperty, value);
     }
 
     public string? SearchPlaceholder
@@ -109,5 +133,10 @@ public partial class SiteActionBarControl : UserControl
     private void OnEditIconPressed(object? sender, PointerPressedEventArgs e)
     {
         EditRequested?.Invoke(this, EventArgs.Empty);
+    }
+
+    private void OnRefreshIconPressed(object? sender, PointerPressedEventArgs e)
+    {
+        RefreshRequested?.Invoke(this, EventArgs.Empty);
     }
 }
