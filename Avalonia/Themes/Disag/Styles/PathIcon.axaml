@@ -28,4 +28,12 @@
         <Setter Property="Foreground" Value="{DynamicResource TextDisabledBrush}" />
         <Setter Property="Opacity" Value="0.4" />
     </Style>
+
+    <Style Selector="PathIcon.status-error">
+        <Setter Property="Foreground" Value="{DynamicResource ErrorBrush}" />
+    </Style>
+
+    <Style Selector="PathIcon.status-success">
+        <Setter Property="Foreground" Value="{DynamicResource SuccessBrush}" />
+    </Style>
 </Styles>

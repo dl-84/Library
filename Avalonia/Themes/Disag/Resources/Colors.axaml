@@ -6,8 +6,8 @@
     <Color x:Key="NearBlackColor">#FF161922</Color>
     <Color x:Key="SecondaryColor">#FF8fbb32</Color>
     <Color x:Key="SecondaryDarkColor">#FF8bb820</Color>
-    <Color x:Key="TertiaryColor">#FF2aa5b2</Color>
-    <Color x:Key="TertiaryDarkColor">#FF228893</Color>
+    <Color x:Key="TertiaryColor">#FF019dc6</Color>
+    <Color x:Key="TertiaryDarkColor">#FF007897</Color>
     <Color x:Key="NavigationActiveColor">#FF1a404c</Color>
     <Color x:Key="IconActionColor">#FF8db92e</Color>
     <Color x:Key="IconActionHoverColor">#FF769c24</Color>

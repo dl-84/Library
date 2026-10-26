@@ -32,15 +32,15 @@
         <Setter Property="Cursor" Value="Arrow" />
     </Style>
 
-    <Style Selector="Button.accent">
+    <Style Selector="Button.blue">
         <Setter Property="Background" Value="{DynamicResource TertiaryBrush}" />
         <Setter Property="BorderBrush" Value="{DynamicResource TertiaryBrush}" />
         <Setter Property="Foreground" Value="{DynamicResource TertiaryForegroundBrush}" />
     </Style>
-    <Style Selector="Button.accent:pointerover /template/ ContentPresenter#PART_ContentPresenter">
+    <Style Selector="Button.blue:pointerover /template/ ContentPresenter#PART_ContentPresenter">
         <Setter Property="Background" Value="{DynamicResource TertiaryHoverBrush}" />
     </Style>
-    <Style Selector="Button.accent:pressed /template/ ContentPresenter#PART_ContentPresenter">
+    <Style Selector="Button.blue:pressed /template/ ContentPresenter#PART_ContentPresenter">
         <Setter Property="Background" Value="{DynamicResource TertiaryHoverBrush}" />
         <Setter Property="Opacity" Value="0.85" />
     </Style>
@@ -67,16 +67,16 @@
         <Setter Property="Foreground" Value="{DynamicResource PrimaryForegroundBrush}" />
     </Style>
 
-    <Style Selector="Button.outline-accent">
+    <Style Selector="Button.outline-blue">
         <Setter Property="Background" Value="Transparent" />
         <Setter Property="BorderBrush" Value="{DynamicResource TertiaryBrush}" />
         <Setter Property="BorderThickness" Value="2" />
         <Setter Property="Foreground" Value="{DynamicResource TertiaryBrush}" />
     </Style>
-    <Style Selector="Button.outline-accent:pointerover /template/ ContentPresenter#PART_ContentPresenter">
+    <Style Selector="Button.outline-blue:pointerover /template/ ContentPresenter#PART_ContentPresenter">
         <Setter Property="Background" Value="{DynamicResource TertiaryBrush}" />
     </Style>
-    <Style Selector="Button.outline-accent:pointerover">
+    <Style Selector="Button.outline-blue:pointerover">
         <Setter Property="Foreground" Value="{DynamicResource TertiaryForegroundBrush}" />
     </Style>
 
