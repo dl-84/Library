@@ -1,10 +1,9 @@
-using System;
-using System.Runtime.InteropServices;
 using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Input;
 using Avalonia.Media;
 using Controls.TitleBar.Buttons;
+using Controls.TitleBar.Services;
 
 namespace Controls.TitleBar;
 
@@ -21,7 +20,6 @@ public partial class TitleBarControl : UserControl
     public TitleBarControl()
     {
         InitializeComponent();
-        DockPanel.SetDock(this, Dock.Top);
     }
 
     /// <summary>
@@ -38,10 +36,7 @@ public partial class TitleBarControl : UserControl
         base.OnAttachedToVisualTree(e);
 
         _parentWindow = TopLevel.GetTopLevel(this) as Window;
-
-        bool isMac = RuntimeInformation.IsOSPlatform(OSPlatform.OSX);
-        MacTrafficLights.IsVisible = isMac;
-        WindowControlButtons.IsVisible = !isMac;
+        WindowControlButtons.IsVisible = !PlatformInfoService.IsMac;
 
         if (ContentBackground is not null)
         {
@@ -53,49 +48,6 @@ public partial class TitleBarControl : UserControl
     {
         base.OnDetachedFromVisualTree(e);
         _parentWindow = null;
-    }
-
-    private void OnMacButtonPressed(object? sender, PointerPressedEventArgs e)
-    {
-        if (_parentWindow is null || sender is not MacButton button)
-        {
-            return;
-        }
-
-        switch (button.Type)
-        {
-            case ButtonType.MacClose:
-                _parentWindow.Close();
-                break;
-            case ButtonType.MacMinimize:
-                _parentWindow.WindowState = WindowState.Minimized;
-                break;
-            case ButtonType.MacMaximize:
-                _parentWindow.WindowState = _parentWindow.WindowState is WindowState.Maximized or WindowState.FullScreen
-                    ? WindowState.Normal
-                    : WindowState.Maximized;
-                break;
-            case ButtonType.WinClose:
-            case ButtonType.WinMinimize:
-            case ButtonType.WinMaximize:
-                break;
-            default:
-                throw new ArgumentOutOfRangeException();
-        }
-    }
-
-    private void OnMacButtonsPointerEntered(object? sender, PointerEventArgs e)
-    {
-        MacCloseIcon.IsHovered = true;
-        MacMinimizeIcon.IsHovered = true;
-        MacMaximizeIcon.IsHovered = true;
-    }
-
-    private void OnMacButtonsPointerExited(object? sender, PointerEventArgs e)
-    {
-        MacCloseIcon.IsHovered = false;
-        MacMinimizeIcon.IsHovered = false;
-        MacMaximizeIcon.IsHovered = false;
     }
 
     private void OnTitleBarDrag(object? sender, PointerPressedEventArgs e)

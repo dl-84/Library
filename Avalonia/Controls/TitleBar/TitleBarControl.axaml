@@ -3,59 +3,24 @@
              xmlns:icons="using:Controls.TitleBar.Buttons"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
-    <UserControl.Resources>
-        <ResourceDictionary>
-            <ResourceDictionary.MergedDictionaries>
-                <ResourceInclude Source="avares://TitleBar/Assets/Resources.axaml" />
-            </ResourceDictionary.MergedDictionaries>
-        </ResourceDictionary>
-    </UserControl.Resources>
-
-    <Grid ColumnDefinitions="220,*"
-          Height="36">
-
-        <Border x:Name="SidebarBorder"
-                Grid.Column="0"
-                Background="{DynamicResource PrimaryBrush}">
-            <StackPanel x:Name="MacTrafficLights"
-                        Margin="14,0,0,0"
-                        Orientation="Horizontal"
-                        PointerEntered="OnMacButtonsPointerEntered"
-                        PointerExited="OnMacButtonsPointerExited"
-                        Spacing="10"
-                        VerticalAlignment="Center">
-                <icons:MacButton x:Name="MacCloseIcon"
-                                 PointerPressed="OnMacButtonPressed"
-                                 Type="MacClose" />
-                <icons:MacButton x:Name="MacMinimizeIcon"
-                                 PointerPressed="OnMacButtonPressed"
-                                 Type="MacMinimize" />
-                <icons:MacButton x:Name="MacMaximizeIcon"
-                                 PointerPressed="OnMacButtonPressed"
-                                 Type="MacMaximize" />
+    <Border x:Name="ContentBorder"
+            Background="{DynamicResource AppBackgroundAltBrush}"
+            Height="36">
+        <Grid ColumnDefinitions="*,Auto">
+            <Panel Grid.Column="0"
+                   Background="Transparent"
+                   Cursor="Hand"
+                   PointerPressed="OnTitleBarDrag" />
+            <StackPanel x:Name="WindowControlButtons"
+                        Grid.Column="1"
+                        Orientation="Horizontal">
+                <icons:WinButton PointerPressed="OnWinButtonPressed"
+                                 Type="WinMinimize" />
+                <icons:WinButton PointerPressed="OnWinButtonPressed"
+                                 Type="WinMaximize" />
+                <icons:WinButton PointerPressed="OnWinButtonPressed"
+                                 Type="WinClose" />
             </StackPanel>
-        </Border>
-
-        <Border x:Name="ContentBorder"
-                Grid.Column="1"
-                Background="{DynamicResource AppBackgroundAltBrush}">
-            <Grid ColumnDefinitions="*,Auto">
-                <Panel Grid.Column="0"
-                       Background="Transparent"
-                       Cursor="Hand"
-                       PointerPressed="OnTitleBarDrag" />
-                <StackPanel x:Name="WindowControlButtons"
-                            Grid.Column="1"
-                            Orientation="Horizontal">
-                    <icons:WinButton PointerPressed="OnWinButtonPressed"
-                                     Type="WinMinimize" />
-                    <icons:WinButton PointerPressed="OnWinButtonPressed"
-                                     Type="WinMaximize" />
-                    <icons:WinButton PointerPressed="OnWinButtonPressed"
-                                     Type="WinClose" />
-                </StackPanel>
-            </Grid>
-        </Border>
-
-    </Grid>
+        </Grid>
+    </Border>
 </UserControl>

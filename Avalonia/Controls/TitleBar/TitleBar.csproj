@@ -27,6 +27,13 @@
     <AdditionalFiles Include="..\..\..\stylecop.json" Visible="false" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Compile Update="Controls\MacTrafficLightsControl.axaml.cs">
+      <DependentUpon>MacTrafficLightsControl.axaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+
   <Target Name="FormatCode" BeforeTargets="Build" Condition="'$(Configuration)' == 'Debug'">
     <Exec Command="dotnet csharpier format ." WorkingDirectory="$(MSBuildProjectDirectory)" />
     <Exec

@@ -1,0 +1,24 @@
+<UserControl x:Class="Controls.TitleBar.Controls.MacTrafficLightsControl"
+             xmlns="https://github.com/avaloniaui"
+             xmlns:icons="using:Controls.TitleBar.Buttons"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <StackPanel x:Name="MacTrafficLights"
+                Height="36"
+                Margin="14,0,0,0"
+                Orientation="Horizontal"
+                PointerEntered="OnMacButtonsPointerEntered"
+                PointerExited="OnMacButtonsPointerExited"
+                Spacing="10"
+                VerticalAlignment="Center">
+        <icons:MacButton x:Name="MacCloseIcon"
+                         PointerPressed="OnMacButtonPressed"
+                         Type="MacClose" />
+        <icons:MacButton x:Name="MacMinimizeIcon"
+                         PointerPressed="OnMacButtonPressed"
+                         Type="MacMinimize" />
+        <icons:MacButton x:Name="MacMaximizeIcon"
+                         PointerPressed="OnMacButtonPressed"
+                         Type="MacMaximize" />
+    </StackPanel>
+</UserControl>
