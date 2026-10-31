@@ -1,7 +1,9 @@
 using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Data;
+using Avalonia.Markup.Xaml.MarkupExtensions;
 using AvaloniaEdit;
+using AvaloniaEdit.Editing;
 using AvaloniaEdit.TextMate;
 using TextMateSharp.Grammars;
 
@@ -43,6 +45,8 @@ public class JsonEditorControl : UserControl
         };
 
         _editor.Options.AllowScrollBelowDocument = false;
+        _editor.TextArea.Bind(TextArea.SelectionBrushProperty, new DynamicResourceExtension("TertiaryBrush"));
+        _editor.TextArea.Bind(TextArea.SelectionForegroundProperty, new DynamicResourceExtension("TextWhiteBrush"));
 
         _editor.InstallTextMate(registryOptions).SetGrammar(registryOptions.GetScopeByLanguageId("json"));
         _editor.Document.TextChanged += OnEditorTextChanged;
