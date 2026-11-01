@@ -19,21 +19,26 @@
                     BorderBrush="{DynamicResource BorderTableBrush}"
                     BorderThickness="0,0,0,1"
                     Padding="24,10">
-                <Grid ColumnDefinitions="*,80,120,48">
+                <Grid ColumnDefinitions="*,80,120,48"
+                      Height="32">
                     <TextBlock x:Name="NameHeaderText"
-                               Classes="table-header" />
+                               Classes="table-header"
+                               VerticalAlignment="Center" />
                     <TextBlock x:Name="VersionHeaderText"
                                Grid.Column="1"
                                Classes="table-header"
-                               TextAlignment="Center" />
+                               TextAlignment="Center"
+                               VerticalAlignment="Center" />
                     <TextBlock x:Name="LicenseHeaderText"
                                Grid.Column="2"
                                Classes="table-header"
-                               TextAlignment="Center" />
+                               TextAlignment="Center"
+                               VerticalAlignment="Center" />
                     <TextBlock x:Name="LinkHeaderText"
                                Grid.Column="3"
                                Classes="table-header"
-                               TextAlignment="Center" />
+                               TextAlignment="Center"
+                               VerticalAlignment="Center" />
                 </Grid>
             </Border>
             <ItemsControl x:Name="RowsControl"
