@@ -36,4 +36,29 @@
     <Style Selector="PathIcon.status-success">
         <Setter Property="Foreground" Value="{DynamicResource SuccessBrush}" />
     </Style>
+
+    <Style Selector="TextBox PathIcon.clear-icon">
+        <Setter Property="Opacity" Value="0" />
+    </Style>
+
+    <Style Selector="TextBox:pointerover PathIcon.clear-icon">
+        <Setter Property="Opacity" Value="1" />
+    </Style>
+
+    <Style Selector="PathIcon.db-status-up-to-date">
+        <Setter Property="Data" Value="{DynamicResource CheckCircleIcon}" />
+        <Setter Property="Foreground" Value="{DynamicResource SuccessBrush}" />
+    </Style>
+
+    <Style Selector="PathIcon.db-status-update-available">
+        <Setter Property="Cursor" Value="Hand" />
+        <Setter Property="Data" Value="{DynamicResource RefreshIcon}" />
+        <Setter Property="Foreground" Value="{DynamicResource TertiaryBrush}" />
+    </Style>
+
+    <Style Selector="PathIcon.db-status-not-initialized">
+        <Setter Property="Cursor" Value="Hand" />
+        <Setter Property="Data" Value="{DynamicResource InitializeDbIcon}" />
+        <Setter Property="Foreground" Value="{DynamicResource TertiaryBrush}" />
+    </Style>
 </Styles>
