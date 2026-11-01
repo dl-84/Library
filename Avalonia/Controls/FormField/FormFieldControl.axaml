@@ -12,7 +12,16 @@
                  Classes.error="{Binding #Root.IsError}"
                  MaxLength="{Binding #Root.MaxLength}"
                  Text="{Binding #Root.Text, Mode=TwoWay}"
-                 IsEnabled="{Binding #Root.IsInputEnabled}" />
+                 IsEnabled="{Binding #Root.IsInputEnabled}">
+            <TextBox.InnerRightContent>
+                <PathIcon Classes="icon-action clear-icon"
+                          Data="{DynamicResource CloseIcon}"
+                          Height="12"
+                          Margin="0,0,10,0"
+                          PointerPressed="OnClearIconPressed"
+                          Width="12" />
+            </TextBox.InnerRightContent>
+        </TextBox>
         <TextBlock Classes="hint-error"
                    Text="{Binding #Root.ErrorMessage}"
                    IsVisible="{Binding #Root.IsError}" />

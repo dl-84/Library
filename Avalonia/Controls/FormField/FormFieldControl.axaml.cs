@@ -88,6 +88,8 @@ public partial class FormFieldControl : UserControl
         set => SetValue(TextProperty, value);
     }
 
+    private void OnClearIconPressed(object? sender, PointerPressedEventArgs e) => InputTextBox.Text = string.Empty;
+
     private void OnTextInput(object? sender, TextInputEventArgs e)
     {
         if (AllowedPattern is not null && e.Text is not null && !Regex.IsMatch(e.Text, AllowedPattern))

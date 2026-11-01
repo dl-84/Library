@@ -45,6 +45,10 @@
         <Setter Property="Opacity" Value="1" />
     </Style>
 
+    <Style Selector="PathIcon.icon-action.clear-icon">
+        <Setter Property="Foreground" Value="{DynamicResource TextMutedBrush}" />
+    </Style>
+
     <Style Selector="PathIcon.db-status-up-to-date">
         <Setter Property="Data" Value="{DynamicResource CheckCircleIcon}" />
         <Setter Property="Foreground" Value="{DynamicResource SuccessBrush}" />
