@@ -6,7 +6,6 @@
     <x:Double x:Key="SpacingMedium">16</x:Double>
 
     <Thickness x:Key="PaddingCard">16</Thickness>
-    <Thickness x:Key="PaddingPill">12,6</Thickness>
     <Thickness x:Key="MarginTopMedium">0,16,0,0</Thickness>
 
 </ResourceDictionary>

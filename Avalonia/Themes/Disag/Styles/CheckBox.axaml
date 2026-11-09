@@ -12,7 +12,7 @@
     <Style Selector="CheckBox /template/ Border#NormalRectangle">
         <Setter Property="BorderBrush" Value="{DynamicResource InputBorderBrush}" />
         <Setter Property="Background" Value="{DynamicResource InputBackgroundBrush}" />
-        <Setter Property="CornerRadius" Value="3" />
+        <Setter Property="CornerRadius" Value="{DynamicResource CornerRadiusSmall}" />
     </Style>
 
     <Style Selector="CheckBox:pointerover /template/ Border#NormalRectangle">

@@ -19,7 +19,7 @@
     </Window.Resources>
 
     <Border ClipToBounds="True"
-            CornerRadius="10">
+            CornerRadius="{DynamicResource CornerRadiusMedium}">
         <Grid Background="{DynamicResource AppBackgroundAltBrush}"
               RowDefinitions="Auto,*,Auto">
 

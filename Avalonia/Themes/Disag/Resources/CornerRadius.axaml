@@ -4,6 +4,5 @@
     <CornerRadius x:Key="CornerRadiusZero">0</CornerRadius>
     <CornerRadius x:Key="CornerRadiusSmall">5</CornerRadius>
     <CornerRadius x:Key="CornerRadiusMedium">10</CornerRadius>
-    <CornerRadius x:Key="CornerRadiusLarge">20</CornerRadius>
 
 </ResourceDictionary>
