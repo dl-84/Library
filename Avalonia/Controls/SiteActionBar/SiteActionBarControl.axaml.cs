@@ -30,6 +30,11 @@ public partial class SiteActionBarControl : UserControl
         bool
     >(nameof(IsActionEnabled));
 
+    public static readonly StyledProperty<bool> IsEditEnabledProperty = AvaloniaProperty.Register<
+        SiteActionBarControl,
+        bool
+    >(nameof(IsEditEnabled), true);
+
     public static readonly IValueConverter IsNotEmptyConverter = new FuncValueConverter<string?, bool>(value =>
         !string.IsNullOrEmpty(value)
     );
@@ -89,6 +94,12 @@ public partial class SiteActionBarControl : UserControl
     {
         get => GetValue(IsActionEnabledProperty);
         set => SetValue(IsActionEnabledProperty, value);
+    }
+
+    public bool IsEditEnabled
+    {
+        get => GetValue(IsEditEnabledProperty);
+        set => SetValue(IsEditEnabledProperty, value);
     }
 
     public bool IsRefreshVisible

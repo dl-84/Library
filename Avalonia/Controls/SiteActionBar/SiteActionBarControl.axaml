@@ -1,6 +1,7 @@
 <UserControl x:Class="Controls.SiteActionBar.SiteActionBarControl"
              x:Name="Root"
              xmlns="https://github.com/avaloniaui"
+             xmlns:conv="using:Avalonia.Data.Converters"
              xmlns:local="using:Controls.SiteActionBar"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              x:DataType="local:SiteActionBarControl">
@@ -51,8 +52,14 @@
                       ToolTip.Placement="TopEdgeAlignedRight"
                       ToolTip.Tip="{Binding #Root.EditTooltip}"
                       ToolTip.VerticalOffset="-2"
-                      VerticalAlignment="Center"
-                      IsEnabled="{Binding #Root.IsActionEnabled}" />
+                      VerticalAlignment="Center">
+                <PathIcon.IsEnabled>
+                    <MultiBinding Converter="{x:Static conv:BoolConverters.And}">
+                        <Binding Path="#Root.IsActionEnabled" />
+                        <Binding Path="#Root.IsEditEnabled" />
+                    </MultiBinding>
+                </PathIcon.IsEnabled>
+            </PathIcon>
             <PathIcon Classes="icon-action icon-danger"
                       Data="{DynamicResource DeleteIcon}"
                       PointerPressed="OnDeleteIconPressed"

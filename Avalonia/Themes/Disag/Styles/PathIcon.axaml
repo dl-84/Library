@@ -65,4 +65,19 @@
         <Setter Property="Data" Value="{DynamicResource InitializeDbIcon}" />
         <Setter Property="Foreground" Value="{DynamicResource TertiaryBrush}" />
     </Style>
+
+    <Style Selector="PathIcon.shot-source-receiver">
+        <Setter Property="Data" Value="{DynamicResource NetworkWiredIcon}" />
+        <Setter Property="Foreground" Value="{DynamicResource TextMutedBrush}" />
+    </Style>
+
+    <Style Selector="PathIcon.shot-source-manual">
+        <Setter Property="Data" Value="{DynamicResource AddIcon}" />
+        <Setter Property="Foreground" Value="{DynamicResource TextMutedBrush}" />
+    </Style>
+
+    <Style Selector="PathIcon.shot-edited">
+        <Setter Property="Data" Value="{DynamicResource EditIcon}" />
+        <Setter Property="Foreground" Value="{DynamicResource TertiaryBrush}" />
+    </Style>
 </Styles>
