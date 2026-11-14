@@ -1,0 +1,15 @@
+# macOS
+.DS_Store
+
+# Build output
+bin/
+obj/
+/packages/
+
+# IDE
+.idea/
+riderModule.iml
+/_ReSharper.Caches/
+
+# Tools
+.claude/

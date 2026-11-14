@@ -1,0 +1,13 @@
+<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <Style Selector="SplitView">
+        <Setter Property="Background" Value="{DynamicResource AppBackgroundBrush}" />
+        <Setter Property="OpenPaneLength" Value="{DynamicResource SidebarWidth}" />
+    </Style>
+
+    <Style Selector="SplitView /template/ Panel#PART_PaneRoot">
+        <Setter Property="Background" Value="{DynamicResource NavigationBackgroundBrush}" />
+    </Style>
+
+</Styles>

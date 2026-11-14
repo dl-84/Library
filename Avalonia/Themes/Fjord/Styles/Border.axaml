@@ -1,0 +1,47 @@
+<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <Style Selector="Border.card">
+        <Setter Property="Background" Value="{DynamicResource SurfaceBrush}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource BorderLightBrush}" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="CornerRadius" Value="{DynamicResource CornerRadiusMedium}" />
+        <Setter Property="Padding" Value="{DynamicResource PaddingCard}" />
+        <Setter Property="BoxShadow" Value="0 2 7 0 #081b2b34" />
+    </Style>
+
+    <Style Selector="Border.sidebar">
+        <Setter Property="Background" Value="{DynamicResource NavigationBackgroundBrush}" />
+        <Setter Property="Width" Value="{DynamicResource SidebarWidth}" />
+        <Setter Property="Padding" Value="{DynamicResource PaddingSidebar}" />
+    </Style>
+    <Style Selector="Border.badge">
+        <Setter Property="Background" Value="{DynamicResource BadgeSuccessBackgroundBrush}" />
+        <Setter Property="TextElement.Foreground" Value="{DynamicResource BadgeSuccessForegroundBrush}" />
+        <Setter Property="CornerRadius" Value="{DynamicResource CornerRadiusBadge}" />
+        <Setter Property="Padding" Value="8,4" />
+        <Setter Property="HorizontalAlignment" Value="Left" />
+    </Style>
+    <Style Selector="Border.badge TextBlock">
+        <Setter Property="FontSize" Value="10" />
+        <Setter Property="FontWeight" Value="SemiBold" />
+        <Setter Property="LineHeight" Value="15" />
+    </Style>
+    <Style Selector="Border.badge.waiting">
+        <Setter Property="Background" Value="{DynamicResource BadgeWarningBackgroundBrush}" />
+        <Setter Property="TextElement.Foreground" Value="{DynamicResource BadgeWarningForegroundBrush}" />
+    </Style>
+
+    <Style Selector="Border.card-error">
+        <Setter Property="Background" Value="{DynamicResource ErrorBrush}" />
+        <Setter Property="CornerRadius" Value="{DynamicResource CornerRadiusMedium}" />
+        <Setter Property="Padding" Value="{DynamicResource PaddingCard}" />
+    </Style>
+
+    <Style Selector="Border.card-success">
+        <Setter Property="Background" Value="{DynamicResource SecondaryBrush}" />
+        <Setter Property="CornerRadius" Value="{DynamicResource CornerRadiusMedium}" />
+        <Setter Property="Padding" Value="{DynamicResource PaddingCard}" />
+    </Style>
+
+</Styles>
