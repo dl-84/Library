@@ -79,9 +79,9 @@
                      Color="{DynamicResource BorderTableColor}" />
 
     <SolidColorBrush x:Key="NavigationBackgroundBrush"
-                     Color="{DynamicResource BackgroundWhiteColor}" />
+                     Color="{DynamicResource PrimaryDarkColor}" />
     <SolidColorBrush x:Key="NavigationForegroundBrush"
-                     Color="{DynamicResource TextPrimaryColor}" />
+                     Color="{DynamicResource TextOnDarkColor}" />
     <SolidColorBrush x:Key="NavigationActiveBrush"
                      Color="{DynamicResource NavigationActiveColor}" />
     <SolidColorBrush x:Key="NavigationHoverBrush"

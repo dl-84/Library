@@ -4,13 +4,13 @@
     <Color x:Key="PrimaryDarkColor">#FF012a38</Color>
     <Color x:Key="PrimaryDarkerColor">#FF102330</Color>
     <Color x:Key="NearBlackColor">#FF161922</Color>
-    <Color x:Key="SecondaryColor">#FF8fbb32</Color>
-    <Color x:Key="SecondaryDarkColor">#FF8bb820</Color>
-    <Color x:Key="TertiaryColor">#FF019dc6</Color>
-    <Color x:Key="TertiaryDarkColor">#FF007897</Color>
+    <Color x:Key="SecondaryColor">#FF8bba30</Color>
+    <Color x:Key="SecondaryDarkColor">#FF6f9526</Color>
+    <Color x:Key="TertiaryColor">#FF33a6cc</Color>
+    <Color x:Key="TertiaryDarkColor">#FF2985a3</Color>
     <Color x:Key="NavigationActiveColor">#FF1a404c</Color>
-    <Color x:Key="IconActionColor">#FF8db92e</Color>
-    <Color x:Key="IconActionHoverColor">#FF769c24</Color>
+    <Color x:Key="IconActionColor">#FF8bba30</Color>
+    <Color x:Key="IconActionHoverColor">#FF6f9526</Color>
 
     <Color x:Key="TextPrimaryColor">#FF333333</Color>
     <Color x:Key="TextSecondaryColor">#FF626262</Color>
@@ -25,9 +25,9 @@
     <Color x:Key="BackgroundSubtleColor">#FFf8f8f8</Color>
     <Color x:Key="BackgroundTintedColor">#FFe9f5fc</Color>
     <Color x:Key="BackgroundMutedColor">#FFeef2f5</Color>
-    <Color x:Key="SuccessColor">#FF4CAF50</Color>
-    <Color x:Key="WarningColor">#FFe5b80d</Color>
-    <Color x:Key="ErrorColor">#FFE53E3E</Color>
+    <Color x:Key="SuccessColor">#FF8bba30</Color>
+    <Color x:Key="WarningColor">#FF8a6a08</Color>
+    <Color x:Key="ErrorColor">#FFc23b3b</Color>
     <Color x:Key="ErrorHoverColor">#FF7c1c12</Color>
 
     <Color x:Key="BorderLightColor">#FFEBEBEB</Color>
