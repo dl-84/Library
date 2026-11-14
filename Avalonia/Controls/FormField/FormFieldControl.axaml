@@ -14,12 +14,14 @@
                  Text="{Binding #Root.Text, Mode=TwoWay}"
                  IsEnabled="{Binding #Root.IsInputEnabled}">
             <TextBox.InnerRightContent>
-                <PathIcon Classes="icon-action clear-icon"
-                          Data="{DynamicResource CloseIcon}"
+                <Border Classes="icon-action clear-icon"
+                        Margin="0,0,4,0"
+                        Padding="6"
+                        PointerPressed="OnClearIconPressed">
+                    <Path Data="{DynamicResource XOutlineIcon}"
                           Height="12"
-                          Margin="0,0,10,0"
-                          PointerPressed="OnClearIconPressed"
                           Width="12" />
+                </Border>
             </TextBox.InnerRightContent>
         </TextBox>
         <TextBlock Classes="hint-error"

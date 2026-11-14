@@ -46,6 +46,30 @@
         <Setter Property="Foreground" Value="{DynamicResource TextWhiteBrush}" />
     </Style>
 
+    <Style Selector="ListBox.nav ListBoxItem:selected TextBlock">
+        <Setter Property="Foreground" Value="{DynamicResource SecondaryBrush}" />
+    </Style>
+
+    <Style Selector="ListBox.nav ListBoxItem PathIcon">
+        <Setter Property="Foreground" Value="{DynamicResource TextWhiteBrush}" />
+    </Style>
+
+    <Style Selector="ListBox.nav ListBoxItem:selected PathIcon">
+        <Setter Property="Foreground" Value="{DynamicResource SecondaryBrush}" />
+    </Style>
+
+    <Style Selector="ListBox.nav ListBoxItem Path">
+        <Setter Property="Fill" Value="Transparent" />
+        <Setter Property="Stroke" Value="{DynamicResource TextWhiteBrush}" />
+        <Setter Property="StrokeThickness" Value="1.5" />
+        <Setter Property="StrokeLineCap" Value="Round" />
+        <Setter Property="StrokeJoin" Value="Round" />
+    </Style>
+
+    <Style Selector="ListBox.nav ListBoxItem:selected Path">
+        <Setter Property="Stroke" Value="{DynamicResource SecondaryBrush}" />
+    </Style>
+
     <Style Selector="ListBox.nav ListBoxItem.navigation-header TextBlock">
         <Setter Property="FontFamily" Value="{DynamicResource FontHeading}" />
         <Setter Property="FontSize" Value="13" />

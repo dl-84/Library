@@ -1,83 +1,105 @@
 <Styles xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
-    <Style Selector="PathIcon.icon-action">
+    <Style Selector="Path.status-error, Path.status-success, Path.shot-source-receiver, Path.shot-source-manual, Path.shot-edited, Border.db-status-up-to-date Path, Border.db-status-update-available Path, Border.db-status-not-initialized Path">
+        <Setter Property="Fill" Value="Transparent" />
+        <Setter Property="Stretch" Value="Uniform" />
+        <Setter Property="StrokeJoin" Value="Round" />
+        <Setter Property="StrokeLineCap" Value="Round" />
+        <Setter Property="StrokeThickness" Value="1.5" />
+    </Style>
+
+    <Style Selector="Path.status-error">
+        <Setter Property="Stroke" Value="{DynamicResource ErrorBrush}" />
+    </Style>
+
+    <Style Selector="Path.status-success">
+        <Setter Property="Stroke" Value="{DynamicResource SuccessBrush}" />
+    </Style>
+
+    <Style Selector="Border.icon-action">
+        <Setter Property="Background" Value="Transparent" />
         <Setter Property="Cursor" Value="Hand" />
-        <Setter Property="Foreground" Value="{DynamicResource InputFocusBorderBrush}" />
     </Style>
 
-    <Style Selector="PathIcon.icon-action:pointerover">
-        <Setter Property="Foreground" Value="{DynamicResource InputHoverBorderBrush}" />
+    <Style Selector="Border.icon-action Path">
+        <Setter Property="Fill" Value="Transparent" />
+        <Setter Property="Stretch" Value="Uniform" />
+        <Setter Property="Stroke" Value="{DynamicResource InputFocusBorderBrush}" />
+        <Setter Property="StrokeJoin" Value="Round" />
+        <Setter Property="StrokeLineCap" Value="Round" />
+        <Setter Property="StrokeThickness" Value="1.5" />
     </Style>
 
-    <Style Selector="PathIcon.icon-action:disabled">
+    <Style Selector="Border.icon-action:pointerover Path">
+        <Setter Property="Stroke" Value="{DynamicResource InputHoverBorderBrush}" />
+    </Style>
+
+    <Style Selector="Border.icon-action:disabled">
         <Setter Property="Cursor" Value="Arrow" />
-        <Setter Property="Foreground" Value="{DynamicResource TextDisabledBrush}" />
+    </Style>
+
+    <Style Selector="Border.icon-action:disabled Path">
+        <Setter Property="Stroke" Value="{DynamicResource TextDisabledBrush}" />
         <Setter Property="Opacity" Value="0.4" />
     </Style>
 
-    <Style Selector="PathIcon.icon-action.icon-danger">
-        <Setter Property="Foreground" Value="{DynamicResource ErrorBrush}" />
+    <Style Selector="Border.icon-action.icon-danger Path">
+        <Setter Property="Stroke" Value="{DynamicResource ErrorBrush}" />
     </Style>
 
-    <Style Selector="PathIcon.icon-action.icon-danger:pointerover">
-        <Setter Property="Foreground" Value="{DynamicResource ErrorBrush}" />
+    <Style Selector="Border.icon-action.icon-danger:pointerover Path">
+        <Setter Property="Stroke" Value="{DynamicResource ErrorBrush}" />
     </Style>
 
-    <Style Selector="PathIcon.icon-action.icon-danger:disabled">
-        <Setter Property="Foreground" Value="{DynamicResource TextDisabledBrush}" />
+    <Style Selector="Border.icon-action.icon-danger:disabled Path">
+        <Setter Property="Stroke" Value="{DynamicResource TextDisabledBrush}" />
         <Setter Property="Opacity" Value="0.4" />
     </Style>
 
-    <Style Selector="PathIcon.status-error">
-        <Setter Property="Foreground" Value="{DynamicResource ErrorBrush}" />
-    </Style>
-
-    <Style Selector="PathIcon.status-success">
-        <Setter Property="Foreground" Value="{DynamicResource SuccessBrush}" />
-    </Style>
-
-    <Style Selector="TextBox PathIcon.clear-icon">
+    <Style Selector="TextBox Border.clear-icon">
         <Setter Property="Opacity" Value="0" />
     </Style>
 
-    <Style Selector="TextBox:pointerover PathIcon.clear-icon">
+    <Style Selector="TextBox:pointerover Border.clear-icon">
         <Setter Property="Opacity" Value="1" />
     </Style>
 
-    <Style Selector="PathIcon.icon-action.clear-icon">
-        <Setter Property="Foreground" Value="{DynamicResource TextMutedBrush}" />
+    <Style Selector="Border.icon-action.clear-icon Path">
+        <Setter Property="Stroke" Value="{DynamicResource TextMutedBrush}" />
     </Style>
 
-    <Style Selector="PathIcon.db-status-up-to-date">
-        <Setter Property="Data" Value="{DynamicResource CheckCircleIcon}" />
-        <Setter Property="Foreground" Value="{DynamicResource SuccessBrush}" />
+    <Style Selector="Border.db-status-up-to-date Path">
+        <Setter Property="Data" Value="{DynamicResource CircleCheckOutlineIcon}" />
+        <Setter Property="Stroke" Value="{DynamicResource SuccessBrush}" />
     </Style>
 
-    <Style Selector="PathIcon.db-status-update-available">
+    <Style Selector="Border.db-status-update-available Path">
+        <Setter Property="Data" Value="{DynamicResource RefreshCwOutlineIcon}" />
+        <Setter Property="Stroke" Value="{DynamicResource TertiaryBrush}" />
+    </Style>
+
+    <Style Selector="Border.db-status-not-initialized Path">
+        <Setter Property="Data" Value="{DynamicResource DatabaseZapOutlineIcon}" />
+        <Setter Property="Stroke" Value="{DynamicResource TertiaryBrush}" />
+    </Style>
+
+    <Style Selector="Border.db-status-update-available, Border.db-status-not-initialized">
         <Setter Property="Cursor" Value="Hand" />
-        <Setter Property="Data" Value="{DynamicResource RefreshIcon}" />
-        <Setter Property="Foreground" Value="{DynamicResource TertiaryBrush}" />
     </Style>
 
-    <Style Selector="PathIcon.db-status-not-initialized">
-        <Setter Property="Cursor" Value="Hand" />
-        <Setter Property="Data" Value="{DynamicResource InitializeDbIcon}" />
-        <Setter Property="Foreground" Value="{DynamicResource TertiaryBrush}" />
+    <Style Selector="Path.shot-source-receiver">
+        <Setter Property="Data" Value="{DynamicResource NetworkOutlineIcon}" />
+        <Setter Property="Stroke" Value="{DynamicResource TextMutedBrush}" />
     </Style>
 
-    <Style Selector="PathIcon.shot-source-receiver">
-        <Setter Property="Data" Value="{DynamicResource NetworkWiredIcon}" />
-        <Setter Property="Foreground" Value="{DynamicResource TextMutedBrush}" />
+    <Style Selector="Path.shot-source-manual">
+        <Setter Property="Data" Value="{DynamicResource PlusOutlineIcon}" />
+        <Setter Property="Stroke" Value="{DynamicResource TextMutedBrush}" />
     </Style>
 
-    <Style Selector="PathIcon.shot-source-manual">
-        <Setter Property="Data" Value="{DynamicResource AddIcon}" />
-        <Setter Property="Foreground" Value="{DynamicResource TextMutedBrush}" />
-    </Style>
-
-    <Style Selector="PathIcon.shot-edited">
-        <Setter Property="Data" Value="{DynamicResource EditIcon}" />
-        <Setter Property="Foreground" Value="{DynamicResource TertiaryBrush}" />
+    <Style Selector="Path.shot-edited">
+        <Setter Property="Data" Value="{DynamicResource PencilOutlineIcon}" />
+        <Setter Property="Stroke" Value="{DynamicResource TertiaryBrush}" />
     </Style>
 </Styles>

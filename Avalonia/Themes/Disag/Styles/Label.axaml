@@ -3,7 +3,7 @@
 
     <Style Selector="Label">
         <Setter Property="FontFamily" Value="{DynamicResource FontBody}" />
-        <Setter Property="FontSize" Value="13" />
+        <Setter Property="FontSize" Value="{DynamicResource FontSizeSmall}" />
         <Setter Property="FontWeight" Value="SemiBold" />
         <Setter Property="Foreground" Value="{DynamicResource TextPrimaryBrush}" />
         <Setter Property="Padding" Value="0,0,0,4" />

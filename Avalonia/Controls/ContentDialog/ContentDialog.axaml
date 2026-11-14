@@ -34,19 +34,23 @@
                                Classes="h4"
                                Text="{Binding DialogTitle}"
                                VerticalAlignment="Center" />
-                    <PathIcon Grid.Column="1"
-                              Classes="icon-action"
-                              Data="{DynamicResource CopyIcon}"
+                    <Border Grid.Column="1"
+                            Classes="icon-action"
+                            Padding="6"
+                            PointerPressed="OnCopyClicked"
+                            IsVisible="{Binding CopyText, Converter={x:Static converters:StringConverters.IsNotNullOrEmpty}}">
+                        <Path Data="{DynamicResource CopyOutlineIcon}"
                               Height="14"
-                              PointerPressed="OnCopyClicked"
-                              Width="14"
-                              IsVisible="{Binding CopyText, Converter={x:Static converters:StringConverters.IsNotNullOrEmpty}}" />
-                    <PathIcon Grid.Column="2"
-                              Classes="icon-action"
-                              Data="{DynamicResource CloseIcon}"
-                              Height="14"
-                              PointerPressed="OnCancelClicked"
                               Width="14" />
+                    </Border>
+                    <Border Grid.Column="2"
+                            Classes="icon-action"
+                            Padding="6"
+                            PointerPressed="OnCancelClicked">
+                        <Path Data="{DynamicResource XOutlineIcon}"
+                              Height="14"
+                              Width="14" />
+                    </Border>
                 </Grid>
             </Border>
 

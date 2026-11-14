@@ -72,6 +72,16 @@ public partial class ContentDialog : Window
 
     public Func<bool>? SubmitValidator { get; set; }
 
+    protected override void OnKeyDown(KeyEventArgs e)
+    {
+        base.OnKeyDown(e);
+
+        if (e.Key == Key.Escape)
+        {
+            Close(false);
+        }
+    }
+
     private void OnCancelClicked(object? sender, PointerPressedEventArgs e)
     {
         Close(false);

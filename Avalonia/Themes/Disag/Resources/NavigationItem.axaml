@@ -10,11 +10,9 @@
             <ControlTemplate>
                 <Border x:Name="Root"
                         Background="{DynamicResource PrimaryBrush}"
-                        BorderBrush="Transparent"
-                        BorderThickness="3,0,0,0"
                         CornerRadius="{DynamicResource CornerRadiusSmall}"
                         Opacity="0.85"
-                        Padding="28,12,20,12">
+                        Padding="24,12,20,12">
                     <ContentPresenter Background="Transparent"
                                       Content="{TemplateBinding Content}"
                                       HorizontalAlignment="Left"
@@ -31,16 +29,14 @@
         </Style>
         <Style Selector="^:selected /template/ Border#Root">
             <Setter Property="Background" Value="{DynamicResource NavigationActiveBrush}" />
-            <Setter Property="BorderBrush" Value="{DynamicResource SecondaryBrush}" />
             <Setter Property="Opacity" Value="1" />
         </Style>
         <Style Selector="^:selected /template/ ContentPresenter">
             <Setter Property="Background" Value="Transparent" />
-            <Setter Property="TextElement.Foreground" Value="{DynamicResource TextWhiteBrush}" />
+            <Setter Property="TextElement.Foreground" Value="{DynamicResource SecondaryBrush}" />
         </Style>
         <Style Selector="^:selected:pointerover /template/ Border#Root">
             <Setter Property="Background" Value="{DynamicResource NavigationActiveBrush}" />
-            <Setter Property="BorderBrush" Value="{DynamicResource SecondaryBrush}" />
             <Setter Property="Opacity" Value="1" />
         </Style>
         <Style Selector="^:selected:pointerover /template/ ContentPresenter">

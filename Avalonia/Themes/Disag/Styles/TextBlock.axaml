@@ -15,7 +15,7 @@
         <Setter Property="FontSize" Value="{DynamicResource FontSizeXLarge}" />
         <Setter Property="FontWeight" Value="Bold" />
         <Setter Property="Foreground" Value="{DynamicResource TextNearBlackBrush}" />
-        <Setter Property="LineHeight" Value="52" />
+        <Setter Property="LineHeight" Value="42" />
     </Style>
 
     <Style Selector="TextBlock.h2">
@@ -23,7 +23,7 @@
         <Setter Property="FontSize" Value="{DynamicResource FontSizeLarge}" />
         <Setter Property="FontWeight" Value="Bold" />
         <Setter Property="Foreground" Value="{DynamicResource PrimaryBrush}" />
-        <Setter Property="LineHeight" Value="44" />
+        <Setter Property="LineHeight" Value="36" />
     </Style>
 
     <Style Selector="TextBlock.h3">
@@ -31,6 +31,7 @@
         <Setter Property="FontSize" Value="{DynamicResource FontSizeMediumLarge}" />
         <Setter Property="FontWeight" Value="SemiBold" />
         <Setter Property="Foreground" Value="{DynamicResource PrimaryBrush}" />
+        <Setter Property="LineHeight" Value="26" />
     </Style>
 
     <Style Selector="TextBlock.h4">
@@ -41,25 +42,25 @@
     </Style>
 
     <Style Selector="TextBlock.secondary">
-        <Setter Property="FontSize" Value="14" />
+        <Setter Property="FontSize" Value="{DynamicResource FontSizeSmall}" />
         <Setter Property="Foreground" Value="{DynamicResource TextSecondaryBrush}" />
-        <Setter Property="LineHeight" Value="22" />
+        <Setter Property="LineHeight" Value="20" />
     </Style>
 
     <Style Selector="TextBlock.muted">
-        <Setter Property="FontSize" Value="12" />
+        <Setter Property="FontSize" Value="{DynamicResource FontSizeCaption}" />
         <Setter Property="Foreground" Value="{DynamicResource TextMutedBrush}" />
     </Style>
 
     <Style Selector="TextBlock.caption">
-        <Setter Property="FontSize" Value="11" />
+        <Setter Property="FontSize" Value="{DynamicResource FontSizeCaption}" />
         <Setter Property="Foreground" Value="{DynamicResource TextMutedBrush}" />
-        <Setter Property="LineHeight" Value="16" />
+        <Setter Property="LineHeight" Value="18" />
     </Style>
 
     <Style Selector="TextBlock.label">
         <Setter Property="FontFamily" Value="{DynamicResource FontHeading}" />
-        <Setter Property="FontSize" Value="13" />
+        <Setter Property="FontSize" Value="{DynamicResource FontSizeSmall}" />
         <Setter Property="FontWeight" Value="Bold" />
         <Setter Property="Foreground" Value="{DynamicResource PrimaryBrush}" />
         <Setter Property="LetterSpacing" Value="2" />
@@ -70,12 +71,12 @@
     </Style>
 
     <Style Selector="TextBlock.hint-error">
-        <Setter Property="FontSize" Value="12" />
+        <Setter Property="FontSize" Value="{DynamicResource FontSizeCaption}" />
         <Setter Property="Foreground" Value="{DynamicResource ErrorBrush}" />
     </Style>
 
     <Style Selector="TextBlock.hint-success">
-        <Setter Property="FontSize" Value="12" />
+        <Setter Property="FontSize" Value="{DynamicResource FontSizeCaption}" />
         <Setter Property="Foreground" Value="{DynamicResource SuccessBrush}" />
     </Style>
 

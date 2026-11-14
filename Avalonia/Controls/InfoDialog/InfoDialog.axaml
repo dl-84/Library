@@ -37,19 +37,23 @@
                                Classes="h4"
                                Text="{Binding DialogTitle}"
                                VerticalAlignment="Center" />
-                    <PathIcon Grid.Column="1"
-                              Classes="icon-action"
-                              Data="{DynamicResource CopyIcon}"
+                    <Border Grid.Column="1"
+                            Classes="icon-action"
+                            Padding="6"
+                            PointerPressed="OnCopyClicked"
+                            IsVisible="{Binding Message, Converter={x:Static converters:StringConverters.IsNotNullOrEmpty}}">
+                        <Path Data="{DynamicResource CopyOutlineIcon}"
                               Height="14"
-                              PointerPressed="OnCopyClicked"
-                              Width="14"
-                              IsVisible="{Binding Message, Converter={x:Static converters:StringConverters.IsNotNullOrEmpty}}" />
-                    <PathIcon Grid.Column="2"
-                              Classes="icon-action"
-                              Data="{DynamicResource CloseIcon}"
-                              Height="14"
-                              PointerPressed="OnCloseClicked"
                               Width="14" />
+                    </Border>
+                    <Border Grid.Column="2"
+                            Classes="icon-action"
+                            Padding="6"
+                            PointerPressed="OnCloseClicked">
+                        <Path Data="{DynamicResource XOutlineIcon}"
+                              Height="14"
+                              Width="14" />
+                    </Border>
                 </Grid>
             </Border>
 
@@ -57,10 +61,14 @@
                         Margin="24,20,24,20"
                         Orientation="Horizontal"
                         Spacing="16">
-                <PathIcon x:Name="IconImage"
-                          Height="48"
-                          VerticalAlignment="Center"
-                          Width="48" />
+                <Path x:Name="IconImage"
+                      Height="48"
+                      Stretch="Uniform"
+                      StrokeJoin="Round"
+                      StrokeLineCap="Round"
+                      StrokeThickness="1.5"
+                      VerticalAlignment="Center"
+                      Width="48" />
                 <TextBlock Foreground="{DynamicResource TextPrimaryBrush}"
                            MaxWidth="360"
                            Text="{Binding Message}"

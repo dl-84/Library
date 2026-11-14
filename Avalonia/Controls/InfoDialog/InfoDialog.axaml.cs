@@ -47,6 +47,16 @@ public partial class InfoDialog : Window
         set => SetValue(MessageProperty, value);
     }
 
+    protected override void OnKeyDown(KeyEventArgs e)
+    {
+        base.OnKeyDown(e);
+
+        if (e.Key == Key.Escape)
+        {
+            Close();
+        }
+    }
+
     protected override void OnPropertyChanged(AvaloniaPropertyChangedEventArgs change)
     {
         base.OnPropertyChanged(change);
@@ -88,7 +98,7 @@ public partial class InfoDialog : Window
 
     private void UpdateIcon()
     {
-        string iconKey = IconType == IconType.Info ? "InfoIcon" : "WarningIcon";
+        string iconKey = IconType == IconType.Info ? "InfoOutlineIcon" : "WarningOutlineIcon";
         string brushKey = IconType switch
         {
             IconType.Warning => "WarningBrush",
@@ -97,6 +107,6 @@ public partial class InfoDialog : Window
         };
 
         IconImage.Data = this.TryFindResource(iconKey, out object? resource) ? resource as Geometry : null;
-        IconImage.Foreground = GetThemeBrush(brushKey);
+        IconImage.Stroke = GetThemeBrush(brushKey);
     }
 }

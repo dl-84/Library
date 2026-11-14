@@ -1,4 +1,4 @@
-<UserControl x:Class="Controls.SiteActionBar.SiteActionBarControl"
+﻿<UserControl x:Class="Controls.SiteActionBar.SiteActionBarControl"
              x:Name="Root"
              xmlns="https://github.com/avaloniaui"
              xmlns:conv="using:Avalonia.Data.Converters"
@@ -13,13 +13,15 @@
                  Text="{Binding #Root.SearchText, Mode=TwoWay}"
                  Width="300">
             <TextBox.InnerRightContent>
-                <PathIcon Classes="icon-action icon-danger"
-                          Data="{DynamicResource CloseIcon}"
+                <Border Classes="icon-action icon-danger"
+                        Margin="0,0,4,0"
+                        Padding="6"
+                        PointerPressed="OnClearSearchIconPressed"
+                        IsVisible="{Binding #Root.SearchText, Converter={x:Static local:SiteActionBarControl.IsNotEmptyConverter}}">
+                    <Path Data="{DynamicResource XOutlineIcon}"
                           Height="12"
-                          Margin="0,0,10,0"
-                          PointerPressed="OnClearSearchIconPressed"
-                          Width="12"
-                          IsVisible="{Binding #Root.SearchText, Converter={x:Static local:SiteActionBarControl.IsNotEmptyConverter}}" />
+                          Width="12" />
+                </Border>
             </TextBox.InnerRightContent>
         </TextBox>
 
@@ -28,47 +30,62 @@
                     Orientation="Horizontal"
                     Spacing="{DynamicResource SpacingMedium}"
                     VerticalAlignment="Center">
-            <PathIcon Classes="icon-action"
-                      Data="{DynamicResource RefreshIcon}"
-                      PointerPressed="OnRefreshIconPressed"
-                      ToolTip.HorizontalOffset="0"
-                      ToolTip.Placement="TopEdgeAlignedRight"
-                      ToolTip.Tip="{Binding #Root.RefreshTooltip}"
-                      ToolTip.VerticalOffset="-2"
-                      VerticalAlignment="Center"
-                      IsVisible="{Binding #Root.IsRefreshVisible}" />
-            <PathIcon Classes="icon-action"
-                      Data="{DynamicResource AddIcon}"
-                      PointerPressed="OnAddIconPressed"
-                      ToolTip.HorizontalOffset="0"
-                      ToolTip.Placement="TopEdgeAlignedRight"
-                      ToolTip.Tip="{Binding #Root.AddTooltip}"
-                      ToolTip.VerticalOffset="-2"
-                      VerticalAlignment="Center" />
-            <PathIcon Classes="icon-action"
-                      Data="{DynamicResource EditIcon}"
-                      PointerPressed="OnEditIconPressed"
-                      ToolTip.HorizontalOffset="0"
-                      ToolTip.Placement="TopEdgeAlignedRight"
-                      ToolTip.Tip="{Binding #Root.EditTooltip}"
-                      ToolTip.VerticalOffset="-2"
-                      VerticalAlignment="Center">
-                <PathIcon.IsEnabled>
+            <Border Classes="icon-action"
+                    Padding="6"
+                    PointerPressed="OnRefreshIconPressed"
+                    ToolTip.HorizontalOffset="0"
+                    ToolTip.Placement="TopEdgeAlignedRight"
+                    ToolTip.Tip="{Binding #Root.RefreshTooltip}"
+                    ToolTip.VerticalOffset="-2"
+                    VerticalAlignment="Center"
+                    IsVisible="{Binding #Root.IsRefreshVisible}">
+                <Path Data="{DynamicResource RefreshCwOutlineIcon}"
+                      Height="16"
+                      Width="16" />
+            </Border>
+            <Border Classes="icon-action"
+                    Padding="6"
+                    PointerPressed="OnAddIconPressed"
+                    ToolTip.HorizontalOffset="0"
+                    ToolTip.Placement="TopEdgeAlignedRight"
+                    ToolTip.Tip="{Binding #Root.AddTooltip}"
+                    ToolTip.VerticalOffset="-2"
+                    VerticalAlignment="Center">
+                <Path Data="{DynamicResource PlusOutlineIcon}"
+                      Height="16"
+                      Width="16" />
+            </Border>
+            <Border Classes="icon-action"
+                    Padding="6"
+                    PointerPressed="OnEditIconPressed"
+                    ToolTip.HorizontalOffset="0"
+                    ToolTip.Placement="TopEdgeAlignedRight"
+                    ToolTip.Tip="{Binding #Root.EditTooltip}"
+                    ToolTip.VerticalOffset="-2"
+                    VerticalAlignment="Center">
+                <Border.IsEnabled>
                     <MultiBinding Converter="{x:Static conv:BoolConverters.And}">
                         <Binding Path="#Root.IsActionEnabled" />
                         <Binding Path="#Root.IsEditEnabled" />
                     </MultiBinding>
-                </PathIcon.IsEnabled>
-            </PathIcon>
-            <PathIcon Classes="icon-action icon-danger"
-                      Data="{DynamicResource DeleteIcon}"
-                      PointerPressed="OnDeleteIconPressed"
-                      ToolTip.HorizontalOffset="0"
-                      ToolTip.Placement="TopEdgeAlignedRight"
-                      ToolTip.Tip="{Binding #Root.DeleteTooltip}"
-                      ToolTip.VerticalOffset="-2"
-                      VerticalAlignment="Center"
-                      IsEnabled="{Binding #Root.IsActionEnabled}" />
+                </Border.IsEnabled>
+                <Path Data="{DynamicResource PencilOutlineIcon}"
+                      Height="16"
+                      Width="16" />
+            </Border>
+            <Border Classes="icon-action icon-danger"
+                    Padding="6"
+                    PointerPressed="OnDeleteIconPressed"
+                    ToolTip.HorizontalOffset="0"
+                    ToolTip.Placement="TopEdgeAlignedRight"
+                    ToolTip.Tip="{Binding #Root.DeleteTooltip}"
+                    ToolTip.VerticalOffset="-2"
+                    VerticalAlignment="Center"
+                    IsEnabled="{Binding #Root.IsActionEnabled}">
+                <Path Data="{DynamicResource TrashOutlineIcon}"
+                      Height="16"
+                      Width="16" />
+            </Border>
         </StackPanel>
     </Grid>
 </UserControl>

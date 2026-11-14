@@ -5,7 +5,7 @@
 
     <Border x:Name="ContentBorder"
             Background="{DynamicResource AppBackgroundAltBrush}"
-            Height="36">
+            Height="33">
         <Grid ColumnDefinitions="*,Auto">
             <Panel Grid.Column="0"
                    Background="Transparent"

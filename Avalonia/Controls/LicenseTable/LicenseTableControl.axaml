@@ -13,8 +13,9 @@
     </UserControl.Resources>
 
     <Border Classes="card"
+            ClipToBounds="True"
             Padding="0">
-        <StackPanel>
+        <Grid RowDefinitions="Auto,*">
             <Border x:Name="HeaderBorder"
                     BorderBrush="{DynamicResource BorderTableBrush}"
                     BorderThickness="0,0,0,1"
@@ -41,49 +42,59 @@
                                VerticalAlignment="Center" />
                 </Grid>
             </Border>
-            <ItemsControl x:Name="RowsControl"
-                          Margin="24,0,24,8">
-                <ItemsControl.ItemTemplate>
-                    <DataTemplate x:DataType="local:PackageModel">
-                        <Grid ColumnDefinitions="*,80,120,48"
-                              MinHeight="36">
-                            <StackPanel Margin="0,6,0,6"
-                                        VerticalAlignment="Center">
-                                <TextBlock Foreground="{DynamicResource TextPrimaryBrush}"
-                                           Text="{Binding Name}" />
-                                <TextBlock Classes="muted"
-                                           Foreground="{DynamicResource TextMutedBrush}"
-                                           Text="{Binding Copyright}"
-                                           TextWrapping="Wrap" />
-                            </StackPanel>
-                            <TextBlock Grid.Column="1"
-                                       Foreground="{DynamicResource TextPrimaryBrush}"
-                                       Text="{Binding Version}"
-                                       TextAlignment="Center"
-                                       VerticalAlignment="Center" />
-                            <TextBlock Grid.Column="2"
-                                       Classes="table-link"
-                                       HorizontalAlignment="Center"
-                                       PointerPressed="OnPointerLinkClicked"
-                                       Tag="{Binding LicenseUrl}"
-                                       Text="{Binding LicenseType}"
-                                       VerticalAlignment="Center"
-                                       IsVisible="{Binding HasLicenseLink}" />
-                            <PathIcon Grid.Column="3"
-                                      Cursor="Hand"
-                                      Data="{DynamicResource ExternalLinkIcon}"
-                                      Foreground="{DynamicResource TertiaryBrush}"
-                                      Height="16"
-                                      HorizontalAlignment="Center"
-                                      PointerPressed="OnPointerLinkClicked"
-                                      Tag="{Binding PackageUrl}"
-                                      VerticalAlignment="Center"
-                                      Width="16"
-                                      IsVisible="{Binding HasPackageUrl}" />
-                        </Grid>
-                    </DataTemplate>
-                </ItemsControl.ItemTemplate>
-            </ItemsControl>
-        </StackPanel>
+            <ScrollViewer Grid.Row="1">
+                <ItemsControl x:Name="RowsControl"
+                              Margin="24,0,24,8">
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate x:DataType="local:PackageModel">
+                            <Grid ColumnDefinitions="*,80,120,48"
+                                  MinHeight="36">
+                                <StackPanel Margin="0,6,0,6"
+                                            VerticalAlignment="Center">
+                                    <TextBlock Foreground="{DynamicResource TextPrimaryBrush}"
+                                               Text="{Binding Name}" />
+                                    <TextBlock Classes="muted"
+                                               Foreground="{DynamicResource TextMutedBrush}"
+                                               Text="{Binding Copyright}"
+                                               TextWrapping="Wrap" />
+                                </StackPanel>
+                                <TextBlock Grid.Column="1"
+                                           Foreground="{DynamicResource TextPrimaryBrush}"
+                                           Text="{Binding Version}"
+                                           TextAlignment="Center"
+                                           VerticalAlignment="Center" />
+                                <TextBlock Grid.Column="2"
+                                           Classes="table-link"
+                                           HorizontalAlignment="Center"
+                                           PointerPressed="OnPointerLinkClicked"
+                                           Tag="{Binding LicenseUrl}"
+                                           Text="{Binding LicenseType}"
+                                           VerticalAlignment="Center"
+                                           IsVisible="{Binding HasLicenseLink}" />
+                                <Border Grid.Column="3"
+                                        Background="Transparent"
+                                        Cursor="Hand"
+                                        HorizontalAlignment="Center"
+                                        Padding="6"
+                                        PointerPressed="OnPointerLinkClicked"
+                                        Tag="{Binding PackageUrl}"
+                                        VerticalAlignment="Center"
+                                        IsVisible="{Binding HasPackageUrl}">
+                                    <Path Data="{DynamicResource ExternalLinkOutlineIcon}"
+                                          Fill="Transparent"
+                                          Height="16"
+                                          Stretch="Uniform"
+                                          Stroke="{DynamicResource TertiaryBrush}"
+                                          StrokeJoin="Round"
+                                          StrokeLineCap="Round"
+                                          StrokeThickness="1.5"
+                                          Width="16" />
+                                </Border>
+                            </Grid>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+            </ScrollViewer>
+        </Grid>
     </Border>
 </UserControl>
