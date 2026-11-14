@@ -1,4 +1,4 @@
-<Styles xmlns="https://github.com/avaloniaui"
+﻿<Styles xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
     <Style Selector="Path.status-error, Path.status-success, Path.shot-source-receiver, Path.shot-source-manual, Path.shot-edited, Border.db-status-up-to-date Path, Border.db-status-update-available Path, Border.db-status-not-initialized Path">
@@ -65,8 +65,9 @@
         <Setter Property="Opacity" Value="1" />
     </Style>
 
-    <Style Selector="Border.icon-action.clear-icon Path">
-        <Setter Property="Stroke" Value="{DynamicResource TextMutedBrush}" />
+    <Style Selector="Border.icon-action.clear-icon Path,                      Border.icon-action.clear-icon:pointerover Path,                      Border.icon-action.search-clear-icon Path,                      Border.icon-action.search-clear-icon:pointerover Path">
+        <Setter Property="Opacity" Value="0.5" />
+        <Setter Property="Stroke" Value="{DynamicResource TertiaryBrush}" />
     </Style>
 
     <Style Selector="Border.db-status-up-to-date Path">

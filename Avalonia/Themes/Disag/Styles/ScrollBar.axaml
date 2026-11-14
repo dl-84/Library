@@ -32,4 +32,8 @@
         <Setter Property="Opacity" Value="1" />
     </Style>
 
+    <Style Selector="TextBox ScrollBar /template/ RepeatButton#PART_LineUpButton,                      TextBox ScrollBar /template/ RepeatButton#PART_LineDownButton">
+        <Setter Property="Opacity" Value="0" />
+    </Style>
+
 </Styles>
