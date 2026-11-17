@@ -2,5 +2,5 @@ namespace Result.Types;
 
 public readonly struct Unit
 {
-    public static readonly Unit Value = new();
+    public static readonly Unit Value = default(Unit);
 }
