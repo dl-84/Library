@@ -29,6 +29,11 @@ public partial class ContentDialog : Window
         nameof(IsDanger)
     );
 
+    public static readonly StyledProperty<string?> SecondaryTextProperty = AvaloniaProperty.Register<
+        ContentDialog,
+        string?
+    >(nameof(SecondaryText));
+
     public static readonly StyledProperty<string?> SubmitTextProperty = AvaloniaProperty.Register<
         ContentDialog,
         string?
@@ -64,6 +69,12 @@ public partial class ContentDialog : Window
         set => SetValue(IsDangerProperty, value);
     }
 
+    public string? SecondaryText
+    {
+        get => GetValue(SecondaryTextProperty);
+        set => SetValue(SecondaryTextProperty, value);
+    }
+
     public string? SubmitText
     {
         get => GetValue(SubmitTextProperty);
@@ -78,18 +89,23 @@ public partial class ContentDialog : Window
 
         if (e.Key == Key.Escape)
         {
-            Close(false);
+            Close();
         }
     }
 
     private void OnCancelClicked(object? sender, PointerPressedEventArgs e)
     {
-        Close(false);
+        Close();
     }
 
     private void OnCopyClicked(object? sender, PointerPressedEventArgs e)
     {
         _ = CopyToClipboardAsync();
+    }
+
+    private void OnSecondaryClicked(object? sender, RoutedEventArgs e)
+    {
+        Close(false);
     }
 
     private void OnSubmitClicked(object? sender, RoutedEventArgs e)

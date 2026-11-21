@@ -58,14 +58,20 @@
                             Content="{Binding DialogContent}"
                             Margin="16,24" />
 
-            <Button Grid.Row="2"
-                    Classes="small"
-                    Classes.danger="{Binding IsDanger}"
-                    Click="OnSubmitClicked"
-                    Content="{Binding SubmitText}"
-                    HorizontalAlignment="Right"
-                    Margin="0,0,16,16"
-                    IsVisible="{Binding SubmitText, Converter={x:Static converters:StringConverters.IsNotNullOrEmpty}}" />
+            <StackPanel Grid.Row="2"
+                        HorizontalAlignment="Right"
+                        Margin="0,0,16,16"
+                        Orientation="Horizontal"
+                        Spacing="{DynamicResource SpacingMedium}">
+                <Button Classes.danger="{Binding IsDanger}"
+                        Click="OnSubmitClicked"
+                        Content="{Binding SubmitText}"
+                        IsVisible="{Binding SubmitText, Converter={x:Static converters:StringConverters.IsNotNullOrEmpty}}" />
+                <Button Classes="danger"
+                        Click="OnSecondaryClicked"
+                        Content="{Binding SecondaryText}"
+                        IsVisible="{Binding SecondaryText, Converter={x:Static converters:StringConverters.IsNotNullOrEmpty}}" />
+            </StackPanel>
 
         </Grid>
     </Border>
