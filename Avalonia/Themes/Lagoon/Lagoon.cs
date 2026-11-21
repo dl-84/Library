@@ -2,11 +2,11 @@ using System;
 using Avalonia.Markup.Xaml;
 using Avalonia.Styling;
 
-namespace Themes.Disag;
+namespace Themes.Lagoon;
 
-public class Disag : Styles
+public class Lagoon : Styles
 {
-    public Disag(IServiceProvider? serviceProvider = null)
+    public Lagoon(IServiceProvider? serviceProvider = null)
     {
         AvaloniaXamlLoader.Load(serviceProvider, this);
     }

@@ -1,0 +1,44 @@
+﻿<Styles x:Class="Themes.Lagoon.Lagoon"
+        xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <Styles.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceInclude Source="avares://Lagoon/Resources/Brushes.axaml" />
+                <ResourceInclude Source="avares://Lagoon/Resources/Colors.axaml" />
+                <ResourceInclude Source="avares://Lagoon/Resources/CornerRadius.axaml" />
+                <ResourceInclude Source="avares://Lagoon/Resources/Font.axaml" />
+                <ResourceInclude Source="avares://Lagoon/Resources/NavigationItem.axaml" />
+                <ResourceInclude Source="avares://Lagoon/Resources/Spacing.axaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Styles.Resources>
+
+    <StyleInclude Source="avares://Lagoon/Styles/Border.axaml" />
+    <StyleInclude Source="avares://Lagoon/Styles/Button.axaml" />
+    <StyleInclude Source="avares://Lagoon/Styles/Calendar.axaml" />
+    <StyleInclude Source="avares://Lagoon/Styles/CheckBox.axaml" />
+    <StyleInclude Source="avares://Lagoon/Styles/ComboBox.axaml" />
+    <StyleInclude Source="avares://Lagoon/Styles/DataGrid.axaml" />
+    <StyleInclude Source="avares://Lagoon/Styles/Expander.axaml" />
+    <StyleInclude Source="avares://Lagoon/Styles/Label.axaml" />
+    <StyleInclude Source="avares://Lagoon/Styles/ListBox.axaml" />
+    <StyleInclude Source="avares://Lagoon/Styles/Menu.axaml" />
+    <StyleInclude Source="avares://Lagoon/Styles/NumericUpDown.axaml" />
+    <StyleInclude Source="avares://Lagoon/Styles/PathIcon.axaml" />
+    <StyleInclude Source="avares://Lagoon/Styles/ProgressBar.axaml" />
+    <StyleInclude Source="avares://Lagoon/Styles/RadioButton.axaml" />
+    <StyleInclude Source="avares://Lagoon/Styles/ScrollBar.axaml" />
+    <StyleInclude Source="avares://Lagoon/Styles/Slider.axaml" />
+    <StyleInclude Source="avares://Lagoon/Styles/StackPanel.axaml" />
+    <StyleInclude Source="avares://Lagoon/Styles/SplitView.axaml" />
+    <StyleInclude Source="avares://Lagoon/Styles/TabControl.axaml" />
+    <StyleInclude Source="avares://Lagoon/Styles/TextBlock.axaml" />
+    <StyleInclude Source="avares://Lagoon/Styles/TextBox.axaml" />
+    <StyleInclude Source="avares://Lagoon/Styles/ToggleSwitch.axaml" />
+    <StyleInclude Source="avares://Lagoon/Styles/ToolTip.axaml" />
+    <StyleInclude Source="avares://Lagoon/Styles/Window.axaml" />
+    <StyleInclude Source="avares://Lagoon/Styles/WindowDrawnDecorations.axaml" />
+
+</Styles>

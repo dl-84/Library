@@ -1,8 +1,6 @@
-# Disag — Avalonia UI Theme
+# Lagoon — Avalonia UI Theme
 
-Avalonia-Theme auf Basis der DISAG Markenidentität. Enthält Farb-Tokens, Brush-Keys, Typografie und Control-Styles für alle Standard-Controls.
-
-Eine vollständige visuelle Vorschau aller Farben, Komponenten und Klassen ist unter [`Preview/Theme.html`](Preview/Theme.html) verfügbar.
+Avalonia-Theme in Petrol, Cyan und Grün. Enthält Farb-Tokens, Brush-Keys, Typografie und Control-Styles für alle Standard-Controls.
 
 ---
 
@@ -13,7 +11,7 @@ Eine vollständige visuelle Vorschau aller Farben, Komponenten und Klassen ist u
 ```xml
 <!-- YourApp.csproj -->
 <ItemGroup>
-  <ProjectReference Include="..\Themes\Disag\Disag.csproj" />
+  <ProjectReference Include="..\Themes\Lagoon\Lagoon.csproj" />
 </ItemGroup>
 ```
 
@@ -22,13 +20,13 @@ Eine vollständige visuelle Vorschau aller Farben, Komponenten und Klassen ist u
 ```xml
 <Application xmlns="https://github.com/avaloniaui"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:themes="using:Themes.Disag"
+             xmlns:themes="using:Themes.Lagoon"
              x:Class="YourApp.App"
              RequestedThemeVariant="Light">
 
     <Application.Styles>
         <FluentTheme />
-        <themes:Disag />
+        <themes:Lagoon />
     </Application.Styles>
 
 </Application>
@@ -44,12 +42,12 @@ Rohe `Color`-Werte aus `Colors.axaml`. Direkt verwendbar als `{DynamicResource �
 
 | Key | Hex | Bedeutung |
 |---|---|---|
-| `PrimaryDarkColor` | `#012a38` | DISAG Dunkelgrün-Blau (Primärfarbe) |
+| `PrimaryDarkColor` | `#012a38` | Dunkelgrün-Blau (Primärfarbe) |
 | `PrimaryDarkerColor` | `#102330` | Hover-Variante von Primary |
 | `NearBlackColor` | `#161922` | Nahezu Schwarz (Überschriften) |
-| `SecondaryColor` | `#8fbb32` | DISAG Grün (Sekundärfarbe) |
+| `SecondaryColor` | `#8fbb32` | Grün (Sekundärfarbe) |
 | `SecondaryDarkColor` | `#8bb820` | Hover-Variante von Secondary |
-| `TertiaryColor` | `#2aa5b2` | DISAG Cyan (Tertiärfarbe) |
+| `TertiaryColor` | `#2aa5b2` | Cyan (Tertiärfarbe) |
 | `TertiaryDarkColor` | `#228893` | Hover-Variante von Tertiary |
 | `NavigationActiveColor` | `#1a404c` | Hintergrund des aktiven Navigations-Eintrags |
 | `IconActionColor` | `#8db92e` | Icon-Button (Ruhezustand) |
@@ -126,23 +124,23 @@ Fertige `SolidColorBrush`-Instanzen aus `Brushes.axaml`. Für `DynamicResource`-
 
 | Key | Bedeutung |
 |---|---|
-| `PrimaryBrush` | DISAG Dunkelgrün-Blau |
+| `PrimaryBrush` | Dunkelgrün-Blau |
 | `PrimaryForegroundBrush` | Text auf Primary (weiß) |
 | `PrimaryHoverBrush` | Primary Hover-Zustand |
 
-### Sekundär (DISAG Grün)
+### Sekundär (Grün)
 
 | Key | Bedeutung |
 |---|---|
-| `SecondaryBrush` | DISAG Grün |
+| `SecondaryBrush` | Grün |
 | `SecondaryForegroundBrush` | Text auf Secondary (weiß) |
 | `SecondaryHoverBrush` | Secondary Hover-Zustand |
 
-### Tertiär (DISAG Cyan)
+### Tertiär (Cyan)
 
 | Key | Bedeutung |
 |---|---|
-| `TertiaryBrush` | DISAG Cyan |
+| `TertiaryBrush` | Cyan |
 | `TertiaryForegroundBrush` | Text auf Tertiary (weiß) |
 | `TertiaryHoverBrush` | Tertiary Hover-Zustand |
 
