@@ -1,0 +1,38 @@
+<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <!--  Avalonia-drawn caption buttons (Windows): undo the global Button style, restore Fluent defaults  -->
+    <Style Selector="Button#PART_CloseButton, Button#PART_FullScreenButton, Button#PART_MaximizeButton, Button#PART_MinimizeButton, Button#PART_PopoverCloseButton, Button#PART_PopoverFullScreenButton">
+        <Setter Property="Cursor" Value="Arrow" />
+        <Setter Property="Foreground" Value="{DynamicResource CaptionButtonForeground}" />
+        <Setter Property="Height" Value="{DynamicResource CaptionButtonHeight}" />
+        <Setter Property="MinHeight" Value="0" />
+        <Setter Property="Width" Value="{DynamicResource CaptionButtonWidth}" />
+    </Style>
+
+    <!--  Hover/pressed background like the navigation sidebar (close button keeps its red via local value)  -->
+    <Style Selector="Button#PART_FullScreenButton, Button#PART_MaximizeButton, Button#PART_MinimizeButton, Button#PART_PopoverFullScreenButton">
+        <Setter Property="Background" Value="{DynamicResource NavigationBackgroundBrush}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource NavigationBackgroundBrush}" />
+    </Style>
+
+    <!--  Hover icon color like the navigation sidebar text  -->
+    <Style Selector="Button#PART_CloseButton:pointerover Path, Button#PART_FullScreenButton:pointerover Path, Button#PART_MaximizeButton:pointerover Path, Button#PART_MinimizeButton:pointerover Path, Button#PART_PopoverCloseButton:pointerover Path, Button#PART_PopoverFullScreenButton:pointerover Path">
+        <Setter Property="Fill" Value="{DynamicResource NavigationForegroundBrush}" />
+    </Style>
+
+    <Style Selector="Button#PART_CloseButton:pointerover /template/ ContentPresenter#PART_ContentPresenter, Button#PART_FullScreenButton:pointerover /template/ ContentPresenter#PART_ContentPresenter, Button#PART_MaximizeButton:pointerover /template/ ContentPresenter#PART_ContentPresenter, Button#PART_MinimizeButton:pointerover /template/ ContentPresenter#PART_ContentPresenter, Button#PART_PopoverCloseButton:pointerover /template/ ContentPresenter#PART_ContentPresenter, Button#PART_PopoverFullScreenButton:pointerover /template/ ContentPresenter#PART_ContentPresenter">
+        <Setter Property="Background" Value="{Binding $parent[Button].Background}" />
+    </Style>
+
+    <Style Selector="Button#PART_CloseButton:pressed /template/ ContentPresenter#PART_ContentPresenter, Button#PART_FullScreenButton:pressed /template/ ContentPresenter#PART_ContentPresenter, Button#PART_MaximizeButton:pressed /template/ ContentPresenter#PART_ContentPresenter, Button#PART_MinimizeButton:pressed /template/ ContentPresenter#PART_ContentPresenter, Button#PART_PopoverCloseButton:pressed /template/ ContentPresenter#PART_ContentPresenter, Button#PART_PopoverFullScreenButton:pressed /template/ ContentPresenter#PART_ContentPresenter">
+        <Setter Property="Background" Value="{Binding $parent[Button].BorderBrush}" />
+        <Setter Property="Opacity" Value="1" />
+    </Style>
+
+    <!--  No window title in the drawn title bar  -->
+    <Style Selector="Panel#PART_TitleTextPanel, TextBlock#PART_PopoverTitleText">
+        <Setter Property="IsVisible" Value="False" />
+    </Style>
+
+</Styles>
