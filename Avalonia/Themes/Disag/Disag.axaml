@@ -39,5 +39,6 @@
     <StyleInclude Source="avares://Disag/Styles/ToggleSwitch.axaml" />
     <StyleInclude Source="avares://Disag/Styles/ToolTip.axaml" />
     <StyleInclude Source="avares://Disag/Styles/Window.axaml" />
+    <StyleInclude Source="avares://Disag/Styles/WindowDrawnDecorations.axaml" />
 
 </Styles>
